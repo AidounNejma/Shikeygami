@@ -8,8 +8,8 @@
 
 	<div class="wrapper">
 		<table class="table">
-			<thead class="row-header">
-				<tr>
+			<thead>
+				<tr class="row-header">
 					<th class="cell">Id</th>
 					<th class="cell">Email</th>
 					<th class="cell">Niveau d'autorisation</th>
@@ -23,9 +23,9 @@
 					<th class="cell">Modifier</th>
 				</tr>
 			</thead>
-			<tbody class="row">
+			<tbody>
 				{% for user in users %}
-					<tr>
+					<tr class="row">
 						<td class="cell">{{ user.id }}</td>
 						<td class="cell">{{ user.email }}</td>
 						<td class="cell">{{ user.roles ? user.roles|json_encode : '' }}</td>
@@ -43,9 +43,9 @@
 						</td>
 					</tr>
 				{% else %}
-					<tr>
-						<td colspan="10">Aucun utilisateur n'est présent dans la base de données</td>
-					</tr>
+					
+						<p>Aucun utilisateur n'est présent dans la base de données</p>
+					
 				{% endfor %}
 			</tbody>
 		</table>
