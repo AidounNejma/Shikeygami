@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Game;
 use App\Form\GameType;
 use App\Repository\GameRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,6 +23,7 @@ class GameController extends AbstractController
     }
 
     #[Route('/new', name: 'game_new', methods: ['GET', 'POST'])]
+    #[IsGranted("ROLE_ADMIN")]
     public function new(Request $request): Response
     {
         $game = new Game();
@@ -29,6 +31,22 @@ class GameController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            if ($fichier = $form->get("imageUrl")->getData())
+            { // si le formulaire renvoi un fichier
+                //on recupere le nom du fichier qui à été téléversé
+                $nomFichier = pathinfo($fichier->getClientOriginalName(), PATHINFO_FILENAME);
+                //on remplace les espaces par des _
+                $nomFichier = str_replace(" ", "_", $nomFichier);
+
+                // on ajoute un string au nom du fichier pour éviter les doublons et l'extension du fichier
+                $nomFichier .= uniqid() . "." . $fichier->guessExtension();
+
+                // on copie le fichier uploadé dans un dossier du dossier 'public' avec le nouveau nom de fichier
+                $fichier->move($this->getParameter("dossier_images"), $nomFichier);
+
+                // on modifie l'entité $livre
+                $game->setImageUrl($nomFichier);
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($game);
             $entityManager->flush();
@@ -51,6 +69,7 @@ class GameController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'game_edit', methods: ['GET', 'POST'])]
+    #[IsGranted("ROLE_ADMIN")]
     public function edit(Request $request, Game $game): Response
     {
         $form = $this->createForm(GameType::class, $game);
@@ -69,6 +88,7 @@ class GameController extends AbstractController
     }
 
     #[Route('/{id}', name: 'game_delete', methods: ['POST'])]
+    #[IsGranted("ROLE_ADMIN")]
     public function delete(Request $request, Game $game): Response
     {
         if ($this->isCsrfTokenValid('delete'.$game->getId(), $request->request->get('_token'))) {
