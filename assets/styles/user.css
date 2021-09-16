@@ -1,0 +1,42 @@
+/* TABLE PRESENTATION ADMIN */
+
+.title-user{
+    text-align: center;
+}
+
+.bold{
+    font-weight: bold;
+}
+.wrapper{
+    width: 50%;
+    margin: 0 auto;
+    padding: 40px;
+    color: white;
+}
+.table{
+    margin: 0 0 40px 0;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    display: table;
+    background-color: crimson;
+    color: black;
+}
+.row{
+    display: table-row;
+    background: #f6f6f6;
+}
+.row:nth-of-type(odd){
+    background: #e9e9e9;
+}
+.row-header{
+    font-weight: 900;
+    color: #ffffff;
+    background: #ea6153;
+}
+
+.cell{
+    padding: 6px 12px;
+    display: table-cell;
+}

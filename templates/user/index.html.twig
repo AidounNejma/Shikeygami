@@ -1,49 +1,58 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('user') }}
+{% endblock %}
+
+{% block title %}
+Shikeygami | Liste d'utilisateurs
+{% endblock %}
 
 {% block body %}
-    <h1>User index</h1>
+	<h1 class="title-user">Liste d'utilisateurs</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Email</th>
-                <th>Roles</th>
-                <th>Password</th>
-                <th>DateOfCreation</th>
-                <th>Username</th>
-                <th>FirstName</th>
-                <th>LastName</th>
-                <th>DiscountStatus</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ user.password }}</td>
-                <td>{{ user.dateOfCreation ? user.dateOfCreation|date('Y-m-d') : '' }}</td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.firstName }}</td>
-                <td>{{ user.lastName }}</td>
-                <td>{{ user.discountStatus }}</td>
-                <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="10">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<div class="wrapper">
+		<table class="table">
+			<thead class="row-header">
+				<tr>
+					<th class="cell">Id</th>
+					<th class="cell">Informations</th>
+                    <th class="cell">Réduction</th>
+					<th class="cell">Détails</th>
+					<th class="cell">Modifier</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for user in users %}
+					<tr class="row">
+						<td class="cell">{{ user.id }}</td>
+						<td class="cell">
+                        <p><span class="bold">Date d'inscription :</span> {{ user.dateOfCreation ? user.dateOfCreation|date('Y-m-d') : '' }}</p>
+                        <p><span class="bold">Pseudo :</span> {{ user.username }}</p>
+                        <p><span class="bold">Email :</span> {{ user.email }}</p>
+                        <p><span class="bold">Niveau d'accès :</span> {{ user.roles ? user.roles|json_encode : '' }}</p>
+                        <p><span class="bold">Nom complet :</span> {{ user.firstName }} {{ user.lastName }}</p>
+                        </td>
+						<td class="cell">{{ user.discountStatus }}</td>
+						<td class="cell">
+							<a href="{{ path('user_show', {'id': user.id}) }}">Détails</a>
+						</td>
+						<td class="cell">
+							<a href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
+						</td>
+					</tr>
+				{% else %}
 
-    <a href="{{ path('user_new') }}">Create new</a>
+					<p>Aucun utilisateur n'est présent dans la base de données</p>
+
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	{{ encore_entry_script_tags('user') }}
 {% endblock %}
