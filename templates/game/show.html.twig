@@ -1,4 +1,14 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+	{{parent()}}
+	{{ encore_entry_link_tags('game') }}
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}}
+	{{ encore_entry_script_tags('game') }}
+{% endblock %}
+
 
 {% block title %}Game{% endblock %}
 
@@ -25,7 +35,8 @@
             </tr>
             <tr>
                 <th>ImageUrl</th>
-                <td>{{ game.imageUrl }}</td>
+                <td><img src="{{dossier_images ~ game.imageUrl}}" alt="{{game.title}}" class="miniature"></td>
+
             </tr>
             <tr>
                 <th>MaxPlayers</th>
