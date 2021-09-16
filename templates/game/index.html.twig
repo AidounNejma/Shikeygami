@@ -14,10 +14,14 @@
 {% endblock %}
 
 {% block body %}
-<div class="centered">
-	<h1>Nos Salles</h1>
-</div>
 
+
+<main>
+    <div class="centered">
+        <h1>Nos Salles</h1>
+    </div>
+<div class="content">
+    
 	<table class="table">
 		<thead>
 			<tr>
@@ -61,4 +65,6 @@
 	</table>
 
 	<a href="{{ path('game_new') }}">Create new</a>
+</div>
+</main>
 {% endblock %}
