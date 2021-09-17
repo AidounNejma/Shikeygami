@@ -14,6 +14,16 @@ Encore
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
 
+    .copyFiles({
+        from: './assets/img',
+    //optional target path, relative to the output dir
+        to: '../img/[path][name].jpg',
+    /*
+    // if versioning is enabled, add the file hash too //to: 'images/[path][name].[hash:8].[ext]',
+    // only copy files matching this pattern //pattern: /\.(png|jpg|jpeg)$/
+    */
+    })
+
     /*
      * ENTRY CONFIG
      *
@@ -24,6 +34,7 @@ Encore
     .addEntry('user', './assets/user.js')
     .addEntry('game', './assets/game.js')
     .addEntry('order', './assets/order.js')
+    .addEntry('accueil', './assets/accueil.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

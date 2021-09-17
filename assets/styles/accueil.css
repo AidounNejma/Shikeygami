@@ -1,0 +1,264 @@
+
+/*-----------------------------Carousel-----------------------------*/
+* {
+    box-sizing:border-box
+}
+
+/* Le container du carousel */
+.slideshow-container {
+    width: 100%;
+    height: 550px;
+    position: relative;
+    margin: auto;
+}
+.slideshow-container img {
+    width: 100%;
+    height: 590px;
+    object-fit: cover;
+    object-position: 0 40%;
+}
+
+  /* par défaut on rend les images invisible */
+.Containers {
+    display: none;
+}
+
+  /* Les boutons précédent et suivant */
+.Back, .forward {
+    cursor: pointer;
+    position: absolute;
+    top: 53%;
+    width: auto;
+    margin-top: -23px;
+    padding: 17px;
+    color: grey;
+    font-weight: bold;
+    font-size: 19px;
+    transition: 0.4s ease;
+    border-radius: 0 5px 5px 0;
+    user-select: none;
+}
+
+  /* On place le bouton suivant à droite */
+.forward {
+    right: 0;
+    border-radius: 4px 0 0 4px;
+}
+
+  /* Au survol des boutons un background noir transparent */
+.Back:hover, .forward:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+  /* Titre des salles */
+.Info {
+    color: #e3e3e3;
+    font-size: 50px;
+    padding: 10px 14px;
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Bouton en savoir plus */
+.moreInfo{
+    font-size: 30px;
+    position: absolute;
+    bottom: 100px;
+    width: 100%;
+}
+
+.moreInfo a{
+    color: #e3e3e3;
+    text-decoration: none;
+
+    border: 1px solid #ffffff;
+    display: block;
+    /* Pour prendre les dimensions qu'on a énuméré au dessus*/
+    padding: 20px 0px;
+    margin: 54px auto 0 auto;
+    width: 200px;
+    text-align: center;
+}
+
+.moreInfo a:hover{
+    color: #000000;
+    background-color: #ffffff;
+    transition: 0.9s;
+}
+
+/* The circles or bullets and indicators */
+.dots {
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+    margin: 0 3px;
+    background-color: #acc;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.5s ease;
+    position: absolute;
+}
+
+.enable, .dots:hover {
+    background-color: #717161;
+    position: absolute;
+}
+
+/* Animation: fondu*/
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.4s;
+    animation-name: fade;
+    animation-duration: 1.4s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .5}
+    to {opacity: 2}
+}
+
+@keyframes fade {
+    from {opacity: .5}
+    to {opacity: 2}
+}
+
+/*----------------------------- Main -----------------------------*/
+main{
+    background: linear-gradient(180deg, rgba(31,31,31,1) 0%, rgba(47,47,47,1) 100%);;
+    padding: 15px 0;
+}
+.content{
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.2);
+    margin: 0 25%;
+    background-color: #312f2f;
+    overflow:hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px;
+    text-align: center;
+}
+.roomTitle{
+    color: white;
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    font-size: 50px;
+    padding: 10px 0;
+}
+.shape, .shape2, .shape3, .shape4, a{
+    display: flex;
+    position: relative;
+    position: relative;
+    text-decoration: none;
+}
+
+/******** SHAPE 1 ********/
+.shape a{
+    justify-content: flex-end;
+}
+
+.shape{
+    z-index:5;
+    height: 400px;
+    width: 100%;
+    background-image: url("../../public/img/layout/1.jpg");
+    background-size: cover;
+    shape-margin: 20px;
+    shape-outside: polygon(0 0, 100% 0, 100% 120%, 0 85%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+    transition: clip-path 1s;
+}
+
+.shape:hover {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    z-index: 5;
+}
+
+/******** SHAPE 2 ********/
+.shape2 a{
+    justify-content: flex-start;
+}
+
+.shape2{
+    z-index: 4;
+    top: -60px;
+    height: 400px;
+    width: 100%;
+    background-image: url("../../public/img/layout/2.jpg");
+    background-size: cover;
+    shape-margin: 20px;
+    shape-outside: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 13%, 100% 85%, 0 100%);
+    transition: clip-path 1s;
+}
+.shape2:hover {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    z-index:5;
+}
+
+/******** SHAPE 3 ********/
+.shape3 a{
+    justify-content: flex-end;
+}
+.shape3{
+    top: -120px;
+    height: 400px;
+    width: 100%;
+    background-image: url("../../public/img/layout/3.jpg");
+    background-size: cover;
+    shape-margin: 20px;
+    shape-outside: polygon(0 0, 100% 0, 100% 120%, 0 85%);
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 85%);
+    transition: clip-path 1s;
+}
+
+.shape3:hover {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/******** SHAPE 4 ********/
+.shape4 a{
+    justify-content: flex-start;
+}
+
+.shape4{
+    top: -180px;
+    height: 400px;
+    width: 100%;
+    background-image: url("../../public/img/layout/4.jpg");
+    background-size: cover;
+    shape-outside: polygon(0 0, 100% 0, 100% 120%, 0 85%);
+    clip-path: polygon(0 -4%, 100% 15%, 100% 100%, 0 100%);
+    transition: clip-path 1s;
+}
+
+.shape4:hover {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/******** IMAGES TEXT ********/
+.align{
+    width: 30%;
+    text-align: start;
+    background-color: rgb(48, 60, 71, 0.5);
+    padding: 0 20px 0 20px;
+    position: relative;
+}
+.shape:hover .align{
+    transition: left .5s ease-in-out;
+}
+
+.align p{
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    padding: 30px 0 0 0;
+}
+.align h2{
+    color: white;
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    padding: 30px 0 0 0;
+}
