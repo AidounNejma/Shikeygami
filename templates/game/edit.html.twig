@@ -5,9 +5,9 @@
 {% block body %}
     <h1>Modifier un jeu</h1>
 
-    {{ include('game/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('game/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    <a href="{{ path('game_index') }}">back to list</a>
+    <a href="{{ path('game_index') }}">Retour à la liste</a>
 
     {{ include('game/_delete_form.html.twig') }}
 {% endblock %}
