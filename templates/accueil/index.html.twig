@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block stylesheets %}
+    {{parent()}}
+    {{ encore_entry_link_tags("accueil") }}
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+    {{ encore_entry_script_tags("accueil") }}
+{% endblock %}
+
+{% block body %}
+
+
+<!-- Slideshow container -->
+<div class="slideshow-container fade">
+
+<!-- Full images with numbers and message Info -->
+    <div class="Containers">
+            <img src="img/carouselBanner/1.jpg">
+                <div class="Info">Yokai Exorcism</div>
+                <div class="moreInfo">
+                    <a href="#">En savoir plus</a>
+                </div>
+    </div>
+
+    <div class="Containers">
+            <img src="img/carouselBanner/2.jpg">
+                <div class="Info">Attack on alien</div>
+                    <div class="moreInfo">
+                        <a href="#">En savoir plus</a>
+                    </div>
+    </div>
+
+    <div class="Containers">
+            <img src="img/carouselBanner/3.jpg">
+                <div class="Info">Salle3</div>
+                <div class="moreInfo">
+                    <a href="#">En savoir plus</a>
+                </div>
+    </div>
+
+    <div class="Containers">
+            <img src="img/carouselBanner/4.jpg">
+                <div class="Info">Salle4</div>
+                    <div class="moreInfo">
+                        <a href="#">En savoir plus</a>
+                    </div>
+    </div>
+
+<!-- Back and forward buttons -->
+    <a class="Back" onclick="plusSlides(-1)">Précédent</a>
+    <a class="forward" onclick="plusSlides(1)">Suivant</a>
+</div>
+<br>
+
+<!-- The circles/dots -->
+    <div style="text-align:center">
+        <span class="dots" onclick="currentSlide(1)"></span>
+        <span class="dots" onclick="currentSlide(2)"></span>
+        <span class="dots" onclick="currentSlide(3)"></span>
+    </div> 
+
+<!-- Main content -->
+<main>
+    <div class="content">
+        <h2 class="roomTitle">Nos salles</h2>
+        <div class="shape">
+            <a href="">
+                <div class="align">
+                    <h2>Salle1</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint recusandae aperiam cumque possimus natus, neque cum dolor deleniti ea alias optio iste provident iure ratione illum similique excepturi ad culpa sequi sit, nemo sapiente odit fugiat. Ad autem itaque quibusdam nulla at consequatur, placeat voluptatem error et facilis, dignissimos unde!</p>
+                </div>
+            </a>
+        </div>
+        <div class="shape2">
+            <a href="">
+                <div class="align">
+                    <h2>Salle2</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint recusandae aperiam cumque possimus natus, neque cum dolor deleniti ea alias optio iste provident iure ratione illum similique excepturi ad culpa sequi sit, nemo sapiente odit fugiat. Ad autem itaque quibusdam nulla at consequatur, placeat voluptatem error et facilis, dignissimos unde!</p>
+                </div>
+            </a>
+        </div>
+        <div class="shape3">
+            <a href="">
+                <div class="align">
+                    <h2>Salle3</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint recusandae aperiam cumque possimus natus, neque cum dolor deleniti ea alias optio iste provident iure ratione illum similique excepturi ad culpa sequi sit, nemo sapiente odit fugiat. Ad autem itaque quibusdam nulla at consequatur, placeat voluptatem error et facilis, dignissimos unde!</p>
+                </div>
+            </a>
+        </div>
+        <div class="shape4">
+            <a href="">
+                <div class="align">
+                    <h2>Salle4</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint recusandae aperiam cumque possimus natus, neque cum dolor deleniti ea alias optio iste provident iure ratione illum similique excepturi ad culpa sequi sit, nemo sapiente odit fugiat. Ad autem itaque quibusdam nulla at consequatur, placeat voluptatem error et facilis, dignissimos unde!</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</main>
+{% endblock %}
+
