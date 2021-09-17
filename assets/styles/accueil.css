@@ -191,20 +191,35 @@ main{
     shape-margin: 20px;
     shape-outside: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     clip-path: polygon(0 0, 100% 13%, 100% 85%, 0 100%);
+<<<<<<< Updated upstream
     transition: 1s;
+=======
+    transition: clip-path 1s;
+    animation: move 3s linear alternate;
+>>>>>>> Stashed changes
 }
+
 .shape2:hover {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     z-index:6000;
 
 }
 
+@keyframes move {
+    from { z-index: 4; }
+    to { z-index: 5; }
+}
 /******** SHAPE 3 ********/
 .shape3 a{
     justify-content: flex-end;
 }
+
 .shape3{
+<<<<<<< Updated upstream
     z-index: 3;
+=======
+    z-index:3;
+>>>>>>> Stashed changes
     top: -120px;
     height: 400px;
     width: 100%;
@@ -218,7 +233,11 @@ main{
 
 .shape3:hover {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+<<<<<<< Updated upstream
     z-index:6000;
+=======
+    z-index: 4;
+>>>>>>> Stashed changes
 }
 
 /******** SHAPE 4 ********/
@@ -234,13 +253,22 @@ main{
     background-image: url("../../public/img/layout/4.jpg");
     background-size: cover;
     shape-outside: polygon(0 0, 100% 0, 100% 120%, 0 85%);
+<<<<<<< Updated upstream
     clip-path: polygon(0 0%, 100% 15%, 100% 100%, 0 100%);
     transition: 1s;
+=======
+    clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 100%);
+    transition: clip-path 1s;
+>>>>>>> Stashed changes
 }
 
 .shape4:hover {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+<<<<<<< Updated upstream
     z-index:6000;
+=======
+    z-index:3;
+>>>>>>> Stashed changes
 }
 
 /******** IMAGES TEXT ********/
@@ -250,9 +278,19 @@ main{
     background-color: rgb(48, 60, 71, 0.5);
     padding: 0 20px 0 20px;
     position: relative;
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
 }
-.shape:hover .align{
-    transition: left .5s ease-in-out;
+.shape:hover .align, .shape2:hover .align, .shape3:hover .align, .shape4:hover .align{
+    opacity: 1;
+}
+
+.shape:hover .align p, .shape2:hover .align p, .shape3:hover .align p, .shape4:hover .align p{
+    opacity: 1;
+}
+
+.shape:hover .align h2, .shape2:hover .align h2, .shape3:hover .align h2, .shape4:hover .align h2{
+    opacity: 1;
 }
 
 .align p{
@@ -260,10 +298,14 @@ main{
     font-family: 'Nunito', sans-serif;
     font-size: 14px;
     padding: 30px 0 0 0;
+    transition: all 0.2s linear;
+    opacity: 0;
 }
 .align h2{
     color: white;
     font-family: 'Merriweather', serif;
     font-weight: 300;
     padding: 30px 0 0 0;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
 }
