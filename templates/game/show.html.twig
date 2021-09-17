@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+
 {% block stylesheets %}
 	{{parent()}}
 	{{ encore_entry_link_tags('game') }}
@@ -9,61 +10,50 @@
 	{{ encore_entry_script_tags('game') }}
 {% endblock %}
 
-
-{% block title %}Game{% endblock %}
+{% block title %}Salles
+{% endblock %}
 
 {% block body %}
-    <h1>Game</h1>
+	<main>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ game.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ game.title }}</td>
-            </tr>
-            <tr>
-                <th>Room</th>
-                <td>{{ game.room }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ game.description }}</td>
-            </tr>
-            <tr>
-                <th>ImageUrl</th>
-                <td><img src="{{dossier_images ~ game.imageUrl}}" alt="{{game.title}}" class="miniature"></td>
+		<div class="centered">
+			<h1>Game</h1>
+		</div>
+		<div class="content">
 
-            </tr>
-            <tr>
-                <th>MaxPlayers</th>
-                <td>{{ game.maxPlayers }}</td>
-            </tr>
-            <tr>
-                <th>MinPlayers</th>
-                <td>{{ game.minPlayers }}</td>
-            </tr>
-            <tr>
-                <th>GameMaster</th>
-                <td>{{ game.gameMaster }}</td>
-            </tr>
-            <tr>
-                <th>GameDuration</th>
-                <td>{{ game.gameDuration }}</td>
-            </tr>
-            <tr>
-                <th>PricePerPerson</th>
-                <td>{{ game.pricePerPerson }}</td>
-            </tr>
-        </tbody>
-    </table>
+			<h2>Title</h2>
+			<p>{{ game.title }}</p>
 
-    <a href="{{ path('game_index') }}">back to list</a>
+			<h3>Description de la salle</h3>
+			<p>{{ game.description }}</p>
 
-    <a href="{{ path('game_edit', {'id': game.id}) }}">edit</a>
+			<p><img src="{{dossier_images ~ game.imageUrl}}" alt="{{game.title}}" class="miniature"></p>
 
-    {{ include('game/_delete_form.html.twig') }}
+            <p>Nombre de joueurs minimum: {{ game.minPlayers }} joueurs</p>
+
+			<p>Nombre de joueurs maximum: {{ game.maxPlayers }} joueurs</p>
+
+			<p>GameMaster: {{ game.gameMaster }}</p>
+
+			<p>GameDuration: {{ game.gameDuration }} minutes</p>
+
+			<p>PricePerPerson: {{ game.pricePerPerson }} €</p>
+
+			<button><a href="{{ path('order_index') }}">Réservation</a></button>
+			
+			<a href="{{ path('game_index') }}">back to list</a>
+
+			{% if is_granted("ROLE_ADMIN") %}
+				<p>Id du Jeu</p>
+				<p>{{ game.id }}</p>
+
+                <p>Room</p>
+			    <p>{{ game.room }}</p>
+
+				<a href="{{ path('game_edit', {'id': game.id}) }}">edit</a>
+				{{ include('game/_delete_form.html.twig') }}
+			{% endif %}
+
+		</div>
+	</main>
 {% endblock %}
