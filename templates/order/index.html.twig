@@ -25,6 +25,7 @@
 						<th>Id</th>
 						<th>Titre de la salle</th>
 						<th>DateOfOrder</th>
+						<th>Client</th>
 						<th>Nombre de participants</th>
 						<th>TotalPrice</th>
 						<th>BookedTime</th>
@@ -38,28 +39,29 @@
 							<td>{{ order.id }}</td>
 							<td>{{ order.game.title }}</td>
 							<td>{{ order.dateOfOrder ? order.dateOfOrder|date('Y-m-d') : '' }}</td>
-							
+							<td>{{ order.user.firstname ~ ' ' ~ order.user.firstname }}</td>
+							<td>{{ order.playerQuantity }}</td>
 							<td>{{ order.totalPrice }}</td>
 							<td>{{ order.bookedTime ? order.bookedTime|date('Y-m-d H:i:s') : '' }}</td>
 							<td>{{ order.paymentStatus }}</td>
 							<td>
-								<a href="{{ path('order_show', {'id': order.id}) }}">show</a>
+								<a href="{{ path('order_show', {'id': order.id}) }}">Voir</a>
 
 								{% if is_granted("ROLE_ADMIN") %}
-									<a href="{{ path('order_edit', {'id': order.id}) }}">edit</a>
+									<a href="{{ path('order_edit', {'id': order.id}) }}">Modifier</a>
 								{% endif %}
 							</td>
 						</tr>
 					{% else %}
 						<tr>
-							<td>no records found</td>
+							<td>Pas de réservation en cours</td>
 						</tr>
 					{% endfor %}
 				</tbody>
 			</table>
 
 			{% if is_granted("ROLE_ADMIN") %}
-				<a href="{{ path('order_new') }}">Create new</a>
+				<a href="{{ path('order_new') }}">Nouvelle réservation</a>
 			{% endif %}
 		</div>
 	</main>

@@ -23,7 +23,7 @@
 			{% for game in games %}
 
 				<h2>{{ game.title }}</h2>
-				<p>{{ game.description }}</p>
+				<p>{{ game.synopsis }}</p>
 				<p><img src="{{dossier_images ~ game.imageUrl}}" alt="{{game.title}}" class="miniature"></p>
 				<p>Max players:	{{ game.maxPlayers }}</p>
 				<p>Min players:	{{ game.minPlayers }}</p>

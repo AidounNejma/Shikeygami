@@ -27,6 +27,7 @@ class GameType extends AbstractType
             ])
             ->add('room')
             ->add('description')
+            ->add('synopsis')
             ->add('imageUrl', FileType::class, [
                 "mapped" => false
             ])
