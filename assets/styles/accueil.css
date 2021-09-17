@@ -191,12 +191,7 @@ main{
     shape-margin: 20px;
     shape-outside: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     clip-path: polygon(0 0, 100% 13%, 100% 85%, 0 100%);
-<<<<<<< Updated upstream
     transition: 1s;
-=======
-    transition: clip-path 1s;
-    animation: move 3s linear alternate;
->>>>>>> Stashed changes
 }
 
 .shape2:hover {
@@ -215,11 +210,7 @@ main{
 }
 
 .shape3{
-<<<<<<< Updated upstream
     z-index: 3;
-=======
-    z-index:3;
->>>>>>> Stashed changes
     top: -120px;
     height: 400px;
     width: 100%;
@@ -233,11 +224,7 @@ main{
 
 .shape3:hover {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-<<<<<<< Updated upstream
     z-index:6000;
-=======
-    z-index: 4;
->>>>>>> Stashed changes
 }
 
 /******** SHAPE 4 ********/
@@ -253,22 +240,13 @@ main{
     background-image: url("../../public/img/layout/4.jpg");
     background-size: cover;
     shape-outside: polygon(0 0, 100% 0, 100% 120%, 0 85%);
-<<<<<<< Updated upstream
     clip-path: polygon(0 0%, 100% 15%, 100% 100%, 0 100%);
     transition: 1s;
-=======
-    clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 100%);
-    transition: clip-path 1s;
->>>>>>> Stashed changes
 }
 
 .shape4:hover {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-<<<<<<< Updated upstream
     z-index:6000;
-=======
-    z-index:3;
->>>>>>> Stashed changes
 }
 
 /******** IMAGES TEXT ********/
