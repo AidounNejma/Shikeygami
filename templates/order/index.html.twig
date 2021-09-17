@@ -1,41 +1,66 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Order index{% endblock %}
+{% block stylesheets %}
+	{{parent()}}
+	{{ encore_entry_link_tags('order') }}
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}}
+	{{ encore_entry_script_tags('order') }}
+{% endblock %}
+
+{% block title %}Liste des réservations
+{% endblock %}
 
 {% block body %}
-    <h1>Order index</h1>
+	<main>
+        <div class="centered">
+            <h1>Liste des Réservations</h1>
+        </div>
+		<div class='content'>
+			<table>
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Titre de la salle</th>
+						<th>DateOfOrder</th>
+						<th>Nombre de participants</th>
+						<th>TotalPrice</th>
+						<th>BookedTime</th>
+						<th>PaymentStatus</th>
+						<th>actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for order in orders %}
+						<tr>
+							<td>{{ order.id }}</td>
+							<td>{{ order.game.title }}</td>
+							<td>{{ order.dateOfOrder ? order.dateOfOrder|date('Y-m-d') : '' }}</td>
+							
+							<td>{{ order.totalPrice }}</td>
+							<td>{{ order.bookedTime ? order.bookedTime|date('Y-m-d H:i:s') : '' }}</td>
+							<td>{{ order.paymentStatus }}</td>
+							<td>
+								<a href="{{ path('order_show', {'id': order.id}) }}">show</a>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>DateOfOrder</th>
-                <th>TotalPrice</th>
-                <th>BookedTime</th>
-                <th>PaymentStatus</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for order in orders %}
-            <tr>
-                <td>{{ order.id }}</td>
-                <td>{{ order.dateOfOrder ? order.dateOfOrder|date('Y-m-d') : '' }}</td>
-                <td>{{ order.totalPrice }}</td>
-                <td>{{ order.bookedTime ? order.bookedTime|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ order.paymentStatus }}</td>
-                <td>
-                    <a href="{{ path('order_show', {'id': order.id}) }}">show</a>
-                    <a href="{{ path('order_edit', {'id': order.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+								{% if is_granted("ROLE_ADMIN") %}
+									<a href="{{ path('order_edit', {'id': order.id}) }}">edit</a>
+								{% endif %}
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td>no records found</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
 
-    <a href="{{ path('order_new') }}">Create new</a>
+			{% if is_granted("ROLE_ADMIN") %}
+				<a href="{{ path('order_new') }}">Create new</a>
+			{% endif %}
+		</div>
+	</main>
 {% endblock %}

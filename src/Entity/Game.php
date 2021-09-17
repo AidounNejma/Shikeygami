@@ -69,6 +69,11 @@ class Game
      */
     private $orders;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $synopsis;
+
     public function __construct()
     {
         $this->orders = new ArrayCollection();
@@ -213,6 +218,18 @@ class Game
                 $order->setGame(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSynopsis(): ?string
+    {
+        return $this->synopsis;
+    }
+
+    public function setSynopsis(string $synopsis): self
+    {
+        $this->synopsis = $synopsis;
 
         return $this;
     }

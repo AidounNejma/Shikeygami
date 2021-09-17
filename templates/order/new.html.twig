@@ -1,11 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Order{% endblock %}
+{% block title %}nouvelle réservation
+{% endblock %}
 
 {% block body %}
-    <h1>Create new Order</h1>
 
-    {{ include('order/_form.html.twig') }}
+	<main>
+		<div class="centered">
+			<h1>nouvelle réservation</h1>
+		</div>
+		<div class='content'>
+			{{ include('order/_form.html.twig') }}
 
-    <a href="{{ path('order_index') }}">back to list</a>
+			<a href="{{ path('order_index') }}">back to list</a>
+		</div>
+	</main>
 {% endblock %}
