@@ -7,6 +7,8 @@ use Doctrine\DBAL\Types\DecimalType;
 use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType as TypeTextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -70,7 +72,7 @@ class GameType extends AbstractType
                     ])
                 ]
             ])
-            ->add('gameDuration', DecimalType::class, [
+            ->add('gameDuration', NumberType::class, [
                 'label' => 'Temps de jeu accordé',
                 "constraints" => [
                     new GreaterThan(["value" => 30, "message" => "la durée doit etre de 30 minutes minimum"])

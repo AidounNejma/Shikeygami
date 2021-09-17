@@ -28,8 +28,8 @@
 				<p>Max players:	{{ game.maxPlayers }}</p>
 				<p>Min players:	{{ game.minPlayers }}</p>
 				<p>Game master:	{{ game.gameMaster }}</p>
-				<p>{{ game.gameDuration }}</p>
-				<p>{{ game.pricePerPerson }}</p>
+				<p>Durée de l'escape game: {{ game.gameDuration }}</p>
+				<p>Prix par joueur: {{ game.pricePerPerson }}</p>
 				<button><a href="{{ path('game_show', {'id': game.id}) }}">Voir Les détails</a></button>
 
 				{% if is_granted("ROLE_ADMIN") %}
