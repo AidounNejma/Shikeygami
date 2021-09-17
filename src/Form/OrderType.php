@@ -13,6 +13,8 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\GreaterThan;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class OrderType extends AbstractType
 {
@@ -25,6 +27,12 @@ class OrderType extends AbstractType
             ])
             ->add('totalPrice', NumberType::class, [
                 'label' => 'Prix total'
+            ])
+            ->add('playerQuantity', IntegerType::class, [
+                'label' => 'nombre de joueurs',
+                "constraints" => [
+                    new GreaterThan(["value" => 1, "message" => "le nombre de joueur doit etre superieur à 1"])
+                ]
             ])
             ->add('bookedTime', DateTimeType::class, [
                 'label' => 'Date et heure choisie',
@@ -39,14 +47,12 @@ class OrderType extends AbstractType
                     return $user->getFirstName() . " - " . $user->getLastName() . " - " . $user->getUserIdentifier(); 
                 },
                 'placeholder' => 'Choisir un utilisateur',
-                "mapped" => false
             ])
             ->add('game', EntityType::class,[
                 "class" => Game::class,
                 "choice_label" => function(Game $game){
                     return $game->getTitle();
                 },
-                "mapped" => false
             ])
         ;
     }

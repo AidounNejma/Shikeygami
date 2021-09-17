@@ -1,5 +1,15 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+	{{parent()}}
+	{{ encore_entry_link_tags('order') }}
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}}
+	{{ encore_entry_script_tags('order') }}
+{% endblock %}
+
 {% block title %}Shikeygami | Détail de la commande{% endblock %}
 
 {% block body %}
@@ -34,9 +44,9 @@
 				</tbody>
 			</table>
 
-			<a href="{{ path('order_index') }}">back to list</a>
+			<a href="{{ path('order_index') }}">Retour à la liste</a>
 
-			<a href="{{ path('order_edit', {'id': order.id}) }}">edit</a>
+			<a href="{{ path('order_edit', {'id': order.id}) }}">Modifier</a>
 
 			{{ include('order/_delete_form.html.twig') }}
 		</div>
