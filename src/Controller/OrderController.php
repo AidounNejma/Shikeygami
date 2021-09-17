@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Order;
 use App\Form\OrderType;
 use App\Repository\OrderRepository;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,6 +26,8 @@ class OrderController extends AbstractController
     public function new(Request $request): Response
     {
         $order = new Order();
+        $order->setDateOfOrder(new \DateTime);
+        $order->setBookedTime(new \DateTime);
         $form = $this->createForm(OrderType::class, $order);
         $form->handleRequest($request);
 
