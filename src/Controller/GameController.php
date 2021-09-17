@@ -76,6 +76,32 @@ class GameController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            if ($fichier = $form->get("imageUrl")->getData())
+            { // si le formulaire renvoi un fichier
+                //on recupere le nom du fichier dans la bdd
+                    $chemin = $game->getImageUrl();
+                    $cheminComplet = $this->getParameter("dossier_images") . $chemin;
+                    if(file_exists($cheminComplet)){ // si le fichier avec le chemin nindiqué existe
+                        unlink($cheminComplet);
+                    }
+                    
+
+                //on recupere le nom du fichier qui à été téléversé
+                $nomFichier = pathinfo($fichier->getClientOriginalName(), PATHINFO_FILENAME);
+                //on remplace les espaces par des _
+                $nomFichier = str_replace(" ", "_", $nomFichier);
+
+                // on ajoute un string au nom du fichier pour éviter les doublons et l'extension du fichier
+                $nomFichier .= uniqid() . "." . $fichier->guessExtension();
+
+                // on copie le fichier uploadé dans un dossier du dossier 'public' avec le nouveau nom de fichier
+                $fichier->move($this->getParameter("dossier_images"), $nomFichier);
+
+                // on modifie l'entité $livre
+                $game->setImageUrl($nomFichier);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('game_index', [], Response::HTTP_SEE_OTHER);
@@ -88,7 +114,7 @@ class GameController extends AbstractController
     }
 
     #[Route('/{id}', name: 'game_delete', methods: ['POST'])]
-    #[IsGranted("ROLE_ADMIN")]
+    //#[IsGranted("ROLE_ADMIN")]
     public function delete(Request $request, Game $game): Response
     {
         if ($this->isCsrfTokenValid('delete'.$game->getId(), $request->request->get('_token'))) {
