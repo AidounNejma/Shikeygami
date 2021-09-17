@@ -22,28 +22,30 @@
 		</div>
 		<div class="content">
 			{% for game in games %}
-				<tr>
 
-					<p>{{ game.title }}</p>
-					<p>{{ game.description }}</p>
-					<p><img src="{{dossier_images ~ game.imageUrl}}" alt="{{game.title}}" class="miniature"></p>
-					<p>Max players: {{ game.maxPlayers }}</p>
-					<p>Min players: {{ game.minPlayers }}</p>
-					<p>Game master: {{ game.gameMaster }}</p>
-					<p>{{ game.gameDuration }}</p>
-					<p>{{ game.pricePerPerson }}</p>
-					<p>
-						<a href="{{ path('game_show', {'id': game.id}) }}">show</a>
-						<a href="{{ path('game_edit', {'id': game.id}) }}">edit</a>
-					</p>
-				</tr>
-			</td>
-		</tr>
-	{% else %}
-		<tr>
-			<td colspan="11">no records found</td>
-		</tr>
-	{% endfor %}
+				<h2>{{ game.title }}</h2>
+				<p>{{ game.description }}</p>
+				<p><img src="{{dossier_images ~ game.imageUrl}}" alt="{{game.title}}" class="miniature"></p>
+				<p>Max players:
+					{{ game.maxPlayers }}</p>
+				<p>Min players:
+					{{ game.minPlayers }}</p>
+				<p>Game master:
+					{{ game.gameMaster }}</p>
+				<p>{{ game.gameDuration }}</p>
+				<p>{{ game.pricePerPerson }}</p>
+			{% if is_granted("ROLE_ADMIN") %}
+				<p>
+					<a href="{{ path('game_show', {'id': game.id}) }}">show</a>
+					<a href="{{ path('game_edit', {'id': game.id}) }}">edit</a>
+				</p>
+			{% endif %}
 
-	<a href="{{ path('game_new') }}">Create new</a>
-</div></main>{% endblock %}
+			{% endfor %}
+			{% if is_granted("ROLE_ADMIN") %}
+				<button><a href="{{ path('game_new') }}">Create new</a></button>
+			{% endif %}
+			
+		</div>
+	</main>
+{% endblock %}
