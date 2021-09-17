@@ -3,12 +3,14 @@
 namespace App\Form;
 
 use App\Entity\Game;
+use Doctrine\DBAL\Types\DecimalType;
 use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType as TypeTextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\GreaterThan;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 class GameType extends AbstractType
@@ -26,15 +28,54 @@ class GameType extends AbstractType
                 ]
             ])
             ->add('room')
-            ->add('description')
-            ->add('synopsis')
+            ->add('description', TypeTextType::class, [
+                "label" => "description complete de la salle",
+                "required" => true,
+                "constraints" => [
+                    new NotBlank([
+                        "message" => "Veuillez remplir la description"
+                    ])
+                ]
+            ])
+            ->add('synopsis', TypeTextType::class, [
+                "label" => "synopsis de la salle",
+                "required" => true,
+                "constraints" => [
+                    new NotBlank([
+                        "message" => "Veuillez remplir le synopsis"
+                    ])
+                ]
+            ])
             ->add('imageUrl', FileType::class, [
                 "mapped" => false
             ])
-            ->add('maxPlayers')
-            ->add('minPlayers')
-            ->add('gameMaster')
-            ->add('gameDuration')
+            ->add('maxPlayers', IntegerType::class, [
+                'label' => 'nombre de joueurs',
+                "constraints" => [
+                    new GreaterThan(["value" => 1, "message" => "le nombre de joueur max doit etre superieur à 1"])
+                ]
+            ])
+            ->add('minPlayers', IntegerType::class, [
+                'label' => 'nombre de joueurs',
+                "constraints" => [
+                    new GreaterThan(["value" => 1, "message" => "le nombre de joueur min doit etre superieur à 1"])
+                ]
+            ])
+            ->add('gameMaster', TypeTextType::class, [
+                "label" => "Nom du maitre du jeu",
+                "required" => true,
+                "constraints" => [
+                    new NotBlank([
+                        "message" => "Indiquez le nom du maitre du jeu"
+                    ])
+                ]
+            ])
+            ->add('gameDuration', DecimalType::class, [
+                'label' => 'Temps de jeu accordé',
+                "constraints" => [
+                    new GreaterThan(["value" => 30, "message" => "la durée doit etre de 30 minutes minimum"])
+                ]
+            ])
             ->add('pricePerPerson', TypeTextType::class, [
                 "label" => "prix par personne",
             ])

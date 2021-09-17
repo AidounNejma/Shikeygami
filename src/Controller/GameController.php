@@ -44,7 +44,7 @@ class GameController extends AbstractController
                 // on copie le fichier uploadé dans un dossier du dossier 'public' avec le nouveau nom de fichier
                 $fichier->move($this->getParameter("dossier_images"), $nomFichier);
 
-                // on modifie l'entité $livre
+                // on modifie l'entité game
                 $game->setImageUrl($nomFichier);
             }
             $entityManager = $this->getDoctrine()->getManager();
@@ -86,7 +86,6 @@ class GameController extends AbstractController
                         unlink($cheminComplet);
                     }
                     
-
                 //on recupere le nom du fichier qui à été téléversé
                 $nomFichier = pathinfo($fichier->getClientOriginalName(), PATHINFO_FILENAME);
                 //on remplace les espaces par des _
@@ -98,7 +97,7 @@ class GameController extends AbstractController
                 // on copie le fichier uploadé dans un dossier du dossier 'public' avec le nouveau nom de fichier
                 $fichier->move($this->getParameter("dossier_images"), $nomFichier);
 
-                // on modifie l'entité $livre
+                // on modifie l'entité $game
                 $game->setImageUrl($nomFichier);
             }
 
@@ -114,7 +113,7 @@ class GameController extends AbstractController
     }
 
     #[Route('/{id}', name: 'game_delete', methods: ['POST'])]
-    //#[IsGranted("ROLE_ADMIN")]
+    #[IsGranted("ROLE_ADMIN")]
     public function delete(Request $request, Game $game): Response
     {
         if ($this->isCsrfTokenValid('delete'.$game->getId(), $request->request->get('_token'))) {
