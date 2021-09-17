@@ -1,19 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Order index{% endblock %}
+{% block title %}Shikeygami | Liste des commandes{% endblock %}
 
 {% block body %}
-    <h1>Order index</h1>
+    <h1>Liste des commandes</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>DateOfOrder</th>
-                <th>TotalPrice</th>
-                <th>BookedTime</th>
-                <th>PaymentStatus</th>
-                <th>actions</th>
+                <th>Date de la commande</th>
+                <th>Prix Total</th>
+                <th>Horaire choisi</th>
+                <th>Status du paiement</th>
+                <th>Details</th>
+                <th>Modifier</th>
             </tr>
         </thead>
         <tbody>
@@ -25,17 +26,19 @@
                 <td>{{ order.bookedTime ? order.bookedTime|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ order.paymentStatus }}</td>
                 <td>
-                    <a href="{{ path('order_show', {'id': order.id}) }}">show</a>
-                    <a href="{{ path('order_edit', {'id': order.id}) }}">edit</a>
+                    <a href="{{ path('order_show', {'id': order.id}) }}">Détails</a>
+                </td>
+                <td>
+                    <a href="{{ path('order_edit', {'id': order.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">Pas de commande en cours</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('order_new') }}">Create new</a>
+    <a href="{{ path('order_new') }}">Créer une nouvelle commande</a>
 {% endblock %}
