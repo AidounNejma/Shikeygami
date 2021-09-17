@@ -16,55 +16,34 @@
 {% block body %}
 
 
-<main>
-    <div class="centered">
-        <h1>Nos Salles</h1>
-    </div>
-<div class="content">
-    
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Title</th>
-				<th>Room</th>
-				<th>Description</th>
-				<th>ImageUrl</th>
-				<th>MaxPlayers</th>
-				<th>MinPlayers</th>
-				<th>GameMaster</th>
-				<th>GameDuration</th>
-				<th>PricePerPerson</th>
-				<th>actions</th>
-			</tr>
-		</thead>
-		<tbody>
+	<main>
+		<div class="centered">
+			<h1>Nos Salles</h1>
+		</div>
+		<div class="content">
 			{% for game in games %}
 				<tr>
-					<td>{{ game.id }}</td>
-					<td>{{ game.title }}</td>
-					<td>{{ game.room }}</td>
-					<td>{{ game.description }}</td>
-					<td><img src="{{dossier_images ~ game.imageUrl}}" alt="{{game.title}}" class="miniature"></td>
-					<td>{{ game.maxPlayers }}</td>
-					<td>{{ game.minPlayers }}</td>
-					<td>{{ game.gameMaster }}</td>
-					<td>{{ game.gameDuration }}</td>
-					<td>{{ game.pricePerPerson }}</td>
-					<td>
+
+					<p>{{ game.title }}</p>
+					<p>{{ game.description }}</p>
+					<p><img src="{{dossier_images ~ game.imageUrl}}" alt="{{game.title}}" class="miniature"></p>
+					<p>Max players: {{ game.maxPlayers }}</p>
+					<p>Min players: {{ game.minPlayers }}</p>
+					<p>Game master: {{ game.gameMaster }}</p>
+					<p>{{ game.gameDuration }}</p>
+					<p>{{ game.pricePerPerson }}</p>
+					<p>
 						<a href="{{ path('game_show', {'id': game.id}) }}">show</a>
 						<a href="{{ path('game_edit', {'id': game.id}) }}">edit</a>
-					</td>
+					</p>
 				</tr>
-			{% else %}
-				<tr>
-					<td colspan="11">no records found</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
+			</td>
+		</tr>
+	{% else %}
+		<tr>
+			<td colspan="11">no records found</td>
+		</tr>
+	{% endfor %}
 
 	<a href="{{ path('game_new') }}">Create new</a>
-</div>
-</main>
-{% endblock %}
+</div></main>{% endblock %}
