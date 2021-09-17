@@ -1,11 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Shikeygami | Nouvelle commande{% endblock %}
+{% block title %}nouvelle réservation
+{% endblock %}
 
 {% block body %}
-    <h1>Créer une nouvelle commande</h1>
 
-    {{ include('order/_form.html.twig') }}
+	<main>
+		<div class="centered">
+			<h1>nouvelle réservation</h1>
+		</div>
+		<div class='content'>
+			{{ include('order/_form.html.twig') }}
 
-    <a href="{{ path('order_index') }}">Retour à la liste</a>
+			<a href="{{ path('order_index') }}">Retour à la liste</a>
+		</div>
+	</main>
 {% endblock %}

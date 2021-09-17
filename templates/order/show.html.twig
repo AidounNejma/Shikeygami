@@ -3,36 +3,42 @@
 {% block title %}Shikeygami | Détail de la commande{% endblock %}
 
 {% block body %}
-    <h1>Order</h1>
+	<main>
+		<div class="centered">
+			<h1>réservation</h1>
+		</div>
+		<div class='content'>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ order.id }}</td>
-            </tr>
-            <tr>
-                <th>Date de la commande</th>
-                <td>{{ order.dateOfOrder ? order.dateOfOrder|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Prix Total</th>
-                <td>{{ order.totalPrice }}</td>
-            </tr>
-            <tr>
-                <th>Heure choisie</th>
-                <td>{{ order.bookedTime ? order.bookedTime|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Status du paiement</th>
-                <td>{{ order.paymentStatus }}</td>
-            </tr>
-        </tbody>
-    </table>
+			<table class="table">
+				<tbody>
+					<tr>
+						<th>Id</th>
+						<td>{{ order.id }}</td>
+					</tr>
+					<tr>
+						<th>DateOfOrder</th>
+						<td>{{ order.dateOfOrder ? order.dateOfOrder|date('Y-m-d') : '' }}</td>
+					</tr>
+					<tr>
+						<th>TotalPrice</th>
+						<td>{{ order.totalPrice }}</td>
+					</tr>
+					<tr>
+						<th>BookedTime</th>
+						<td>{{ order.bookedTime ? order.bookedTime|date('Y-m-d H:i:s') : '' }}</td>
+					</tr>
+					<tr>
+						<th>PaymentStatus</th>
+						<td>{{ order.paymentStatus }}</td>
+					</tr>
+				</tbody>
+			</table>
 
-    <a href="{{ path('order_index') }}">Retour à la liste</a>
+			<a href="{{ path('order_index') }}">back to list</a>
 
-    <a href="{{ path('order_edit', {'id': order.id}) }}">Modifier</a>
+			<a href="{{ path('order_edit', {'id': order.id}) }}">edit</a>
 
-    {{ include('order/_delete_form.html.twig') }}
+			{{ include('order/_delete_form.html.twig') }}
+		</div>
+	</main>
 {% endblock %}

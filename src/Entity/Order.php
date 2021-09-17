@@ -50,6 +50,11 @@ class Order
      */
     private $game;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $player_quantity;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -123,6 +128,18 @@ class Order
     public function setGame(?Game $game): self
     {
         $this->game = $game;
+
+        return $this;
+    }
+
+    public function getPlayerQuantity(): ?int
+    {
+        return $this->player_quantity;
+    }
+
+    public function setPlayerQuantity(int $player_quantity): self
+    {
+        $this->player_quantity = $player_quantity;
 
         return $this;
     }
