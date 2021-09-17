@@ -173,7 +173,7 @@ main{
 
 .shape:hover {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    z-index: 20;
+    z-index: 6000;
 }
 
 /******** SHAPE 2 ********/
@@ -195,7 +195,7 @@ main{
 }
 .shape2:hover {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    z-index:7000;
+    z-index:6000;
 
 }
 
@@ -234,8 +234,8 @@ main{
     background-image: url("../../public/img/layout/4.jpg");
     background-size: cover;
     shape-outside: polygon(0 0, 100% 0, 100% 120%, 0 85%);
-    clip-path: polygon(0 -4%, 100% 15%, 100% 100%, 0 100%);
-    transition: clip-path 1s;
+    clip-path: polygon(0 0%, 100% 15%, 100% 100%, 0 100%);
+    transition: 1s;
 }
 
 .shape4:hover {
