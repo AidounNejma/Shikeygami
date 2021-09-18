@@ -10,10 +10,13 @@
 {% block javascripts %}
     {{parent()}}
     {{ encore_entry_script_tags("accueil") }}
+    <!-- Script facebook (à revoir car pas fonctionnel) -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v12.0" nonce="iycwQ7cm"></script>
 {% endblock %}
 
-{% block body %}
 
+{% block body %}
 
 <!-- Slideshow container -->
 <div class="slideshow-container fade">
@@ -21,7 +24,9 @@
 <!-- Full images with numbers and message Info -->
     <div class="Containers">
             <img src="img/carouselBanner/1.jpg">
-                <div class="Info">Yokai Exorcism</div>
+                <div class="Info">
+                    <p>Yokai Exorcism</p>
+                </div>
                 <div class="moreInfo">
                     <a href="#">En savoir plus</a>
                 </div>
@@ -29,7 +34,9 @@
 
     <div class="Containers">
             <img src="img/carouselBanner/2.jpg">
-                <div class="Info">Attack on alien</div>
+                <div class="Info">
+                    <p>Attack on alien</p>
+                </div>
                     <div class="moreInfo">
                         <a href="#">En savoir plus</a>
                     </div>
@@ -37,7 +44,9 @@
 
     <div class="Containers">
             <img src="img/carouselBanner/3.jpg">
-                <div class="Info">Salle3</div>
+                <div class="Info">
+                    <p>Salle3</p>
+                </div>
                 <div class="moreInfo">
                     <a href="#">En savoir plus</a>
                 </div>
@@ -45,10 +54,12 @@
 
     <div class="Containers">
             <img src="img/carouselBanner/4.jpg">
-                <div class="Info">Salle4</div>
-                    <div class="moreInfo">
-                        <a href="#">En savoir plus</a>
-                    </div>
+                <div class="Info">
+                    <p>Salle4</p>
+                </div>
+                <div class="moreInfo">
+                    <a href="#">En savoir plus</a>
+                </div>
     </div>
 
 <!-- Back and forward buttons -->
@@ -67,7 +78,7 @@
 <!-- Main content -->
 <main>
     <div class="content">
-        <h2 class="roomTitle">Nos salles</h2>
+        <h1 class="roomTitle">Nos salles</h1>
         <div class="shape">
             <a href="">
                 <div class="align">
@@ -101,17 +112,38 @@
             </a>
         </div>
 
-        <h1>Contact</h1>
-    <div class="contactContainer">
-        <div class="left">
-        <p>adresse: jfizjfe</p>
-        <p>numero: 08087798899</p>
+    <!-- Contact section  -->
+    <h1>Contact</h1>
+    <section class="contactContainer">
+        <div class="icons">
+            <a href="#contactContainer" class="phone"><i class="fas fa-phone-square-alt"></i></a>
+            <a href="#contactContainer" class="address"><i class="fas fa-map-pin"></i></a>
+            <a href="#contactContainer" class="mail"><i class="fas fa-envelope"></i></a>
+            <a href="#contactContainer" class="facebook"><i class="fas fa-thumbs-up"></i></a>
         </div>
-
-        <div class="right">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4539.117302188142!2d2.353189438661635!3d48.85493637261149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671fd10fa77a9%3A0xb2bbd365849898f2!2sWebForce3%20Paris%204%C3%A8me%20-%20Formation%20D%C3%A9veloppeur%20web%2C%20Technicien%20syst%C3%A8mes%20r%C3%A9seaux%2C%20Designer%20web%20marketing%20digital...!5e0!3m2!1sfr!2sfr!4v1631903662339!5m2!1sfr!2sfr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <div class="square">
+            <div class="question">
+                <p>Vous souhaitez nous contacter ?</p>
+                <p>Notre équipe se fera une joie de vous répondre !</p>
+            </div>
+            <div class="googleMaps slideInRight">
+                <p>Notre entreprise se trouve ici :</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4539.117302188142!2d2.353189438661635!3d48.85493637261149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671fd10fa77a9%3A0xb2bbd365849898f2!2sWebForce3%20Paris%204%C3%A8me%20-%20Formation%20D%C3%A9veloppeur%20web%2C%20Technicien%20syst%C3%A8mes%20r%C3%A9seaux%2C%20Designer%20web%20marketing%20digital...!5e0!3m2!1sfr!2sfr!4v1631903662339!5m2!1sfr!2sfr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="contact slideInRight">
+                <p><i class="fas fa-phone"></i> 0123456789</p>
+                <p><i class="fas fa-fax"></i> 0987654321</p>
+                <p><i class="fas fa-map-marked"></i> 18 Rue Geoffroy l'Asnier, 75004 Paris.</p>
+            </div>
+            <div class="contactForm slideInRight">
+                <p>Ici il y aura un formulaire de contact par mail</p>
+            </div>
+            <div class="facebookLink slideInRight">
+                <p>Suivez nous sur Facebook !</p>
+                <div class="fb-page" data-href="https://www.facebook.com/webforce3/" data-tabs="timeline" data-width="500" data-height="350" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/webforce3/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/webforce3/">WebForce3 France</a></blockquote></div>
+            </div>
         </div>
-    </div>
+    </section>
     </div>
 
 </main>

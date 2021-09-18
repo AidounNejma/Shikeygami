@@ -18,6 +18,7 @@
     object-position: 0 40%;
 }
 
+
   /* par défaut on rend les images invisible */
 .Containers {
     display: none;
@@ -53,13 +54,20 @@
 
   /* Titre des salles */
 .Info {
-    color: #e3e3e3;
     font-size: 50px;
-    padding: 10px 14px;
     position: absolute;
-    top: 100px;
+    top: 5px;
     width: 100%;
+}
+
+.Info p{
+    color: #e3e3e3;
+    font-weight: bold;
+    padding: 10px 14px;
+    margin: 54px auto 0 auto;
+    width: 300px;
     text-align: center;
+    background-color: rgb(48, 60, 71, 0.5);
 }
 
 /* Bouton en savoir plus */
@@ -73,7 +81,6 @@
 .moreInfo a{
     color: #e3e3e3;
     text-decoration: none;
-
     border: 1px solid #ffffff;
     display: block;
     /* Pour prendre les dimensions qu'on a énuméré au dessus*/
@@ -122,7 +129,7 @@
 
 /*----------------------------- Main -----------------------------*/
 main{
-    background: linear-gradient(180deg, rgba(31,31,31,1) 0%, rgba(47,47,47,1) 100%);;
+    background: linear-gradient(180deg, rgba(31,31,31,1) 0%, rgba(47,47,47,1) 100%);
     padding: 15px 0;
 }
 .content{
@@ -274,7 +281,7 @@ main{
     color: white;
     font-size: 14px;
     padding: 30px 0 0 0;
-    transition: all 0.2s linear;
+    transition: all 0.3s linear;
     opacity: 0;
     transform: translateY(100px);
 }
@@ -288,9 +295,81 @@ main{
 }
 
 /* CONTACT*/
-
-
-
-.right{
-    width: 100%;
+.icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    margin: 30px 80px;
 }
+
+.icons a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 40px;
+}
+
+.icons a:hover{
+    color: #630f0f;
+    transition: 1s;
+}
+
+.square{
+    width: 100%;
+    height: 400px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    background-color:#201f1f;
+}
+
+.question {
+    padding-top: 170px;
+}
+.facebookLink, .googleMaps, .contact, .contactForm{
+    display: none;
+}
+.facebookLink{
+    padding-top: 20px;
+}
+.googleMaps{
+    padding-top: 50px;
+}
+.contact{
+    padding: 170px 195px 0 195px;
+}
+.contactForm{
+    padding-top: 170px;
+}
+
+.slideInRight {
+    -webkit-animation-name: slideInRight;
+    animation-name: slideInRight;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    }
+    @-webkit-keyframes slideInRight {
+    0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    visibility: visible;
+    }
+    100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    }
+    }
+    @keyframes slideInRight {
+    0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    visibility: visible;
+    }
+    100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    }
+    } 
+
+
