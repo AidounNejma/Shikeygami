@@ -128,23 +128,6 @@
 }
 
 /*----------------------------- Main -----------------------------*/
-main{
-    padding: 15px 0;
-    background-image: url("../img/backgrounds/accueil.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.content{
-    /* offset-x | offset-y | blur-radius | spread-radius | color */
-    box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.2);
-    margin: 0 25%;
-    background-color: #312f2f;
-    overflow:hidden;
-    display: flex;
-    flex-direction: column;
-    padding: 0px 10px;
-    text-align: center;
-}
 .roomTitle{
     color: white;
     font-weight: 300;
@@ -328,6 +311,10 @@ main{
     background-color:#201f1f;
 }
 
+.square p{
+    font-size: 30px;
+}
+
 .question {
     padding-top: 170px;
 }
@@ -416,6 +403,11 @@ main{
 
     .align, .align p, .align h2{
         opacity: 1;
+        transform: none;
+    }
+
+    .align p{
+        padding: 50% 0;
     }
 
     .square{
