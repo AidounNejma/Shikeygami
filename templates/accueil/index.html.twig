@@ -138,7 +138,26 @@
                 <p><i class="fas fa-map-marked"></i> 18 Rue Geoffroy l'Asnier, 75004 Paris.</p>
             </div>
             <div class="contactForm slideInRight">
-                <p>Ici il y aura un formulaire de contact par mail</p>
+                <form method="post">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom">
+                    <!--id et for doivent avoir le même nom pour les relier entre eux. ainsi l'utilisateur cliquera directement sur "Nom" et la case sera en surbrillance-->
+
+                    <label for="prenom">Prenom</label>
+                    <input type="text" id="prenom" name="prenom">
+
+                    <label for="tel">Téléphone</label>
+                    <input type="tel" id="tel" name="telephone" pattern="^[0-9]{10}$" maxlength="10" required>
+                    <!--permet de n'autoriser que les chiffre + d'ouvrir directement le clavier numérique-->
+
+                    <label for="mail">Mail</label>
+                    <input type="email" id="mail" name="mail" required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message"></textarea>
+
+                    <input type="submit" value="Envoyer !" id="submit">
+                </form>
             </div>
             <div class="facebookLink slideInRight">
                 <p>Suivez nous sur Facebook !</p>
