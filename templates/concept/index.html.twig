@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Shikeygami | Concept
+{% endblock %}
+
+{% block stylesheets %}
+	{{parent()}}
+	{{ encore_entry_link_tags("concept") }}
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}}
+	{{ encore_entry_script_tags("concept") }}
+{% endblock %}
+
+{% block body %}
+	<div class="banner-container">
+		<img src="/img/conceptBanner/concept.png" alt="agent en action">
+		<div class="info">
+			<p>Concept</p>
+		</div>
+	</div>
+    <main>
+        <div class="content">
+            <h2 class="content-title">Histoire</h2>
+            <p class="content-description">Vous êtes un mercenaire de l'an 2267, le Japon est en péril. L’organisation ... Corp vous engage afin de retrouver des artefacts permettant de sauver le monde.<br>Ces derniers sont disséminés à travers des univers parallèles du Japon.<br>La ... Corp a ouvert des portails vous permettant d’y accéder pendant un temps limité.<br>Le destin du monde est entre vos mains !</p>
+        </div>
+    </main>
+{% endblock %}
