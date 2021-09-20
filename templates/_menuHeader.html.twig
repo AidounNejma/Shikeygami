@@ -13,18 +13,20 @@
 
 
 		<div class="container">
-			<img class="logo" src="/img/headerFooter/logo.png" alt="logo">
-			<h1>Shikeygami</h1>
+			<div class="flex">
+				<a href="{{ path("accueil") }}"><img class="logo" src="/img/headerFooter/logo.png" alt="logo"></a>
+				<h1><a href="{{ path("accueil") }}">Shikeygami</a></h1>
+			</div>
+
+			<div class="burger-div">
+				<img class="burger" src="/img/headerFooter/burger.png" alt="burger">
+			</div>
 		</div>
 
-		
-		<img class="mobile" src="/img/headerFooter/burger.png" alt="burger">
-		
 		<nav>
-
 			<ul class="menu">
 				<li>
-					<a href="{{ path("user_index") }}">Nos salles</a>
+					<a href="{{ path("game_index") }}">Nos salles</a>
 				</li>
 
 				<li>
@@ -55,10 +57,6 @@
 					</li>
 				{% endif %}
 			</ul>
-
 		</nav>
-
-
 	</header>
-
 </body>

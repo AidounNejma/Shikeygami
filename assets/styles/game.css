@@ -1,3 +1,10 @@
+/* img{
+    height: 100px;
+} */
+.centered{
+    text-align: center;
+    margin: auto;
+}
 .ImageFront{
     height: 100px;
 }

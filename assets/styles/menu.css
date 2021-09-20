@@ -20,11 +20,13 @@ header{
     background-color: #312f2f;
     color: #ffffff;
     font-size: 20px;
+    justify-content: space-between;
 }
 
 .container{
     display: flex;
     width:10%;
+    cursor: pointer;
 } 
 
 .logo {
@@ -42,16 +44,29 @@ h1{
     padding-top: 50px;   
 }
 
-.mobile{
+div a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.flex{
+    display: flex;
+    flex-direction: row;
+}
+
+.burger{
     display:none;
 } 
 
+
+nav{
+    display: flex;
+}
+
+
 nav .menu {
-    display: flex;                
-    padding:50px, 20px, 0, 300px; 
-    margin-top:20px;               
+    display: flex;              
     justify-content: space-around;
-    margin-left: 80%;
 }
 
 nav .menu li {
@@ -62,7 +77,7 @@ nav .menu a {
     display:block;                
     min-width: 120px;              
     margin: 20px;               
-    padding: 10px;            
+    padding: 1px;            
     text-align: center;            
     text-decoration: none;        
     transition: all 1s ; 
@@ -134,7 +149,13 @@ h2{
 
 @media screen and (max-width: 660px) {
 /* ------------------------------------header----------------------------- */
-    .logo {
+.container{
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.logo {
         width: 30px;
         margin: 10px, 20px, 20px, 20px;
         padding-top:20px;
@@ -149,27 +170,37 @@ h2{
         padding-top: 30px; 
     }
         
-    .mobile {
+    .burger {
         display: block;
-        width:20px;
-        cursor:pointer;
-        margin-left: 75%; 
-        padding: 18px;
+        height:30px;
+        cursor:pointer; 
+        
     }
 
-    img .mobile {
-        display: inline;
+    .burger-div{
+        margin-right: 25px;
+    }
+    
+
+    header{
+        display: block;
+    }
+
+    .menu{
+        flex-direction: column;
     }
 
     header nav {
 		display: none;
-		float: none;
+		/* float: none; */
 	} 
     
 	header a {
 		display: block;
 		text-align: center;
 	}
+
+    
 
     /* ------------------------------------footer----------------------------- */
     footer .information{
