@@ -1,8 +1,5 @@
 
 /*-----------------------------Carousel-----------------------------*/
-* {
-    box-sizing:border-box
-}
 
 /* Le container du carousel */
 .slideshow-container {
@@ -53,13 +50,13 @@
 }
 
   /* Titre des salles */
-.Info {
+.info {
     position: absolute;
     top: 5px;
     width: 100%;
 }
 
-.Info p{
+.info p{
     color: #e3e3e3;
     font-weight: bold;
     padding: 10px 14px;
@@ -358,15 +355,14 @@
 @media only screen 
     and (min-device-width: 320px) 
     and (max-device-width: 568px) 
-    and (-webkit-min-device-pixel-ratio: 2)
-    /*and (orientation: portrait)*/ { 
+    and (-webkit-min-device-pixel-ratio: 2){ 
     
 
     .slideshow-container {
-    height: 1710px;
+    height: 500px;
     }
     .slideshow-container img {
-    height: 1728px;
+    height: 500px;
     object-position: 50% 33%;
     }
 
@@ -378,17 +374,22 @@
         margin: 0;
     }
 
-    .Info p{
+    .info p{
         width: 70%;
-        font-size: 130px;
-        margin: 50% auto 0 auto;
+        font-size: 30px;
+        margin: 20% auto 0 auto;
+    }
+
+    .moreInfo{
+    font-size: 20px;
+    bottom: 38px;
     }
 
     .moreInfo a{
         border: 3px solid #ffffff;
-        margin: 9% auto 13% auto;
-        width: 240px;
-        padding: 34px 6px;
+        margin: 8% auto;
+        width: 165px;
+        padding: 13px 5px;
     }
 
     main{
@@ -396,9 +397,17 @@
         padding: 0;
     }
 
+    .roomTitle{
+        font-size: 30px;
+    }
+
     .shape, .shape2, .shape3, .shape4{
-        height: 430px;
+        height: 210px;
         width: 100%;
+    }
+
+    .align {
+        width: 35%;
     }
 
     .align, .align p, .align h2{
@@ -407,11 +416,30 @@
     }
 
     .align p{
-        padding: 50% 0;
+        font-size: 6px;
+        padding: 8% 0;
+    }
+
+    .shape .align h2{
+        padding: 6px 0;
+    }
+
+    .shape2 .align h2, .shape3 .align h2, .shape4 .align h2{
+        padding: 40px 0 0 0;
+    }
+
+    .icons{
+        margin: 20px 20px;
+        padding: 0;
     }
 
     .square{
         height: 500px;
+    }
+
+    .square p{
+        font-size: 20px;
+        padding: 20px 0;
     }
 
     .question {
@@ -420,8 +448,37 @@
 
     .contact{
         font-size: 40px;
-        padding: 140px;
+        padding: 150px 0 0 0;
+    }
+    .frameMaps{
+        min-width: 180px;
+        width: 270px;
+    }
+    .frameFacebook{
+        min-width: 180px;
+        width: 270px;
     }
 
-
 }
+
+@media only screen 
+    and (min-device-width: 320px) 
+    and (max-device-width: 568px) 
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: landscape) { 
+
+        .info p{
+            margin: 10% auto 0 auto;
+        }
+
+        .slideshow-container {
+            height: 320px;
+        }
+
+        .slideshow-container img {
+            height: 300px;
+            object-position: 50% 33%;
+        }
+
+
+    }

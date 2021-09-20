@@ -38,8 +38,6 @@ Encore
     .addEntry('accueil', './assets/accueil.js')
     .addEntry('profile', './assets/profile.js')
     .addEntry('register', './assets/register.js')
-
-
     .addEntry('menu', './assets/menu.js')
     
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
