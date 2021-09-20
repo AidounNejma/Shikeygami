@@ -29,7 +29,6 @@ class OrderController extends AbstractController
     {
         $order = new Order();
         $order->setDateOfOrder(new \DateTime);
-        $order->setBookedTime(new \DateTime);
         $form = $this->createForm(OrderType::class, $order);
         $form->handleRequest($request);
 

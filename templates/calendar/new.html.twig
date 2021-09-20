@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Shikeygami | Ajouter une partie{% endblock %}
+
+{% block body %}
+    <h1>ajouter une partie</h1>
+
+    {{ include('calendar/_form.html.twig') }}
+
+    <a href="{{ path('calendar_index') }}">Retour à la liste</a>
+{% endblock %}
