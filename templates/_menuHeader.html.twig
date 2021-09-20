@@ -1,0 +1,64 @@
+{% block stylesheets %}
+	{{ encore_entry_link_tags('menu')  }}
+{% endblock %}
+
+{% block javascripts %}
+	{{ encore_entry_script_tags('menu') }}
+{% endblock %}
+
+<body>
+
+
+	<header>
+
+
+		<div class="container">
+			<img class="logo" src="/img/headerFooter/logo.png" alt="logo">
+			<h1>Shikeygami</h1>
+		</div>
+
+		
+		<img class="mobile" src="/img/headerFooter/burger.png" alt="burger">
+		
+		<nav>
+
+			<ul class="menu">
+				<li>
+					<a href="{{ path("user_index") }}">Nos salles</a>
+				</li>
+
+				<li>
+					<a href="{{ path("user_index") }}">Concept</a>
+				</li>
+
+				<li>
+					<a href="{{ path("user_index") }}">EG virtuel</a>
+				</li>
+
+				{% if app.user %}
+					<li>
+						<a href="{{ path("user_index") }}">
+							{{app.user.firstname}}</a>
+					</li>
+
+					<li>
+						<a href="{{ path("app_logout") }}">Déconnexion</a>
+					</li>
+
+				{% else %}
+					<li>
+						<a href="{{ path("app_login") }}">Connexion</a>
+					</li>
+
+					<li>
+						<a href={# "{{ path("app_register") }}" #}>Inscription</a>
+					</li>
+				{% endif %}
+			</ul>
+
+		</nav>
+
+
+	</header>
+
+</body>
