@@ -21,7 +21,7 @@ class GameType extends AbstractType
     {
         $builder
             ->add('title', TypeTextType::class, [
-                "label" => "Titre de la salle",
+                "label" => "Titre du jeu",
                 "required" => true,
                 "constraints" => [
                     new NotBlank([
@@ -31,7 +31,7 @@ class GameType extends AbstractType
             ])
             ->add('room')
             ->add('description', TypeTextType::class, [
-                "label" => "description complete de la salle",
+                "label" => "Description complète du jeu",
                 "required" => true,
                 "constraints" => [
                     new NotBlank([
@@ -40,7 +40,7 @@ class GameType extends AbstractType
                 ]
             ])
             ->add('synopsis', TypeTextType::class, [
-                "label" => "synopsis de la salle",
+                "label" => "Synopsis du jeu",
                 "required" => true,
                 "constraints" => [
                     new NotBlank([

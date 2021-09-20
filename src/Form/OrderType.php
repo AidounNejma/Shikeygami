@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Game;
+use App\Entity\Calendar;
 use App\Entity\Order;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -34,12 +34,8 @@ class OrderType extends AbstractType
                     new GreaterThan(["value" => 1, "message" => "le nombre de joueur doit etre superieur à 1"])
                 ]
             ])
-            ->add('bookedTime', DateTimeType::class, [
-                'label' => 'Date et heure choisie',
-                'widget' => 'single_text',
-            ])
             ->add('paymentStatus', IntegerType::class, [
-                'label' => 'Status du payement'
+                'label' => 'Status du paiement'
             ])
             ->add('user', EntityType::class, [
                 'class' => User::class,
@@ -47,12 +43,6 @@ class OrderType extends AbstractType
                     return $user->getFirstName() . " - " . $user->getLastName() . " - " . $user->getUserIdentifier(); 
                 },
                 'placeholder' => 'Choisir un utilisateur',
-            ])
-            ->add('game', EntityType::class,[
-                "class" => Game::class,
-                "choice_label" => function(Game $game){
-                    return $game->getTitle();
-                },
             ])
         ;
     }
