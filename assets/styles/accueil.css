@@ -64,7 +64,7 @@
     width: 47%;
     text-align: center;
     background-color: rgb(48, 60, 71, 0.5);
-    font-size: 100px;
+    font-size: 70px;
 }
 
 /* Bouton en savoir plus */
@@ -98,7 +98,7 @@
     cursor: pointer;
     height: 16px;
     width: 16px;
-    margin: 0 3px;
+    margin-top: -30px;
     background-color: #acc;
     border-radius: 50%;
     display: inline-block;
@@ -310,6 +310,7 @@
 
 .square p{
     font-size: 30px;
+    padding: 40px;
 }
 
 .question {
@@ -323,14 +324,14 @@
     padding-top: 20px;
 }
 .contact{
-    padding: 170px 195px 0 195px;
+    padding: 100px 195px 0 195px;
 }
 .contactForm{
     padding-top: 30px;
 }
 
 .contactForm form {
-    width: 300px;
+    width: 50%;
     margin: auto;
 }
 
@@ -357,9 +358,9 @@
     resize: none;
 }
 
-.contactForm form .submit {
+.contactForm form #submit {
     width: 125px;
-    height: 63px;
+    height: 40px;
     border: none;
     background-color: #000000;
     font-size: 20px;
@@ -369,7 +370,7 @@
     cursor: pointer;
 }
 
-.contactForm form .submit:hover {
+.contactForm form #submit:hover {
     color: #000000;
     background-color: #ffffff;
     transition: 0.5s;
@@ -398,7 +399,7 @@
     } 
 
 
-/* Portrait */
+/* Iphone 5 portrait & landscape */
 @media only screen 
     and (min-device-width: 320px) 
     and (max-device-width: 568px) 
@@ -503,12 +504,12 @@
         width: 270px;
     }
     .frameFacebook{
-        min-width: 180px;
-        width: 270px;
+        min-width: 150px;
+        width: 200px;
     }
 
 }
-
+/* Iphone 5  landscape corrections */
 @media only screen 
     and (min-device-width: 320px) 
     and (max-device-width: 568px) 
@@ -540,7 +541,7 @@
             margin-top: 10px;
         }
         .square {
-            height: 350px;
+            height: 420px;
         }
 
         .question {
@@ -563,3 +564,41 @@
         }
 
     }
+    /* Ipads portrait & landscape */
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px){
+        .slideshow-container{
+            width: 120%;
+        }
+
+        .moreInfo {
+            bottom: 40px;
+        }
+
+        .info p {
+            width: 56%;
+            font-size: 75px;
+        }
+
+        main{
+            width: 120%;
+            padding: 0;
+        }
+
+        .content {
+            margin: 0 10%;
+        }
+
+        .align, .align p, .align h2{
+            opacity: 1;
+            transform: none;
+        }
+
+        .align p{
+            padding: 70px 0 0 0;
+        }
+    }
+
+    /* Ipads landscape corrections
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+            
+        } */
