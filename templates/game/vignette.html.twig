@@ -1,0 +1,39 @@
+<div>
+	<h4>{{ order.game.title }}</h4>
+
+	<p><img src="{{dossier_images ~ order.game.imageUrl}}" alt="{{order.game.title}}" class="miniature">
+    </p>
+    <div class="centered">
+        <table>
+            <thead>
+                <tr>
+                    <th>Date de réservation</th>
+                    <th>Nombre de participants</th>
+                    <th>Prix Total</th>
+                    <th>Status du payement</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in app.user.orders %}
+                    <tr>
+                        <td>{{ order.bookedTime ? order.bookedTime|date('Y-m-d H:i:s') : '' }}</td>
+                        <td>{{ order.playerQuantity }}</td>
+                        <td>{{ order.totalPrice }}</td>
+                        <td>
+                            {% if order.paymentStatus == 1 %}
+                                Payé
+                            {% else %}
+                                En attente de paiement
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{{ path('order_show', {'id': order.id}) }}">Voir</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+	
+</div>
