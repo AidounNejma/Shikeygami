@@ -18,6 +18,7 @@ Encore
         from: './assets/img',
     //optional target path, relative to the output dir
         to: '../img/[path][name].jpg',
+        to: '../img/[path][name].png'
     /*
     // if versioning is enabled, add the file hash too //to: 'images/[path][name].[hash:8].[ext]',
     // only copy files matching this pattern //pattern: /\.(png|jpg|jpeg)$/
@@ -36,6 +37,8 @@ Encore
     .addEntry('order', './assets/order.js')
     .addEntry('accueil', './assets/accueil.js')
 
+    .addEntry('menu', './assets/menu.js')
+    
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
 
@@ -69,8 +72,8 @@ Encore
         config.corejs = 3;
     })
 
-    // enables Sass/SCSS support
-    //.enableSassLoader()
+    //enables Sass/SCSS support
+    .enableSassLoader()
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
@@ -83,7 +86,9 @@ Encore
     //.enableIntegrityHashes(Encore.isProduction())
 
     // uncomment if you're having problems with a jQuery plugin
-    //.autoProvidejQuery()
+    .autoProvidejQuery()
 ;
 
 module.exports = Encore.getWebpackConfig();
+
+
