@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{parent()}}
+	{{ encore_entry_link_tags('profile') }}
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}}
+	{{ encore_entry_script_tags('profile') }}
+{% endblock %}
+
+{% block title %}Profil Utilisateur{% endblock %}
+
+{% block body %}
+<main>
+		<div class="centered">
+			<h1>Profil de {{app.user.firstname}}</h1>
+		</div>
+		<div class='content'>
+            <h2>Mes réservations en cours</h2>
+            <table>
+				<thead>
+					<tr>
+						<th>Titre de la salle</th>
+						<th>Client</th>
+						<th>Nombre de participants</th>
+						<th>TotalPrice</th>
+						<th>BookedTime</th>
+						<th>PaymentStatus</th>
+						<th>actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for order in app.user.orders %}
+						<tr>
+							<td>{{ app.user.order.id }}</td>
+							<td>{{ app.user.order.game.title }}</td>
+							<td>{{ app.user.order.dateOfOrder ? order.dateOfOrder|date('Y-m-d') : '' }}</td>
+							<td>{{ app.user.order.user.firstname ~ ' ' ~ order.user.firstname }}</td>
+							<td>{{ app.user.order.playerQuantity }}</td>
+							<td>{{ app.user.order.totalPrice }}</td>
+							<td>{{ app.user.order.bookedTime ? order.bookedTime|date('Y-m-d H:i:s') : '' }}</td>
+							<td>{{ app.user.order.paymentStatus }}</td>
+							<td>
+							<a href="{{ path('order_show', {'id': app.user.order.id}) }}">Voir</a>			
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td>Pas de réservation en cours</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+            <h2>Statistiques</h2>
+            <p>Nom: {{app.user.lastname}}</p>
+            <p>Prénom: {{app.user.firstname}}</p>
+            <p>Alias: {{app.user.username}}</p>
+            <p>Inscrit depuis le: {{app.user.dateOfCreation|date('Y-m-d')}}</p>
+        </div>
+</main>
+{% endblock %}

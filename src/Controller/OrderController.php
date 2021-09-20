@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class OrderController extends AbstractController
 {
     #[Route('/', name: 'order_index', methods: ['GET'])]
-    //#[IsGranted("ROLE_ADMIN")]
+    #[IsGranted("ROLE_ADMIN")]
     public function index(OrderRepository $orderRepository): Response
     {
         return $this->render('order/index.html.twig', [
@@ -24,7 +24,7 @@ class OrderController extends AbstractController
     }
 
     #[Route('/new', name: 'order_new', methods: ['GET', 'POST'])]
-    //#[IsGranted("ROLE_ADMIN")]
+    #[IsGranted("ROLE_ADMIN")]
     public function new(Request $request): Response
     {
         $order = new Order();
@@ -56,7 +56,7 @@ class OrderController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'order_edit', methods: ['GET', 'POST'])]
-    //#[IsGranted("ROLE_ADMIN")]
+    #[IsGranted("ROLE_ADMIN")]
     public function edit(Request $request, Order $order): Response
     {
         $form = $this->createForm(OrderType::class, $order);
@@ -75,7 +75,7 @@ class OrderController extends AbstractController
     }
 
     #[Route('/{id}', name: 'order_delete', methods: ['POST'])]
-    //#[IsGranted("ROLE_ADMIN")]
+    #[IsGranted("ROLE_ADMIN")]
     public function delete(Request $request, Order $order): Response
     {
         if ($this->isCsrfTokenValid('delete'.$order->getId(), $request->request->get('_token'))) {
