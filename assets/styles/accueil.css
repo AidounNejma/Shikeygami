@@ -329,10 +329,10 @@ main{
     display: none;
 }
 .facebookLink{
-    padding-top: 20px;
+    padding-top: 10px;
 }
 .googleMaps{
-    padding-top: 50px;
+    padding-top: 20px;
 }
 .contact{
     padding: 170px 195px 0 195px;
@@ -349,7 +349,7 @@ main{
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
     }
-    
+
     @keyframes slideInRight {
     0% {
     -webkit-transform: translateX(100%);

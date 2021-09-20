@@ -35,6 +35,7 @@ Encore
     .addEntry('game', './assets/game.js')
     .addEntry('order', './assets/order.js')
     .addEntry('accueil', './assets/accueil.js')
+    .addEntry('register', './assets/register.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
