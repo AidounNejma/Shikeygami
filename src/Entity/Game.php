@@ -65,18 +65,19 @@ class Game
     private $pricePerPerson;
 
     /**
-     * @ORM\OneToMany(targetEntity=Order::class, mappedBy="game", orphanRemoval=true)
-     */
-    private $orders;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $synopsis;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Calendar::class, mappedBy="game", orphanRemoval=true)
+     */
+    private $calendars;
+
     public function __construct()
     {
         $this->orders = new ArrayCollection();
+        $this->calendars = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -192,36 +193,6 @@ class Game
         return $this;
     }
 
-    /**
-     * @return Collection|Order[]
-     */
-    public function getOrders(): Collection
-    {
-        return $this->orders;
-    }
-
-    public function addOrder(Order $order): self
-    {
-        if (!$this->orders->contains($order)) {
-            $this->orders[] = $order;
-            $order->setGame($this);
-        }
-
-        return $this;
-    }
-
-    public function removeOrder(Order $order): self
-    {
-        if ($this->orders->removeElement($order)) {
-            // set the owning side to null (unless already changed)
-            if ($order->getGame() === $this) {
-                $order->setGame(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getSynopsis(): ?string
     {
         return $this->synopsis;
@@ -230,6 +201,36 @@ class Game
     public function setSynopsis(string $synopsis): self
     {
         $this->synopsis = $synopsis;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Calendar[]
+     */
+    public function getCalendars(): Collection
+    {
+        return $this->calendars;
+    }
+
+    public function addCalendar(Calendar $calendar): self
+    {
+        if (!$this->calendars->contains($calendar)) {
+            $this->calendars[] = $calendar;
+            $calendar->setGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCalendar(Calendar $calendar): self
+    {
+        if ($this->calendars->removeElement($calendar)) {
+            // set the owning side to null (unless already changed)
+            if ($calendar->getGame() === $this) {
+                $calendar->setGame(null);
+            }
+        }
 
         return $this;
     }

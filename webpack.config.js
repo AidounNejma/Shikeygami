@@ -36,6 +36,9 @@ Encore
     .addEntry('game', './assets/game.js')
     .addEntry('order', './assets/order.js')
     .addEntry('accueil', './assets/accueil.js')
+    .addEntry('profile', './assets/profile.js')
+    .addEntry('register', './assets/register.js')
+
 
     .addEntry('menu', './assets/menu.js')
     
