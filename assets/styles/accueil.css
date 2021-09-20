@@ -397,7 +397,7 @@
     transform: translateX(0);
     }
     } 
-
+/******************************************** RESPONSIVE    *****************************************************/
 
 /* Iphone 5 portrait & landscape */
 @media only screen 
@@ -470,10 +470,12 @@
 
     .shape .align h2{
         padding: 6px 0;
+        font-size: 16px;
     }
 
     .shape2 .align h2, .shape3 .align h2, .shape4 .align h2{
         padding: 40px 0 0 0;
+        font-size: 16px;
     }
 
     .icons{
