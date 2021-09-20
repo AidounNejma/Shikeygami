@@ -163,7 +163,7 @@ main{
     z-index:5;
     height: 400px;
     width: 100%;
-    background-image: url("../../public/img/layout/1.jpg");
+    background-image: url("../img/layout/1.jpg");
     background-size: cover;
     shape-margin: 20px;
     shape-outside: polygon(0 0, 100% 0, 100% 120%, 0 85%);
@@ -186,7 +186,7 @@ main{
     top: -60px;
     height: 400px;
     width: 100%;
-    background-image: url("../../public/img/layout/2.jpg");
+    background-image: url("../img/layout/2.jpg");
     background-size: cover;
     shape-margin: 20px;
     shape-outside: polygon(0 0, 100% 0, 100% 85%, 0 100%);
@@ -208,7 +208,7 @@ main{
     top: -120px;
     height: 400px;
     width: 100%;
-    background-image: url("../../public/img/layout/3.jpg");
+    background-image: url("../img/layout/3.jpg");
     background-size: cover;
     shape-margin: 20px;
     shape-outside: polygon(0 0, 100% 0, 100% 120%, 0 85%);
@@ -231,7 +231,7 @@ main{
     top: -180px;
     height: 400px;
     width: 100%;
-    background-image: url("../../public/img/layout/4.jpg");
+    background-image: url("../img/layout/4.jpg");
     background-size: cover;
     shape-outside: polygon(0 0, 100% 0, 100% 120%, 0 85%);
     clip-path: polygon(0 0%, 100% 15%, 100% 100%, 0 100%);

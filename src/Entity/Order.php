@@ -29,11 +29,6 @@ class Order
     private $totalPrice;
 
     /**
-     * @ORM\Column(type="datetime")
-     */
-    private $bookedTime;
-
-    /**
      * @ORM\Column(type="integer")
      */
     private $paymentStatus;
@@ -45,15 +40,14 @@ class Order
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Game::class, inversedBy="orders")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $game;
-
-    /**
      * @ORM\Column(type="integer")
      */
     private $player_quantity;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Calendar::class, mappedBy="booked", cascade={"persist", "remove"})
+     */
+    private $calendar;
 
     public function getId(): ?int
     {
@@ -84,18 +78,6 @@ class Order
         return $this;
     }
 
-    public function getBookedTime(): ?\DateTimeInterface
-    {
-        return $this->bookedTime;
-    }
-
-    public function setBookedTime(\DateTimeInterface $bookedTime): self
-    {
-        $this->bookedTime = $bookedTime;
-
-        return $this;
-    }
-
     public function getPaymentStatus(): ?int
     {
         return $this->paymentStatus;
@@ -120,18 +102,6 @@ class Order
         return $this;
     }
 
-    public function getGame(): ?Game
-    {
-        return $this->game;
-    }
-
-    public function setGame(?Game $game): self
-    {
-        $this->game = $game;
-
-        return $this;
-    }
-
     public function getPlayerQuantity(): ?int
     {
         return $this->player_quantity;
@@ -140,6 +110,28 @@ class Order
     public function setPlayerQuantity(int $player_quantity): self
     {
         $this->player_quantity = $player_quantity;
+
+        return $this;
+    }
+
+    public function getCalendar(): ?Calendar
+    {
+        return $this->calendar;
+    }
+
+    public function setCalendar(?Calendar $calendar): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($calendar === null && $this->calendar !== null) {
+            $this->calendar->setBooked(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($calendar !== null && $calendar->getBooked() !== $this) {
+            $calendar->setBooked($this);
+        }
+
+        $this->calendar = $calendar;
 
         return $this;
     }
