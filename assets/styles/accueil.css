@@ -54,7 +54,6 @@
 
   /* Titre des salles */
 .Info {
-    font-size: 50px;
     position: absolute;
     top: 5px;
     width: 100%;
@@ -64,10 +63,11 @@
     color: #e3e3e3;
     font-weight: bold;
     padding: 10px 14px;
-    margin: 54px auto 0 auto;
-    width: 300px;
+    margin: 4% auto 0 auto;
+    width: 47%;
     text-align: center;
     background-color: rgb(48, 60, 71, 0.5);
+    font-size: 100px;
 }
 
 /* Bouton en savoir plus */
@@ -129,8 +129,10 @@
 
 /*----------------------------- Main -----------------------------*/
 main{
-    background: linear-gradient(180deg, rgba(31,31,31,1) 0%, rgba(47,47,47,1) 100%);
     padding: 15px 0;
+    background-image: url("../img/backgrounds/accueil.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .content{
     /* offset-x | offset-y | blur-radius | spread-radius | color */
@@ -146,8 +148,8 @@ main{
 .roomTitle{
     color: white;
     font-weight: 300;
-    font-size: 50px;
-    padding: 10px 0;
+    font-size: 60px;
+    padding: 20px 0;
 }
 .shape, .shape2, .shape3, .shape4, a{
     display: flex;
@@ -165,7 +167,7 @@ main{
     z-index:5;
     height: 400px;
     width: 100%;
-    background-image: url("../../public/img/layout/1.jpg");
+    background-image: url("../img/layout/1.jpg");
     background-size: cover;
     shape-margin: 20px;
     shape-outside: polygon(0 0, 100% 0, 100% 120%, 0 85%);
@@ -188,7 +190,7 @@ main{
     top: -60px;
     height: 400px;
     width: 100%;
-    background-image: url("../../public/img/layout/2.jpg");
+    background-image: url("../img/layout/2.jpg");
     background-size: cover;
     shape-margin: 20px;
     shape-outside: polygon(0 0, 100% 0, 100% 85%, 0 100%);
@@ -216,7 +218,7 @@ main{
     top: -120px;
     height: 400px;
     width: 100%;
-    background-image: url("../../public/img/layout/3.jpg");
+    background-image: url("../img/layout/3.jpg");
     background-size: cover;
     shape-margin: 20px;
     shape-outside: polygon(0 0, 100% 0, 100% 120%, 0 85%);
@@ -239,7 +241,7 @@ main{
     top: -180px;
     height: 400px;
     width: 100%;
-    background-image: url("../../public/img/layout/4.jpg");
+    background-image: url("../img/layout/4.jpg");
     background-size: cover;
     shape-outside: polygon(0 0, 100% 0, 100% 120%, 0 85%);
     clip-path: polygon(0 0%, 100% 15%, 100% 100%, 0 100%);
@@ -295,12 +297,16 @@ main{
 }
 
 /* CONTACT*/
+.contactSection{
+    margin-top: -138px;
+}
 .icons{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     text-align: center;
     margin: 30px 80px;
+    padding: 20px;
 }
 
 .icons a{
@@ -316,7 +322,7 @@ main{
 
 .square{
     width: 100%;
-    height: 400px;
+    height: 450px;
     margin-top: 30px;
     margin-bottom: 20px;
     background-color:#201f1f;
@@ -328,9 +334,7 @@ main{
 .facebookLink, .googleMaps, .contact, .contactForm{
     display: none;
 }
-.facebookLink{
-    padding-top: 10px;
-}
+
 .googleMaps{
     padding-top: 20px;
 }
@@ -363,3 +367,69 @@ main{
     } 
 
 
+/* Portrait */
+@media only screen 
+    and (min-device-width: 320px) 
+    and (max-device-width: 568px) 
+    and (-webkit-min-device-pixel-ratio: 2)
+    /*and (orientation: portrait)*/ { 
+    
+
+    .slideshow-container {
+    height: 1710px;
+    }
+    .slideshow-container img {
+    height: 1728px;
+    object-position: 50% 33%;
+    }
+
+    .dots{
+        margin: -70px 0 0 0;
+    }
+
+    .content{
+        margin: 0;
+    }
+
+    .Info p{
+        width: 70%;
+        font-size: 130px;
+        margin: 50% auto 0 auto;
+    }
+
+    .moreInfo a{
+        border: 3px solid #ffffff;
+        margin: 9% auto 13% auto;
+        width: 240px;
+        padding: 34px 6px;
+    }
+
+    main{
+        margin: 0;
+        padding: 0;
+    }
+
+    .shape, .shape2, .shape3, .shape4{
+        height: 430px;
+        width: 100%;
+    }
+
+    .align, .align p, .align h2{
+        opacity: 1;
+    }
+
+    .square{
+        height: 500px;
+    }
+
+    .question {
+        font-size: 40px;
+    }
+
+    .contact{
+        font-size: 40px;
+        padding: 140px;
+    }
+
+
+}
