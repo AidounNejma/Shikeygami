@@ -1,7 +1,7 @@
  import'./styles/menu.css';
 
 
-        var burger = document.getElementsByClassName('mobile');
+        var burger = document.getElementsByClassName('burger');
         console.log(burger);
 
         var maNav =document.getElementsByTagName('nav');
