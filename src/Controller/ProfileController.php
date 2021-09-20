@@ -13,6 +13,7 @@ class ProfileController extends AbstractController
     #[IsGranted("ROLE_USER")]
     public function index(): Response
     {
-        return $this->render('profile/index.html.twig');
+        return $this->render('profile/index.html.twig'
+        );
     }
 }

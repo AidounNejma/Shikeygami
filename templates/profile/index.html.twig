@@ -33,12 +33,12 @@
 							<td>Pas de réservation en cours</td>
 						</tr>
 					{% endfor %}
-				
-            
 
             <h2>Statistiques</h2>
-            <p>Nombre de salles jouées: </p>
-            <p>Taux de victoire: </p>
+            <p>Nombre de salles jouées:
+            {{app.user.orders|length}}
+            </p>
+            <p>Taux de victoire: {{app.user.orders|length * 5}}%</p>{#completion * nbGame /100 %#}
             
             <h2>Statistiques par salle</h2>
             <h3>Nom de la salle et image</h3>
