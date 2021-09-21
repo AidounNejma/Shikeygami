@@ -10,6 +10,10 @@
     font-family: 'Nunito', sans-serif;
 }
 
+.centered h1{
+    margin: 3% 0 9% 0;
+}
+
 .flip-card {
     /* on indique les dimensions de la carte, ici je les adapte à la taille de ma photo recorder*/
     background-color: transparent; /* transparent pour ne pas avoir de fond au moment du flip */
@@ -17,7 +21,7 @@
     height: 400px;
     border-radius: 20px;
     perspective: 2000px;
-    margin: 15px 0 15px 0;
+    margin-bottom: 7%;
      /* Pour l'effet 3D des coins qui débordent, plus la valeur est faible plus l'elasticité est grande */
 }
 
@@ -197,6 +201,9 @@ article p{
             padding: 8%;
         }
 
+        .roomTitle {
+            margin: 18% 18%;
+        }
         /* SLIDER */
         
 
@@ -207,10 +214,80 @@ article p{
 
     }
 
-
+/*IPHONE*/
 @media only screen 
     and (min-device-width: 320px) 
     and (max-device-width: 568px) 
     and (orientation: landscape) { 
+        .flip-card {
+            height: 300px;
+        }
+        .front-flip {
+            height: 300px;
+        }
+        .roomTitle {
+            margin: 8% 18%;
+        }
 
+        .summary {
+            padding: 0 5%;
+            margin: 0;
+        }
+
+        .icons{
+            padding: 1% 4%;
+        }
+
+        .userMin, .userMax, .master, .duration, .price {
+            margin: 10% 0% 0% -9%;
+        }
     }
+
+    /*IPAD*/
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px){ 
+    .content {
+        margin: 0;
+    }
+    .roomTitle {
+        margin: 35% 18%;
+    }
+
+    .titleBack {
+        font-size: 40px;
+    }
+
+    .icons {
+        font-size: 23px;
+        padding: 0 18% 3% 18%;
+    }
+
+    .summary {
+        padding: 1% 0 2% 0;
+        font-size: 18px;
+    }
+
+    article p {
+        margin: 0;
+    }
+
+    article a {
+        margin: 8px auto 0 auto;
+        width: 148px;
+        font-size: 26px;
+    }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+    .flip-card {
+        height: 500px;
+    }
+    .front-flip {
+        height: 500px;
+    }
+
+    .summary {
+        padding: 4%;
+        font-size: 20px;
+    }
+
+}
