@@ -15,7 +15,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for order in app.user.orders %}
+                
                     <tr>
                         <td>{{ order.dateOfOrder ? order.dateOfOrder|date('Y-m-d H:i:s') : '' }}</td>
                         <td>{{ order.playerQuantity }}</td>
@@ -29,8 +29,9 @@
                         </td>
                     </tr>
                     <button><a href="{{ path('game_show', {'id': order.calendar.game.id}) }}">Voir</a></button>
+                    <button><a href="{{ path('order_delete', {'id': order.id}) }}">Annuler ma réservation</a></button>
 
-                {% endfor %}
+                
             </tbody>
         </table>
     </div>

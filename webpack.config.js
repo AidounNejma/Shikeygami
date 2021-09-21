@@ -40,6 +40,7 @@ Encore
     .addEntry('register', './assets/register.js')
     .addEntry('menu', './assets/menu.js')
     .addEntry('concept', './assets/concept.js')
+    .addEntry('panier', './assets/panier.js')
     
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
