@@ -42,7 +42,7 @@
 							<td>{{ order.user.firstname ~ ' ' ~ order.user.firstname }}</td>
 							<td>{{ order.playerQuantity }}</td>
 							<td>{{ order.totalPrice }}</td>
-							<td>{{ order.bookedTime ? order.bookedTime|date('Y-m-d H:i:s') : '' }}</td>
+							{# <td>{{ order.calendar.bookedTime ? order.calendar.bookedTime|date('Y-m-d H:i:s') : '' }}</td> #}
 							<td>{{ order.paymentStatus }}</td>
 							<td>
 								<a href="{{ path('order_show', {'id': order.id}) }}">Voir</a>

@@ -1,7 +1,7 @@
 <div>
-	<h4>{{ order.game.title }}</h4>
+	<h4>{{ order.calendar.game.title }}</h4>
 
-	<p><img class="vignetteImg" src="{{dossier_images ~ order.game.imageUrl}}" alt="{{order.game.title}}" class="miniature">
+	<p><img class="vignetteImg" src="{{dossier_images ~ order.calendar.game.imageUrl}}" alt="{{order.calendar.game.title}}" class="miniature">
     </p>
     <div class="centered">
         <table>
@@ -17,7 +17,7 @@
             <tbody>
                 {% for order in app.user.orders %}
                     <tr>
-                        <td>{{ order.bookedTime ? order.bookedTime|date('Y-m-d H:i:s') : '' }}</td>
+                        <td>{{ order.dateOfOrder ? order.dateOfOrder|date('Y-m-d H:i:s') : '' }}</td>
                         <td>{{ order.playerQuantity }}</td>
                         <td>{{ order.totalPrice }}</td>
                         <td>
@@ -27,10 +27,9 @@
                                 En attente de paiement
                             {% endif %}
                         </td>
-                        <td>
-                            <a href="{{ path('order_show', {'id': order.id}) }}">Voir</a>
-                        </td>
                     </tr>
+                    <button><a href="{{ path('game_show', {'id': order.calendar.game.id}) }}">Voir</a></button>
+
                 {% endfor %}
             </tbody>
         </table>
