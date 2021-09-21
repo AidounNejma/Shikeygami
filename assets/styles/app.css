@@ -23,6 +23,13 @@ a{
 }
 
 /********************** *****************************/
+body{
+    margin: 0;
+    box-sizing: border-box; 
+    width: 100vw;
+    background-color: #312f2f;
+    font-family: 'Nunito', sans-serif;
+}
 
 main{
     padding: 15px 0;
