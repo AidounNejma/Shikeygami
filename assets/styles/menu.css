@@ -146,23 +146,103 @@ footer h2{
 }
 
   /* ----------------------------------------RESPONSIVE--------------------------- */
+            /* -------------------------------IPHONE------------------------- */
 
-@media screen and (max-width: 660px) {
+@media only screen 
+    and (min-device-width : 320px)
+    and (max-device-width : 568px)
+    {
 /* ------------------------------------header----------------------------- */
-.container{
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-}
+    .container{
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        }
 
-.logo {
+    .logo {
         width: 30px;
         margin: 10px, 20px, 20px, 20px;
         padding-top:20px;
         padding-bottom: 20px;
-    }
+        }
     
     header h1{
+        font-family:'sinisuka-webfont.woff', sans-serif;
+        text-transform: uppercase;
+        color: #ffffff;
+        font-size: 10px; 
+        padding-top: 30px; 
+    }
+        
+    .burger{
+        display: block;
+        height:30px;
+        cursor:pointer;  
+    }
+
+    .burger-div{
+        margin-right: 25px;
+    }
+    
+
+    header{
+        display: block;
+    }
+
+    .menu{
+        flex-direction: column;
+    }
+
+    header nav {
+		display: none;
+		/* float: none; */
+	} 
+    
+	header a {
+		display: block;
+		text-align: center;
+	}
+
+    /* ------------------------------------footer----------------------------- */
+    footer .information{
+		display: block;
+        width: 100%;
+		margin: 30px 0;
+        text-align: center;
+	}
+
+    @media (orientation: landscape) {
+        header footer{
+        flex-direction: row;
+        }
+    }
+
+    @media (orientation: portrait) {
+        header footer {
+        flex-direction: column;
+        }
+    }
+}
+    
+
+/* -------------------------------IPAD------------------------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px){
+
+    /* ------------------------------------header----------------------------- */
+    .container{
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        }
+    
+    .logo {
+        width: 30px;
+        margin: 10px, 20px, 20px, 20px;
+        padding-top:20px;
+        padding-bottom: 20px;
+        }
+        
+    h1{
         font-family:'sinisuka-webfont.woff', sans-serif;
         text-transform: uppercase;
         color: #ffffff;
@@ -191,23 +271,34 @@ footer h2{
     }
 
     header nav {
-		display: none;
-		/* float: none; */
-	} 
+        display: none;
+        /* float: none; */
+    } 
     
-	header a {
-		display: block;
-		text-align: center;
-	}
-
-    
-
-    /* ------------------------------------footer----------------------------- */
-    footer .information{
-		display: block;
-        width: 100%;
-		margin: 30px 0;
+    header a {
+        display: block;
         text-align: center;
-	}
+    }
+        /* ------------------------------------footer----------------------------- */
+    footer .information{
+        display: block;
+        width: 100%;
+        margin: 30px 0;
+        text-align: center;
+    }
+
+    @media (orientation: landscape) {
+        header footer{
+        flex-direction: row;
+        }
+    }
     
-} 
+    @media (orientation: portrait) {
+        header footer {
+        flex-direction: column;
+        }
+    }
+}
+    
+
+
