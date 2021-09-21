@@ -79,4 +79,5 @@ class CalendarController extends AbstractController
 
         return $this->redirectToRoute('calendar_index', [], Response::HTTP_SEE_OTHER);
     }
+
 }

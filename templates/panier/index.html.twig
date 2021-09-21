@@ -24,13 +24,13 @@
     </tr>
 
     
-    {% for calendar in panier %}
+    {% for reservation in panier %}
         <tr> 
-        <td>{{calendar.startTime}}</td>
-            {# <td>{{calendar.game.title}}</td>
-            <td>{{calendar.startTime ~ calendar.endTime }} </td>
-            <td>{{calendar.booked.playerQuantity}}</td>
-            <td>{{calendar.booked.totalPrice}}</td> #}
+            <td>{{reservation.calendar.id}}</td>
+            <td>{{reservation.order.calendar.game.title}}</td>
+            <td>{{reservation.calendar.startTime|date() ~ reservation.calendar.endTime|date() }} </td>
+            <td>{{reservation.calendar.booked.playerQuantity}}</td>
+            <td>{{reservation.calendar.booked.totalPrice}}</td>
         </tr>
     {% endfor %}
     
