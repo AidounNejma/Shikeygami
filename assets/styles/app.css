@@ -12,14 +12,7 @@
     text-align: center;
     margin: auto;
 }
-/*-----------------------------Header-----------------------------*/
 
-header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #312f2f;
-}
 h1, h2, h3, p, div{
     color: white;
     font-family: 'Nunito', sans-serif;
@@ -27,37 +20,6 @@ h1, h2, h3, p, div{
 
 a{
     text-decoration: none;
-}
-
-
-.logo{
-    width: 80px;
-    margin: 0 2%;
-}
-.brand{
-    display: flex;
-    align-items: center;
-    margin: 0 20px;
-    width: 40%;
-}
-.menu{
-    display: flex;
-    align-items: center;
-    margin: 0 20px;
-
-}
-.menu h2{
-    color: white;
-    padding: 20px 30px;
-    margin: 20px 0;
-    font-family: 'Merriweather', serif;
-    font-weight: 300;
-    font-size: large;
-}
-.delimitationY{
-width: 4px;
-height: 20px;
-background-color: black;
 }
 
 /********************** *****************************/

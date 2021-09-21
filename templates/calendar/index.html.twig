@@ -1,39 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Calendar index{% endblock %}
+{% block title %}Calendar index
+{% endblock %}
 
 {% block body %}
-    <h1>Calendar index</h1>
+	<h1>Calendar index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>StartTime</th>
-                <th>EndTime</th>
-                <th>Booked</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for calendar in calendars %}
-            <tr>
-                <td>{{ calendar.id }}</td>
-                <td>{{ calendar.startTime ? calendar.startTime|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ calendar.endTime ? calendar.endTime|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ calendar.booked ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a href="{{ path('calendar_show', {'id': calendar.id}) }}">show</a>
-                    <a href="{{ path('calendar_edit', {'id': calendar.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Jeu</th>
+				<th>StartTime</th>
+				<th>EndTime</th>
+				<th>Booked</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for calendar in calendars %}
+				<tr>
+					<td>{{ calendar.id }}</td>
+					<td>{{ calendar.game.title }}</td>
+					<td>{{ calendar.startTime ? calendar.startTime|date('Y-m-d H:i:s') : '' }}</td>
+					<td>{{ calendar.endTime ? calendar.endTime|date('Y-m-d H:i:s') : '' }}</td>
+					<td>{{ calendar.booked ? 'Yes' : 'No' }}</td>
+					<td>
+						<a href="{{ path('calendar_show', {'id': calendar.id}) }}">Voir</a>
+						<a href="{{ path('calendar_edit', {'id': calendar.id}) }}">editer</a>
+					</td>
+                    <td>
+					<form method="GET" action="{{ path("panier_add", { id: calendar.id }) }}">
+						
+						<input type="number" name="playerQuantity" value="{{ calendar.game.minPlayers }}" min="{{ calendar.game.minPlayers }}" max="{{ calendar.game.maxPlayers }}">
+						<select name="user" id="">
+							<option value="{{ app.user.username }}">{{ app.user.username }}</option>
+						</select>
+						<button>
+							<i class="fa fa-cart-plus">Réserver cette horaire</i>
+						</button>
+					</form>
+                    </td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 
-    <a href="{{ path('calendar_new') }}">Create new</a>
+	<a href="{{ path('calendar_new') }}">Create new</a>
 {% endblock %}

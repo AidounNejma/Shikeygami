@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{parent()}}
+	{{ encore_entry_link_tags('panier') }}
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}}
+	{{ encore_entry_script_tags('panier') }}
+{% endblock %}
+
+{% block title %}Votre panier{% endblock %}
+
+{% block body %}
+<h2>Mon panier</h2>
+{% if panier is not null %}
+<table>
+    <tr>
+        <th>Jeu</th>
+        <th>Horaire</th>
+        <th>Nombre de joueurs</th>
+        <th>Prix</th>
+    </tr>
+
+    
+    {% for reservation in panier %}
+        <tr> 
+            <td>{{reservation.calendar.id}}</td>
+            <td>{{reservation.order.calendar.game.title}}</td>
+            <td>{{reservation.calendar.startTime|date() ~ reservation.calendar.endTime|date() }} </td>
+            <td>{{reservation.calendar.booked.playerQuantity}}</td>
+            <td>{{reservation.calendar.booked.totalPrice}}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>Votre panier est vide</p>
+{% endif %}
+
+    
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
