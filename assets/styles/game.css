@@ -2,9 +2,6 @@
     text-align: center;
     margin: auto;
 }
-.ImageFront{
-    height: 100%;
-}
 
 .content h2, .content p, .content a {
     font-family: 'Nunito', sans-serif;
@@ -49,6 +46,7 @@
     backface-visibility: hidden;
 }
 
+
 .front-flip {
     background-color: transparent;
     justify-content: center;
@@ -56,6 +54,10 @@
     width: 100%;
     border-radius: 20px;
     border: solid #000000;
+}
+.front-flip .image{
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .roomTitle {
@@ -86,11 +88,6 @@
     color: white;
     transform: rotateY(180deg);
     border: solid #000000;
-}
-
-.image{
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .icons{
@@ -166,10 +163,11 @@ article p{
         .content {
             margin: 0 0%;
         }
-        .carousel .roomTitle {
-            font-size: 25px;
+        .front-flip .roomTitle {
+            font-size: 33px;
             padding: 0% 0%;
             text-align: center;
+            margin: 18% 18%;
         }
 
         .front-flip {
@@ -181,7 +179,7 @@ article p{
         }
 
         .content h1{
-            font-size: 20px;
+            font-size: 28px;
         }
 
         .icons {
@@ -202,15 +200,6 @@ article p{
         .summary {
             padding: 8%;
         }
-
-        .roomTitle {
-            margin: 18% 18%;
-        }
-        /* SLIDER */
-        
-
-
-
 
 
 
