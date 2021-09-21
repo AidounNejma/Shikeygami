@@ -2,42 +2,56 @@
   
 
 
-  /* Formulaire */
-  .content{
-      display: flex;
-      align-items: center;
-      padding-block: 10px;
-  }
-  .content-title{
-      padding-bottom: 10px;
-  }
+/* Formulaire */
+.content{
+    align-items: center;
+    padding-block: 10px;
+}
+.content-title{
+    padding-bottom: 10px;
+}
 
-  input{
-      display: block;
-      padding: 10px;
-  }
-
-  /* Infos légales */
-
-  .legal{
-      font-size: 15px;
-      font-style: italic;
-  }
-  .legal-link{
-      font-weight: 700;
-  }
-
-  /* Animations du bouton */
-  .btn-anim {
+.formulaire{
+    display: flex;
+    flex-direction: column;
     width: fit-content;
-    transform: rotatex(10deg);
-    -webkit-animation: rotateAngle 6s linear infinite;
-            animation: rotateAngle 6s linear infinite;
-  }
-  
-  .btn {
+}
+.formulaire-terms{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+input{
     display: block;
-    position: relative;
+    padding: 10px;
+}
+
+.formulaire,
+.formulaire-terms, 
+input{
+    margin: auto;
+}
+
+
+/* Infos légales */
+
+.legal{
+    font-size: 15px;
+    font-style: italic;
+}
+.legal-link{
+    font-weight: 700;
+}
+
+/* Design bouton */
+.btn-anim {
+    width: fit-content;
+    margin: auto;
+}
+
+.btn {
+    display: block;
     margin: 0.5em 0;
     padding: 0.8em 2.2em;
     cursor: pointer;
@@ -49,12 +63,56 @@
     font-family: "Nunito", sans-serif;
     font-weight: 500;
     letter-spacing: 0.04em;
-  }
-  .btn:hover {
+}
+.btn:hover {
     color: #d53648;
     background: #312f2f;
     font-weight: 700;
     transition: 0.5s 0.1s;
-  }
+}
 
-  
+@media only screen 
+    and (min-device-width: 320px) 
+    and (max-device-width: 568px) 
+    and (-webkit-min-device-pixel-ratio: 2){
+        .content{
+            margin: 0;
+        }
+    } 
+@media only screen 
+    and (min-device-width: 320px) 
+    and (max-device-width: 568px) 
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: landscape){
+        .content{
+            margin: 0;
+        }
+        .formulaire{
+            flex-direction: row;
+            gap: 50px;
+            align-items: center;
+        }
+
+    }
+@media only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px){
+        main{
+            width: 120%;
+        }
+        .content{
+            margin: 0;
+        }
+    }
+    @media only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px)
+    and (orientation: landscape){
+        .formulaire{
+            flex-direction: row;
+            gap: 120px;
+            align-items: center;
+            margin: 0;
+        }
+        
+    }

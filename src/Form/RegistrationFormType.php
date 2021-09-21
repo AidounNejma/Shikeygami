@@ -31,6 +31,7 @@ class RegistrationFormType extends AbstractType
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
+                'label' => 'Choisir un mot de passe *',
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
@@ -58,7 +59,7 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Choisir un pseudo *'
             ])
             ->add('agreeTerms', CheckboxType::class, [
-                'label' => 'Vous certifiez avoir pris connaissance des conditions d\'utilisation de nos site **',
+                'label' => 'Vous certifiez avoir pris connaissance des conditions d\'utilisation de nos services **',
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
