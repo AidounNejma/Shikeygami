@@ -19,7 +19,7 @@
 		</div>
 		<div class='content'>
 
-			<table class="table">
+			<table>
 				<tbody>
 					<tr>
 						<th>Id</th>
@@ -32,10 +32,6 @@
 					<tr>
 						<th>TotalPrice</th>
 						<td>{{ order.totalPrice }}</td>
-					</tr>
-					<tr>
-						<th>BookedTime</th>
-						<td>{{ order.bookedTime ? order.bookedTime|date('Y-m-d H:i:s') : '' }}</td>
 					</tr>
 					<tr>
 						<th>PaymentStatus</th>

@@ -44,6 +44,11 @@ class OrderType extends AbstractType
                 },
                 'placeholder' => 'Choisir un utilisateur',
             ])
+            ->add('calendar', EntityType::class, [
+                'class' => Calendar::class,
+                'choice_label' => 'id',
+                'placeholder' => 'Choisir un calendrier'
+            ])
         ;
     }
 
