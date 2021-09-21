@@ -1,4 +1,4 @@
- import'./styles/menu.css';
+import'./styles/menu.css';
 
 
         var burger = document.getElementsByClassName('burger');

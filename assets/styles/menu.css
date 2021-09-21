@@ -36,7 +36,7 @@ header{
     padding-bottom: 20px;
 }
 
-h1{
+header h1{
     font-family:'sinisuka-webfont.woff', sans-serif;
     text-transform: uppercase;
     color: #ffffff;
@@ -44,7 +44,7 @@ h1{
     padding-top: 50px;   
 }
 
-div a{
+header div a{
     text-decoration: none;
     color: #ffffff;
 }
@@ -59,21 +59,21 @@ div a{
 } 
 
 
-nav{
+header nav{
     display: flex;
 }
 
 
-nav .menu {
+header nav .menu {
     display: flex;              
     justify-content: space-around;
 }
 
-nav .menu li {
+header nav .menu li {
     list-style-type: none ;       
 }
 
-nav .menu a {
+header nav .menu a {
     display:block;                
     min-width: 120px;              
     margin: 20px;               
@@ -84,7 +84,7 @@ nav .menu a {
     color: #ffffff;         
 }
 
-nav .menu a:hover {    
+header nav .menu a:hover {    
     color: #d53648;
 }
 
@@ -108,7 +108,7 @@ footer{
 }
 
 
-h2{
+footer h2{
     font-family:'sinisuka-webfont.woff';
     text-transform: uppercase;
     color: #ffffff;
@@ -162,7 +162,7 @@ h2{
         padding-bottom: 20px;
     }
     
-    h1{
+    header h1{
         font-family:'sinisuka-webfont.woff', sans-serif;
         text-transform: uppercase;
         color: #ffffff;

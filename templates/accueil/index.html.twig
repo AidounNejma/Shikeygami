@@ -1,18 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Accueil
+{% endblock %}
 
 {% block stylesheets %}
-    {{parent()}}
-    {{ encore_entry_link_tags("accueil") }}
+	{{parent()}}
+	{{ encore_entry_link_tags("accueil") }}
 {% endblock %}
 
 {% block javascripts %}
-    {{parent()}}
-    {{ encore_entry_script_tags("accueil") }}
-    <!-- Script facebook (à revoir car pas fonctionnel) -->
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v12.0" nonce="vaP0xXZz"></script>
+	{{parent()}}
+	{{ encore_entry_script_tags("accueil") }}
+	<!-- Script facebook (à revoir car pas fonctionnel) -->
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v12.0" nonce="vaP0xXZz"></script>
 {% endblock %}
 
 
@@ -171,4 +172,3 @@
 
 </main>
 {% endblock %}
-
