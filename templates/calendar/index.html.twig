@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Jeu</th>
                 <th>StartTime</th>
                 <th>EndTime</th>
                 <th>Booked</th>
@@ -19,6 +20,7 @@
         {% for calendar in calendars %}
             <tr>
                 <td>{{ calendar.id }}</td>
+                <td>{{ calendar.game.title }}</td>
                 <td>{{ calendar.startTime ? calendar.startTime|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ calendar.endTime ? calendar.endTime|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ calendar.booked ? 'Yes' : 'No' }}</td>

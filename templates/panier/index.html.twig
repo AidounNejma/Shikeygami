@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{parent()}}
+	{{ encore_entry_link_tags('panier') }}
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}}
+	{{ encore_entry_script_tags('panier') }}
+{% endblock %}
+
+{% block title %}Votre panier{% endblock %}
+
+{% block body %}
+<h2>Mon panier</h2>
+
+<table>
+    <tr>
+        <th>Jeu</th>
+        <th>Horaire</th>
+        <th>Nombre de joueurs</th>
+        <th>Prix</th>
+    </tr>
+
+    
+    {% for calendar in panier %}
+        <tr> 
+        <td>{{calendar.startTime}}</td>
+            {# <td>{{calendar.game.title}}</td>
+            <td>{{calendar.startTime ~ calendar.endTime }} </td>
+            <td>{{calendar.booked.playerQuantity}}</td>
+            <td>{{calendar.booked.totalPrice}}</td> #}
+        </tr>
+    {% endfor %}
+    
+
+
+</table>
+
+
+
+
+
+
+
+{% endblock %}
