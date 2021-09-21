@@ -6,5 +6,201 @@
     margin: auto;
 }
 .ImageFront{
-    height: 100px;
+    height: 100%;
 }
+
+.content h2, .content p, .content a {
+    font-family: 'Nunito', sans-serif;
+}
+
+.flip-card {
+    /* on indique les dimensions de la carte, ici je les adapte à la taille de ma photo recorder*/
+    background-color: transparent; /* transparent pour ne pas avoir de fond au moment du flip */
+    width: 100%; /* 32% car 3 carte. On fait en sorte que le total ne dépasse pas 98% */
+    height: 350px;
+    border-radius: 20px;
+    perspective: 2000px;
+    margin: 15px 0 15px 0;
+     /* Pour l'effet 3D des coins qui débordent, plus la valeur est faible plus l'elasticité est grande */
+}
+
+.inner-flip {
+    position: relative;
+    background-color: transparent;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: 0 0 6px 12px rgb(0 0 0 / 35%);
+}
+
+.flip-card:hover .inner-flip { /* on flip la card avec une pseudo classe */
+    transform: rotateY(180deg);
+}
+/* à cette étape la photo et le texte sont l'un au dessus de l'autre et flip ensemble */
+/* on va positionner le texte et la photo dos à dos */
+.front-flip, .back-flip {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.front-flip {
+    background-color: transparent;
+    justify-content: center;
+    height: 350px;
+    width: 100%;
+    border-radius: 20px;
+    border: solid #000000;
+}
+
+.roomTitle {
+    color: #ffffff;
+    font-size: 38px;
+    padding: 3% 6%;
+    margin: 26% 18%;
+    width: 65%;
+    background-color: #0000008f;
+}
+
+.titleBack{
+    padding: 0;
+    margin: 6px;
+    color: #ffffff;
+    font-size: 35px;
+}
+
+
+.back-flip{
+    justify-content: center;
+    overflow: auto;
+    width: 100%;
+    padding: 8px 0;
+    word-wrap: break-word;
+    border-radius: 20px;
+    background-color: transparent;
+    color: white;
+    transform: rotateY(180deg);
+    border: solid #000000;
+}
+
+.image{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.icons{
+    display: flex;
+    font-size: 14px;
+    justify-content: space-evenly;
+    padding: 0 20% 2% 20%;
+}
+
+.wrap{
+    display: flex;
+    flex-direction: column;
+    padding: 0 5%;
+}
+
+.wrap:hover{
+    color: #792020;
+    transition: 0.9s;
+}
+
+.summary{
+    padding: 1% 0 4% 0;
+}
+
+.fas{
+    font-size: 25px;
+}
+
+article a{
+    color: #ffffff;
+    background-color: transparent;
+    text-decoration: none;
+    border: 1px solid #ffffff;
+    display: block;
+    /* Pour prendre les dimensions qu'on a énuméré au dessus*/
+    padding: 15px 0px;
+    margin: 5px auto 0 auto;
+    width: 140px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bolder;
+}
+
+article a:hover{
+    background-color: #792020;
+    transition: 0.9s;
+}
+
+article p{
+    margin: 3% 0;
+}
+
+@media only screen 
+    and (min-device-width: 320px) 
+    and (max-device-width: 568px) { 
+        .content {
+            margin: 0 0%;
+        }
+        .carousel .roomTitle {
+            font-size: 25px;
+            padding: 0% 0%;
+            text-align: center;
+        }
+
+        .front-flip {
+            height: 500px;
+        }
+
+        .flip-card {
+            height: 500px;
+        }
+
+        .content h1{
+            font-size: 20px;
+        }
+
+        .icons {
+            display: flex;
+            font-size: 10px;
+            justify-content: space-evenly;
+            padding: 0 20% 2% 20%;
+        }
+
+        .wrap {
+            padding: 2% 5%;
+        }
+
+        .summary {
+            padding: 8%;
+        }
+
+        /* SLIDER */
+        body{
+            overflow: hidden;
+        }
+        .slider-container{
+            display: inline-flex;
+            overflow: hidden;
+            transform: translateX(0);
+            transition: transform 0.3s ease-out;
+        }
+        .slide{
+            user-select: none;
+        }
+        
+    }
+
+
+@media only screen 
+    and (min-device-width: 320px) 
+    and (max-device-width: 568px) 
+    and (orientation: landscape) { 
+
+    }

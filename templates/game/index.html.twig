@@ -10,28 +10,48 @@
 	{{ encore_entry_script_tags('game') }}
 {% endblock %}
 
-{% block title %}Liste des salles
+{% block title %}Toutes nos salles
 {% endblock %}
 
 {% block body %}
 
 	<main>
+	<div class="content">
 		<div class="centered">
 			<h1>Nos Salles</h1>
 		</div>
-		<div class="content">
 			{% for game in games %}
-
-				<h2>{{ game.title }}</h2>
-				<p>{{ game.synopsis }}</p>
-				<p><img class="ImageFront" src="{{dossier_images ~ game.imageUrl}}" alt="{{game.title}}" class="miniature"></p>
-				<p>Max players:	{{ game.maxPlayers }}</p>
-				<p>Min players:	{{ game.minPlayers }}</p>
-				<p>Game master:	{{ game.gameMaster }}</p>
-				<p>Durée de l'escape game: {{ game.gameDuration }}</p>
-				<p>Prix par joueur: {{ game.pricePerPerson }}</p>
-				<button><a href="{{ path('game_show', {'id': game.id}) }}">Voir Les détails</a></button>
-
+		<div class="slider-container">
+			<div class="flip-card slide">
+				<div class="inner-flip">
+					<div class="front-flip image" style="background-image:url({{game.imageUrl}})">
+						<h2 class="roomTitle">{{ game.title }}</h2>
+					</div>
+					<article class="back-flip">
+						<h2 class="titleBack">{{ game.title }}</h2>
+						<div class="icons">
+							<div class="wrap">
+								<i class="fas fa-user"></i> <p>{{ game.minPlayers }} joueurs minimum</p>
+							</div>
+							<div class="wrap">
+								<i class="fas fa-users"></i><p>{{ game.maxPlayers }} joueurs maximum</p>
+							</div>
+							<div class="wrap">
+								<i class="fas fa-brain"></i><p>{{ game.gameMaster }}</p>
+							</div>
+							<div class="wrap">
+								<i class="fas fa-hourglass-half"></i><p>{{ game.gameDuration }} minutes</p>
+							</div>
+							<div class="wrap">
+								<i class="fas fa-wallet"></i><p>{{ game.pricePerPerson }}€</p>
+							</div>
+						</div>
+						<p class= "summary">{{ game.synopsis }}</p>
+							<a href="{{ path('game_show', {'id': game.id}) }}">Voir</a>
+					</article>
+				</div>
+            </div>
+		</div>
 				{% if is_granted("ROLE_ADMIN") %}
 					<button><a href="{{ path('game_edit', {'id': game.id}) }}">edit</a></button>
 				{% endif %}

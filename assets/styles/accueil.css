@@ -397,13 +397,12 @@
     transform: translateX(0);
     }
     } 
-
+/******************************************** RESPONSIVE    *****************************************************/
 
 /* Iphone 5 portrait & landscape */
 @media only screen 
     and (min-device-width: 320px) 
-    and (max-device-width: 568px) 
-    and (-webkit-min-device-pixel-ratio: 2){ 
+    and (max-device-width: 568px){ 
     
 
     .slideshow-container {
@@ -470,10 +469,12 @@
 
     .shape .align h2{
         padding: 6px 0;
+        font-size: 16px;
     }
 
     .shape2 .align h2, .shape3 .align h2, .shape4 .align h2{
         padding: 40px 0 0 0;
+        font-size: 16px;
     }
 
     .icons{
@@ -513,7 +514,6 @@
 @media only screen 
     and (min-device-width: 320px) 
     and (max-device-width: 568px) 
-    and (-webkit-min-device-pixel-ratio: 2)
     and (orientation: landscape) { 
 
         .info p{
@@ -585,7 +585,7 @@
         }
 
         .content {
-            margin: 0 10%;
+            margin: 0 0%;
         }
 
         .align, .align p, .align h2{
