@@ -21,9 +21,10 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('email', EmailType::class,
             [
+                'label' => 'Votre email *',
                 'constraints' => [
                     new NotBlank([
-                        'message' => "Merci d'entrer une adresse mail valide",
+                        'message' => "Merci d'entrer une adresse mail valide, cette dernière sera nécéssaire pour vous connecter",
                     ])
                 ]
             ])
@@ -46,22 +47,22 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('firstName', TextType::class, [
-                'label' => 'Prénom',
+                'label' => 'Votre prénom',
                 'required' => false,
             ])
             ->add('lastName', TextType::class, [
-                'label' => 'Nom',
+                'label' => 'Votre nom',
                 'required' => false,
             ])
             ->add('userName', TextType::class, [
-                'label' => 'Pseudo'
+                'label' => 'Choisir un pseudo *'
             ])
             ->add('agreeTerms', CheckboxType::class, [
-                'label' => 'RGPD',
+                'label' => 'Vous certifiez avoir pris connaissance des conditions d\'utilisation de nos site **',
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'Vous devez accepter les conditions légales d\'utilisation de nos services',
                     ]),
                 ],
             ])
