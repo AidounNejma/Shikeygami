@@ -27,7 +27,7 @@
             <h2>Mes réservations en cours</h2>
             
 					{% for order in app.user.orders %}
-						{% include "game/vignette.html.twig" %}
+						{% include "order/vignette.html.twig" %}
 					{% else %}
 						<tr>
 							<td>Pas de réservation en cours</td>
