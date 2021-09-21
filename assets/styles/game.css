@@ -158,6 +158,8 @@ article p{
     margin: 3% 0;
 }
 
+/* RESPONSIVE */
+/* IPHONE 5  */
 @media only screen 
     and (min-device-width: 320px) 
     and (max-device-width: 568px) { 
@@ -214,7 +216,7 @@ article p{
 
     }
 
-/*IPHONE*/
+/*IPHONE 5 LANDSCAPE CORRECTIONS*/
 @media only screen 
     and (min-device-width: 320px) 
     and (max-device-width: 568px) 
@@ -276,7 +278,7 @@ article p{
         font-size: 26px;
     }
 }
-
+/* IPAD LANDSCAPE*/
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
     .flip-card {
         height: 500px;
