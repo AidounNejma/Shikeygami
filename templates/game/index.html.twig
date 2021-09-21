@@ -33,18 +33,23 @@
 						<div class="icons">
 							<div class="wrap">
 								<i class="fas fa-user"></i> <p>{{ game.minPlayers }} joueurs minimum</p>
+								<div class="speech userMin">Nombre de joueurs minimum recommandé</div>
 							</div>
 							<div class="wrap">
 								<i class="fas fa-users"></i><p>{{ game.maxPlayers }} joueurs maximum</p>
+								<div class="userMax">Nombre de joueurs maximum recommandé</div>
 							</div>
 							<div class="wrap">
 								<i class="fas fa-brain"></i><p>{{ game.gameMaster }}</p>
+								<div class="master">L'un de nos fameux Game Master en charge de cet escape room</div>
 							</div>
 							<div class="wrap">
-								<i class="fas fa-hourglass-half"></i><p>{{ game.gameDuration }} minutes</p>
+								<i class="fas fa-hourglass-half" ></i><p>{{ game.gameDuration }} minutes</p>
+								<div class="duration">La durée de la session d'escape game</div>
 							</div>
 							<div class="wrap">
 								<i class="fas fa-wallet"></i><p>{{ game.pricePerPerson }}€</p>
+								<div class="price">Le prix par personne</div>
 							</div>
 						</div>
 						<p class= "summary">{{ game.synopsis }}</p>

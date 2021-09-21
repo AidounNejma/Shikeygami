@@ -107,6 +107,21 @@
     transition: 0.9s;
 }
 
+.userMin, .userMax, .master, .duration, .price {
+    opacity: 0;
+    position: absolute;
+    background-color: #000000a9;
+    padding: 10px;
+    margin: 10% 0% 0% -10%;
+    width: 23%;
+    transition: ease-out 0.2s;
+}
+
+.wrap:hover .userMin, .wrap:hover .userMax, .wrap:hover .master, .wrap:hover .duration, .wrap:hover .price {
+    opacity: 1;
+}
+
+
 .summary{
     padding: 1% 0 4% 0;
 }
@@ -168,6 +183,10 @@ article p{
             font-size: 10px;
             justify-content: space-evenly;
             padding: 0 20% 2% 20%;
+        }
+        .userMin, .userMax, .master, .duration, .price{
+            margin: 20% 0% 0% -9%;
+            width: 27%;
         }
 
         .wrap {
