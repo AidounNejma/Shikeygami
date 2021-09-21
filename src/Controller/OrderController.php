@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Order;
 use App\Form\OrderType;
 use App\Repository\OrderRepository;
+use phpDocumentor\Reflection\Types\Null_;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -74,15 +75,26 @@ class OrderController extends AbstractController
     }
 
     #[Route('/{id}', name: 'order_delete', methods: ['POST'])]
-    #[IsGranted("ROLE_ADMIN")]
-    public function delete(Request $request, Order $order): Response
+    public function delete(Request $request, Order $order, ): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$order->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($order);
-            $entityManager->flush();
+        if(($order->getUser() == $this->getUser()) || ($this->getUser() == "ROLE_ADMIN")) // si l'utilisateur est le titulaire de l'order (c'est sa réservation)
+        {
+            $order->setCalendar(Null); // on reset le calendar a null pour pouvoir reserver a nouveau cet horaire
+            if ($this->isCsrfTokenValid('delete'.$order->getId(), $request->request->get('_token'))) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->remove($order);
+                $entityManager->flush();
+            }
         }
-
-        return $this->redirectToRoute('order_index', [], Response::HTTP_SEE_OTHER);
+        else{
+            //rajouter une redirection appropriée avec un message de warning pour interdiction
+        }
+        if($this->getUser() != "ROLE_ADMIN"){
+            return $this->redirectToRoute('profile_index', [], Response::HTTP_SEE_OTHER);
+        }
+        else{
+            return $this->redirectToRoute('order_index', [], Response::HTTP_SEE_OTHER);
+        }
+        
     }
 }

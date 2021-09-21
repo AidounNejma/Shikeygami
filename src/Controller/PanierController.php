@@ -48,13 +48,13 @@ class PanierController extends AbstractController
             $em->persist($order);
 
             $em->flush();
+
+            $panier = $session->get("panier", []); // le 2eme argument est la valeur retournée par 'get' si il n'y a pas de panier dans la session
+            $panier[] = ["calendar" => $calendar, "order" => $order, "game" => $game];
+
+            $session->set("panier", $panier); //j'ajoute en session un indice panier qui contient un array $panier qui est composé d'arrays pour chaque produit
         }
-
-
-        $panier = $session->get("panier", []); // le 2eme argument est la valeur retournée par 'get' si il n'y a pas de panier dans la session
-        $panier[] = ["calendar" => $calendar, "order" => $order, "game" => $game];
-
-        $session->set("panier", $panier); //j'ajoute en session un indice panier qui contient un array $panier qui est composé d'arrays pour chaque produit
+    
         return $this->redirectToRoute("panier");
     }
 }

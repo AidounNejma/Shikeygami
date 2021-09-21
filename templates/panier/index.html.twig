@@ -14,7 +14,7 @@
 
 {% block body %}
 <h2>Mon panier</h2>
-
+{% if panier is not null %}
 <table>
     <tr>
         <th>Jeu</th>
@@ -33,10 +33,15 @@
             <td>{{reservation.calendar.booked.totalPrice}}</td>
         </tr>
     {% endfor %}
+</table>
+{% else %}
+<p>Votre panier est vide</p>
+{% endif %}
+
     
 
 
-</table>
+
 
 
 
