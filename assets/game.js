@@ -19,3 +19,17 @@ slides.forEach((slide, index)=>{
     slide.addEventListener('touchend', touchEnd)
     slide.addEventListener('touchmove', touchMove)
 })
+
+function touchStart(index){
+    return function(event){
+        console.log('start');
+    }
+}
+
+function touchEnd(){
+    console.log('end');
+}
+
+function touchMove(){
+    console.log('move');
+}
