@@ -1,4 +1,4 @@
-import'./styles/menu.css';
+import './styles/menu.css';
 
 
         var burger = document.getElementsByClassName('burger');
@@ -24,6 +24,3 @@ import'./styles/menu.css';
                 burger[0] .src ='/img/headerFooter/close.png';
             }
         } 
-
-
-        

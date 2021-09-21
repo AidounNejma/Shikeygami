@@ -26,7 +26,6 @@ header .logo {
 }
 
 header h1{
-    font-family:'sinisuka-webfont.woff', sans-serif;
     text-transform: uppercase;
     color: #ffffff;
     font-size: 30px;
@@ -98,7 +97,6 @@ footer .logo2 {
 
 
 footer h2{
-    font-family:'sinisuka-webfont.woff';
     text-transform: uppercase;
     color: #ffffff;
     font-size: 20px;
@@ -156,7 +154,6 @@ footer .information a:hover {
         }
     
     header h1{
-        font-family:'sinisuka-webfont.woff', sans-serif;
         text-transform: uppercase;
         color: #ffffff;
         font-size: 10px; 
@@ -219,35 +216,34 @@ footer .information a:hover {
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px){
 
     /* ------------------------------------header----------------------------- */
-    .container{
+    header .container{
         justify-content: space-between;
         width: 100%;
         align-items: center;
         }
     
-    .logo {
+    header .logo {
         width: 30px;
         margin: 10px, 20px, 20px, 20px;
         padding-top:20px;
         padding-bottom: 20px;
         }
         
-    h1{
-        font-family:'sinisuka-webfont.woff', sans-serif;
+    header h1{
         text-transform: uppercase;
         color: #ffffff;
         font-size: 10px; 
         padding-top: 30px; 
     }
         
-    .burger {
+    header .burger {
         display: block;
         height:30px;
         cursor:pointer; 
         
     }
 
-    .burger-div{
+    header .burger-div{
         margin-right: 25px;
     }
     
@@ -256,7 +252,7 @@ footer .information a:hover {
         display: block;
     }
 
-    .menu{
+    header.menu{
         flex-direction: column;
     }
 

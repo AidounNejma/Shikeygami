@@ -182,21 +182,13 @@ article p{
         }
 
         /* SLIDER */
-        body{
-            overflow: hidden;
-        }
-        .slider-container{
-            display: inline-flex;
-            overflow: hidden;
-            transform: translateX(0);
-            transition: transform 0.3s ease-out;
-        }
-        .slide{
-            user-select: none;
-        }
+        
 
-        
-        
+
+
+
+
+
     }
 
 
