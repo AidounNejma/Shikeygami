@@ -47,6 +47,38 @@ class GameController extends AbstractController
                 // on modifie l'entité game
                 $game->setImageUrl($nomFichier);
             }
+            if ($fichier2 = $form->get("imageUrl2")->getData())
+            { // si le formulaire renvoi un fichier
+                //on recupere le nom du fichier qui à été téléversé
+                $nomFichier2 = pathinfo($fichier2->getClientOriginalName(), PATHINFO_FILENAME);
+                //on remplace les espaces par des _
+                $nomFichier2 = str_replace(" ", "_", $nomFichier2);
+
+                // on ajoute un string au nom du fichier pour éviter les doublons et l'extension du fichier
+                $nomFichier2 .= uniqid() . "." . $fichier2->guessExtension();
+
+                // on copie le fichier uploadé dans un dossier du dossier 'public' avec le nouveau nom de fichier
+                $fichier2->move($this->getParameter("dossier_images"), $nomFichier2);
+
+                // on modifie l'entité game
+                $game->setImageUrl2($nomFichier2);
+            }
+            if ($fichier3 = $form->get("imageUrl3")->getData())
+            { // si le formulaire renvoi un fichier
+                //on recupere le nom du fichier qui à été téléversé
+                $nomFichier3 = pathinfo($fichier3->getClientOriginalName(), PATHINFO_FILENAME);
+                //on remplace les espaces par des _
+                $nomFichier3 = str_replace(" ", "_", $nomFichier3);
+
+                // on ajoute un string au nom du fichier pour éviter les doublons et l'extension du fichier
+                $nomFichier3 .= uniqid() . "." . $fichier3->guessExtension();
+
+                // on copie le fichier uploadé dans un dossier du dossier 'public' avec le nouveau nom de fichier
+                $fichier3->move($this->getParameter("dossier_images"), $nomFichier3);
+
+                // on modifie l'entité game
+                $game->setImageUrl3($nomFichier3);
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($game);
             $entityManager->flush();
