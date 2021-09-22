@@ -24,13 +24,10 @@
 			<a href="{{ path('game_new') }}" id="createNew"><i class="fas fa-plus-circle"></i> Ajouter une salle</a>
 		{% endif %}
 		<div class="slider">
-			{% for game in games %}
+		{% for game in games %}
 			<div class="flip-card">
 				<div class="inner-flip">
-														<!-- dossier_image ~ à ajouter avant game.imageUrl -->
-					{# <div class="front-flip image" style="background-image:url({{game.imageUrl}})"> #}
-					<div class="front-flip image" style="background-image:url({{dossier_images ~
-game.imageUrl}})">
+					<div class="front-flip image" style="background-image:url({{dossier_images ~ game.imageUrl}})">
 						<h2 class="roomTitle">{{ game.title }}</h2>
 					</div>
 					<article class="back-flip">
@@ -67,9 +64,9 @@ game.imageUrl}})">
 					</article>
 				</div>
             </div>
+		{% endfor %}
 		</div>
-			{% endfor %}
-		</div>
-	</main>
+	</div>
+</main>
 {% endblock %}
 
