@@ -31,7 +31,7 @@
 
 				{% if app.user %}
 					<li>
-						<a href="{{ path("user_index") }}" class="menu-redirect">
+						<a href="{{ path("profile_index") }}" class="menu-redirect">
 							{{app.user.firstname}}</a>
 					</li>
 
@@ -55,13 +55,13 @@
 			<nav>
 				<ul class="menu">
 					<li>
-						<a href="{{ path('user_index')}}" class="menu-redirect menu-redirect-admin">Utilisateurs / Clients</a>
+						<a href="{{ path('user_index')}}" class="menu-redirect menu-redirect-admin">Gestion Utilisateurs / Clients</a>
 					</li>
 					<li>
-						<a href="{{ path('game_index')}}" class="menu-redirect menu-redirect-admin">Jeux</a>
+						<a href="{{ path('game_new')}}" class="menu-redirect menu-redirect-admin">Créer un jeu</a>
 					</li>
 					<li>
-						<a href="{{ path('order_index')}}" class="menu-redirect menu-redirect-admin">Réservations</a>
+						<a href="{{ path('order_index')}}" class="menu-redirect menu-redirect-admin">Gestion des réservations</a>
 					</li>
 				</ul>
 			</nav>

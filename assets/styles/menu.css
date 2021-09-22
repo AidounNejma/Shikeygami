@@ -67,17 +67,19 @@ header nav .menu li {
 .menu-redirect:hover {    
     color: var(--main-red);
 }
+
 .nav-content{
     display:flex;
     flex-direction: column; /* pour la superposition du menu admin avec le menu user */
     align-items: center;
 }
+
 .menu-redirect-admin{
     color: var(--main-red);
     font-weight: bold;
 }
 
-/* ----------------------------------------FOOTER--------------------------- */
+/* ----------------------------------------FOOTER---------------------------*/
 footer{
     display: block;
     margin: 0 auto;
