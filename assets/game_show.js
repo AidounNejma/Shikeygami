@@ -2,38 +2,38 @@ import './styles/game_show.css';
 
 /*************************  CAROUSEL ANIMATION *********************************/
 
-function SlideShow(n) {
-    var i;
+let back = document.querySelector(".back");
+let forward = document.querySelector(".forward");
 
-    var fade = document.getElementsByClassName("fade");
-    var slides = document.getElementsByClassName("containers");
-    var circles = document.getElementsByClassName("dots");
-    if (n > slides.length) {slidePosition = 1}
-        if (n < 1) {slidePosition = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].classList.toggle("fade");
-            slides[i].style.display = "none";
+let slides = document.getElementsByClassName("containers");
+let image = document.querySelector("#image");
+
+let numImage = 1;
+
+back.addEventListener("click", slideBack);
+//console.log(back);
+forward.addEventListener("click", slideNext);
+//console.log(forward);
+
+setInterval(slideNext, 5000);
+
+function slideNext(){
+    numImage += 1;
+        if(numImage === 3){ 
+            numImage = 1; 
+        }
+        slides[0].classList.toggle("fade");
+        image.src = '{{ dossier_images ~ game.imageUrl' + numImage + ' }}';
+}
+
+function slideBack() {
+    numImage = numImage -1;
+        if(numImage === 0){
+            numImage = 3;
         }
 
-    for (i = 0; i < circles.length; i++) {
-        circles[i].className = circles[i].className.replace(" enable", "");
-    }
-
-    slides[slidePosition-1].style.display = "block";
-    slides[i].classList.toggle("fade");
-    circles[slidePosition-1].className += " enable";
+        slides[0].classList.toggle("fade");
+        image.src = '{{ dossier_images ~ game.imageUrl'+ numImage +' }}';
 } 
 
-var slidePosition = 1;
-SlideShow(slidePosition);
-
-// Contrôle Suivant/Précédent
-window.plusSlides = function (n) {
-    SlideShow(slidePosition += n);
-
-}
-
-//  Contrôle des images
-window.currentSlide= function(n) {
-    SlideShow(slidePosition = n);
-}
+/**********************************************************/

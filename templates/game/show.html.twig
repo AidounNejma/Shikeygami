@@ -14,33 +14,24 @@
 
 {% block body %}
 	<main>
+	<!-- Slideshow container -->
+		<div class="slideshow-container">
+
+		<!-- Full images with numbers and message Info -->
+			<div class="containers">
+				<img src="{{dossier_images ~ game.imageUrl}}" id="image">
+					<div class="info">
+						<p class="text">{{game.title}}</p>
+					</div>
+				</div>
+
+			<!-- Back and forward buttons -->
+				<a class="back" ><i class="fas fa-chevron-left"></i></a>
+				<a class="forward"><i class="fas fa-chevron-right"></i></a>
+			</div>
 		<!-- CONTENT -->
 		<div class="content">
-			<!-- Slideshow container -->
-			<div class="slideshow-container fade">
-				<!-- Full images with numbers and message Info -->
-				<div class="containers">
-					<img src="{{dossier_images ~ game.imageUrl}}">
-				</div>
 
-				<div class="containers">
-						<img src="{{dossier_images ~ game.imageUrl2}}">
-				</div>
-
-				<div class="containers">
-						<img src="{{dossier_images ~ game.imageUrl3}}">
-				</div>
-				<!-- Back and forward buttons -->
-				<a class="Back" onclick="plusSlides(-1)"><i class="fas fa-chevron-left"></i></a>
-				<a class="forward" onclick="plusSlides(1)"><i class="fas fa-chevron-right"></i></a>
-
-				<!-- The circles/dots -->
-				<div class="dotscentered">
-					<span class="dots" onclick="currentSlide(1)"></span>
-					<span class="dots" onclick="currentSlide(2)"></span>
-					<span class="dots" onclick="currentSlide(3)"></span>
-				</div> 
-			</div>
 
 			<section class="infoGame">
 				<h2>{{ game.title }}</h2>
