@@ -1,4 +1,4 @@
-
+/* 
 /* ----------------------------------------HEARDER--------------------------- */
 header{
     display: flex;
@@ -26,7 +26,7 @@ header .logo {
 
 header h1{
     text-transform: uppercase;
-    color: #ffffff;
+    color: var(--main-white);
     font-size: 40px;
     padding-top: 49px;   
 }
@@ -134,11 +134,10 @@ footer .information a:hover {
 }
 
   /* ----------------------------------------RESPONSIVE--------------------------- */
-            /* -------------------------------IPHONE------------------------- */
+    /* -------------------------------MOBILE - IPAD------------------------- */
 
 @media only screen 
-    and (min-device-width : 320px)
-    and (max-device-width : 568px)
+    and (max-device-width : 1024px)
     {
 /* ------------------------------------header----------------------------- */
     header .container{
@@ -209,80 +208,3 @@ footer .information a:hover {
         }
     }
 }
-    
-
-/* -------------------------------IPAD------------------------- */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px){
-
-    /* ------------------------------------header----------------------------- */
-    header .container{
-        justify-content: space-between;
-        width: 100%;
-        align-items: center;
-        }
-    
-    header .logo {
-        width: 50px;
-        margin: 10px, 20px, 20px, 20px;
-        padding: 20px,0px,20px,0px;
-        }
-        
-    header h1{
-        text-transform: uppercase;
-        color: #ffffff;
-        font-size: 20px; 
-        padding-top: 33px; 
-    }
-        
-    header .burger {
-        display: block;
-        height:30px;
-        cursor:pointer; 
-        
-    }
-
-    header .burger-div{
-        margin-right: 25px;
-    }
-    
-
-    header{
-        display: block;
-    }
-
-    header.menu{
-        flex-direction: column;
-    }
-
-    header nav {
-        display: none;
-        /* float: none; */
-    } 
-    
-    header a {
-        display: block;
-        text-align: center;
-    }
-        /* ------------------------------------footer----------------------------- */
-    footer .information{
-        display: block;
-        width: 100%;
-        margin: 30px 0;
-        text-align: center;
-    }
-
-    @media (orientation: landscape) {
-        header footer{
-        flex-direction: row;
-        }
-    }
-    
-    @media (orientation: portrait) {
-        header footer {
-        flex-direction: column;
-        }
-    }
-}
-    
-
-
