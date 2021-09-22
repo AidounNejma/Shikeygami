@@ -20,9 +20,9 @@
 		<div class="centered">
 			<h1>Toutes nos salles</h1>
 		</div>
+		<div class="slider">
 			{% for game in games %}
-		<div class="slider-container">
-			<div class="flip-card slide">
+			<div class="flip-card">
 				<div class="inner-flip">
 														<!-- dossier_image ~ à ajouter avant game.imageUrl -->
 					<div class="front-flip image" style="background-image:url({{game.imageUrl}})">

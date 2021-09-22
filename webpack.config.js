@@ -18,7 +18,6 @@ Encore
         from: './assets/img',
     //optional target path, relative to the output dir
         to: '../img/[path][name].jpg',
-        to: '../img/[path][name].png'
     /*
     // if versioning is enabled, add the file hash too //to: 'images/[path][name].[hash:8].[ext]',
     // only copy files matching this pattern //pattern: /\.(png|jpg|jpeg)$/
@@ -40,6 +39,8 @@ Encore
     .addEntry('register', './assets/register.js')
     .addEntry('menu', './assets/menu.js')
     .addEntry('concept', './assets/concept.js')
+    .addEntry('legals', './assets/legals.js')
+    
     .addEntry('panier', './assets/panier.js')
     
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
