@@ -55,7 +55,7 @@ input{
     margin-block: 20px;
     padding: 8px 50px;
     cursor: pointer;
-    background: #FFFFFF;
+    background: var(--main-white);
     border: none;
     border-radius: 20px;
     text-transform: uppercase;
@@ -66,7 +66,7 @@ input{
 }
 .btn:hover {
     color: #d53648;
-    background: #312f2f;
+    background: var(--main-grey);
     font-weight: 700;
     transition: 0.5s 0.1s;
 }
