@@ -11,6 +11,26 @@
     margin: 3% 0 9% 0;
 }
 
+#createNew {
+    color: #ffffff;
+    background-color: transparent;
+    text-decoration: none;
+    border: 2px solid #ffffff;
+    border-radius: 11%;
+    display: block;
+    padding: 2%;
+    margin: 0 auto 5% auto;
+    width: 28%;
+    text-align: center;
+    font-size: 20px;
+}
+
+#createNew:hover{
+    background-color: #ffffff;
+    color:#792020;
+    transition: 0.9s;
+}
+
 .flip-card {
     /* on indique les dimensions de la carte, ici je les adapte à la taille de ma photo recorder*/
     background-color: transparent; /* transparent pour ne pas avoir de fond au moment du flip */
@@ -131,7 +151,12 @@
     font-size: 25px;
 }
 
-article a{
+.linksRoom{
+    display: flex;
+    padding: 0 20%;
+}
+
+.linksRoom a{
     color: #ffffff;
     background-color: transparent;
     text-decoration: none;
@@ -146,7 +171,7 @@ article a{
     font-weight: bolder;
 }
 
-article a:hover{
+.linksRoom a:hover{
     background-color: #792020;
     transition: 0.9s;
 }
@@ -163,6 +188,11 @@ article p{
         .content {
             margin: 0 0%;
         }
+
+        #createNew{
+            width: 50%;
+        }
+
         .front-flip .roomTitle {
             font-size: 33px;
             padding: 0% 0%;
@@ -201,6 +231,10 @@ article p{
             padding: 8%;
         }
 
+        .linksRoom {
+            display: block;
+            padding: 0 0%;
+        }
 
 
     }
@@ -231,6 +265,11 @@ article p{
 
         .userMin, .userMax, .master, .duration, .price {
             margin: 10% 0% 0% -9%;
+        }
+
+        .linksRoom {
+            display: flex;
+            padding: 2% 11%;
         }
     }
 

@@ -20,6 +20,9 @@
 		<div class="centered">
 			<h1>Toutes nos salles</h1>
 		</div>
+		{% if is_granted("ROLE_ADMIN") %}
+			<a href="{{ path('game_new') }}" id="createNew"><i class="fas fa-plus-circle"></i> Ajouter une salle</a>
+		{% endif %}
 		<div class="slider">
 			{% for game in games %}
 			<div class="flip-card">
@@ -53,20 +56,17 @@
 							</div>
 						</div>
 						<p class= "summary">{{ game.synopsis }}</p>
+						<div class="linksRoom">
 							<a href="{{ path('game_show', {'id': game.id}) }}">Voir</a>
+							{% if is_granted("ROLE_ADMIN") %}
+								<a href="{{ path('game_edit', {'id': game.id}) }}">Modifier</a>
+							{% endif %}
+						</div>
 					</article>
 				</div>
             </div>
 		</div>
-				{% if is_granted("ROLE_ADMIN") %}
-					<button><a href="{{ path('game_edit', {'id': game.id}) }}">edit</a></button>
-				{% endif %}
-
 			{% endfor %}
-			{% if is_granted("ROLE_ADMIN") %}
-				<button><a href="{{ path('game_new') }}">Create new</a></button>
-			{% endif %}
-			
 		</div>
 	</main>
 {% endblock %}
