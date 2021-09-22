@@ -1,64 +1,69 @@
+<header>
 
-	<header>
-
-		<div class="container">
-			<div class="flex">
-				<a href="{{ path("accueil") }}"><img class="logo" src="/img/headerFooter/logo.jpg" alt="logo"></a>
-				<h1><a href="{{ path("accueil") }}">Shikeygami</a></h1>
-			</div>
-
-			<div class="burger-div">
-				<img class="burger" src="/img/headerFooter/burger.png" alt="burger">
-			</div>
+	<div class="container">
+		<div class="flex">
+			<a href="{{ path("accueil") }}"><img class="logo" src="/img/headerFooter/logo.jpg" alt="logo"></a>
+			<h1>
+				<a href="{{ path("accueil") }}">Shikeygami</a>
+			</h1>
 		</div>
 
+		<div class="burger-div">
+			<img class="burger" src="/img/headerFooter/burger.png" alt="burger">
+		</div>
+	</div>
+
+	<div style="nav-content">
 		<nav>
 			<ul class="menu">
 				<li>
-					<a href="{{ path("game_index") }}">Nos salles</a>
+					<a href="{{ path("game_index") }}" class="menu-redirect">Nos salles</a>
 				</li>
 
 				<li>
-					<a href="{{ path("concept") }}">Concept</a>
+					<a href="{{ path("concept") }}" class="menu-redirect">Concept</a>
 				</li>
 
-				<li>
+				{# <li>
 					<a href="{{ path("user_index") }}">EG virtuel</a>
-				</li>
+				</li> #}
 
 				{% if app.user %}
 					<li>
-						<a href="{{ path("user_index") }}">
+						<a href="{{ path("user_index") }}" class="menu-redirect">
 							{{app.user.firstname}}</a>
 					</li>
 
 					<li>
-						<a href="{{ path("app_logout") }}">Déconnexion</a>
+						<a href="{{ path("app_logout") }}" class="menu-redirect">Déconnexion</a>
 					</li>
 
 				{% else %}
 					<li>
-						<a href="{{ path("app_login") }}">Connexion</a>
+						<a href="{{ path("app_login") }}" class="menu-redirect">Connexion</a>
 					</li>
 
 					<li>
-						<a href="{{ path("app_register") }}">Inscription</a>
+						<a href="{{ path("app_register") }}" class="menu-redirect">Inscription</a>
 					</li>
-					{% endif %}
-					{% if is_granted("ROLE_ADMIN") %}			
-						<li>BackOffice Admin</li>
-						<li>
-							<a href="{{ path('user_index')}}">Utilisateurs</a>
-						</li>
-						<li>
-							<a href="{{ path('game_index')}}">Jeux</a>
-						</li>
-						<li>
-							<a href="{{ path('order_index')}}">Commandes</a>
-						</li>
-					{% endif %}
-				</nav>
-				
+				{% endif %}
 			</ul>
 		</nav>
-	</header>
+		{% if is_granted("ROLE_ADMIN") %}
+		<hr>
+			<nav>
+				<ul class="menu">
+					<li>
+						<a href="{{ path('user_index')}}" class="menu-redirect menu-redirect-admin">Utilisateurs / Clients</a>
+					</li>
+					<li>
+						<a href="{{ path('game_index')}}" class="menu-redirect menu-redirect-admin">Jeux</a>
+					</li>
+					<li>
+						<a href="{{ path('order_index')}}" class="menu-redirect menu-redirect-admin">Réservations</a>
+					</li>
+				</ul>
+			</nav>
+		{% endif %}
+	</div>
+</header>

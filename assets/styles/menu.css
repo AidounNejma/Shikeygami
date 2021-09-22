@@ -61,19 +61,27 @@ header nav .menu li {
     list-style-type: none ;       
 }
 
-header nav .menu a {
+.menu-redirect{
     display:block;                
     min-width: 120px;              
     margin: 20px;               
     padding: 1px;            
-    text-align: center;            
-    text-decoration: none;        
+    text-align: center;                   
     transition: all 1s ; 
     color: #ffffff;         
 }
 
-header nav .menu a:hover {    
+.menu-redirect:hover {    
     color: #d53648;
+}
+.nav-content{
+    display:flex;
+    flex-direction: column; /* pour la superposition du menu admin avec le menu user */
+    align-items: center;
+}
+.menu-redirect-admin{
+    color: #d53648;
+    font-weight: bold;
 }
 
 /* ----------------------------------------FOOTER--------------------------- */
