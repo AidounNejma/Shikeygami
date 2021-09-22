@@ -6,6 +6,7 @@ use App\Entity\Game;
 use Doctrine\DBAL\Types\DecimalType;
 use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -25,7 +26,7 @@ class GameType extends AbstractType
                 "required" => true,
                 "constraints" => [
                     new NotBlank([
-                        "message" => "le titre ne peut pas être vide"
+                        "message" => "Le titre ne peut pas être vide"
                     ])
                 ]
             ])
@@ -46,6 +47,14 @@ class GameType extends AbstractType
                     new NotBlank([
                         "message" => "Veuillez remplir le synopsis"
                     ])
+                ]
+            ])
+            ->add('difficulty', ChoiceType::class, [
+                'label' => 'Difficultée',
+                'choices' => [
+                    'Débutant' => 'debutant',
+                    'Intermédiaire' => 'intermediaire',
+                    'Expert' => 'expert',
                 ]
             ])
             ->add('imageUrl', FileType::class, [

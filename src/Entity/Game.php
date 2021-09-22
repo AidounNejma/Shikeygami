@@ -84,6 +84,11 @@ class Game
      */
     private $image_url3;
 
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $difficulty;
+
     public function __construct()
     {
         $this->orders = new ArrayCollection();
@@ -265,6 +270,18 @@ class Game
     public function setImageUrl3(string $image_url3): self
     {
         $this->image_url3 = $image_url3;
+
+        return $this;
+    }
+
+    public function getDifficulty(): ?string
+    {
+        return $this->difficulty;
+    }
+
+    public function setDifficulty(string $difficulty): self
+    {
+        $this->difficulty = $difficulty;
 
         return $this;
     }
