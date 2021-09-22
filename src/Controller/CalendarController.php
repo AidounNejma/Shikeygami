@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Calendar;
 use App\Form\CalendarType;
 use App\Repository\CalendarRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,6 +23,7 @@ class CalendarController extends AbstractController
     }
 
     #[Route('/new', name: 'calendar_new', methods: ['GET', 'POST'])]
+    #[IsGranted("ROLE_ADMIN")]
     public function new(Request $request): Response
     {
         $calendar = new Calendar();
@@ -51,6 +53,7 @@ class CalendarController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'calendar_edit', methods: ['GET', 'POST'])]
+    #[IsGranted("ROLE_ADMIN")]
     public function edit(Request $request, Calendar $calendar): Response
     {
         $form = $this->createForm(CalendarType::class, $calendar);
@@ -69,6 +72,7 @@ class CalendarController extends AbstractController
     }
 
     #[Route('/{id}', name: 'calendar_delete', methods: ['POST'])]
+    #[IsGranted("ROLE_ADMIN")]
     public function delete(Request $request, Calendar $calendar): Response
     {
         if ($this->isCsrfTokenValid('delete'.$calendar->getId(), $request->request->get('_token'))) {

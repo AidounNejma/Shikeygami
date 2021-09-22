@@ -26,8 +26,8 @@
     
     {% for reservation in panier %}
         <tr> 
-            <td>{{reservation.calendar.id}}</td>
-            <td>{{reservation.order.calendar.game.title}}</td>
+            {# <td>{{reservation.calendar.id}}</td> #}
+            <td>{{reservation.calendar.game.title}}</td>
             <td>{{reservation.calendar.startTime|date() ~ reservation.calendar.endTime|date() }} </td>
             <td>{{reservation.calendar.booked.playerQuantity}}</td>
             <td>{{reservation.calendar.booked.totalPrice}}</td>
