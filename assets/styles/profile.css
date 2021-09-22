@@ -4,3 +4,42 @@
 table{
     margin: auto;
 }
+/*Bannière de haut de page*/
+.topBanner{
+    position: relative;
+}
+.profileBanner{
+    height: 300px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.profileAvatar{
+    width: 130px;
+    position: relative;
+    top: 40px;
+    margin-bottom: 150px;
+}
+/*Titre h1 h2*/
+.titleCenter h1, .titleCenter h2{
+    text-align: center;
+}
+.titleCenter h1{
+    margin: 40px 0;
+    font-size: 50px;
+}
+.titleCenter h2, .infoPerso h2{
+    margin: 40px 0;
+    font-size: 40px;
+}
+/*Vignettes des reservations*/
+
+/*Infos personnelles de l'utilisateur*/
+.infoPerso{
+    width: 70%;
+    margin: auto;
+}
+
+.infoPerso p{
+    text-align: start;
+}
