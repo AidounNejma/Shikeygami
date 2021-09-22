@@ -75,7 +75,7 @@ class OrderController extends AbstractController
     }
 
     #[Route('/{id}', name: 'order_delete', methods: ['POST'])]
-    public function delete(Request $request, Order $order, ): Response
+    public function delete(Request $request, Order $order): Response
     {
         if(($order->getUser() == $this->getUser()) || ($this->getUser() == "ROLE_ADMIN")) // si l'utilisateur est le titulaire de l'order (c'est sa réservation)
         {
