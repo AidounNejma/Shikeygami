@@ -17,8 +17,7 @@ Encore
     .copyFiles({
         from: './assets/img',
     //optional target path, relative to the output dir
-        to: '../img/[path][name].jpg',
-        to: '../img/[path][name].png'
+        to: '../img/[path][name].jpg'
     /*
     // if versioning is enabled, add the file hash too //to: 'images/[path][name].[hash:8].[ext]',
     // only copy files matching this pattern //pattern: /\.(png|jpg|jpeg)$/
