@@ -28,7 +28,9 @@
 			<div class="flip-card">
 				<div class="inner-flip">
 														<!-- dossier_image ~ à ajouter avant game.imageUrl -->
-					<div class="front-flip image" style="background-image:url({{game.imageUrl}})">
+					{# <div class="front-flip image" style="background-image:url({{game.imageUrl}})"> #}
+					<div class="front-flip image" style="background-image:url({{dossier_images ~
+game.imageUrl}})">
 						<h2 class="roomTitle">{{ game.title }}</h2>
 					</div>
 					<article class="back-flip">

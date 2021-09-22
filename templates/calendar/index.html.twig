@@ -27,20 +27,10 @@
 					<td>{{ calendar.booked ? 'Yes' : 'No' }}</td>
 					<td>
 						<a href="{{ path('calendar_show', {'id': calendar.id}) }}">Voir</a>
-						<a href="{{ path('calendar_edit', {'id': calendar.id}) }}">editer</a>
+						{% if is_granted('ROLE_ADMIN') %}
+							<a href="{{ path('calendar_edit', {'id': calendar.id}) }}">editer</a>
+						{% endif %}
 					</td>
-                    <td>
-					<form method="GET" action="{{ path("panier_add", { id: calendar.id }) }}">
-						
-						<input type="number" name="playerQuantity" value="{{ calendar.game.minPlayers }}" min="{{ calendar.game.minPlayers }}" max="{{ calendar.game.maxPlayers }}">
-						<select name="user" id="">
-							<option value="{{ app.user.username }}">{{ app.user.username }}</option>
-						</select>
-						<button>
-							<i class="fa fa-cart-plus">Réserver cette horaire</i>
-						</button>
-					</form>
-                    </td>
 				</tr>
 			{% else %}
 				<tr>
@@ -49,6 +39,7 @@
 			{% endfor %}
 		</tbody>
 	</table>
-
+{% if is_granted('ROLE_ADMIN') %}
 	<a href="{{ path('calendar_new') }}">Create new</a>
+{% endif %}
 {% endblock %}

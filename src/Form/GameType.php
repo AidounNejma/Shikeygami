@@ -51,6 +51,13 @@ class GameType extends AbstractType
             ->add('imageUrl', FileType::class, [
                 "mapped" => false
             ])
+            ->add('imageUrl2', FileType::class, [
+                "mapped" => false
+            ])
+            ->add('imageUrl3', FileType::class, [
+                "mapped" => false
+            ])
+            
             ->add('maxPlayers', IntegerType::class, [
                 'label' => 'nombre de joueurs',
                 "constraints" => [
