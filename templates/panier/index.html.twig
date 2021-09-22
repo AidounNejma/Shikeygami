@@ -10,43 +10,40 @@
 	{{ encore_entry_script_tags('panier') }}
 {% endblock %}
 
-{% block title %}Votre panier{% endblock %}
+{% block title %}Votre panier
+{% endblock %}
 
 {% block body %}
-<h2>Mon panier</h2>
-{% if panier is not null %}
-<table>
-    <tr>
-        <th>Jeu</th>
-        <th>Horaire</th>
-        <th>Nombre de joueurs</th>
-        <th>Prix</th>
-    </tr>
+	<h2>Mon panier</h2>
+	{% if panier is not null %}
+		<table>
+			<tr>
+				<th>Jeu</th>
+				<th>Horaire</th>
+				<th>Nombre de joueurs</th>
+				<th>Prix</th>
+			</tr>
 
-    
-    {% for reservation in panier %}
-        <tr> 
-            {# <td>{{reservation.calendar.id}}</td> #}
-            <td>{{reservation.calendar.game.title}}</td>
-            <td>{{reservation.calendar.startTime|date() ~ reservation.calendar.endTime|date() }} </td>
-            <td>{{reservation.calendar.booked.playerQuantity}}</td>
-            <td>{{reservation.calendar.booked.totalPrice}}</td>
-        </tr>
-    {% endfor %}
-</table>
-{% else %}
-<p>Votre panier est vide</p>
-{% endif %}
-
-    
-
-
-
-
-
-
-
-
+			{% for reservation in panier %}
+				<tr>
+					<td>{{reservation.calendar.game.title}}</td>
+					<td>{{reservation.calendar.startTime|date() ~ reservation.calendar.endTime|date() }}
+					</td>
+					<td>{{reservation.quantity}}</td>
+					<td>{{reservation.totalPrice}}</td>
+					<td>
+						<form method="GET" action="{{ path("panier_confirm", { id: reservation.calendar.id }) }}">
+							<button>
+								<i class="fa fa-cart-plus">Réserver cette horaire</i>
+							</button>
+						</form>
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+	{% else %}
+		<p>Votre panier est vide</p>
+	{% endif %}
 
 
 {% endblock %}

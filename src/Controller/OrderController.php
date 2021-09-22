@@ -93,45 +93,45 @@ class OrderController extends AbstractController
         {
             //rajouter une redirection appropriée avec un message de warning pour interdiction
         }
-        if($this->getUser()->getRoles() != "ROLE_ADMIN")
+        if($this->isGranted("ROLE_ADMIN") )
         {
-            return $this->redirectToRoute('profile_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('order_index', [], Response::HTTP_SEE_OTHER);
         }
         else
         {
-            return $this->redirectToRoute('order_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('profile_index', [], Response::HTTP_SEE_OTHER);
         }
         
     }
 
-    #[Route('/order/add/{id}', name: 'order_make',)]
-    #[IsGranted("ROLE_USER")]
-    public function ajouter(EntityManagerInterface $em, Request $request, Calendar $calendar)
-    {
-        if ($calendar->getBooked() == NULL) {
-            $game = $calendar->getGame(); // on recupere le jeu correspondant au calendrier
-            $order = new Order; // on créer une nouvelle reservation
+    // #[Route('/order/add/{id}', name: 'order_make',)]
+    // #[IsGranted("ROLE_USER")]
+    // public function ajouter(EntityManagerInterface $em, Request $request, Calendar $calendar)
+    // {
+    //     if ($calendar->getBooked() == NULL) {
+    //         $game = $calendar->getGame(); // on recupere le jeu correspondant au calendrier
+    //         $order = new Order; // on créer une nouvelle reservation
 
-            $quantity = $request->query->get("playerQuantity"); // on recupere le nombre de joueur indiqué par l'utilisateur dans le form
+    //         $quantity = $request->query->get("playerQuantity"); // on recupere le nombre de joueur indiqué par l'utilisateur dans le form
 
-            $pricePerPerson = $game->getPricePerPerson(); // on recupere le prix par personne du jeu
-            $totalPrice = $quantity * $pricePerPerson; // on calcul le prix total par rapport au nombre de joueur indiqué
-            // dans le cas d'une reduction, rajouter une condition et un recalcul du prix total
-            $order->setUser($this->getUser()); // recuperation de l'utilisateur connecté et attribution à la nouvelle réservation
-            $order->setDateOfOrder(new \DateTime()); // definition d'une nouvelle date (aujourdhui) attribuée a la nouvell réservation
-            $order->setTotalPrice($totalPrice); // attribution du prix total
-            $order->setPaymentStatus(0);    // attribution du status de paiement à 0 => "en attente"
-            $order->setPlayerQuantity($quantity); // attribution du nombre de joueur indiqué par l'utilisateur
+    //         $pricePerPerson = $game->getPricePerPerson(); // on recupere le prix par personne du jeu
+    //         $totalPrice = $quantity * $pricePerPerson; // on calcul le prix total par rapport au nombre de joueur indiqué
+    //         // dans le cas d'une reduction, rajouter une condition et un recalcul du prix total
+    //         $order->setUser($this->getUser()); // recuperation de l'utilisateur connecté et attribution à la nouvelle réservation
+    //         $order->setDateOfOrder(new \DateTime()); // definition d'une nouvelle date (aujourdhui) attribuée a la nouvell réservation
+    //         $order->setTotalPrice($totalPrice); // attribution du prix total
+    //         $order->setPaymentStatus(0);    // attribution du status de paiement à 0 => "en attente"
+    //         $order->setPlayerQuantity($quantity); // attribution du nombre de joueur indiqué par l'utilisateur
 
-            $calendar->setBooked($order); // on associe la réservation au calendrier (lien entre les 2 ids pour faire la jointure)
-            $order->setCalendar($calendar); // vis versa pour etre sur
+    //         $calendar->setBooked($order); // on associe la réservation au calendrier (lien entre les 2 ids pour faire la jointure)
+    //         $order->setCalendar($calendar); // vis versa pour etre sur
 
-            $em->persist($order);   
-            $em->flush(); // ajout de l'order à la bdd
-            return $this->redirectToRoute("profile_index"); //redirection vers le profil en cas de succès
-        }
-        else{
-            return $this->redirectToRoute("calendar_index"); // redirection vers la liste des calendrier en cas d'echec
-        }
-    }
+    //         $em->persist($order);   
+    //         $em->flush(); // ajout de l'order à la bdd
+    //         return $this->redirectToRoute("profile_index"); //redirection vers le profil en cas de succès
+    //     }
+    //     else{
+    //         return $this->redirectToRoute("calendar_index"); // redirection vers la liste des calendrier en cas d'echec
+    //     }
+    // }
 }

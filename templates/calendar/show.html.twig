@@ -30,12 +30,12 @@
 		</tbody>
 	</table>
 
-	<form method="GET" action="{{ path("order_make", { id: calendar.id }) }}">
+	<form method="GET" action="{{ path("panier_add", { id: calendar.id }) }}">
 		<label for="playerQuantity">Nombre de joueurs</label>
 		<input type="number" name="playerQuantity" value="{{ calendar.game.minPlayers }}" min="{{ calendar.game.minPlayers }}" max="{{ calendar.game.maxPlayers }}">
 
 		<button>
-			<i class="fa fa-cart-plus">Réserver cette horaire</i>
+			<i class="fa fa-cart-plus">Ajouter au panier</i>
 		</button>
 	</form>
 	<a href="{{ path('calendar_index') }}">Retour à la liste</a>
