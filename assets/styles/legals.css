@@ -4,7 +4,7 @@
 }
 .content-title{
     line-height: 200px;
-    color: #d53648;
+    color: var(--main-red);
 }
 .content-subtitle{
     line-height: 100px;

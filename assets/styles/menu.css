@@ -6,8 +6,6 @@ header{
     align-items: center;
     box-sizing: border-box; 
     width: 100%;
-    background-color: #312f2f;
-    color: #ffffff;
     font-size: 20px;
     justify-content: space-between;
 }
@@ -27,14 +25,8 @@ header .logo {
 
 header h1{
     text-transform: uppercase;
-    color: #ffffff;
     font-size: 30px;
     padding-top: 50px;   
-}
-
-header div a{
-    text-decoration: none;
-    color: #ffffff;
 }
 
 header .flex{
@@ -67,12 +59,11 @@ header nav .menu li {
     margin: 20px;               
     padding: 1px;            
     text-align: center;                   
-    transition: all 1s ; 
-    color: #ffffff;         
+    transition: all 1s ;        
 }
 
 .menu-redirect:hover {    
-    color: #d53648;
+    color: var(--main-red);
 }
 .nav-content{
     display:flex;
@@ -80,7 +71,7 @@ header nav .menu li {
     align-items: center;
 }
 .menu-redirect-admin{
-    color: #d53648;
+    color: var(--main-red);
     font-weight: bold;
 }
 
@@ -90,8 +81,6 @@ footer{
     margin: 0 auto;
     box-sizing: border-box; 
     width: 100%;
-    background-color: #312f2f;
-    color: #ffffff;
     font-size: 15px;
 }
 
@@ -106,7 +95,6 @@ footer .logo2 {
 
 footer h2{
     text-transform: uppercase;
-    color: #ffffff;
     font-size: 20px;
 
 }
@@ -133,11 +121,11 @@ footer .information a {
     text-align: center;            
     text-decoration: none;        
     transition: all 1s ; 
-    color: #ffffff;         
+    color: var(--main-white);         
 }
 
 footer .information a:hover {
-    color: #d53648;
+    color: var(--main-red);
 }
 
   /* ----------------------------------------RESPONSIVE--------------------------- */
@@ -162,8 +150,6 @@ footer .information a:hover {
         }
     
     header h1{
-        text-transform: uppercase;
-        color: #ffffff;
         font-size: 15px; 
         padding-top: 30px; 
     }
@@ -238,8 +224,6 @@ footer .information a:hover {
         }
         
     header h1{
-        text-transform: uppercase;
-        color: #ffffff;
         font-size: 10px; 
         padding-top: 30px; 
     }

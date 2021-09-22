@@ -76,9 +76,9 @@
 }
 
 .moreInfo a{
-    color: #e3e3e3;
+    color: var(--info-text);
     text-decoration: none;
-    border: 1px solid #ffffff;
+    border: 1px solid var(--main-white);
     display: block;
     /* Pour prendre les dimensions qu'on a énuméré au dessus*/
     padding: 20px 0px;
@@ -89,7 +89,7 @@
 
 .moreInfo a:hover{
     color: #000000;
-    background-color: #ffffff;
+    background-color: var(--main-white);
     transition: 0.9s;
 }
 
@@ -126,7 +126,7 @@
 
 /*----------------------------- Main -----------------------------*/
 .roomTitle{
-    color: white;
+    color: var(--main-white);
     font-weight: 300;
     font-size: 60px;
     padding: 20px 0;
@@ -237,7 +237,7 @@
 .align{
     width: 30%;
     text-align: start;
-    background-color: rgb(48, 60, 71, 0.5);
+    background-color: rgb(var(--info-bg));
     padding: 0 20px 0 20px;
     position: relative;
     transition: all 0.4s ease-in-out;
@@ -291,12 +291,12 @@
 
 .icons a{
     text-decoration: none;
-    color: #ffffff;
+    color: var(--main-white);
     font-size: 40px;
 }
 
 .icons a:hover{
-    color: #630f0f;
+    color: var(--main-red);
     transition: 1s;
 }
 
@@ -364,7 +364,7 @@
     border: none;
     background-color: #000000;
     font-size: 20px;
-    color: #ffffff;
+    color: var(--main-white);
     margin: auto;
     display: block;
     cursor: pointer;
@@ -372,7 +372,7 @@
 
 .contactForm form #submit:hover {
     color: #000000;
-    background-color: #ffffff;
+    background-color: var(--main-white);
     transition: 0.5s;
     border: 1px solid #000000;
 }
@@ -433,7 +433,7 @@
     }
 
     .moreInfo a{
-        border: 3px solid #ffffff;
+        border: 3px solid var(--main-white);
         margin: 8% auto;
         width: 165px;
         padding: 13px 5px;

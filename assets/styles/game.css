@@ -72,7 +72,7 @@
 .titleBack{
     padding: 0;
     margin: 6px;
-    color: #ffffff;
+    color: var(--main-white);
     font-size: 35px;
 }
 
@@ -104,7 +104,7 @@
 }
 
 .wrap:hover{
-    color: #792020;
+    color: var(--main-red);
     transition: 0.9s;
 }
 
