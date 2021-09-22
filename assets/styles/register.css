@@ -15,6 +15,7 @@
     display: flex;
     flex-direction: column;
     width: fit-content;
+    padding-block: 15px;
 }
 .formulaire-terms{
     display: flex;
@@ -43,6 +44,9 @@ input{
 .legal-link{
     font-weight: 700;
 }
+.legal-link:hover{
+    text-decoration: underline;
+}
 
 /* Design bouton */
 .btn-anim {
@@ -52,17 +56,17 @@ input{
 
 .btn {
     display: block;
-    margin: 0.5em 0;
-    padding: 0.8em 2.2em;
+    margin-block: 20px;
+    padding: 8px 50px;
     cursor: pointer;
     background: #FFFFFF;
     border: none;
-    border-radius: 0.4em;
+    border-radius: 20px;
     text-transform: uppercase;
-    font-size: 1.4em;
+    font-size: 24px;
     font-family: "Nunito", sans-serif;
     font-weight: 500;
-    letter-spacing: 0.04em;
+    letter-spacing: 4px;
 }
 .btn:hover {
     color: #d53648;
