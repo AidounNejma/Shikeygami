@@ -28,22 +28,21 @@
 					{{ form_widget(registrationForm.plainPassword) }}
 				</div>
 				<div class="formulaire">
-                {{ form_label(registrationForm.userName) }}
+                	{{ form_label(registrationForm.userName) }}
 					{{ form_widget(registrationForm.userName) }}
 				</div>
 				<div class="formulaire">
-                {{ form_label(registrationForm.firstName) }}
+                	{{ form_label(registrationForm.firstName) }}
 					{{ form_widget(registrationForm.firstName) }}
 				</div>
 				<div class="formulaire">
-                {{ form_label(registrationForm.lastName) }}
+                	{{ form_label(registrationForm.lastName) }}
 					{{ form_widget(registrationForm.lastName) }}
 				</div>
                 <div class="formulaire-terms">
                     {{ form_label(registrationForm.agreeTerms) }}
 				    {{ form_widget(registrationForm.agreeTerms) }}
                 </div>			
-
 			    <div class="btn-anim">
 				    <button type="submit" class="btn">S'inscrire</button>
 			    </div>
@@ -51,7 +50,7 @@
 			
 
 			<p class="legal">* Requis</p>
-			<p class="legal">** Lire les<a href="#" class="legal-link">
+			<p class="legal">** Lire les<a href="{{ path("mentions_legales") }}" class="legal-link">
 					conditions légales d'utilisation de nos services</a>
 			</p>
 		</div>
