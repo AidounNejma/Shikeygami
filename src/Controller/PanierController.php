@@ -7,6 +7,7 @@ use App\Entity\Game;
 use App\Entity\Order;
 use App\Repository\GameRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,13 +27,53 @@ class PanierController extends AbstractController
     }
 
     #[Route('/panier/add/{id}', name: 'panier_add',)]
-    public function ajouter($id, EntityManagerInterface $em, Request $request, SessionInterface $session, Calendar $calendar)
+    #[IsGranted("ROLE_USER")]
+    public function ajouter(SessionInterface $session, Calendar $calendar, Request $request)
     {
+        if ($calendar->getBooked() == NULL) {
+
+            $panier = $session->get("panier", []); // le 2eme argument est la valeur retournée par 'get' si il n'y a pas de panier dans la session
+            
+            foreach($panier as $reservation)
+            {
+                if($calendar->getId() == $reservation["calendar"]->getId())
+                {
+                    //dd($reservation["calendar"]->getId());
+                    return $this->redirectToRoute("panier");
+                }
+            }
+            
+            $game = $calendar->getGame();
+            $quantity = $request->query->get("playerQuantity");
+            $pricePerPerson = $game->getPricePerPerson();
+            $totalPrice = $quantity * $pricePerPerson;
+
+            $panier[] = ["calendar" => $calendar, "quantity" => $quantity, "totalPrice" => $totalPrice];
+            // $panier[] = ["calendar" => $calendar, "order" => $order, "game" => $game];
+
+            $session->set("panier", $panier); //j'ajoute en session un indice panier qui contient un array $panier qui est composé d'arrays pour chaque produit
+        }
+    
+        return $this->redirectToRoute("panier");
+    }
+
+    #[Route('/panier/confirm/{id}', name: 'panier_confirm',)]
+    #[IsGranted("ROLE_USER")]
+    public function valider(EntityManagerInterface $em, Request $request, SessionInterface $session, Calendar $calendar)
+    {
+        $panier = $session->get("panier", []); // le 2eme argument est la valeur retournée par 'get' si il n'y a pas de panier dans la session
+
         if ($calendar->getBooked() == NULL) {
             $game = $calendar->getGame();
             $order = new Order;
 
-            $quantity = $request->query->get("playerQuantity");
+            foreach($panier as $reservation)
+            {
+                if($calendar->getId() == $reservation["calendar"]->getId())
+                {
+                    $quantity = $reservation["quantity"]; // on recupere le nombre de joueur du jeu correspondant dans la session
+                }
+            }
 
             $pricePerPerson = $game->getPricePerPerson();
             $totalPrice = $quantity * $pricePerPerson;
@@ -45,13 +86,19 @@ class PanierController extends AbstractController
 
             $calendar->setBooked($order);
             $order->setCalendar($calendar);
-            $em->persist($order);
 
+            $em->persist($order);
             $em->flush();
 
-            $panier = $session->get("panier", []); // le 2eme argument est la valeur retournée par 'get' si il n'y a pas de panier dans la session
-            $panier[] = ["calendar" => $calendar, "order" => $order, "game" => $game];
-
+            foreach($panier as $indice => $reservation)
+            {   
+                if($calendar->getId() == $reservation["calendar"]->getId())
+                {
+                    //dd($reservation["calendar"]->getId());
+                    unset($panier[$indice]);
+                    break;
+                }
+            }
             $session->set("panier", $panier); //j'ajoute en session un indice panier qui contient un array $panier qui est composé d'arrays pour chaque produit
         }
     

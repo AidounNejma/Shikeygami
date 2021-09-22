@@ -8,10 +8,13 @@
 
 	<table class="table">
 		<tbody>
-			<tr>
-				<th>Id</th>
-				<td>{{ calendar.id }}</td>
-			</tr>
+			{% if is_granted('ROLE_ADMIN') %}
+				<tr>
+					<th>Id</th>
+					<td>{{ calendar.id }}</td>
+				</tr>
+			{% endif %}
+
 			<tr>
 				<th>Heure de début</th>
 				<td>{{ calendar.startTime ? calendar.startTime|date('Y-m-d H:i:s') : '' }}</td>
@@ -27,9 +30,17 @@
 		</tbody>
 	</table>
 
+	<form method="GET" action="{{ path("panier_add", { id: calendar.id }) }}">
+		<label for="playerQuantity">Nombre de joueurs</label>
+		<input type="number" name="playerQuantity" value="{{ calendar.game.minPlayers }}" min="{{ calendar.game.minPlayers }}" max="{{ calendar.game.maxPlayers }}">
+
+		<button>
+			<i class="fa fa-cart-plus">Ajouter au panier</i>
+		</button>
+	</form>
 	<a href="{{ path('calendar_index') }}">Retour à la liste</a>
-
+{% if is_granted('ROLE_ADMIN') %}
 	<a href="{{ path('calendar_edit', {'id': calendar.id}) }}">Modifier</a>
-
 	{{ include('calendar/_delete_form.html.twig') }}
+{% endif %}
 {% endblock %}
