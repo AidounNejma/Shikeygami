@@ -16,60 +16,68 @@
 {% block body %}
 
 	<main>
-	<div class="content">
-		<div class="centered">
-			<h1>Toutes nos salles</h1>
-		</div>
-		{% if is_granted("ROLE_ADMIN") %}
-			<a href="{{ path('game_new') }}" id="createNew"><i class="fas fa-plus-circle"></i> Ajouter une salle</a>
-		{% endif %}
-		<div class="slider">
-			{% for game in games %}
-			<div class="flip-card">
-				<div class="inner-flip">
-														<!-- dossier_image ~ à ajouter avant game.imageUrl -->
-					{# <div class="front-flip image" style="background-image:url({{game.imageUrl}})"> #}
-					<div class="front-flip image" style="background-image:url({{dossier_images ~
-game.imageUrl}})">
-						<h2 class="roomTitle">{{ game.title }}</h2>
+		<div class="content">
+			<div class="centered">
+				<h1>Toutes nos salles</h1>
+			</div>
+			{% if is_granted("ROLE_ADMIN") %}
+				<a href="{{ path('game_new') }}" id="createNew">
+					<i class="fas fa-plus-circle"></i>
+					Ajouter une salle</a>
+			{% endif %}
+			<div class="slider">
+				{% for game in games %}
+					<div class="flip-card">
+						<div class="inner-flip">
+							<!-- dossier_image ~ à ajouter avant game.imageUrl -->
+							{# <div class="front-flip image" style="background-image:url({{game.imageUrl}})"> #}
+								<div class="front-flip image" style="background-image:url({{dossier_images ~
+									game.imageUrl}})"> <h2 class="roomTitle">{{ game.title }}</h2>
+							</div>
+							<article class="back-flip">
+								<h2 class="titleBack">{{ game.title }}</h2>
+								<div class="icons">
+									<div class="wrap">
+										<i class="fas fa-user"></i>
+										<p>{{ game.minPlayers }}
+											joueurs minimum</p>
+										<div class="speech userMin">Nombre de joueurs minimum recommandé</div>
+									</div>
+									<div class="wrap">
+										<i class="fas fa-users"></i>
+										<p>{{ game.maxPlayers }}
+											joueurs maximum</p>
+										<div class="userMax">Nombre de joueurs maximum recommandé</div>
+									</div>
+									<div class="wrap">
+										<i class="fas fa-brain"></i>
+										<p>{{ game.gameMaster }}</p>
+										<div class="master">L'un de nos fameux Game Master en charge de cet escape room</div>
+									</div>
+									<div class="wrap">
+										<i class="fas fa-hourglass-half"></i>
+										<p>{{ game.gameDuration }}
+											minutes</p>
+										<div class="duration">La durée de la session d'escape game</div>
+									</div>
+									<div class="wrap">
+										<i class="fas fa-wallet"></i>
+										<p>{{ game.pricePerPerson }}€</p>
+										<div class="price">Le prix par personne</div>
+									</div>
+								</div>
+								<p class="summary">{{ game.synopsis }}</p>
+								<div class="linksRoom">
+									<a href="{{ path('game_show', {'id': game.id}) }}">Voir</a>
+									{% if is_granted("ROLE_ADMIN") %}
+										<a href="{{ path('game_edit', {'id': game.id}) }}">Modifier</a>
+									{% endif %}
+								</div>
+							</article>
+						</div>
 					</div>
-					<article class="back-flip">
-						<h2 class="titleBack">{{ game.title }}</h2>
-						<div class="icons">
-							<div class="wrap">
-								<i class="fas fa-user"></i> <p>{{ game.minPlayers }} joueurs minimum</p>
-								<div class="speech userMin">Nombre de joueurs minimum recommandé</div>
-							</div>
-							<div class="wrap">
-								<i class="fas fa-users"></i><p>{{ game.maxPlayers }} joueurs maximum</p>
-								<div class="userMax">Nombre de joueurs maximum recommandé</div>
-							</div>
-							<div class="wrap">
-								<i class="fas fa-brain"></i><p>{{ game.gameMaster }}</p>
-								<div class="master">L'un de nos fameux Game Master en charge de cet escape room</div>
-							</div>
-							<div class="wrap">
-								<i class="fas fa-hourglass-half" ></i><p>{{ game.gameDuration }} minutes</p>
-								<div class="duration">La durée de la session d'escape game</div>
-							</div>
-							<div class="wrap">
-								<i class="fas fa-wallet"></i><p>{{ game.pricePerPerson }}€</p>
-								<div class="price">Le prix par personne</div>
-							</div>
-						</div>
-						<p class= "summary">{{ game.synopsis }}</p>
-						<div class="linksRoom">
-							<a href="{{ path('game_show', {'id': game.id}) }}">Voir</a>
-							{% if is_granted("ROLE_ADMIN") %}
-								<a href="{{ path('game_edit', {'id': game.id}) }}">Modifier</a>
-							{% endif %}
-						</div>
-					</article>
-				</div>
-            </div>
-		</div>
-			{% endfor %}
+				{% endfor %}
+			</div>
 		</div>
 	</main>
 {% endblock %}
-
