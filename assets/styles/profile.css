@@ -49,6 +49,7 @@ table{
 /*Vignettes des reservations*/
 .vignetteJeu{
     margin: auto;
+    width: 100%;
     margin-top: 20px;
 }
 .vignetteImg{
@@ -88,11 +89,9 @@ table{
 .infoPerso{
     margin-top: 40px;
     margin-bottom: 40px;
-
 }
 .infoPerso p, .infoPerso h2{
     text-align: start;
-    
 }
 .flexdiv{
     display: flex;
@@ -100,7 +99,26 @@ table{
 }
 
 /*-----------------------Responsive-----------------------*/
+/*IPAD*/
+@media screen and (max-width : 1024px){ 
 
+    .titleTop h1{
+        text-align: center;
+        margin: 30px 0;
+        font-size: 50px;
+    }
+    .topContainer{
+        width: 80%;
+    }
+    .vignetteImg{
+        width: 70%;
+        /* height: 300px; */
+    }
+    .infoPerso{
+        margin: 15px 15px;
+    }
+    
+}
 /* IPHONE 5  */
 @media screen and (max-width: 568px) { 
     
@@ -125,12 +143,7 @@ table{
     }
     /*image vignette*/
     .vignetteImg{
-        display: block;
-        margin: auto;
         width: 90%;
-        /* height: 300px; */
-        border-radius: 5%;
-        border: solid #000000;
     }
     /*tableaux*/
     .details {
@@ -147,29 +160,25 @@ table{
     .details tr{
         display: flex;
         flex-wrap: wrap;
-        padding: 5px 10px;
+        padding: 2px 5px;
         align-items: center;
     }
     .cell{
+        padding: 2px;
         width: 100%;
         height: 50px;
-        text-align: left;
+        text-align: center;
         align-items: center;
         display: flex;
+        justify-content: center;
         margin: 3px;
     }
     .flexdiv{
         flex-direction: column;
     }
-    .infoPerso{
-        margin: 20px 20px;
-    }
+    
 }
 
-/*IPAD*/
-@media screen and (max-width : 1024px){ 
-
-}
 
 
 

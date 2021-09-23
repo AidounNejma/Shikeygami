@@ -54,14 +54,14 @@
 					<p>Votre alias/mail:
 						{{app.user.username}}</p>
 					<p>Vous etes Inscrit(e) depuis le:
-						{{app.user.dateOfCreation|date('Y-m-d')}}</p>
+						{{app.user.dateOfCreation|date('d-M-y')}}</p>
 				</section>
 				<section class="infoPerso">
 					<h2>Statistiques :</h2>
-					<p>Nombre de salles jouées:
+					<p>Nombre de salles jouées :
 						{{app.user.orders|length}}
 					</p>
-					<p>Taux de victoire:
+					<p>Taux de victoire :
 						{{app.user.orders|length * 50}}%</p>
 					{# nbsuccess / nbGame * 100 %#}
 				</section>
