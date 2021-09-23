@@ -46,7 +46,20 @@
 									{{ user.lastName }}
 								</p>
 							</td>
-							<td class="user-cell">{{ user.discountStatus }}</td>
+							<td class="user-cell">
+							{% if user.discountStatus == NULL %}
+							{{ user.discountStatus ? "Aucune" : '' }}
+							{% endif %}
+							{% if user.discountStatus == 1 %}
+							{{ user.discountStatus ? "5%" : '' }}
+							{% endif %}
+							{% if user.discountStatus == 2 %}
+							{{ user.discountStatus ? "10%" : '' }}
+							{% endif %}
+							{% if user.discountStatus == 3 %}
+							{{ user.discountStatus ? "20%" : '' }}
+							{% endif %}
+							</td>
 							<td class="user-cell">
 								<a href="{{ path('user_show', {'id': user.id}) }}"><i class="fas fa-eye"></i></a>
 							</td>

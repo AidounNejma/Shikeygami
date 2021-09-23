@@ -2,20 +2,20 @@
     margin: auto;
     padding: 20px;
 }
-.order-table,
-.order-cell{
+.calendar-table,
+.calendar-cell{
     border: 3px solid #000000;
     border-collapse: collapse;
 }
-.order-table{
+.calendar-table{
     margin: 20px auto;
     background-color: rgba(var(--info-bg));
 }
-.order-cell{
+.calendar-cell{
     text-align: start;
     padding: 20px;
 }
-.order-bold{
+.calendar-bold{
     font-weight: 700;
     text-decoration: underline;
     line-height: 30px;

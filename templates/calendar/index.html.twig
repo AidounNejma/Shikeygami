@@ -1,45 +1,69 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+	{{parent()}}
+	{{ encore_entry_link_tags('calendar_back') }}
+{% endblock %}
 
-{% block title %}Calendar index
+
+{% block title %}Shikeygami | Calendrier
 {% endblock %}
 
 {% block body %}
-	<h1>Calendar index</h1>
+	{% if is_granted('ROLE_ADMIN') %}
+	<div class="content">
+		<h2>Planning de sessions</h2>
 
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Jeu</th>
-				<th>StartTime</th>
-				<th>EndTime</th>
-				<th>Booked</th>
-				<th>actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for calendar in calendars %}
+			<a href="{{ path('calendar_new') }}" id="createNew">Créer une session</a>
+		<table class="calendar-table">
+			<thead>
 				<tr>
-					<td>{{ calendar.id }}</td>
-					<td>{{ calendar.game.title }}</td>
-					<td>{{ calendar.startTime ? calendar.startTime|date('Y-m-d H:i:s') : '' }}</td>
-					<td>{{ calendar.endTime ? calendar.endTime|date('Y-m-d H:i:s') : '' }}</td>
-					<td>{{ calendar.booked ? 'Yes' : 'No' }}</td>
-					<td>
-						<a href="{{ path('calendar_show', {'id': calendar.id}) }}">Voir</a>
-						{% if is_granted('ROLE_ADMIN') %}
-							<a href="{{ path('calendar_edit', {'id': calendar.id}) }}">editer</a>
-						{% endif %}
-					</td>
+					<th class="calendar-cell">Id</th>
+					<th class="calendar-cell">Jeu</th>
+					<th class="calendar-cell">Date et heures de début / fin</th>
+					<th class="calendar-cell">Réservé ?</th>
+					<th class="calendar-cell">Détails</th>
+					<th class="calendar-cell">Modification</th>
 				</tr>
-			{% else %}
-				<tr>
-					<td colspan="5">no records found</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
-{% if is_granted('ROLE_ADMIN') %}
-	<a href="{{ path('calendar_new') }}">Create new</a>
-{% endif %}
+			</thead>
+			<tbody>
+				{% for calendar in calendars %}
+					<tr>
+						<td class="calendar-cell">{{ calendar.id }}</td>
+						<td class="calendar-cell">{{ calendar.game.title }}</td>
+						<td class="calendar-cell">
+							<span class="calendar-bold">Début :</span>
+							{{ calendar.startTime ? calendar.startTime|date('d M Y H:i:s') : '' }}
+							<br>
+							<span class="calendar-bold">Fin :</span>
+								{{ calendar.endTime ? calendar.endTime|date('d M Y H:i:s') : '' }}
+						</td>
+						<td class="calendar-cell">{{ calendar.booked ? 'Yes' : 'No' }}</td>
+						<td class="calendar-cell">
+							<a href="{{ path('calendar_show', {'id': calendar.id}) }}">
+								<i class="fas fa-eye"></i>
+							</a>
+
+						</td>
+						<td class="calendar-cell">
+							<a href="{{ path('calendar_edit', {'id': calendar.id}) }}">
+								<i class="fas fa-pen"></i>
+							</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td class="calendar-cell">Aucune session planifiée.<br><span class="calendar-bold">Attention :</span>
+							Les clients ne pourront rien réserver.</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		</div>
+	{% endif %}
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}}
+	{{ encore_entry_script_tags('calendar_back') }}
 {% endblock %}
