@@ -5,22 +5,32 @@ table{
     margin: auto;
 }
 /*Bannière de haut de page*/
+.topContainer{
+    width: 70%;
+    height: 550px;
+    position: relative;
+    margin: auto;
+    background-image: url("../img/profileImages/CloudBanner1.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+.containerRelative{
+    position: relative;
+    margin: auto;
+}
 .topBanner{
     position: relative;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
     border-radius: 50px;
-}
-.profileBanner{
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
 }
 .profileAvatar{
     width: 130px;
     position: relative;
-    top: 40px;
     margin-bottom: 150px;
+    display: block;
+    margin: auto;
+    top: -25px;
 }
 /*Titre h1 h2*/
 .titleCenter h1, .titleCenter h2{

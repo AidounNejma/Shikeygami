@@ -15,20 +15,20 @@
 
 {% block body %}
 	<main>
-
-		<div class='content'>
-			<section class="titleCenter">
-				<h1>Bienvenue {{app.user.firstname}} !</h1>
-			</section>
+		<div class="topContainer">
 			<div class="topBanner">
-				<img class="profileBanner" src="/img/profileImages/CloudBanner.jpg" alt="fond nuages">
+				<section class="titleCenter">
+					<h1>Bienvenue {{app.user.firstname}} !</h1>
+				</section>
 				<img class="profileAvatar" src="/img/profileImages/Avatars/1.jpg" alt="fond nuages">
 			</div>
+		</div>
+		<div class='content'>
 
-            <section class="titleCenter">
-                <h2>Mes réservations en cours</h2>
-            </section>
-			
+			<section class="titleCenter">
+				<h2>Mes réservations en cours</h2>
+			</section>
+
 
 			{% for order in app.user.orders %}
 				{% include "order/vignette.html.twig" %}
@@ -38,17 +38,17 @@
 				</tr>
 			{% endfor %}
 
-            <section class="infoPerso">
-                <h2>Vos infos Personnelles</h2>
-                <p>Votre nom:
-                    {{app.user.lastname}}</p>
-                <p>Votre prénom:
-                    {{app.user.firstname}}</p>
-                <p>Votre alias/mail:
-                    {{app.user.username}}</p>
-                <p>Vous etes Inscrit(e) depuis le:
-                    {{app.user.dateOfCreation|date('Y-m-d')}}</p>
-            </section>
+			<section class="infoPerso">
+				<h2>Vos infos Personnelles</h2>
+				<p>Votre nom:
+					{{app.user.lastname}}</p>
+				<p>Votre prénom:
+					{{app.user.firstname}}</p>
+				<p>Votre alias/mail:
+					{{app.user.username}}</p>
+				<p>Vous etes Inscrit(e) depuis le:
+					{{app.user.dateOfCreation|date('Y-m-d')}}</p>
+			</section>
 
 			<h2>Statistiques</h2>
 			<p>Nombre de salles jouées:
