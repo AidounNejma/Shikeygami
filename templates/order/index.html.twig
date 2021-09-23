@@ -36,53 +36,55 @@
 						<tr>
 							<td class="order-cell">{{ order.id }}</td>
 							<td class="order-cell">
-								<p><span class="order-bold">Client :</span>
+								<p>
+									<span class="order-bold">Client :</span>
 									{{ order.user.firstname ~ ' ' ~ order.user.firstname }}</p>
-								<p><span class="order-bold">Nombre de participants :</span>
+								<p>
+									<span class="order-bold">Nombre de participants :</span>
 									{{ order.playerQuantity }}</p>
-								<p><span class="order-bold">Date de la réservation :</span>
+								<p>
+									<span class="order-bold">Date de la réservation :</span>
 									{{ order.dateOfOrder ? order.dateOfOrder|date('d M Y') : '' }}</p>
 								<hr class="split">
-								<p><span class="order-bold">Nom du jeu :</span>
+								<p>
+									<span class="order-bold">Nom du jeu :</span>
 									{{ order.calendar.game.title }}</p>
-								<p><span class="order-bold">Date et heure de début :</span>
-									{{ order.calendar.startTime ? order.calendar.startTime|date('Y-m-d H:i:s') : '' }}</p>
-								<p><span class="order-bold">Date et heure de fin :</span>
-									{{ order.calendar.endTime ? order.calendar.endTime|date('Y-m-d H:i:s') : '' }}</p>
+								<p>
+									<span class="order-bold">Date et heure de début :</span>
+									{{ order.calendar.startTime ? order.calendar.startTime|date('d M Y H:i:s') : '' }}</p>
+								<p>
+									<span class="order-bold">Date et heure de fin :</span>
+									{{ order.calendar.endTime ? order.calendar.endTime|date('d M Y H:i:s') : '' }}</p>
 							</td>
 							<td class="order-cell">{{ order.totalPrice }}</td>
 							<td class="order-cell">
-							{% if order.paymentStatus == 0 %}
-							{{ order.paymentStatus ? "En cours" : ''}}
-							{% endif %}
-							{% if order.paymentStatus == 1 %}
-							{{ order.paymentStatus ? "Paiement effectué" : '' }}
-							{% endif %}
-							{% if order.paymentStatus == 2 %}
-							{{ order.paymentStatus ? "Réservation annulée" : '' }}
-							{% endif %}
+								{% if order.paymentStatus == 0 %}
+									{{ order.paymentStatus ? "En cours" : ''}}
+								{% endif %}
+								{% if order.paymentStatus == 1 %}
+									{{ order.paymentStatus ? "Paiement effectué" : '' }}
+								{% endif %}
+								{% if order.paymentStatus == 2 %}
+									{{ order.paymentStatus ? "Réservation annulée" : '' }}
+								{% endif %}
 							</td>
 							<td class="order-cell">
 								<a href="{{ path('order_show', {'id': order.id}) }}">
-									<i class="fas fa-eye"></i></a>
-								</td>
+									<i class="fas fa-eye"></i>
+								</a>
 							</td>
 							<td class="order-cell">
 								<a href="{{ path('order_edit', {'id': order.id}) }}">
-									<i class="fas fa-pen"></i></a>
-								</td>
+									<i class="fas fa-pen"></i>
+								</a>
 							</td>
 						</tr>
-					{% else %}
+				</tbody>
+	{% else %}
 
-						<p>Pas de réservation en cours</p>
+		<p>Pas de réservation en cours</p>
 
-					{% endfor %}
-				{% else %}
-					<p>Accès réservé aux administrateurs</p>
-				{% endif %}
-			</tbody>
-		</table>
-
-	</div>
-{% endblock %}
+	{% endfor %}
+{% else %}
+	<p>Accès réservé aux administrateurs</p>
+{% endif %}</tbody></table></div>{% endblock %}

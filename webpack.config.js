@@ -42,6 +42,7 @@ Encore
     .addEntry('legals', './assets/legals.js')
     .addEntry('panier', './assets/panier.js')
     .addEntry('game_show', './assets/game_show.js')
+    .addEntry('calendar_back', './assets/calendar_back.js')
     
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
