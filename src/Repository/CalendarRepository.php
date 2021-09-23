@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Calendar;
+use App\Entity\Order;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -32,6 +33,17 @@ class CalendarRepository extends ServiceEntityRepository
         ->getResult()
         ;
     }
+
+    /* recherche si le jeu à été réservé */
+    /* Methode à revoir */
+    // public function isBooked()
+    // {
+    //     return $this->createQueryBuilder('c')
+    //         ->join(Order::class, 'o', 'WITH', 'o.calendar = c.id')
+    //         ->andWhere('o.paymentStatus = 2')
+    //         ->getQuery()
+    //         ->getResult();
+    // }
 
     /*
     public function findOneBySomeField($value): ?Calendar

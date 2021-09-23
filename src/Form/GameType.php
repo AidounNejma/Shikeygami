@@ -50,7 +50,7 @@ class GameType extends AbstractType
                 ]
             ])
             ->add('difficulty', ChoiceType::class, [
-                'label' => 'Difficultée',
+                'label' => 'Difficulté',
                 'choices' => [
                     'Débutant' => 'debutant',
                     'Intermédiaire' => 'intermediaire',
@@ -58,13 +58,16 @@ class GameType extends AbstractType
                 ]
             ])
             ->add('imageUrl', FileType::class, [
-                "mapped" => false
+                "mapped" => false,
+                'required' => false
             ])
             ->add('imageUrl2', FileType::class, [
-                "mapped" => false
+                "mapped" => false,
+                'required' => false
             ])
             ->add('imageUrl3', FileType::class, [
-                "mapped" => false
+                "mapped" => false,
+                'required' => false
             ])
             
             ->add('maxPlayers', IntegerType::class, [
@@ -91,11 +94,11 @@ class GameType extends AbstractType
             ->add('gameDuration', NumberType::class, [
                 'label' => 'Temps de jeu accordé',
                 "constraints" => [
-                    new GreaterThan(["value" => 30, "message" => "la durée doit etre de 30 minutes minimum"])
+                    new GreaterThan(["value" > 30, "message" => "La durée doit etre de 30 minutes minimum"])
                 ]
             ])
             ->add('pricePerPerson', TypeTextType::class, [
-                "label" => "prix par personne",
+                "label" => "Prix par personne",
             ])
         ;
     }

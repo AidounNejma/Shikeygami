@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{parent()}}
+	{{ encore_entry_link_tags('game_back') }}
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}}
+	{{ encore_entry_script_tags('game_back') }}
+{% endblock %}
+
+{% block title %}Shikeygami | Nos salles
+{% endblock %}
+
+{% block body %}
+	{% if is_granted('ROLE_ADMIN') %}
+		<div class="content">
+			<h2>Liste des jeux</h2>
+			<a href="{{ path('game_new')}}" id="createNew">Créer un nouveau jeu</a>
+
+			<table class="game-table">
+				<thead>
+					<tr>
+						<th class="game-cell">#</th>
+						<th class="game-cell">Titre du jeu</th>
+						<th class="game-cell">Salle</th>
+						<th class="game-cell">Description & synopsis</th>
+						<th class="game-cell">Détails</th>
+						<th class="game-cell">Images</th>
+						<th class="game-cell">Prix par personne</th>
+                        <th class="game-cell">Voir</th>
+                        <th class="game-cell">Modifier</th>
+					</tr>
+				</thead>
+                {% for game in games %}
+				<tbody>
+					<tr>
+                    	<td class="game-cell">{{ game.id }}</td>
+						<td class="game-cell">{{ game.title }}</td>
+						<td class="game-cell">{{ game.room }}</td>
+						<td class="game-cell">
+							<span class="game-bold">Description :</span>
+							{{ game.description }}
+							<br>
+							<span class="game-bold">Synopsis :</span>
+							{{ game.synopsis }}
+						</td>
+						<td class="game-cell">
+                            <span class="game-bold">Joueurs min :</span> {{ game.minPlayers }}
+                            <br>
+                            <span class="game-bold">Joueurs max :</span> {{ game.maxPlayers }}
+                            <br>
+                            <span class="game-bold">Durée max :</span> {{ game.gameDuration }}
+                            <br>
+                            <span class="game-bold">Game Master :</span> {{ game.gameMaster }}
+                            <br>
+                        </td>
+						<td class="game-cell">
+                            <img src="/img/game/{{ game.imageUrl }}" alt="illustration du jeu" class="game-img">
+                            <br>
+                            <img src="/img/game/{{ game.imageUrl2 }}" alt="illustration du jeu" class="game-img">
+                            <br>
+                            <img src="/img/game/{{ game.imageUrl3 }}" alt="illustration du jeu" class="game-img">
+                        </td>
+						<td class="game-cell">{{ game.pricePerPerson }}</td>
+                        <td class="game-cell"><a href="{{ path('game_show', {'id': game.id}) }}"><i class="fas fa-eye"></i></a></td>
+                        <td class="game-cell"><a href="{{ path('game_edit', {'id': game.id}) }}"><i class="fas fa-pen"></i></td>
+					</tr>
+				</tbody>
+                {% endfor %}
+			</table>
+		</div>
+
+	{% endif %}
+{% endblock %}

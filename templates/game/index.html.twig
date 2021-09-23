@@ -10,7 +10,7 @@
 	{{ encore_entry_script_tags('game') }}
 {% endblock %}
 
-{% block title %}Nos salles
+{% block title %}Shikeygami | Nos salles
 {% endblock %}
 
 {% block body %}
@@ -18,7 +18,7 @@
 	<main>
 		<div class="content">
 			<div class="centered">
-				<h1>Toutes nos salles</h1>
+				<h2>Toutes nos salles</h2>
 			</div>
 			{% if is_granted("ROLE_ADMIN") %}
 				<a href="{{ path('game_new') }}" id="createNew">
@@ -27,6 +27,7 @@
 			{% endif %}
 			<div class="slider">
 				{% for game in games %}
+				{% if game.room > 0 %}
 					<div class="flip-card">
 						<div class="inner-flip">
 							<!-- dossier_image ~ à ajouter avant game.imageUrl -->
@@ -73,6 +74,7 @@
 							</article>
 						</div>
 					</div>
+					{% endif %}
 				{% endfor %}
 			</div>
 		</div>
