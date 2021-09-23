@@ -6,53 +6,68 @@
 {% endblock %}
 
 {% block title %}
-Shikeygami | Liste d'utilisateurs
+	Shikeygami | Liste d'utilisateurs
 {% endblock %}
 
 {% block body %}
-	<h1 class="title-backoffice">Liste d'utilisateurs</h1>
+	<div class="content">
+		<h2>Liste d'utilisateurs</h2>
 
-	<div class="wrapper">
-		<table class="table">
-			<thead class="row-header">
-				<tr>
-					<th class="cell">Id</th>
-					<th class="cell">Informations</th>
-                    <th class="cell">Réduction</th>
-					<th class="cell">Détails</th>
-					<th class="cell">Modifier</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for user in users %}
-					<tr class="row">
-						<td class="cell">{{ user.id }}</td>
-						<td class="cell">
-                        <p><span class="bold">Date d'inscription :</span> {{ user.dateOfCreation ? user.dateOfCreation|date('Y-m-d') : '' }}</p>
-                        <p><span class="bold">Pseudo :</span> {{ user.username }}</p>
-                        <p><span class="bold">Email :</span> {{ user.email }}</p>
-                        <p><span class="bold">Niveau d'accès :</span> {{ user.roles ? user.roles|json_encode : '' }}</p>
-                        <p><span class="bold">Nom complet :</span> {{ user.firstName }} {{ user.lastName }}</p>
-                        </td>
-						<td class="cell">{{ user.discountStatus }}</td>
-						<td class="cell">
-							<a href="{{ path('user_show', {'id': user.id}) }}">Détails</a>
-						</td>
-						<td class="cell">
-							<a href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
-						</td>
+		<div>
+			<table class="user-table">
+				<thead>
+					<tr class="user-row">
+						<th class="user-cell">Id</th>
+						<th class="user-cell">Informations</th>
+						<th class="user-cell">Réduction</th>
+						<th class="user-cell">Détails</th>
+						<th class="user-cell">Modifier</th>
 					</tr>
-				{% else %}
+				</thead>
+				<tbody>
+					{% for user in users %}
+						<tr class="user-row">
+							<td class="user-cell">{{ user.id }}</td>
+							<td class="user-cell">
+								<p>
+									<span class="user-bold">Date d'inscription :</span>
+									{{ user.dateOfCreation ? user.dateOfCreation|date('Y-m-d') : '' }}</p>
+								<p>
+									<span class="user-bold">Pseudo :</span>
+									{{ user.username }}</p>
+								<p>
+									<span class="user-bold">Email :</span>
+									{{ user.email }}</p>
+								<p>
+									<span class="user-bold">Niveau d'accès :</span>
+									{{ user.roles ? user.roles|json_encode : '' }}</p>
+								<p>
+									<span class="user-bold">Nom complet :</span>
+									{{ user.firstName }}
+									{{ user.lastName }}
+								</p>
+							</td>
+							<td class="user-cell">{{ user.discountStatus }}</td>
+							<td class="user-cell">
+								<a href="{{ path('user_show', {'id': user.id}) }}"><i class="fas fa-eye"></i></a>
+							</td>
+							<td class="user-cell">
+								<a href="{{ path('user_edit', {'id': user.id}) }}"><i class="fas fa-pen"></i></a>
+							</td>
+						</tr>
+					{% else %}
 
-					<p>Aucun utilisateur n'est présent dans la base de données</p>
+						<p>Aucun utilisateur n'est présent dans la base de données et ça n'est pas très normal.<br>
+							Avez-vous pensez à mettre le site en ligne ?</p>
 
-				{% endfor %}
-			</tbody>
-		</table>
-	</div>
-{% endblock %}
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+</div>
+	{% endblock %}
 
-{% block javascripts %}
-	{{ parent() }}
-	{{ encore_entry_script_tags('user') }}
-{% endblock %}
+	{% block javascripts %}
+		{{ parent() }}
+		{{ encore_entry_script_tags('user') }}
+	{% endblock %}
