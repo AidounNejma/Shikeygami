@@ -138,8 +138,16 @@
   font-size: 15px;
   padding: 2px 0;
 }
+
 .one, .three, .five {
   background-color: black;
+}
+
+.description{
+  background-color: #1f1d1d;
+  margin: 0px -10px;
+  padding: 8%;
+  box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .links{
@@ -178,6 +186,10 @@
 .adminTable th, .adminTable td{
   border: 1px solid #ffffff;
   border-collapse: collapse;
+}
+
+.adminTable th{
+  font-weight: 900;
 }
 
 .adminTable a:hover, .adminTable button:hover{

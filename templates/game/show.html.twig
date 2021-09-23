@@ -24,8 +24,8 @@
 				<img src="{{dossier_images ~ game.imageUrl3}}" id="image3">
 				<section class="infoGame">
 				<div class="parallelogram one">
-					<div class="circle">
-						<i class="fas fa-users"></i>
+					<div class="circle zoom-in">
+						<i class="fas fa-user"></i>
 						<p>{{ game.minPlayers }} joueurs</p>
 					</div>
 				</div>
@@ -79,7 +79,7 @@
 		<div class="content">
 				
 			<h3>Description de la salle</h3>
-			<p>{{ game.description }}</p>
+			<p class="description">{{ game.description }}</p>
 			<div class="links">
 				<a href="{{ path('calendar_index') }}"><i class="fas fa-shopping-cart"></i> Réserver</a>
 				<a href="{{ path('game_index') }}"><i class="fas fa-arrow-circle-left"></i> Retour à la liste</a>
