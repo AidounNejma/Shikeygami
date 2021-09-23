@@ -12,10 +12,10 @@
 }
 
 #createNew {
-    color: #ffffff;
+    color: var(--main-white);
     background-color: transparent;
     text-decoration: none;
-    border: 2px solid #ffffff;
+    border: 2px solid var(--main-white);
     border-radius: 11%;
     display: block;
     padding: 2%;
@@ -26,8 +26,8 @@
 }
 
 #createNew:hover{
-    background-color: #ffffff;
-    color:#792020;
+    background-color: var(--main-white);
+    color:var(--main-red);
     transition: 0.9s;
 }
 
