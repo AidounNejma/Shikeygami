@@ -1,5 +1,7 @@
 .vignetteImg{
     height: 250px;
+    border-radius: 5%;
+    border: solid #000000;
 }
 table{
     margin: auto;
@@ -44,6 +46,17 @@ table{
     font-size: 40px;
 }
 /*Vignettes des reservations*/
+
+.details{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.cell{
+    padding: 2px 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
 
 /*Infos personnelles de l'utilisateur*/
 .infoPerso{
