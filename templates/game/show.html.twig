@@ -84,15 +84,23 @@
 				<a href="{{ path('calendar_index') }}"><i class="fas fa-shopping-cart"></i> Réserver</a>
 				<a href="{{ path('game_index') }}"><i class="fas fa-arrow-circle-left"></i> Retour à la liste</a>
 			</div>
-				{% if is_granted("ROLE_ADMIN") %}
-					<p>Id du Jeu</p>
-					<p>{{ game.id }}</p>
-
-					<p>Room</p>
-					<p>{{ game.room }}</p>
-
-					<a href="{{ path('game_edit', {'id': game.id}) }}">Modifier</a>
-					{{ include('game/_delete_form.html.twig') }}
+			{% if is_granted("ROLE_ADMIN") %}
+				<table class="adminTable">
+					<thead>
+						<th>Id du Jeu</th>
+						<th>Room</th>
+						<th>Modifier</th>
+						<th>Supprimer</th>
+					<thead>
+					<tbody>
+						<td>{{ game.id }}</td>
+						<td>{{ game.room }}</td>
+						<td><a href="{{ path('game_edit', {'id': game.id}) }}"><i class="far fa-edit"></i></a></td>
+						<td>{{ include('game/_delete_form.html.twig') }}</td>
+					</tbody>
+				</table>
+					
+					
 				{% endif %}
 		</div>
 	</main>

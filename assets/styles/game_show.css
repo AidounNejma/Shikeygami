@@ -169,3 +169,7 @@
   background-color: #792020;
   transition: 0.9s;
 }
+
+.adminTable{
+  border: 1px solid #ffffff;
+}
