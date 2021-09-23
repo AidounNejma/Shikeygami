@@ -74,11 +74,10 @@
     width: 100%;
     border-radius: 20px;
     border: solid #000000;
-}
-.front-flip .image{
+    background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
 }
+
 
 .roomTitle {
     color: #ffffff;

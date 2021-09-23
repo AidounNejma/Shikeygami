@@ -17,12 +17,12 @@
 
 
   /* par défaut on rend les images invisible */
-.Containers {
-    display: none;
+.containers {
+    display: block;
 }
 
   /* Les boutons précédent et suivant */
-.Back, .forward {
+.back, .forward {
     cursor: pointer;
     position: absolute;
     top: 53%;
@@ -45,7 +45,7 @@
 }
 
   /* Au survol des boutons un background noir transparent */
-.Back:hover, .forward:hover {
+.back:hover, .forward:hover {
     background-color: rgba(0,0,0,0.8);
 }
 
@@ -91,24 +91,6 @@
     color: #000000;
     background-color: var(--main-white);
     transition: 0.9s;
-}
-
-/* The circles or bullets and indicators */
-.dots {
-    cursor: pointer;
-    height: 16px;
-    width: 16px;
-    margin-top: -30px;
-    background-color: #acc;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.5s ease;
-    position: absolute;
-}
-
-.enable, .dots:hover {
-    background-color: #717161;
-    position: absolute;
 }
 
 /* Animation: fondu*/
@@ -415,10 +397,6 @@
 
     .dots{
         margin: -70px 0 0 0;
-    }
-
-    .content{
-        margin: 0;
     }
 
     .info p{

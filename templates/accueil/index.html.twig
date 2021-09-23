@@ -20,61 +20,23 @@
 {% block body %}
 
 <!-- Slideshow container -->
-<div class="slideshow-container fade">
+<div class="slideshow-container">
 
 <!-- Full images with numbers and message Info -->
-    <div class="Containers">
-            <img src="/img/carouselBanner/1.jpg">
+    <div class="containers">
+            <img src="/img/carouselBanner/1.jpg" id="image">
                 <div class="info">
-                    <p>Yokai Exorcism</p>
+                    <p class="text">Yokai Exorcism</p>
                 </div>
                 <div class="moreInfo">
-                    <a href="#">En savoir plus</a>
-                </div>
-    </div>
-
-    <div class="Containers">
-            <img src="/img/carouselBanner/2.jpg">
-                <div class="info">
-                    <p>Attack on alien</p>
-                </div>
-                    <div class="moreInfo">
-                        <a href="#">En savoir plus</a>
-                    </div>
-    </div>
-
-    <div class="Containers">
-            <img src="/img/carouselBanner/3.jpg">
-                <div class="info">
-                    <p>Minka Escape</p>
-                </div>
-                <div class="moreInfo">
-                    <a href="#">En savoir plus</a>
-                </div>
-    </div>
-
-    <div class="Containers">
-            <img src="/img/carouselBanner/4.jpg">
-                <div class="info">
-                    <p>Chikatetsu Horror</p>
-                </div>
-                <div class="moreInfo">
-                    <a href="#">En savoir plus</a>
+                    <a href="/game" id="links">En savoir plus</a>
                 </div>
     </div>
 
 <!-- Back and forward buttons -->
-    <a class="Back" onclick="plusSlides(-1)"><i class="fas fa-chevron-left"></i></a>
-    <a class="forward" onclick="plusSlides(1)"><i class="fas fa-chevron-right"></i></a>
+    <a class="back" ><i class="fas fa-chevron-left"></i></a>
+    <a class="forward"><i class="fas fa-chevron-right"></i></a>
 </div>
-<br>
-
-<!-- The circles/dots -->
-    <div style="text-align:center">
-        <span class="dots" onclick="currentSlide(1)"></span>
-        <span class="dots" onclick="currentSlide(2)"></span>
-        <span class="dots" onclick="currentSlide(3)"></span>
-    </div> 
 
 <!-- Main content -->
 <main>

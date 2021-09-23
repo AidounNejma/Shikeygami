@@ -1,0 +1,85 @@
+/*-----------------------------Carousel-----------------------------*/
+
+/* Le container du carousel */
+.slideshow-container {
+  width: 70%;
+  height: 550px;
+  position: relative;
+  margin: auto;
+}
+.slideshow-container img {
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+  object-position: 0 40%;
+}
+
+
+/* par défaut on rend les images invisible */
+.containers {
+  display: block;
+}
+
+/* Les boutons précédent et suivant */
+.back, .forward {
+  cursor: pointer;
+  position: absolute;
+  top: 53%;
+  width: auto;
+  margin-top: -23px;
+  padding: 17px;
+  color: grey;
+  font-weight: bold;
+  font-size: 50px;
+  transition: 0.4s ease;
+  border-radius: 0 5px 5px 0;
+  user-select: none;
+  opacity: 1;
+}
+
+/* On place le bouton suivant à droite */
+.forward {
+  right: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+/* Au survol des boutons un background noir transparent */
+.back:hover, .forward:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Titre des salles */
+.info {
+  position: absolute;
+  top: 5px;
+  width: 100%;
+}
+
+.info p{
+  color: #e3e3e3;
+  font-weight: bold;
+  padding: 10px 14px;
+  margin: 4% auto 0 auto;
+  width: 47%;
+  text-align: center;
+  background-color: rgb(48, 60, 71, 0.5);
+  font-size: 70px;
+}
+
+/* Animation: fondu*/
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.4s;
+  animation-name: fade;
+  animation-duration: 1.4s;
+}
+
+@keyframes fade {
+  from {opacity: 0}
+  to {opacity: 2}
+}
+
+/*-----------------------------FIN DU CAROUSEL-----------------------------*/
+.content h2{
+    font-size: 50px;
+}
