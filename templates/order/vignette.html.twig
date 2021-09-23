@@ -24,7 +24,7 @@
                 </tr>
 
                 <tr>
-                    <td class="cell">{{ order.dateOfOrder ? order.calendar.startTime|date('Y-m-d H:i:s') : '' }}</td>
+                    <td class="cell">{{ order.dateOfOrder ? order.calendar.startTime|date('d-M-y H:i:s') : '' }}</td>
                     <td class="cell">{{ order.playerQuantity }} joueurs</td>
                     <td class="cell">{{ order.calendar.game.difficulty }}</td>
                     <td class="cell">{{ order.calendar.game.gameMaster }}</td>
