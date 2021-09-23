@@ -1,39 +1,66 @@
 <div>
-	<h4>{{ order.calendar.game.title }}</h4>
-
-	<p><img class="vignetteImg" src="{{dossier_images ~ order.calendar.game.imageUrl}}" alt="{{order.calendar.game.title}}" class="miniature">
-    </p>
+	<h3>{{ order.calendar.game.title }}</h3>
+    
+    <a href="{{ path('game_show', {'id': order.calendar.game.id}) }}"><img class="vignetteImg" src="{{dossier_images ~ order.calendar.game.imageUrl}}" alt="{{order.calendar.game.title}}"></a>
+    
     <div class="centered">
-        <table>
+        <p>{{ order.calendar.game.synopsis }}</p>
+
+        <table class="details">
             <thead>
                 <tr>
-                    <th>Date de réservation</th>
-                    <th>Nombre de participants</th>
-                    <th>Prix Total</th>
-                    <th>Status du payement</th>
-                    <th></th>
+                    <th class="cell1"><i class="fas fa-hourglass-half"></i></th>
+                    <th class="cell1"><i class="fas fa-users"></i></th>
+                    <th class="cell1"><i class="fas fa-lock"></i></th>
+                    <th class="cell1"><i class="fas fa-brain"></i></th>
                 </tr>
             </thead>
             <tbody>
-                
-                    <tr>
-                        <td>{{ order.dateOfOrder ? order.dateOfOrder|date('Y-m-d H:i:s') : '' }}</td>
-                        <td>{{ order.playerQuantity }}</td>
-                        <td>{{ order.totalPrice }}</td>
-                        <td>
-                            {% if order.paymentStatus == 1 %}
-                                Payé
-                            {% else %}
-                                En attente de paiement
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <button><a href="{{ path('game_show', {'id': order.calendar.game.id}) }}">Voir</a></button>
-                    <button><a href="{{ path('order_delete', {'id': order.id}) }}">Annuler ma réservation</a></button>
+                <tr>
+                    <td class="cell">Date de réservation</td>
+                    <td class="cell">Nombre de participants</td>
+                    <td class="cell">Difficulté</td>
+                    <td class="cell">Game master</td>
+                </tr>
 
+                <tr>
+                    <td class="cell">{{ order.dateOfOrder ? order.calendar.startTime|date('Y-m-d H:i:s') : '' }}</td>
+                    <td class="cell">{{ order.playerQuantity }} joueurs</td>
+                    <td class="cell">{{ order.calendar.game.difficulty }}</td>
+                    <td class="cell">{{ order.calendar.game.gameMaster }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="details">
+            <thead>
+                <tr>
+                    <th class="cell1"><i class="fas fa-wallet"></i></th>
+                    <th class="cell1"><i class="fas fa-wallet"></i></th>  
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="cell">Prix Total</td>
+                    <td class="cell">Status du payement</td>
+                </tr>
+                <tr>
+                    <td class="cell">{{ order.totalPrice }}</td>
+                    <td class="cell">
+                        {% if order.paymentStatus == 1 %}
+                            Payé
+                        {% else %}
+                            En attente de paiement
+                        {% endif %}
+                    </td>
+                </tr>
                 
             </tbody>
         </table>
+    <div>
+        <button><a href="{{ path('order_delete', {'id': order.id}) }}">Annuler ma réservation</a></button>
+    </div>
     </div>
 	
 </div>

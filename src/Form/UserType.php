@@ -47,8 +47,14 @@ class UserType extends AbstractType
                 'label' => 'Nom',
                 'required' => false
             ])
-            ->add('discountStatus', IntegerType::class, [
-                'label' => 'Réduction applicable'
+            ->add('discountStatus', ChoiceType::class, [
+                'label' => 'Réduction applicable',
+                'choices' => [
+                    'Aucune' => null,
+                    '5%' => 1,
+                    '10%' => 2,
+                    '20%' => 3
+                ]
             ])
         ;
     }

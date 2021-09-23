@@ -7,6 +7,7 @@ use App\Entity\Order;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -34,8 +35,13 @@ class OrderType extends AbstractType
                     new GreaterThan(["value" => 1, "message" => "le nombre de joueur doit etre superieur à 1"])
                 ]
             ])
-            ->add('paymentStatus', IntegerType::class, [
-                'label' => 'Status du paiement'
+            ->add('paymentStatus', ChoiceType::class, [
+                'label' => 'Status du paiement',
+                'choices' => [
+                    'En cours' => 1,
+                    'Paiement effectué' => 2,
+                    'Réservation annulée' => 3
+                ]
             ])
             ->add('user', EntityType::class, [
                 'class' => User::class,
