@@ -10,59 +10,69 @@
 	{{ encore_entry_script_tags('order') }}
 {% endblock %}
 
-{% block title %}Liste des réservations
+{% block title %}Shikeygami | Liste des réservations
 {% endblock %}
 
 {% block body %}
-	<main>
-        <div class="centered">
-            <h1>Liste des Réservations</h1>
-        </div>
-		<div class='content'>
-			<table>
+	{% if is_granted("ROLE_ADMIN") %}
+		<div class="content">
+
+			<h2>Liste des Réservations</h2>
+			<a href="{{ path('order_new') }}" id="createNew">Nouvelle réservation</a>
+			<table class="order-table">
 				<thead>
 					<tr>
-						<th>Id</th>
-						<th>Titre de la salle</th>
-						<th>DateOfOrder</th>
-						<th>Client</th>
-						<th>Nombre de participants</th>
-						<th>TotalPrice</th>
-						<th>BookedTime</th>
-						<th>PaymentStatus</th>
-						<th>actions</th>
+						<th class="order-cell">Id</th>
+						<th class="order-cell">Details</th>
+						<th class="order-cell">Prix total</th>
+						<th class="order-cell">PaymentStatus</th>
+						<th class="order-cell">Details</th>
+						<th class="order-cell">Modifications</th>
 					</tr>
 				</thead>
 				<tbody>
 					{% for order in orders %}
-						<tr>
-							<td>{{ order.id }}</td>
-							<td>{{ order.calendar.game.title }}</td>
-							<td>{{ order.dateOfOrder ? order.dateOfOrder|date('Y-m-d') : '' }}</td>
-							<td>{{ order.user.firstname ~ ' ' ~ order.user.firstname }}</td>
-							<td>{{ order.playerQuantity }}</td>
-							<td>{{ order.totalPrice }}</td>
-							{# <td>{{ order.calendar.bookedTime ? order.calendar.bookedTime|date('Y-m-d H:i:s') : '' }}</td> #}
-							<td>{{ order.paymentStatus }}</td>
-							<td>
-								<a href="{{ path('order_show', {'id': order.id}) }}">Voir</a>
 
-								{% if is_granted("ROLE_ADMIN") %}
-									<a href="{{ path('order_edit', {'id': order.id}) }}">Modifier</a>
-								{% endif %}
+						<tr>
+							<td class="order-cell">{{ order.id }}</td>
+							<td class="order-cell">
+								<p><span class="order-bold">Client :</span>
+									{{ order.user.firstname ~ ' ' ~ order.user.firstname }}</p>
+								<p><span class="order-bold">Nombre de participants :</span>
+									{{ order.playerQuantity }}</p>
+								<p><span class="order-bold">Date de la réservation :</span>
+									{{ order.dateOfOrder ? order.dateOfOrder|date('d M Y') : '' }}</p>
+								<hr class="split">
+								<p><span class="order-bold">Nom du jeu :</span>
+									{{ order.calendar.game.title }}</p>
+								<p><span class="order-bold">Date et heure de début :</span>
+									{{ order.calendar.startTime ? order.calendar.startTime|date('Y-m-d H:i:s') : '' }}</p>
+								<p><span class="order-bold">Date et heure de fin :</span>
+									{{ order.calendar.endTime ? order.calendar.endTime|date('Y-m-d H:i:s') : '' }}</p>
+							</td>
+							<td class="order-cell">{{ order.totalPrice }}</td>
+							<td class="order-cell">{{ order.paymentStatus }}</td>
+							<td class="order-cell">
+								<a href="{{ path('order_show', {'id': order.id}) }}">
+									<i class="fas fa-eye"></i></a>
+								</td>
+							</td>
+							<td class="order-cell">
+								<a href="{{ path('order_edit', {'id': order.id}) }}">
+									<i class="fas fa-pen"></i></a>
+								</td>
 							</td>
 						</tr>
 					{% else %}
-						<tr>
-							<td>Pas de réservation en cours</td>
-						</tr>
-					{% endfor %}
-				</tbody>
-			</table>
 
-			{% if is_granted("ROLE_ADMIN") %}
-				<a href="{{ path('order_new') }}">Nouvelle réservation</a>
-			{% endif %}
-		</div>
-	</main>
+						<p>Pas de réservation en cours</p>
+
+					{% endfor %}
+				{% else %}
+					<p>Accès réservé aux administrateurs</p>
+				{% endif %}
+			</tbody>
+		</table>
+
+	</div>
 {% endblock %}
