@@ -7,13 +7,12 @@ table{
 /*Bannière de haut de page*/
 .topContainer{
     width: 70%;
-    height: 550px;
     position: relative;
     margin: auto;
-    background-image: url("../img/profileImages/CloudBanner1.png");
-    background-size: contain;
+    margin-bottom: 40px;
+    background-image: url("../img/profileImages/CloudBanner.png");
+    background-size: 100% 250px;
     background-repeat: no-repeat;
-
 }
 .containerRelative{
     position: relative;
