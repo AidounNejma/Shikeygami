@@ -138,8 +138,7 @@ footer .information a:hover {
   /* ----------------------------------------RESPONSIVE--------------------------- */
     /* -------------------------------MOBILE - IPAD------------------------- */
 
-@media screen 
-    and (max-width : 1024px)
+@media screen and (max-width : 1260px)
     {
 /* ------------------------------------header----------------------------- */
     header .container{
