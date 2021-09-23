@@ -38,9 +38,9 @@ class OrderType extends AbstractType
             ->add('paymentStatus', ChoiceType::class, [
                 'label' => 'Status du paiement',
                 'choices' => [
-                    'En cours' => 0,
-                    'Paiement effectué' => 1,
-                    'Réservation annulée' => 2
+                    'En cours' => 1,
+                    'Paiement effectué' => 2,
+                    'Réservation annulée' => 3
                 ]
             ])
             ->add('user', EntityType::class, [

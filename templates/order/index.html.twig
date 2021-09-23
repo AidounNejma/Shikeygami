@@ -58,13 +58,13 @@
 							</td>
 							<td class="order-cell">{{ order.totalPrice }}</td>
 							<td class="order-cell">
-								{% if order.paymentStatus == 0 %}
+								{% if order.paymentStatus == 1 %}
 									{{ order.paymentStatus ? "En cours" : ''}}
 								{% endif %}
-								{% if order.paymentStatus == 1 %}
+								{% if order.paymentStatus == 2 %}
 									{{ order.paymentStatus ? "Paiement effectué" : '' }}
 								{% endif %}
-								{% if order.paymentStatus == 2 %}
+								{% if order.paymentStatus == 3 %}
 									{{ order.paymentStatus ? "Réservation annulée" : '' }}
 								{% endif %}
 							</td>
