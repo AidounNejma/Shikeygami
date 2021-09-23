@@ -77,12 +77,12 @@ class Game
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $image_url2;
+    private $imageUrl2;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $image_url3;
+    private $imageUrl3;
 
     /**
      * @ORM\Column(type="string", length=50)
@@ -252,24 +252,24 @@ class Game
 
     public function getImageUrl2(): ?string
     {
-        return $this->image_url2;
+        return $this->imageUrl2;
     }
 
-    public function setImageUrl2(string $image_url2): self
+    public function setImageUrl2(string $imageUrl2): self
     {
-        $this->image_url2 = $image_url2;
+        $this->imageUrl2 = $imageUrl2;
 
         return $this;
     }
 
     public function getImageUrl3(): ?string
     {
-        return $this->image_url3;
+        return $this->imageUrl3;
     }
 
-    public function setImageUrl3(string $image_url3): self
+    public function setImageUrl3(string $imageUrl3): self
     {
-        $this->image_url3 = $image_url3;
+        $this->imageUrl3 = $imageUrl3;
 
         return $this;
     }

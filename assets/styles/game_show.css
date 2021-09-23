@@ -2,7 +2,7 @@
 
 /* Le container du carousel */
 .slideshow-container {
-  width: 70%;
+  width: 56%;
   height: 550px;
   position: relative;
   margin: auto;
@@ -14,10 +14,17 @@
   object-position: 0 40%;
 }
 
-
-/* par défaut on rend les images invisible */
 .containers {
   display: block;
+}
+
+/* par défaut on rend les images invisible */
+#image2{
+  display: none;
+}
+/* par défaut on rend les images invisible */
+#image3{
+  display: none;
 }
 
 /* Les boutons précédent et suivant */
