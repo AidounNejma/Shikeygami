@@ -3,12 +3,9 @@
     margin: auto;
 }
 
-.content h2, .content p, .content a {
-    font-family: 'Nunito', sans-serif;
-}
-
-.centered h1{
+.centered h2{
     margin: 3% 0 9% 0;
+    font-size: 35px;
 }
 
 #createNew {
