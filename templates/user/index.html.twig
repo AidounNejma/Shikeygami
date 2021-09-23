@@ -16,43 +16,43 @@
 		<div>
 			<table class="user-table">
 				<thead>
-					<tr>
-						<th>Id</th>
-						<th>Informations</th>
-						<th>Réduction</th>
-						<th>Détails</th>
-						<th>Modifier</th>
+					<tr class="user-row">
+						<th class="user-cell">Id</th>
+						<th class="user-cell">Informations</th>
+						<th class="user-cell">Réduction</th>
+						<th class="user-cell">Détails</th>
+						<th class="user-cell">Modifier</th>
 					</tr>
 				</thead>
 				<tbody>
 					{% for user in users %}
-						<tr>
-							<td>{{ user.id }}</td>
-							<td>
+						<tr class="user-row">
+							<td class="user-cell">{{ user.id }}</td>
+							<td class="user-cell">
 								<p>
-									<span>Date d'inscription :</span>
+									<span class="user-bold">Date d'inscription :</span>
 									{{ user.dateOfCreation ? user.dateOfCreation|date('Y-m-d') : '' }}</p>
 								<p>
-									<span>Pseudo :</span>
+									<span class="user-bold">Pseudo :</span>
 									{{ user.username }}</p>
 								<p>
-									<span>Email :</span>
+									<span class="user-bold">Email :</span>
 									{{ user.email }}</p>
 								<p>
-									<span>Niveau d'accès :</span>
+									<span class="user-bold">Niveau d'accès :</span>
 									{{ user.roles ? user.roles|json_encode : '' }}</p>
 								<p>
-									<span>Nom complet :</span>
+									<span class="user-bold">Nom complet :</span>
 									{{ user.firstName }}
 									{{ user.lastName }}
 								</p>
 							</td>
-							<td>{{ user.discountStatus }}</td>
-							<td>
-								<a href="{{ path('user_show', {'id': user.id}) }}">Détails</a>
+							<td class="user-cell">{{ user.discountStatus }}</td>
+							<td class="user-cell">
+								<a href="{{ path('user_show', {'id': user.id}) }}"><i class="fas fa-eye"></i></a>
 							</td>
-							<td>
-								<a href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
+							<td class="user-cell">
+								<a href="{{ path('user_edit', {'id': user.id}) }}"><i class="fas fa-pen"></i></a>
 							</td>
 						</tr>
 					{% else %}
