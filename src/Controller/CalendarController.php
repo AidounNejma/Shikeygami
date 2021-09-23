@@ -19,6 +19,7 @@ class CalendarController extends AbstractController
     {
         return $this->render('calendar/index.html.twig', [
             'calendars' => $calendarRepository->calendarDesc(),
+            // 'isBooked' => $calendarRepository->isBooked(),
         ]);
     }
 

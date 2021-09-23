@@ -10,6 +10,9 @@
 
 {% block body %}
 	{% if is_granted('ROLE_ADMIN') %}
+	{# <pre>
+		{{ dump(isBooked) }}
+	</pre> #}
 	<div class="content">
 		<h2>Planning de sessions</h2>
 
@@ -37,7 +40,7 @@
 							<span class="calendar-bold">Fin :</span>
 								{{ calendar.endTime ? calendar.endTime|date('d M Y H:i:s') : '' }}
 						</td>
-						<td class="calendar-cell">{{ calendar.booked ? 'Yes' : 'No' }}</td>
+						<td class="calendar-cell">{{ calendar.booked ? 'Oui' : 'Non' }}</td>
 						<td class="calendar-cell">
 							<a href="{{ path('calendar_show', {'id': calendar.id}) }}">
 								<i class="fas fa-eye"></i>

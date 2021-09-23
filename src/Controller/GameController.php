@@ -22,6 +22,15 @@ class GameController extends AbstractController
         ]);
     }
 
+    #[Route('/game-list', name: 'game_list', methods: ['GET'])]
+    #[IsGranted("ROLE_ADMIN")]
+    public function backList(GameRepository $gameRepository)
+    {
+        return $this->render('game/back.html.twig', [
+            'games' => $gameRepository->findAll(),
+        ]);
+    }
+
     #[Route('/new', name: 'game_new', methods: ['GET', 'POST'])]
     #[IsGranted("ROLE_ADMIN")]
     public function new(Request $request): Response
