@@ -2,57 +2,75 @@
 
 {% block stylesheets %}
 	{{parent()}}
-	{{ encore_entry_link_tags('game') }}
+	{{ encore_entry_link_tags('game_show') }}
 {% endblock %}
 
 {% block javascripts %}
 	{{parent()}}
-	{{ encore_entry_script_tags('game') }}
+	{{ encore_entry_script_tags('game_show') }}
 {% endblock %}
 
-{% block title %}Salles
-{% endblock %}
+{% block title %}Salle n°{{game.room}} {% endblock %}
 
 {% block body %}
 	<main>
+	<!-- Slideshow container -->
+		<div class="slideshow-container">
 
-		<div class="centered">
-			<h1>Game</h1>
-		</div>
+		<!-- Full images with numbers and message Info -->
+			<div class="containers">
+				<img src="{{dossier_images ~ game.imageUrl}}" id="image">
+					<div class="info">
+						<p class="text">{{game.title}}</p>
+					</div>
+				</div>
+
+			<!-- Back and forward buttons -->
+				<a class="back" ><i class="fas fa-chevron-left"></i></a>
+				<a class="forward"><i class="fas fa-chevron-right"></i></a>
+			</div>
+		<!-- CONTENT -->
 		<div class="content">
 
-			<h2>{{ game.title }}</h2>
 
-			<h3>Description de la salle</h3>
-			<p>{{ game.description }}</p>
+			<section class="infoGame">
+				<h2>{{ game.title }}</h2>
+				<i class="fas fa-users"></i>
+				<p>Nombre de joueurs minimum: {{ game.minPlayers }} joueurs</p>
 
-			<p><img src="{{dossier_images ~ game.imageUrl}}" alt="{{game.title}}" class="miniature"></p>
+				<i class="fas fa-users"></i>
+				<p>Nombre de joueurs maximum: {{ game.maxPlayers }} joueurs</p>
 
-            <p>Nombre de joueurs minimum: {{ game.minPlayers }} joueurs</p>
+				<i class="fas fa-brain"></i>
+				<p>GameMaster: {{ game.gameMaster }}</p>
 
-			<p>Nombre de joueurs maximum: {{ game.maxPlayers }} joueurs</p>
+				<i class="fas fa-hourglass-half"></i>
+				<p>GameDuration: {{ game.gameDuration }} minutes</p>
 
-			<p>GameMaster: {{ game.gameMaster }}</p>
+				<i class="fas fa-wallet"></i>
+				<p>PricePerPerson: {{ game.pricePerPerson }} €</p>
 
-			<p>GameDuration: {{ game.gameDuration }} minutes</p>
+				<i class="fas fa-lock"></i>
+				<p>Difficulté: {{ game.difficulty }}</p>
+				
+				<h3>Description de la salle</h3>
+				<p>{{ game.description }}</p>
+				<button><a href="{{ path('calendar_index') }}">Réservation</a></button>
+				
+				<a href="{{ path('game_index') }}">Retour à la liste</a>
 
-			<p>PricePerPerson: {{ game.pricePerPerson }} €</p>
+				{% if is_granted("ROLE_ADMIN") %}
+					<p>Id du Jeu</p>
+					<p>{{ game.id }}</p>
 
-			<button><a href="{{ path('calendar_index') }}">Réservation</a></button>
-			
-			<a href="{{ path('game_index') }}">back to list</a>
+					<p>Room</p>
+					<p>{{ game.room }}</p>
 
-			{% if is_granted("ROLE_ADMIN") %}
-				<p>Id du Jeu</p>
-				<p>{{ game.id }}</p>
+					<a href="{{ path('game_edit', {'id': game.id}) }}">Modifier</a>
+					{{ include('game/_delete_form.html.twig') }}
+				{% endif %}
 
-                <p>Room</p>
-			    <p>{{ game.room }}</p>
-
-				<a href="{{ path('game_edit', {'id': game.id}) }}">edit</a>
-				{{ include('game/_delete_form.html.twig') }}
-			{% endif %}
-
+			</section>
 		</div>
 	</main>
 {% endblock %}

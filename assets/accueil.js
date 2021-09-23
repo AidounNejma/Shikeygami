@@ -2,41 +2,75 @@ import './styles/accueil.css';
 
 /*************************  CAROUSEL ANIMATION *********************************/
 
-function SlideShow(n) {
-    var i;
+let back = document.querySelector(".back");
+let forward = document.querySelector(".forward");
 
-    var fade = document.getElementsByClassName("fade");
-    var slides = document.getElementsByClassName("Containers");
-    var circles = document.getElementsByClassName("dots");
-    if (n > slides.length) {slidePosition = 1}
-        if (n < 1) {slidePosition = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].classList.toggle("fade");
-            slides[i].style.display = "none";
+let slides = document.getElementsByClassName("containers");
+let image = document.querySelector("#image");
+
+let text = document.querySelector(".text");
+let links = document.querySelector("#links");
+
+let numImage = 1;
+
+back.addEventListener("click", slideBack);
+//console.log(back);
+forward.addEventListener("click", slideNext);
+//console.log(forward);
+
+setInterval(slideNext, 5000);
+
+function slideNext(){
+    numImage += 1;
+        if(numImage === 5){ 
+            numImage = 1; 
+        }
+        slides[0].classList.toggle("fade");
+        image.src = 'img/carouselBanner/' + numImage + '.jpg';
+        if(numImage === 1){
+            text.textContent = "Yokai Exorcism";
+        }
+        if(numImage === 2){
+            text.textContent = "Chikatsu";
+            links.setAttribute('href', "/concept");
         }
 
-    for (i = 0; i < circles.length; i++) {
-        circles[i].className = circles[i].className.replace(" enable", "");
-    }
+        if(numImage === 3){
+            text.textContent = "Horror";
+            links.setAttribute('href', "/login");
+        }
 
-    slides[slidePosition-1].style.display = "block";
-    slides[i].classList.toggle("fade");
-    circles[slidePosition-1].className += " enable";
+        if(numImage === 4){
+            text.textContent = "Test";
+            links.setAttribute('href', "/register");
+        }
+}
+
+function slideBack() {
+    numImage = numImage -1;
+        if(numImage === 0){
+            numImage = 5;
+        }
+        if(numImage === 1){
+            text.textContent = "Yokai Exorcism";
+        }
+        if(numImage === 2){
+            text.textContent = "Chikatsu";
+            links.setAttribute('href', "/concept");
+        }
+
+        if(numImage === 3){
+            text.textContent = "Horror";
+            links.setAttribute('href', "/login");
+        }
+
+        if(numImage === 4){
+            text.textContent = "Test";
+            links.setAttribute('href', "/register");
+        }
+        slides[0].classList.toggle("fade");
+        image.src = 'img/carouselBanner/' + numImage + '.jpg';
 } 
-
-var slidePosition = 1;
-SlideShow(slidePosition);
-
-// Contrôle Suivant/Précédent
-window.plusSlides = function (n) {
-    SlideShow(slidePosition += n);
-
-}
-
-//  Contrôle des images
-window.currentSlide= function(n) {
-    SlideShow(slidePosition = n);
-}
 
 /**********************************************************/
 var phone = document.getElementsByClassName("phone");
