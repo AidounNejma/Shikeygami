@@ -35,7 +35,7 @@
         <table class="details">
             <thead>
                 <tr>
-                    <th class="cell1"><i class="fas fa-wallet"></i></th>
+                    <th class="cell1"><i class="fas fa-euro-sign"></i></th>
                     <th class="cell1"><i class="fas fa-wallet"></i></th>  
                 </tr>
                 
@@ -46,7 +46,7 @@
                     <td class="cell">Status du payement</td>
                 </tr>
                 <tr>
-                    <td class="cell">{{ order.totalPrice }}</td>
+                    <td class="cell">{{ order.totalPrice }} €</td>
                     <td class="cell">
                         {% if order.paymentStatus == 1 %}
                             Payé
