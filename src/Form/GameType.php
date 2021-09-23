@@ -94,7 +94,7 @@ class GameType extends AbstractType
             ->add('gameDuration', NumberType::class, [
                 'label' => 'Temps de jeu accordé',
                 "constraints" => [
-                    new GreaterThan(["value" > 30, "message" => "La durée doit etre de 30 minutes minimum"])
+                    new GreaterThan(["value" => 29, "message" => "La durée doit etre de 30 minutes minimum"])
                 ]
             ])
             ->add('pricePerPerson', TypeTextType::class, [
