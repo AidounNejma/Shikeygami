@@ -81,7 +81,7 @@
 			<h3>Description de la salle</h3>
 			<p>{{ game.description }}</p>
 			<div class="links">
-				<a href="{{ path('calendar_index') }}"><i class="fas fa-shopping-cart"></i> Réservation</a>
+				<a href="{{ path('calendar_index') }}"><i class="fas fa-shopping-cart"></i> Réserver</a>
 				<a href="{{ path('game_index') }}"><i class="fas fa-arrow-circle-left"></i> Retour à la liste</a>
 			</div>
 				{% if is_granted("ROLE_ADMIN") %}
