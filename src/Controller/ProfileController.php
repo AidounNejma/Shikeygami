@@ -13,7 +13,10 @@ class ProfileController extends AbstractController
     #[IsGranted("ROLE_USER")]
     public function index(): Response
     {
-        return $this->render('profile/index.html.twig'
+        $now = new \DateTime();
+        return $this->render('profile/index.html.twig',[
+            "now" => $now
+        ]
         );
     }
 }
