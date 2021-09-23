@@ -5,7 +5,6 @@ import './styles/game_show.css';
 let back = document.querySelector(".back");
 let forward = document.querySelector(".forward");
 
-let slides = document.getElementsByClassName("containers");
 let image = document.querySelector("#image");
 let image2 = document.querySelector("#image2");
 let image3 = document.querySelector("#image3");
@@ -24,7 +23,6 @@ function slideNext(){
         if(numImage === 4){ 
             numImage = 1; 
         }
-        slides[0].classList.toggle("fade");
         
         if(numImage === 1){
             image.style.display = "block";
@@ -50,7 +48,6 @@ function slideBack() {
             numImage = 4;
         }
 
-        slides[0].classList.toggle("fade");
         if(numImage === 1){
             image.style.display = "block";
             image2.style.display = "none";
