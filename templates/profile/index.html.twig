@@ -17,7 +17,7 @@
 	<main>
 		<div class="topContainer">
 			<div class="topBanner">
-				<section class="titleCenter">
+				<section class="titleTop">
 					<h1>Bienvenue {{app.user.firstname}} !</h1>
 				</section>
 				<img class="profileAvatar" src="/img/profileImages/Avatars/1.jpg" alt="fond nuages">
@@ -31,40 +31,48 @@
 
 
 			{% for order in app.user.orders %}
-				{% include "order/vignette.html.twig" %}
+				{% if order.calendar.startTime > now %} {#on affiche uniquement les reservations apres la date du jour#}
+					{% include "order/vignette.html.twig" %}
+				{% endif %}
 			{% else %}
 				<tr>
 					<td>Pas de réservation en cours</td>
 				</tr>
 			{% endfor %}
 
-			<section class="infoPerso">
-				<h2>Vos infos Personnelles</h2>
-				<p>Votre nom:
-					{{app.user.lastname}}</p>
-				<p>Votre prénom:
-					{{app.user.firstname}}</p>
-				<p>Votre alias/mail:
-					{{app.user.username}}</p>
-				<p>Vous etes Inscrit(e) depuis le:
-					{{app.user.dateOfCreation|date('Y-m-d')}}</p>
+			<section class="titleCenter">
+				<h2>Profil</h2>
 			</section>
 
-			<h2>Statistiques</h2>
-			<p>Nombre de salles jouées:
-				{{app.user.orders|length}}
-			</p>
-			<p>Taux de victoire:
-				{{app.user.orders|length * 5}}%</p>
-			{#completion * nbGame /100 %#}
-
+			<div class="flexdiv">
+				<section class="infoPerso">
+					<h2>Infos personnelles :</h2>
+					<p>Votre nom:
+						{{app.user.lastname}}</p>
+					<p>Votre prénom:
+						{{app.user.firstname}}</p>
+					<p>Votre alias/mail:
+						{{app.user.username}}</p>
+					<p>Vous etes Inscrit(e) depuis le:
+						{{app.user.dateOfCreation|date('Y-m-d')}}</p>
+				</section>
+				<section class="infoPerso">
+					<h2>Statistiques :</h2>
+					<p>Nombre de salles jouées:
+						{{app.user.orders|length}}
+					</p>
+					<p>Taux de victoire:
+						{{app.user.orders|length * 50}}%</p>
+					{# nbsuccess / nbGame * 100 %#}
+				</section>
+			</div>
+<!-- 
 			<h2>Statistiques par salle</h2>
 			<h3>Nom de la salle et image</h3>
 			<p>nombre de participation:</p>
 			<p>temps total passé:</p>
 			<p>meilleur temps:</p>
-			<p>Resultat:</p>
-
+			<p>Resultat:</p> -->
 		</div>
 	</main>
 {% endblock %}

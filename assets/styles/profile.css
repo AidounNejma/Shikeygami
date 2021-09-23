@@ -1,18 +1,20 @@
-.vignetteImg{
-    height: 250px;
-    border-radius: 5%;
-    border: solid #000000;
-}
+
 table{
     margin: auto;
 }
 /*Bannière de haut de page*/
+.titleTop h1{
+    text-align: center;
+    margin: 30px 0;
+    font-size: 50px;
+}
 .topContainer{
     width: 70%;
     position: relative;
     margin: auto;
     margin-bottom: 40px;
     background-image: url("../img/profileImages/CloudBanner.png");
+    background-position: center;
     background-size: 100% 250px;
     background-repeat: no-repeat;
 }
@@ -34,19 +36,32 @@ table{
     top: -25px;
 }
 /*Titre h1 h2*/
-.titleCenter h1, .titleCenter h2{
+.titleCenter{
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    border-radius: 25px;
+}
+.titleCenter h2{
     text-align: center;
-}
-.titleCenter h1{
-    margin: 40px 0;
-    font-size: 50px;
-}
-.titleCenter h2, .infoPerso h2{
-    margin: 40px 0;
+    margin: 30px;
     font-size: 40px;
 }
 /*Vignettes des reservations*/
-
+.vignetteJeu{
+    margin: auto;
+    margin-top: 20px;
+}
+.vignetteImg{
+    display: block;
+    margin: auto;
+    width: 50%;
+    /* height: 300px; */
+    border-radius: 5%;
+    border: solid #000000;
+}
+.synopsis{
+    margin-top: 15px;
+}
 .details{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -56,14 +71,111 @@ table{
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
-
+.buttonStyle{
+    height: 30px;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 20px;
+    background: linear-gradient(0deg, rgba(33,34,33,1) 0%, rgba(213,54,72,1));
+}
+.buttonStyle:hover{
+    background: rgba(213,54,72,1);
+    transition:0.35s;
+}
 
 /*Infos personnelles de l'utilisateur*/
 .infoPerso{
-    width: 70%;
-    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+}
+.infoPerso p, .infoPerso h2{
+    text-align: start;
+    
+}
+.flexdiv{
+    display: flex;
+    justify-content: space-around;
 }
 
-.infoPerso p{
-    text-align: start;
+/*-----------------------Responsive-----------------------*/
+
+/* IPHONE 5  */
+@media screen 
+    and (min-width: 320px) 
+    and (max-width: 568px) { 
+    
+    .titleTop h1{
+        text-align: center;
+        margin: 30px 0;
+        font-size: 40px;
+    }
+    .titleCenter{
+        width: 90%;
+        margin: auto;
+        margin-top: 20px;
+    }
+    .titleCenter h2{
+        font-size: 30px;
+    }
+    .topContainer{
+        width: 90%;
+        background-size: 100% 150px;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    /*image vignette*/
+    .vignetteImg{
+        display: block;
+        margin: auto;
+        width: 90%;
+        /* height: 300px; */
+        border-radius: 5%;
+        border: solid #000000;
+    }
+    /*tableaux*/
+    .details {
+        display: flex;
+        justify-content: center;
+        
+    }
+    .details tbody, .details thead{
+        display: flex;
+        position: relative;
+        align-items: stretch;
+        
+    }
+    .details tr{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 5px 10px;
+        align-items: center;
+    }
+    .cell{
+        width: 100%;
+        height: 50px;
+        text-align: left;
+        align-items: center;
+        display: flex;
+        margin: 3px;
+    }
+    .flexdiv{
+        flex-direction: column;
+    }
+    .infoPerso{
+        margin: 20px 20px;
+    }
 }
+
+/*IPAD*/
+@media screen and (min-width : 768px) and (max-width : 1024px){ 
+
+}
+
+
+
+/* IPAD LANDSCAPE*/
+/* @media screen and (min-width : 768px) and (max-width : 1024px) and (orientation : landscape) {
+    
+} */
