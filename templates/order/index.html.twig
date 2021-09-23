@@ -51,7 +51,17 @@
 									{{ order.calendar.endTime ? order.calendar.endTime|date('Y-m-d H:i:s') : '' }}</p>
 							</td>
 							<td class="order-cell">{{ order.totalPrice }}</td>
-							<td class="order-cell">{{ order.paymentStatus }}</td>
+							<td class="order-cell">
+							{% if order.paymentStatus == 0 %}
+							{{ order.paymentStatus ? "En cours" : ''}}
+							{% endif %}
+							{% if order.paymentStatus == 1 %}
+							{{ order.paymentStatus ? "Paiement effectué" : '' }}
+							{% endif %}
+							{% if order.paymentStatus == 2 %}
+							{{ order.paymentStatus ? "Réservation annulée" : '' }}
+							{% endif %}
+							</td>
 							<td class="order-cell">
 								<a href="{{ path('order_show', {'id': order.id}) }}">
 									<i class="fas fa-eye"></i></a>
