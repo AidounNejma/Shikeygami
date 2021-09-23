@@ -9,14 +9,13 @@
 {% endblock %}
 
 {% block body %}
-	{% if is_granted('ROLE_ADMIN') %}
 	{# <pre>
-		{{ dump(isBooked) }}
-	</pre> #}
+			{{ dump(isBooked) }}
+		</pre> #}
 	<div class="content">
 		<h2>Planning de sessions</h2>
 
-			<a href="{{ path('calendar_new') }}" id="createNew">Créer une session</a>
+		<a href="{{ path('calendar_new') }}" id="createNew">Créer une session</a>
 		<table class="calendar-table">
 			<thead>
 				<tr>
@@ -24,8 +23,10 @@
 					<th class="calendar-cell">Jeu</th>
 					<th class="calendar-cell">Date et heures de début / fin</th>
 					<th class="calendar-cell">Réservé ?</th>
-					<th class="calendar-cell">Détails</th>
-					<th class="calendar-cell">Modification</th>
+					{% if is_granted('ROLE_ADMIN') %}
+						<th class="calendar-cell">Détails</th>
+						<th class="calendar-cell">Modification</th>
+					{% endif %}
 				</tr>
 			</thead>
 			<tbody>
@@ -38,21 +39,23 @@
 							{{ calendar.startTime ? calendar.startTime|date('d M Y H:i:s') : '' }}
 							<br>
 							<span class="calendar-bold">Fin :</span>
-								{{ calendar.endTime ? calendar.endTime|date('d M Y H:i:s') : '' }}
+							{{ calendar.endTime ? calendar.endTime|date('d M Y H:i:s') : '' }}
 						</td>
 						<td class="calendar-cell">{{ calendar.booked ? 'Oui' : 'Non' }}</td>
-						<td class="calendar-cell">
-							<a href="{{ path('calendar_show', {'id': calendar.id}) }}">
-								<i class="fas fa-eye"></i>
-							</a>
+						{% if is_granted('ROLE_ADMIN') %}
+							<td class="calendar-cell">
+								<a href="{{ path('calendar_show', {'id': calendar.id}) }}">
+									<i class="fas fa-eye"></i>
+								</a>
 
-						</td>
-						<td class="calendar-cell">
-							<a href="{{ path('calendar_edit', {'id': calendar.id}) }}">
-								<i class="fas fa-pen"></i>
-							</a>
-						</td>
-					</tr>
+							</td>
+							<td class="calendar-cell">
+								<a href="{{ path('calendar_edit', {'id': calendar.id}) }}">
+									<i class="fas fa-pen"></i>
+								</a>
+							</td>
+						</tr>
+					{% endif %}
 				{% else %}
 					<tr>
 						<td class="calendar-cell">Aucune session planifiée.<br><span class="calendar-bold">Attention :</span>
@@ -62,8 +65,7 @@
 			</tbody>
 		</table>
 
-		</div>
-	{% endif %}
+	</div>
 {% endblock %}
 
 {% block javascripts %}
