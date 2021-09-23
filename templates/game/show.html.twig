@@ -22,6 +22,50 @@
 				<img src="{{dossier_images ~ game.imageUrl}}" id="image">
 				<img src="{{dossier_images ~ game.imageUrl2}}" id="image2">
 				<img src="{{dossier_images ~ game.imageUrl3}}" id="image3">
+				<section class="infoGame">
+				<div class="parallelogram one">
+					<div class="circle">
+						<i class="fas fa-users"></i>
+						<p>{{ game.minPlayers }} joueurs</p>
+					</div>
+				</div>
+
+				<div class="parallelogram two">
+					<div class="circle">
+						<i class="fas fa-users"></i>
+						<p>{{ game.maxPlayers }} joueurs</p>
+					</div>
+				</div>
+
+				<div class="parallelogram three">
+					<div class="circle">
+						<i class="fas fa-brain"></i>
+						<p>{{ game.gameMaster }}</p>
+					</div>
+				</div>
+
+				<div class="parallelogram four">
+					<div class="circle">
+						<i class="fas fa-hourglass-half"></i>
+						<p> {{ game.gameDuration }} minutes</p>
+					</div>
+				</div>
+
+				<div class="parallelogram five">
+					<div class="circle">
+						<i class="fas fa-wallet"></i>
+						<p>{{ game.pricePerPerson }} €</p>
+					</div>
+				</div>
+				
+				<div class="parallelogram six">
+					<div class="circle">
+						<i class="fas fa-lock"></i>
+						<p>{{ game.difficulty }}</p>
+					</div>
+				</div>
+
+			</section>
 					<div class="info">
 						<p class="text">{{game.title}}</p>
 					</div>
@@ -33,33 +77,13 @@
 			</div>
 		<!-- CONTENT -->
 		<div class="content">
-
-
-			<section class="infoGame">
-				<i class="fas fa-users"></i>
-				<p>Nombre de joueurs minimum: {{ game.minPlayers }} joueurs</p>
-
-				<i class="fas fa-users"></i>
-				<p>Nombre de joueurs maximum: {{ game.maxPlayers }} joueurs</p>
-
-				<i class="fas fa-brain"></i>
-				<p>GameMaster: {{ game.gameMaster }}</p>
-
-				<i class="fas fa-hourglass-half"></i>
-				<p>GameDuration: {{ game.gameDuration }} minutes</p>
-
-				<i class="fas fa-wallet"></i>
-				<p>PricePerPerson: {{ game.pricePerPerson }} €</p>
-
-				<i class="fas fa-lock"></i>
-				<p>Difficulté: {{ game.difficulty }}</p>
 				
-				<h3>Description de la salle</h3>
-				<p>{{ game.description }}</p>
-				<button><a href="{{ path('calendar_index') }}">Réservation</a></button>
-				
-				<a href="{{ path('game_index') }}">Retour à la liste</a>
-
+			<h3>Description de la salle</h3>
+			<p>{{ game.description }}</p>
+			<div class="links">
+				<a href="{{ path('calendar_index') }}"><i class="fas fa-shopping-cart"></i> Réservation</a>
+				<a href="{{ path('game_index') }}"><i class="fas fa-arrow-circle-left"></i> Retour à la liste</a>
+			</div>
 				{% if is_granted("ROLE_ADMIN") %}
 					<p>Id du Jeu</p>
 					<p>{{ game.id }}</p>
@@ -70,8 +94,6 @@
 					<a href="{{ path('game_edit', {'id': game.id}) }}">Modifier</a>
 					{{ include('game/_delete_form.html.twig') }}
 				{% endif %}
-
-			</section>
 		</div>
 	</main>
 {% endblock %}
