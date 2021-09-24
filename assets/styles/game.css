@@ -177,6 +177,54 @@ article p{
 }
 
 /* RESPONSIVE */
+@media screen and (max-width : 1024px){ 
+    .content {
+        margin: 0;
+    }
+    .roomTitle {
+        margin: 35% 18%;
+    }
+
+    .titleBack {
+        font-size: 40px;
+    }
+
+    .icons {
+        font-size: 23px;
+        padding: 0 18% 3% 18%;
+    }
+
+    .summary {
+        padding: 1% 0 2% 0;
+        font-size: 18px;
+    }
+
+    article p {
+        margin: 0;
+    }
+
+    article a {
+        margin: 8px auto 0 auto;
+        width: 148px;
+        font-size: 26px;
+    }
+}
+/* IPAD LANDSCAPE*/
+@media screen and (max-width : 1024px) and (orientation : landscape) {
+    .flip-card {
+        height: 500px;
+    }
+    .front-flip {
+        height: 500px;
+    }
+
+    .summary {
+        padding: 4%;
+        font-size: 20px;
+    }
+
+}
+
 /* IPHONE 5  */
 @media screen and (max-width: 568px) { 
         .content {
@@ -265,50 +313,3 @@ article p{
     }
 
     /*IPAD*/
-    @media screen and (max-width : 1024px){ 
-    .content {
-        margin: 0;
-    }
-    .roomTitle {
-        margin: 35% 18%;
-    }
-
-    .titleBack {
-        font-size: 40px;
-    }
-
-    .icons {
-        font-size: 23px;
-        padding: 0 18% 3% 18%;
-    }
-
-    .summary {
-        padding: 1% 0 2% 0;
-        font-size: 18px;
-    }
-
-    article p {
-        margin: 0;
-    }
-
-    article a {
-        margin: 8px auto 0 auto;
-        width: 148px;
-        font-size: 26px;
-    }
-}
-/* IPAD LANDSCAPE*/
-@media screen and (max-width : 1024px) and (orientation : landscape) {
-    .flip-card {
-        height: 500px;
-    }
-    .front-flip {
-        height: 500px;
-    }
-
-    .summary {
-        padding: 4%;
-        font-size: 20px;
-    }
-
-}

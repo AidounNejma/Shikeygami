@@ -14,6 +14,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
+use function PHPUnit\Framework\stringContains;
+
 class PanierController extends AbstractController
 {
     #[Route('/panier', name: 'panier')]
@@ -60,6 +62,7 @@ class PanierController extends AbstractController
     public function clearSession(SessionInterface $session)
     {
         $session->remove('panier');
+        $this->addFlash('success', 'Panier vidé avec succès.');
     
         return $this->redirectToRoute('panier');
     }
@@ -70,6 +73,7 @@ class PanierController extends AbstractController
     public function valider(EntityManagerInterface $em, Request $request, SessionInterface $session, Calendar $calendar)
     {
         $panier = $session->get("panier", []); // le 2eme argument est la valeur retournée par 'get' si il n'y a pas de panier dans la session
+        
 
         if ($calendar->getBooked() == NULL) {
             $game = $calendar->getGame();
@@ -79,18 +83,18 @@ class PanierController extends AbstractController
             {
                 if($calendar->getId() == $reservation["calendar"]->getId())
                 {
-                    $quantity = $reservation["quantity"]; // on recupere le nombre de joueur du jeu correspondant dans la session
+                    $playerQuantity = $reservation["playerQuantity"]; // on recupere le nombre de joueur du jeu correspondant dans la session
                 }
             }
 
             $pricePerPerson = $game->getPricePerPerson();
-            $totalPrice = $quantity * $pricePerPerson;
+            $totalPrice = $playerQuantity * $pricePerPerson;
 
             $order->setUser($this->getUser());
             $order->setDateOfOrder(new \DateTime());
             $order->setTotalPrice($totalPrice);
-            $order->setPaymentStatus(0);
-            $order->setPlayerQuantity($quantity);
+            $order->setPaymentStatus(2);
+            $order->setPlayerQuantity($playerQuantity);
 
             $calendar->setBooked($order);
             $order->setCalendar($calendar);
@@ -103,13 +107,15 @@ class PanierController extends AbstractController
                 if($calendar->getId() == $reservation["calendar"]->getId())
                 {
                     //dd($reservation["calendar"]->getId());
+                    sleep(5); //je simule le temps de réponse du serveur
                     unset($panier[$indice]);
                     break;
                 }
             }
             $session->set("panier", $panier); //j'ajoute en session un indice panier qui contient un array $panier qui est composé d'arrays pour chaque produit
+            
         }
-    
-        return $this->redirectToRoute("panier");
+        $this->addFlash('success', 'Paiement enregistré ! Merci pour votre réservation.');
+        return $this->redirectToRoute('panier');
     }
 }

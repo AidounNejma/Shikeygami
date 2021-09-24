@@ -64,7 +64,7 @@
     width: 47%;
     text-align: center;
     background-color: #0000008f;
-    font-size: 70px;
+    font-size: 65px;
 }
 
 /* Bouton en savoir plus */
@@ -380,6 +380,40 @@
     }
     } 
 /******************************************** RESPONSIVE    *****************************************************/
+ /* Ipads portrait & landscape */
+ @media screen and (max-width : 1024px){
+    .slideshow-container{
+        width: 100%;
+    }
+
+    .moreInfo {
+        bottom: 40px;
+    }
+
+    .info p {
+        width: 56%;
+        font-size: 40px;
+    }
+
+    main{
+        width: 100%;
+        padding: 0;
+    }
+
+    .content {
+        margin: 0 0%;
+    }
+
+    .align, .align p, .align h2{
+        opacity: 1;
+        transform: none;
+    }
+
+    .align p{
+        padding: 8px 0 0 0;
+    }
+}
+
 
 /* Iphone 5 portrait & landscape */
 @media screen and (max-width: 568px){ 
@@ -391,10 +425,6 @@
     .slideshow-container img {
     height: 500px;
     object-position: 50% 33%;
-    }
-
-    .dots{
-        margin: -70px 0 0 0;
     }
 
     .info p{
@@ -537,41 +567,3 @@
         }
 
     }
-    /* Ipads portrait & landscape */
-    @media screen and (max-width : 1024px){
-        .slideshow-container{
-            width: 100%;
-        }
-
-        .moreInfo {
-            bottom: 40px;
-        }
-
-        .info p {
-            width: 56%;
-            font-size: 75px;
-        }
-
-        main{
-            width: 100%;
-            padding: 0;
-        }
-
-        .content {
-            margin: 0 0%;
-        }
-
-        .align, .align p, .align h2{
-            opacity: 1;
-            transform: none;
-        }
-
-        .align p{
-            padding: 70px 0 0 0;
-        }
-    }
-
-    /* Ipads landscape corrections
-    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
-            
-        } */
