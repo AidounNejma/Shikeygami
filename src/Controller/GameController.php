@@ -38,9 +38,11 @@ class GameController extends AbstractController
         $game = new Game();
         $form = $this->createForm(GameType::class, $game);
         $form->handleRequest($request);
-        $room = $form->get('room')->getData();
+        
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $room = $form->get('room')->getData();
+            dd($gr->isItFree($room));
             if ($fichier = $form->get("imageUrl")->getData()) {
                 $nomFichier = pathinfo($fichier->getClientOriginalName(), PATHINFO_FILENAME);
 
@@ -75,9 +77,10 @@ class GameController extends AbstractController
 
                 $game->setImageUrl3($nomFichier3);
             }
-            if ($gr->isItFree($room) == NULL) {
-                $game->setRoom($room);
-            }
+            // if ($gr->isItFree($room) === NULL) {
+            //     $game->setRoom($room);
+            // }
+            
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($game);
             $entityManager->flush();
@@ -109,10 +112,10 @@ class GameController extends AbstractController
     {
         $form = $this->createForm(GameType::class, $game);
         $form->handleRequest($request);
-        $room = $form->get('room')->getData();
+        
 
         if ($form->isSubmitted() && $form->isValid()) {
-
+            $room = $form->get('room')->getData();
             if ($fichier = $form->get("imageUrl")->getData()) {
                 $chemin = $game->getImageUrl();
                 $cheminComplet = $this->getParameter("dossier_images") . $chemin;
@@ -152,7 +155,7 @@ class GameController extends AbstractController
 
                 $game->setImageUrl3($nomFichier3);
             }
-            if ($gr->isItFree($room) == NULL) {
+            if ($gr->isItFree($room)) {
                 $game->setRoom($room);
             }
             $this->getDoctrine()->getManager()->flush();
