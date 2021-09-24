@@ -65,25 +65,137 @@ function slideBack() {
         }
 } 
 
-/**********************************************************/
+/*************************Gestion des boutons*********************************/
 
 let buttons = document.querySelectorAll("button");
 //console.log(buttons);
 
-buttons[0].addEventListener("click", slide);
-buttons[1].addEventListener("click", slide);
-buttons[2].addEventListener("click", slide);
-buttons[3].addEventListener("click", slide);
-buttons[4].addEventListener("click", slide);
-buttons[5].addEventListener("click", slide);
+buttons[0].addEventListener("click", () => {
+    Toggle(0);
+});
+buttons[1].addEventListener("click", () => {
+    Toggle(1);
+});
+buttons[2].addEventListener("click", () => {
+    Toggle(2);
+});
+buttons[3].addEventListener("click", () => {
+    Toggle(3);
+});
+buttons[4].addEventListener("click", () => {
+    Toggle(4);
+});
+buttons[5].addEventListener("click", () => {
+    Toggle(5);
+});
 
 let text = document.querySelectorAll(".slideMessage");
 //console.log(text);
 
+text[0].addEventListener("click", () => {
+    Toggle(0);
+});
+text[1].addEventListener("click", () => {
+    Toggle(1);
+});
+text[2].addEventListener("click", () => {
+    Toggle(2);
+});
+text[3].addEventListener("click", () => {
+    Toggle(3);
+});
+text[4].addEventListener("click", () => {
+    Toggle(4);
+});
+text[5].addEventListener("click", () => {
+    Toggle(5);
+});
 
 function slide(){
         text[1].style.display = "block";
     }
     
+function Toggle(number){
     
+    if(number >= 5) // si on clique sur le dernier bouton
+    {
+        if((buttons[number-1].style.display == "none")){ // toggle visible
+            for(let i=0; i < buttons.length; i++){
+                buttons[i].style.display ="block";
+                text[i].style.display = "none";  
+            }
+        }
+        else{
+            for(let i=0; i < buttons.length; i++)   //toggle invisible
+            {
+                if(buttons[i] == buttons[number])
+                {
+                    buttons[i].style.display ="block";
+                    text[i].style.display = "block";
+                }
+                else{
+                buttons[i].style.display ="none";
+                text[i].style.display = "none";   
+                }
+            }
+        }
+    }
+    else if(number <= 0){ //si on clic sur le premier bouton
+        if((buttons[number+1].style.display == "none")){
+            for(let i=0; i < buttons.length; i++){
+                buttons[i].style.display ="block";
+                text[i].style.display = "none";  
+            }
+        }
+        else{
+            for(let i=0; i < buttons.length; i++)
+            {
+                if(buttons[i] == buttons[number])
+                {
+                    buttons[i].style.display ="block";
+                    text[i].style.display = "block";
+                }
+                else{
+                buttons[i].style.display ="none";
+                text[i].style.display = "none";   
+                }
+            }
+        }
+    }
+    else{ //si on clic sur un bouton du centre
+        if((buttons[number+1].style.display == "none")||(buttons[number-1].style.display == "none")){
+            for(let i=0; i < buttons.length; i++){
+                buttons[i].style.display ="block";
+                text[i].style.display = "none";  
+            }
+        }
+        else{
+            for(let i=0; i < buttons.length; i++)
+            {
+                if(buttons[i] == buttons[number])
+                {
+                    buttons[i].style.display ="block";
+                    text[i].style.display = "block";
+                }
+                else{
+                buttons[i].style.display ="none";
+                text[i].style.display = "none";   
+                }
+            }
+        }
+    }
     
+    // for(let i=0; i < buttons.length; i++)
+    // {
+    //     if(buttons[i] == buttons[number])
+    //     {
+    //         buttons[i].style.display ="block";
+    //         text[i].style.display = "block";
+    //     }
+    //     else{
+    //     buttons[i].style.display ="none";
+    //     text[i].style.display = "none";   
+    //     }
+    // }
+    
+}
