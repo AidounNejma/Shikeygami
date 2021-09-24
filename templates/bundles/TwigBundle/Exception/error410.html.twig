@@ -2,9 +2,19 @@
 
 {% block h1 %}Erreur 410 {% endblock %}
 
+{% block stylesheets %}
+	{{parent()}} 
+	{{ encore_entry_link_tags('error') }}
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}} 
+	{{ encore_entry_script_tags('error') }}
+{% endblock %}
+
 {% block body %}
     <h1>Oups ! Page supprimée </h1>
     <p>La page demandée n'existe plus</p>
 
-    <a href="{{ path("accueil") }}">Retour à l'accueil</a>
+    <a href="{{ path("accueil") }} " >Retour à l'accueil</a>
 {% endblock %}

@@ -90,17 +90,20 @@ footer{
 footer .container2{
     text-align: center;
     cursor: pointer;
+    margin: auto;
+    width: 100%;
 }
 
 footer .logo2 {
     width: 50px;
     padding-top: 20px;
     cursor: pointer;
+    
 }
 
-footer h2{
+footer .container2 h2{
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 20px; 
 }
 
 footer .information {
