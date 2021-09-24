@@ -10,8 +10,8 @@
 
 {% block body %}
 	{# <pre>
-			{{ dump(isBooked) }}
-		</pre> #}
+				{{ dump(isBooked) }}
+			</pre> #}
 	<div class="content">
 		<h2>Planning de sessions</h2>
 
@@ -23,6 +23,7 @@
 					<th class="calendar-cell">Jeu</th>
 					<th class="calendar-cell">Date et heures de début / fin</th>
 					<th class="calendar-cell">Réservé ?</th>
+					<th class="calendar-cell">Choisir une session</th>
 					{% if is_granted('ROLE_ADMIN') %}
 						<th class="calendar-cell">Détails</th>
 						<th class="calendar-cell">Modification</th>
@@ -42,6 +43,17 @@
 							{{ calendar.endTime ? calendar.endTime|date('d M Y H:i:s') : '' }}
 						</td>
 						<td class="calendar-cell">{{ calendar.booked ? 'Oui' : 'Non' }}</td>
+						<td class="calendar-cell calendar-bg">
+							
+							<form method="get" action="{{ path("panier_add", { id: calendar.id }) }}">
+								<label for="playerQuantity">Nombre de joueurs</label>
+								<br>
+								<input type="number" name="playerQuantity" value="{{ calendar.game.minPlayers }}" min="{{ calendar.game.minPlayers }}" max="{{ calendar.game.maxPlayers }}">
+								<br>
+								<button type="submit">Ajouter cette session à votre panier</button>
+							</form>
+
+						</td>
 						{% if is_granted('ROLE_ADMIN') %}
 							<td class="calendar-cell">
 								<a href="{{ path('calendar_show', {'id': calendar.id}) }}">
