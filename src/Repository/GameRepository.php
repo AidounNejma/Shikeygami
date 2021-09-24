@@ -57,6 +57,19 @@ class GameRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @return Game[] Returns an array of Game objects
+     */
+    public function isItFree($value)
+    {
+        return $this->createQueryBuilder('g')
+            ->where('g.room = :val')
+            ->setParameter('val', $value)
+            ->orderBy('g.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
     // /**
     //  * @return Game[] Returns an array of Game objects
