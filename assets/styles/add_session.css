@@ -1,6 +1,6 @@
 .content{
-    margin: 5% 25%;
-    padding: 16px 10px;
+    padding: 16px 170px;
+    margin-top: 3%;
 }
 
 #title{
@@ -9,12 +9,8 @@
 
 .game, .startTime, .endTime{
     font-size: 15px;
-    display: flex;
-    flex-direction: column;
-}
-
-#calendar_game{
-    margin-left: 10%;
+    width: 100%;
+    text-align: center;
 }
 
 .btn, #backList{
@@ -39,6 +35,5 @@
 }
 
 #backList{
-    width: 50%;
-    margin-left: 25%;
+    width: 100%;
 }
