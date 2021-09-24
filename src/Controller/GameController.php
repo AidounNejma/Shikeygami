@@ -91,10 +91,14 @@ class GameController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($game);
             $entityManager->flush();
+            $this->addFlash('success', 'Jeu créé avec succès !');
+
 
             return $this->redirectToRoute('game_index', [], Response::HTTP_SEE_OTHER);
         }
-
+        if($form->isSubmitted() && $form->getErrors()){
+            $this->addFlash('warning', 'Vérifiez que tous les champs soient correctement remplis !');
+        }
         return $this->renderForm('game/new.html.twig', [
             'game' => $game,
             'form' => $form,

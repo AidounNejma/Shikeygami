@@ -14,6 +14,10 @@
     --main-grey: #312f2f;
     --info-text: #e3e3e3;
     --info-bg: 48, 60, 71, 0.5;
+    --flash-bg-success: #ffffff;
+    --flash-text-success: #d53648;
+    --flash-bg-warning: #d53648;
+    --flash-text-warning: #ffffff;
 }
 
 .centered{
@@ -30,7 +34,37 @@ a{
     text-decoration: none;
     color: inherit;
 }
+/* Messages flashs */
+.flash-success{
+    width: fit-content;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 23px;
+    font-weight: 700;
+    background-color: var(--flash-bg-success);
+    color: var(--flash-text-success);
+    animation: blinker 3s linear 2;
+}
 
+.flash-warning{
+    width: fit-content;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 23px;
+    font-weight: 700;
+    background-color: var(--flash-bg-warning);
+    color: var(--flash-text-warning);
+    animation: blinker 3s linear 3;
+}
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
 /********************** *****************************/
 body{
     margin: 0;
