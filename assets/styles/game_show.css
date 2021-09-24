@@ -90,7 +90,7 @@
 
 /*-----------------------------FIN DU CAROUSEL-----------------------------*/
 .content{
-  padding: 60px 10px;
+  padding: 40px 10px;
 }
 
 .content h3{
@@ -99,25 +99,23 @@
 }
 
 .infoGame{
-    display: flex;
-    position: relative;
-    margin: -18% 0%;
-    padding: 3% 3%;
-    width: 100%;
-    background-color: #0000008e;
-    border-bottom-left-radius: 50px 50px;
-    border-bottom-right-radius: 50px 50px;
+  display: flex;
+  /* flex-wrap: wrap; en mobile */
+  position: static;
+  margin: 0;
+  padding: 3% 3%;
+  background-color: #0000008e;
+  border-radius: 25px;
 }
 
 .circle{
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  background: #7a2f2fc4;
-  text-align: center;
-  padding: 0;
-  margin: auto;
-  transition: transform .2s;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background: #7a2f2fc4;
+    text-align: center;
+    margin: auto;
+    transition: transform .2s;
 }
 
 .circle p, .circle i {
@@ -130,18 +128,14 @@
   transform: scale(1.2);
 }
 
-.maxPlayer{
+.slideMessage{ /*paragraphe */
   display: none;
   animation: fadeInFromNone 0.5s ease-out;
-  /*animation: slide 0.5s ease-out;*/
-  margin: 0 6%;
+  animation: slide 0.5s ease-out;
+  width: 80%;
 }
 
-.minPlayer, .gameMaster, .time, .price, .difficulty{
-  display: none;
-}
-
-.one, .three, .four, .five, .six {
+.one, .two, .three, .four, .five, .six { /*buttons*/
   display: block;
 }
 

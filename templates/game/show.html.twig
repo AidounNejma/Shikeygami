@@ -22,44 +22,6 @@
 				<img src="{{dossier_images ~ game.imageUrl}}" id="image">
 				<img src="{{dossier_images ~ game.imageUrl2}}" id="image2">
 				<img src="{{dossier_images ~ game.imageUrl3}}" id="image3">
-				
-				<section class="infoGame">
-					<button class="circle one">
-						<i class="fas fa-user"></i>
-						<p>{{ game.minPlayers }} joueurs</p>
-					</button>
-					<p class="slideMessage minPlayer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
-
-					<button class="circle two">
-						<i class="fas fa-users"></i>
-						<p>{{ game.maxPlayers }} joueurs</p>
-					</button>
-					<p class="slideMessage maxPlayer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
-
-					<button class="circle three">
-						<i class="fas fa-brain"></i>
-						<p>{{ game.gameMaster }}</p>
-					</button>
-					<p class="slideMessage gameMaster">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
-
-					<button class="circle four">
-						<i class="fas fa-hourglass-half"></i>
-						<p> {{ game.gameDuration }} minutes</p>
-					</button>
-					<p class="slideMessage time">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
-
-					<button class="circle five">
-						<i class="fas fa-wallet"></i>
-						<p>{{ game.pricePerPerson }} €</p>
-					</button>
-					<p class="slideMessage price">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
-
-					<button class="circle six">
-						<i class="fas fa-lock"></i>
-						<p>{{ game.difficulty }}</p>
-					</button>
-					<p class="slideMessage difficulty">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
-			</section>
 
 					<div class="info">
 						<p class="text">{{game.title}}</p>
@@ -73,7 +35,44 @@
 
 		<!-- CONTENT -->
 		<div class="content">
-				
+				<section class="infoGame">
+					<button class="circle one">
+						<i class="fas fa-user"></i>
+						<p>{{ game.minPlayers }} joueurs</p>
+					</button>
+					<p class="slideMessage">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
+
+					<button class="circle two">
+						<i class="fas fa-users"></i>
+						<p>{{ game.maxPlayers }} joueurs</p>
+					</button>
+					<p class="slideMessage">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
+
+					<button class="circle three">
+						<i class="fas fa-brain"></i>
+						<p>{{ game.gameMaster }}</p>
+					</button>
+					<p class="slideMessage">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
+
+					<button class="circle four">
+						<i class="fas fa-hourglass-half"></i>
+						<p> {{ game.gameDuration }} minutes</p>
+					</button>
+					<p class="slideMessage">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
+
+					<button class="circle five">
+						<i class="fas fa-wallet"></i>
+						<p>{{ game.pricePerPerson }} €</p>
+					</button>
+					<p class="slideMessage">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
+
+					<button class="circle six">
+						<i class="fas fa-lock"></i>
+						<p>{{ game.difficulty }}</p>
+					</button>
+					<p class="slideMessage">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
+			</section>
+			
 			<h3>Description de la salle</h3>
 			<p class="description">{{ game.description }}</p>
 			<div class="links">
