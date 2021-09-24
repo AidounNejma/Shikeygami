@@ -21,7 +21,7 @@ class GameType extends AbstractType
         $builder
             ->add('title', TypeTextType::class, [
                 "label" => "Titre du jeu",
-                "required" => true,
+                "required" => false,
                 "constraints" => [
                     new NotBlank([
                         "message" => "Le titre ne peut pas être vide"
@@ -31,7 +31,7 @@ class GameType extends AbstractType
             ->add('room')
             ->add('description', TypeTextType::class, [
                 "label" => "Description complète du jeu",
-                "required" => true,
+                "required" => false,
                 "constraints" => [
                     new NotBlank([
                         "message" => "Veuillez remplir la description"
@@ -40,7 +40,7 @@ class GameType extends AbstractType
             ])
             ->add('synopsis', TypeTextType::class, [
                 "label" => "Synopsis du jeu",
-                "required" => true,
+                "required" => false,
                 "constraints" => [
                     new NotBlank([
                         "message" => "Veuillez remplir le synopsis"
@@ -70,19 +70,21 @@ class GameType extends AbstractType
             
             ->add('minPlayers', IntegerType::class, [
                 'label' => 'Nombre de joueurs min',
+                "required" => false,
                 "constraints" => [
                     new GreaterThan(["value" => 1, "message" => "le nombre de joueur min doit etre superieur à 1"])
                 ]
             ])
             ->add('maxPlayers', IntegerType::class, [
                 'label' => 'Nombre de joueurs max',
+                "required" => false,
                 "constraints" => [
                     new GreaterThan(["value" => 1, "message" => "le nombre de joueur max doit etre superieur à 1"])
                 ]
             ])
             ->add('gameMaster', TypeTextType::class, [
                 "label" => "Nom du maitre du jeu",
-                "required" => true,
+                "required" => false,
                 "constraints" => [
                     new NotBlank([
                         "message" => "Indiquez le nom du maitre du jeu"
@@ -91,12 +93,14 @@ class GameType extends AbstractType
             ])
             ->add('gameDuration', NumberType::class, [
                 'label' => 'Temps de jeu accordé',
+                "required" => false,
                 "constraints" => [
                     new GreaterThan(["value" => 29, "message" => "La durée doit etre de 30 minutes minimum"])
                 ]
             ])
             ->add('pricePerPerson', TypeTextType::class, [
                 "label" => "Prix par personne",
+                "required" => false,
             ])
         ;
     }
