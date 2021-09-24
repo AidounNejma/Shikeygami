@@ -3,12 +3,12 @@
 {% block h1 %}Erreur 410 {% endblock %}
 
 {% block stylesheets %}
-	{# {{parent()}} #}
+	{{parent()}} 
 	{{ encore_entry_link_tags('error') }}
 {% endblock %}
 
 {% block javascripts %}
-	{# {{parent()}} #}
+	{{parent()}} 
 	{{ encore_entry_script_tags('error') }}
 {% endblock %}
 
