@@ -19,6 +19,45 @@ class GameRepository extends ServiceEntityRepository
         parent::__construct($registry, Game::class);
     }
 
+
+    public function room1()
+    {
+        return $this->createQueryBuilder('g1')
+            ->andWhere('g1.room = 1')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+    public function room2()
+    {
+        return $this->createQueryBuilder('g2')
+            ->andWhere('g2.room = 2')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+    public function room3()
+    {
+        return $this->createQueryBuilder('g3')
+            ->andWhere('g3.room = 3')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+    public function room4()
+    {
+        return $this->createQueryBuilder('g4')
+            ->andWhere('g4.room = 4')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
+
     // /**
     //  * @return Game[] Returns an array of Game objects
     //  */
