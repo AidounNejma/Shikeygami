@@ -67,7 +67,7 @@ function slideBack() {
 
 /*************************Gestion des boutons*********************************/
 
-let buttons = document.querySelectorAll("button");
+let buttons = document.querySelectorAll(".circle");
 //console.log(buttons);
 
 buttons[0].addEventListener("click", () => {
