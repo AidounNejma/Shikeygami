@@ -99,8 +99,8 @@
 }
 
 .infoGame{
-  display: flex;
-    position: sticky;
+    display: flex;
+    position: relative;
     margin: -18% 0%;
     padding: 3% 3%;
     width: 100%;
@@ -115,7 +115,7 @@
   height: 100px;
   background: #7a2f2fc4;
   text-align: center;
-  padding: 3%;
+  padding: 0;
   margin: auto;
   transition: transform .2s;
 }
