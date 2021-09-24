@@ -15,7 +15,57 @@
     --info-text: #e3e3e3;
     --info-bg: 48, 60, 71, 0.5;
 }
-
+/*******Cookie***********/
+.wrapperCookie{
+    z-index: 6001;
+    display: none;
+    position: fixed;
+    text-align: center;
+    bottom: 25px;
+    left: 25px;
+    background: rgb(56, 56, 56);
+    max-width: 320px;
+    border-radius: 10px;
+    padding: 20px;
+}
+.wrapperCookie.hide{
+    opacity: 0;
+    visibility: hidden;
+    /* transition: all 0.3s ease-in; */
+}
+.wrapperCookie .imgCookie{
+    max-width: 100px;
+}
+.contenu .titleCookie{
+    font-size: 20px;
+    font-weight: 800;
+}
+.contenu .textCookie{
+    font-size: 15px;
+}
+.buttonCookie{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5px;
+}
+.buttonCookie .accept{
+    padding: 5px;
+    background: white;
+    color: rgb(56, 56, 56);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    width: 45%;
+    cursor: pointer;
+    font-weight: 600;
+}
+.buttonCookie .infoCookie{
+    width: 45%;
+    color: #d53648;
+    font-weight: 600;
+}
+/***********************/
 .centered{
     text-align: center;
     margin: auto;
@@ -60,19 +110,37 @@ main{
     and (min-device-width: 320px) 
     and (max-device-width: 568px) */
 /*i-phone 5*/
+
+@media screen and (max-width:1024px)
+{ 
+    .content{
+        margin: auto;
+        width: 100%;
+    }
+
+    /**********cookies**********/
+    .buttonCookie{
+        flex-direction: column;
+        margin: 10px;
+    }
+    .buttonCookie .accept, .buttonCookie .infoCookie{
+        width: 80%;
+        margin-top: 10px;
+        
+    }
+    
+}
+
 @media screen and (max-width:568px)
 { 
         .content{
             margin: 0;
             width: 100%;
         }
-    }
-
-@media screen and (max-width:1024px)
-{ 
-        .content{
-            margin: auto;
-            width: 100%;
+        .wrapperCookie{
+        max-width: 280px;
         }
-    }
+}
+
+
 
