@@ -38,3 +38,10 @@
     font-weight: 500;
     letter-spacing: 4px;
 }
+
+.formButton:hover {
+    color: #d53648;
+    background: var(--main-grey);
+    font-weight: 700;
+    transition: 0.5s 0.1s;
+}
