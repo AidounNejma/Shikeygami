@@ -28,7 +28,16 @@ class GameType extends AbstractType
                     ])
                 ]
             ])
-            ->add('room')
+            ->add('room', ChoiceType::class, [
+                'label' => "Numéro de la salle",
+                'required' => false,
+                'choices' => [
+                    'Salle 01' => 1,
+                    'Salle 02' => 2,
+                    'Salle 03' => 3,
+                    'Salle 04' => 4,
+                ]
+             ])
             ->add('description', TypeTextType::class, [
                 "label" => "Description complète du jeu",
                 "required" => false,
