@@ -44,11 +44,11 @@ class PanierController extends AbstractController
             }
             
             $game = $calendar->getGame();
-            $quantity = $request->query->get("playerQuantity");
+            $playerQuantity = $request->query->get("playerQuantity");
             $pricePerPerson = $game->getPricePerPerson();
-            $totalPrice = $quantity * $pricePerPerson;
+            $totalPrice = $playerQuantity * $pricePerPerson;
 
-            $panier[] = ["calendar" => $calendar, "quantity" => $quantity, "totalPrice" => $totalPrice];
+            $panier[] = ["calendar" => $calendar, "playerQuantity" => $playerQuantity, "totalPrice" => $totalPrice];
             // $panier[] = ["calendar" => $calendar, "order" => $order, "game" => $game];
 
             $session->set("panier", $panier); //j'ajoute en session un indice panier qui contient un array $panier qui est composé d'arrays pour chaque produit
@@ -56,6 +56,14 @@ class PanierController extends AbstractController
     
         return $this->redirectToRoute("panier");
     }
+    #[Route('/panier/clear', name: 'panier_clear',)]
+    public function clearSession(SessionInterface $session)
+    {
+        $session->remove('panier');
+    
+        return $this->redirectToRoute('panier');
+    }
+
 
     #[Route('/panier/confirm/{id}', name: 'panier_confirm',)]
     #[IsGranted("ROLE_USER")]

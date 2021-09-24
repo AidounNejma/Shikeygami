@@ -10,13 +10,45 @@
 	{{ encore_entry_script_tags('panier') }}
 {% endblock %}
 
-{% block title %}Votre panier
+{% block title %}Shikeygami | Votre panier
 {% endblock %}
 
 {% block body %}
 	<h2>Mon panier</h2>
 	{% if panier is not null %}
-		<table>
+
+		<h3>Récapitulatif de votre / vos réservation.s</h3>
+		{% for reservation in panier %}
+		<p>
+			<span>Jeu choisi :</span>
+			{{reservation.calendar.game.title}}</p>
+		<p>
+			{{'Le ' ~ reservation.calendar.startTime|date("d M Y H:i:s") ~ 'de ' ~ reservation.calendar.startTime|date("d M Y H:i:s") ~ ' à ' ~ reservation.calendar.endTime|date("H:i:s") }}</p>
+		<p>
+			<span>Nombre de joueurs :</span>
+			{{reservation.playerQuantity}}</p>
+		<hr>
+		<p>
+			<span>Prix total =</span>
+			{{reservation.totalPrice}}
+			€</p>
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+			<input type="hidden" name="cmd" value="_xclick">
+			<input type="hidden" name="business" value="shikeygami.contact@gmail.com">
+			<input type="hidden" name="lc" value="US">
+			<input type="hidden" name="button_subtype" value="services">
+			<input type="hidden" name="no_note" value="0">
+			<input type="hidden" name="currency_code" value="EUR">
+			<input type="hidden" name="bn" value="PP-BuyNowBF:btn_paynowCC_LG.gif:NonHostedGuest">
+			<input type="image" src="https://www.paypalobjects.com/fr_XC/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !">
+			<img alt="" border="0" src="https://www.paypalobjects.com/fr_XC/i/scr/pixel.gif" width="1" height="1">
+		</form>
+		
+		<a href="{{ path("panier_clear")}}">Annuler et vider votre panier</a>
+		{% endfor %}
+
+
+		{# <table>
 			<tr>
 				<th>Jeu</th>
 				<th>Horaire</th>
@@ -40,9 +72,9 @@
 					</td>
 				</tr>
 			{% endfor %}
-		</table>
+		</table> #}
 	{% else %}
-		<p>Votre panier est vide</p>
+		<h3>Votre panier est vide</h3>
 	{% endif %}
 
 
