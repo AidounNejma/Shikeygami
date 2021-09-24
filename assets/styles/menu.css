@@ -89,11 +89,13 @@ footer{
 
 footer .container2{
     text-align: center;
+    cursor: pointer;
 }
 
 footer .logo2 {
     width: 50px;
     padding-top: 20px;
+    cursor: pointer;
 }
 
 footer h2{
