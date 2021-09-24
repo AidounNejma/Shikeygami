@@ -22,50 +22,45 @@
 				<img src="{{dossier_images ~ game.imageUrl}}" id="image">
 				<img src="{{dossier_images ~ game.imageUrl2}}" id="image2">
 				<img src="{{dossier_images ~ game.imageUrl3}}" id="image3">
+				
 				<section class="infoGame">
-				<div class="parallelogram one">
-					<div class="circle zoom-in">
+					<button class="circle one">
 						<i class="fas fa-user"></i>
 						<p>{{ game.minPlayers }} joueurs</p>
-					</div>
-				</div>
+					</button>
+					<p class="slideMessage minPlayer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
 
-				<div class="parallelogram two">
-					<div class="circle">
+					<button class="circle two">
 						<i class="fas fa-users"></i>
 						<p>{{ game.maxPlayers }} joueurs</p>
-					</div>
-				</div>
+					</button>
+					<p class="slideMessage maxPlayer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
 
-				<div class="parallelogram three">
-					<div class="circle">
+					<button class="circle three">
 						<i class="fas fa-brain"></i>
 						<p>{{ game.gameMaster }}</p>
-					</div>
-				</div>
+					</button>
+					<p class="slideMessage gameMaster">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
 
-				<div class="parallelogram four">
-					<div class="circle">
+					<button class="circle four">
 						<i class="fas fa-hourglass-half"></i>
 						<p> {{ game.gameDuration }} minutes</p>
-					</div>
-				</div>
+					</button>
+					<p class="slideMessage time">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
 
-				<div class="parallelogram five">
-					<div class="circle">
+					<button class="circle five">
 						<i class="fas fa-wallet"></i>
 						<p>{{ game.pricePerPerson }} €</p>
-					</div>
-				</div>
-				
-				<div class="parallelogram six">
-					<div class="circle">
+					</button>
+					<p class="slideMessage price">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
+
+					<button class="circle six">
 						<i class="fas fa-lock"></i>
 						<p>{{ game.difficulty }}</p>
-					</div>
-				</div>
-
+					</button>
+					<p class="slideMessage difficulty">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
 			</section>
+
 					<div class="info">
 						<p class="text">{{game.title}}</p>
 					</div>
@@ -75,6 +70,7 @@
 				<a class="back" ><i class="fas fa-chevron-left"></i></a>
 				<a class="forward"><i class="fas fa-chevron-right"></i></a>
 			</div>
+
 		<!-- CONTENT -->
 		<div class="content">
 				
@@ -84,6 +80,7 @@
 				<a href="{{ path('calendar_index') }}"><i class="fas fa-shopping-cart"></i> Réserver</a>
 				<a href="{{ path('game_index') }}"><i class="fas fa-arrow-circle-left"></i> Retour à la liste</a>
 			</div>
+
 			{% if is_granted("ROLE_ADMIN") %}
 				<table class="adminTable">
 					<thead>
@@ -103,8 +100,6 @@
 						</tr>
 					</tbody>
 				</table>
-					
-					
 				{% endif %}
 		</div>
 	</main>

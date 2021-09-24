@@ -66,3 +66,24 @@ function slideBack() {
 } 
 
 /**********************************************************/
+
+let buttons = document.querySelectorAll("button");
+//console.log(buttons);
+
+buttons[0].addEventListener("click", slide);
+buttons[1].addEventListener("click", slide);
+buttons[2].addEventListener("click", slide);
+buttons[3].addEventListener("click", slide);
+buttons[4].addEventListener("click", slide);
+buttons[5].addEventListener("click", slide);
+
+let text = document.querySelectorAll(".slideMessage");
+//console.log(text);
+
+
+function slide(){
+        text[1].style.display = "block";
+    }
+    
+    
+    
