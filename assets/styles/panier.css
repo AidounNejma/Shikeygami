@@ -1,0 +1,12 @@
+.panier-btn, .clear-btn{
+    width: 750px;
+    height: 55px;
+    font-size: 22px;
+    font-weight: 700;
+}
+.clear-btn{
+    background-color: var(--main-red);
+    border-radius: 4px;
+    text-align: center;
+    padding-block: 12px;
+}

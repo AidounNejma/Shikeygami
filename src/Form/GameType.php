@@ -3,8 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Game;
-use Doctrine\DBAL\Types\DecimalType;
-use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -70,16 +68,16 @@ class GameType extends AbstractType
                 'required' => false
             ])
             
-            ->add('maxPlayers', IntegerType::class, [
-                'label' => 'nombre de joueurs',
-                "constraints" => [
-                    new GreaterThan(["value" => 1, "message" => "le nombre de joueur max doit etre superieur à 1"])
-                ]
-            ])
             ->add('minPlayers', IntegerType::class, [
-                'label' => 'nombre de joueurs',
+                'label' => 'Nombre de joueurs min',
                 "constraints" => [
                     new GreaterThan(["value" => 1, "message" => "le nombre de joueur min doit etre superieur à 1"])
+                ]
+            ])
+            ->add('maxPlayers', IntegerType::class, [
+                'label' => 'Nombre de joueurs max',
+                "constraints" => [
+                    new GreaterThan(["value" => 1, "message" => "le nombre de joueur max doit etre superieur à 1"])
                 ]
             ])
             ->add('gameMaster', TypeTextType::class, [
