@@ -2,6 +2,16 @@
 
 {% block h1 %}Erreur 500{% endblock %}
 
+{% block stylesheets %}
+	{# {{parent()}} #}
+	{{ encore_entry_link_tags('error') }}
+{% endblock %}
+
+{% block javascripts %}
+	{# {{parent()}} #}
+	{{ encore_entry_script_tags('error') }}
+{% endblock %}
+
 {% block body %}
     <h1>Oups !</h1>
     <p>Une erreur est survenue... Désolé </p>
