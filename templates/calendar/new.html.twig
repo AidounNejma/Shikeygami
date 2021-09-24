@@ -1,11 +1,21 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+	{{parent()}}
+	{{ encore_entry_link_tags("add_session") }}
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}}
+	{{ encore_entry_script_tags("add_session") }}
+{% endblock %}
+
 {% block title %}Shikeygami | Ajouter une partie{% endblock %}
 
 {% block body %}
-    <h1>ajouter une partie</h1>
-
-    {{ include('calendar/_form.html.twig') }}
-
-    <a href="{{ path('calendar_index') }}">Retour à la liste</a>
+    <section class="content">
+        <h1 id="title">Ajouter une partie</h1>
+            {{include('calendar/_form.html.twig') }}
+        <a href="{{ path('calendar_index') }}" id="backList">Retour à la liste</a>
+    </section>
 {% endblock %}

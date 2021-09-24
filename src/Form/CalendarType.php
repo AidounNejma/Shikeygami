@@ -18,15 +18,18 @@ class CalendarType extends AbstractType
             ->add('game', EntityType::class, [
                 'class' => Game::class,
                 'choice_label' => 'title',
-                'placeholder' => 'Choisir un jeu'
+                'placeholder' => 'Choisir un jeu',
+                'attr'=>['class' => 'game']
             ])
             ->add('startTime', DateTimeType::class, [
                 'label' => 'Heure de début',
                 'widget' => 'single_text',
+                'attr'=>['class' => 'startTime']
             ])
             ->add('endTime', DateTimeType::class, [
                 'label' => 'Heure de fin',
-                'widget' => 'single_text'
+                'widget' => 'single_text',
+                'attr'=>['class' => 'endTime']
             ])
         ;
     }
