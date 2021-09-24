@@ -34,6 +34,17 @@ class CalendarRepository extends ServiceEntityRepository
         ;
     }
 
+    public function game($value)
+    {
+        return $this->createQueryBuilder('c')
+        ->where('c.game = :val')
+        ->setParameter('val', $value)
+        ->orderBy('c.startTime', 'ASC')
+        ->getQuery()
+        ->getResult()
+        ;
+    }
+
     /* recherche si le jeu à été réservé */
     /* Methode à revoir */
     // public function isBooked()

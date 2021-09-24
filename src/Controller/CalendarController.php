@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Calendar;
 use App\Form\CalendarType;
 use App\Repository\CalendarRepository;
+use App\Repository\GameRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,6 +23,19 @@ class CalendarController extends AbstractController
             // 'isBooked' => $calendarRepository->isBooked(),
         ]);
     }
+
+    /* Redirection vers un planning spécifique */
+    #[Route('/calendar-game/{id}', name: 'calendar_game', methods: ['GET', 'POST'])]
+    public function selectSession(CalendarRepository $cr, GameRepository $gr, $id)
+    {
+        $game = $gr->find($id);
+        $calendars = $cr->game($game);
+
+        return $this->render('calendar/index.html.twig', [
+            'calendars' => $calendars
+        ]);
+    }
+
 
     #[Route('/new', name: 'calendar_new', methods: ['GET', 'POST'])]
     #[IsGranted("ROLE_ADMIN")]
