@@ -2,7 +2,7 @@
 
 /* Le container du carousel */
 .slideshow-container {
-  width: 56%;
+  width: 800px;
   height: 500px;
   position: relative;
   margin: auto;
@@ -100,7 +100,7 @@
 
 .infoGame{
   display: flex;
-  /* flex-wrap: wrap; en mobile */
+  flex-wrap: wrap;
   position: static;
   margin: 0;
   padding: 3% 3%;
@@ -231,3 +231,18 @@ button:focus {
   outline: none;
 }
 
+@media screen and (max-width: 1024px){
+  .slideshow-container {
+    width: 100%;
+  }
+}
+
+
+
+@media screen and (max-width: 568px){
+  .slideMessage{
+    margin: 0% 14%;
+    padding-top: 9%;
+  }
+
+}

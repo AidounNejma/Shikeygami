@@ -153,6 +153,7 @@ function Toggle(number){
                 if(buttons[i] == buttons[number])
                 {
                     buttons[i].style.display ="block";
+                    buttons[i].style.transform = "none";
                     text[i].style.display = "block";
                 }
                 else{
@@ -166,6 +167,7 @@ function Toggle(number){
         if((buttons[number+1].style.display == "none")||(buttons[number-1].style.display == "none")){
             for(let i=0; i < buttons.length; i++){
                 buttons[i].style.display ="block";
+                buttons[i].style.transform = "none";
                 text[i].style.display = "none";  
             }
         }
@@ -175,6 +177,7 @@ function Toggle(number){
                 if(buttons[i] == buttons[number])
                 {
                     buttons[i].style.display ="block";
+                    buttons[i].style.transform = "none";
                     text[i].style.display = "block";
                 }
                 else{
