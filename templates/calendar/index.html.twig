@@ -10,14 +10,15 @@
 
 {% block body %}
 	{# <pre>
-				{{ dump(isBooked) }}
-			</pre> #}
+						{{ dump(isBooked) }}
+					</pre> #}
 	<div class="content">
 		<h2>Planning de sessions</h2>
 
-	{% if is_granted('ROLE_ADMIN') %}
-		<a href="{{ path('calendar_new') }}" id="createNew">Créer une session</a>
-	{% endif %}
+		{% if is_granted('ROLE_ADMIN') %}
+			<a href="{{ path('calendar_new') }}" id="createNew">Créer une session</a>
+		{% endif %}
+		{% if app.user %}{% endif %}
 		<table class="calendar-table">
 			<thead>
 				<tr>
@@ -46,7 +47,7 @@
 						</td>
 						<td class="calendar-cell">{{ calendar.booked ? 'Oui' : 'Non' }}</td>
 						<td class="calendar-cell calendar-bg">
-							
+
 							<form method="get" action="{{ path("panier_add", { id: calendar.id }) }}">
 								<label for="playerQuantity">Nombre de joueurs</label>
 								<br>
@@ -72,8 +73,12 @@
 					{% endif %}
 				{% else %}
 					<tr>
-						<td class="calendar-cell">Aucune session planifiée.<br><span class="calendar-bold">Attention :</span>
-							Les clients ne pourront rien réserver.</td>
+						<td class="calendar-cell">Aucune session planifiée.
+							{% if is_granted ('ROLE_ADMIN') %}<br><span class="calendar-bold">Attention :</span>
+								Les clients ne pourront rien réserver.
+						{% endif %}
+						</td>
+
 					</tr>
 				{% endfor %}
 			</tbody>
@@ -81,7 +86,6 @@
 
 	</div>
 {% endblock %}
-
 {% block javascripts %}
 	{{parent()}}
 	{{ encore_entry_script_tags('calendar_back') }}

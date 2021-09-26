@@ -84,7 +84,7 @@ a{
     text-decoration: none;
     color: inherit;
 }
-/* Messages flashs */
+/* Style des messages de succès et d'erreurs */
 .flash-success{
     width: fit-content;
     margin: auto;

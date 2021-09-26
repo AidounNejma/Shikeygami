@@ -13,7 +13,7 @@
 			{% endblock %}
 		</title>
 		{# Run `composer require symfony/webpack-encore-bundle`
-				and uncomment the following Encore helpers to start using Symfony UX #}
+						and uncomment the following Encore helpers to start using Symfony UX #}
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
 			{{ encore_entry_link_tags('menu') }}
@@ -27,7 +27,7 @@
 	</head>
 	<body>
 		{% include "_menuHeader.html.twig" %}
-		{# pour accéder aux msg flash, justiliser app.flashes #}
+		
 		{% for label, messages in app.flashes %}
 			{% for message in messages %}
 				<div class="flash-{{ label }}">
