@@ -26,7 +26,7 @@ class RegistrationFormType extends AbstractType
                     new NotBlank([
                         'message' => "Merci d'entrer une adresse mail valide, cette dernière sera nécéssaire pour vous connecter",
                     ])
-                ]
+                    ]
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
@@ -56,7 +56,7 @@ class RegistrationFormType extends AbstractType
                 'required' => false,
             ])
             ->add('userName', TextType::class, [
-                'label' => 'Choisir un pseudo *'
+                'label' => 'Choisir un pseudo *',
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'label' => 'Vous certifiez avoir pris connaissance des conditions d\'utilisation de nos services **',
@@ -66,6 +66,7 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Vous devez accepter les conditions légales d\'utilisation de nos services',
                     ]),
                 ],
+                'required' => false,
             ])
         ;
     }

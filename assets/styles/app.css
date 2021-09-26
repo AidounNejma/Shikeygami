@@ -110,6 +110,14 @@ a{
     color: var(--flash-text-warning);
     animation: blinker 3s linear 3;
 }
+.form-errors{
+    width: fit-content;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--flash-bg-warning);
+    color: var(--flash-text-warning);
+}
 @keyframes blinker {
     50% {
       opacity: 0;

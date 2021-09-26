@@ -16,7 +16,8 @@
     <section class="content">
         <form method="post" class="formulaire">
             {% if error %}
-                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                <div class="alert-danger">Une erreur est survenue <br>
+                Veuillez vous assurer que votre adresse mail et votre mot de passe soient corrects</div>
             {% endif %}
 
             {% if app.user %}

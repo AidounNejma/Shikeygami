@@ -42,7 +42,7 @@ class GameController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $room = $form->get('room')->getData();
-            //dd($gr->isItFree($room));
+            
             if ($fichier = $form->get("imageUrl")->getData()) {
                 $nomFichier = pathinfo($fichier->getClientOriginalName(), PATHINFO_FILENAME);
 
@@ -77,10 +77,13 @@ class GameController extends AbstractController
 
                 $game->setImageUrl3($nomFichier3);
             }
-            // if ($gr->isItFree($room) === NULL) {
-            //     $game->setRoom($room);
-            // }
-            
+            if ($gr->isItFree($room) != NULL) {
+                $this->addFlash('warning', 'La salle choisie est déjà occupée par un autre jeu');
+                return $this->renderForm('game/new.html.twig', [
+                    'game' => $game,
+                    'form' => $form,
+                ]);
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($game);
             $entityManager->flush();
@@ -155,11 +158,15 @@ class GameController extends AbstractController
 
                 $game->setImageUrl3($nomFichier3);
             }
-            if ($gr->isItFree($room)) {
-                $game->setRoom($room);
+            if ($gr->isItFree($room) != NULL) {
+                $this->addFlash('warning', 'La salle choisie est déjà occupée par un autre jeu');
+                return $this->renderForm('game/new.html.twig', [
+                    'game' => $game,
+                    'form' => $form,
+                ]);
             }
-            $this->getDoctrine()->getManager()->flush();
             $this->addFlash('success', 'Jeu modifié avec succès !');
+            $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('game_index', [], Response::HTTP_SEE_OTHER);
         }
