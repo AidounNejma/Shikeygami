@@ -51,6 +51,7 @@ class OrderController extends AbstractController
     }
 
     #[Route('/{id}', name: 'order_show', methods: ['GET'])]
+    #[IsGranted("ROLE_USER")]
     public function show(Order $order): Response
     {
         return $this->render('order/show.html.twig', [
@@ -80,7 +81,7 @@ class OrderController extends AbstractController
     #[Route('/{id}', name: 'order_delete', methods: ['POST'])]
     public function delete(Request $request, Order $order): Response
     {
-        if(($order->getUser() == $this->getUser()) || ($this->getUser() == "ROLE_ADMIN")) // si l'utilisateur est le titulaire de l'order (c'est sa réservation)
+        if(($order->getUser() == $this->getUser()) || ($this->getUser() == "ROLE_ADMIN")) // si l'utilisateur est le titulaire de l'order (c'est sa réservation) ou si l'utilisateur est un admin
         {
             $order->setCalendar(Null); // on reset le calendar a null pour pouvoir reserver a nouveau cet horaire
             if ($this->isCsrfTokenValid('delete'.$order->getId(), $request->request->get('_token'))) {

@@ -42,7 +42,7 @@ class GameController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $room = $form->get('room')->getData();
-            dd($gr->isItFree($room));
+            //dd($gr->isItFree($room));
             if ($fichier = $form->get("imageUrl")->getData()) {
                 $nomFichier = pathinfo($fichier->getClientOriginalName(), PATHINFO_FILENAME);
 
