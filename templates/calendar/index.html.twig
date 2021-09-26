@@ -15,7 +15,9 @@
 	<div class="content">
 		<h2>Planning de sessions</h2>
 
+	{% if is_granted('ROLE_ADMIN') %}
 		<a href="{{ path('calendar_new') }}" id="createNew">Créer une session</a>
+	{% endif %}
 		<table class="calendar-table">
 			<thead>
 				<tr>

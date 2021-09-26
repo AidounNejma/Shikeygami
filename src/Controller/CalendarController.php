@@ -17,10 +17,9 @@ class CalendarController extends AbstractController
 {
     #[Route('/', name: 'calendar_index', methods: ['GET'])]
     public function index(CalendarRepository $calendarRepository): Response
-    {
+    {  
         return $this->render('calendar/index.html.twig', [
             'calendars' => $calendarRepository->calendarDesc(),
-            // 'isBooked' => $calendarRepository->isBooked(),
         ]);
     }
 
