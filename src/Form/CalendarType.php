@@ -19,7 +19,9 @@ class CalendarType extends AbstractType
                 'class' => Game::class,
                 'choice_label' => 'title',
                 'placeholder' => 'Choisir un jeu',
-                'attr'=>['class' => 'game']
+                'attr'=>[
+                    'class' => 'game'
+                ],
             ])
             ->add('startTime', DateTimeType::class, [
                 'label' => 'Heure de début',

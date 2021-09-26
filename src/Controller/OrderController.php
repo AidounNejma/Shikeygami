@@ -40,10 +40,13 @@ class OrderController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($order);
             $entityManager->flush();
-
+            
+            $this->addFlash('success', 'Commande créée avec succès !');
             return $this->redirectToRoute('order_index', [], Response::HTTP_SEE_OTHER);
         }
-
+        if ($form->isSubmitted() && $form->getErrors()) {
+            $this->addFlash('warning', 'Vérifiez que tous les champs soient correctement remplis !');
+        }
         return $this->renderForm('order/new.html.twig', [
             'order' => $order,
             'form' => $form,
@@ -67,10 +70,13 @@ class OrderController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $this->addFlash('success', 'Commande modifiée avec succès !');
             return $this->redirectToRoute('order_index', [], Response::HTTP_SEE_OTHER);
         }
-
+        if ($form->isSubmitted() && $form->getErrors()) {
+            $this->addFlash('warning', 'Vérifiez que tous les champs soient correctement remplis !');
+        }
+        
         return $this->renderForm('order/edit.html.twig', [
             'order' => $order,
             'form' => $form,
@@ -91,7 +97,7 @@ class OrderController extends AbstractController
         }
         else
         {
-            //rajouter une redirection appropriée avec un message de warning pour interdiction
+            $this->addFlash('warning', 'Vous n\'êtes pas autorisé à effectuer cette action');
         }
         if($this->isGranted("ROLE_ADMIN") )
         {

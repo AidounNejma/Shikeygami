@@ -15,6 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\GreaterThan;
+use Symfony\Component\Validator\Constraints\LessThan;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 class OrderType extends AbstractType
@@ -32,8 +33,14 @@ class OrderType extends AbstractType
             ->add('playerQuantity', IntegerType::class, [
                 'label' => 'nombre de joueurs',
                 "constraints" => [
-                    new GreaterThan(["value" => 1, "message" => "le nombre de joueur doit etre superieur à 1"])
-                ]
+                    new GreaterThan(["value" => 1, "message" => "2 joueurs minimum"]),
+                    new LessThan(["value" => 11, "message" => "10 joueurs minimum"])
+                ],
+                'attr' => [
+                    'min' => 2,
+                    'max' => 10,
+                    'placeholder' => 2,
+                ],
             ])
             ->add('paymentStatus', ChoiceType::class, [
                 'label' => 'Status du paiement',
@@ -53,7 +60,7 @@ class OrderType extends AbstractType
             ->add('calendar', EntityType::class, [
                 'class' => Calendar::class,
                 'choice_label' => 'id',
-                'placeholder' => 'Choisir un calendrier'
+                'placeholder' => 'Choisir une session'
             ])
         ;
     }

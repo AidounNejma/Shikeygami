@@ -49,7 +49,7 @@ class CalendarController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($calendar);
             $entityManager->flush();
-
+            $this->addFlash('success', 'Session de jeu créée avec succès !');
             return $this->redirectToRoute('calendar_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -76,7 +76,7 @@ class CalendarController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $this->addFlash('success', 'Session de jeu modifiée avec succès !');
             return $this->redirectToRoute('calendar_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -95,7 +95,7 @@ class CalendarController extends AbstractController
             $entityManager->remove($calendar);
             $entityManager->flush();
         }
-
+        $this->addFlash('warning', 'La session a été supprimée !');
         return $this->redirectToRoute('calendar_index', [], Response::HTTP_SEE_OTHER);
     }
 
