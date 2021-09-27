@@ -1,14 +1,12 @@
-.content{
-    padding: 16px 170px;
-    margin-top: 3%;
-}
 #title{
     font-size: 30px;
 }
 .orderDate, .orderTotalPrice, .orderPlayerQuantity, .orderPaymentStatus, .orderUser, .orderCalendar{
     font-size: 15px;
-    width: 100%;
+    display: block;
+    width: 50%;
     text-align: center;
+    margin: auto;
 }
 .btn, #backList{
     margin-block: 10px;
@@ -28,7 +26,4 @@
     background: var(--main-grey);
     font-weight: 700;
     transition: 0.5s 0.1s;
-}
-#backList{
-    width: 100%;
 }
