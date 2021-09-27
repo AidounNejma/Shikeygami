@@ -15,8 +15,11 @@
 {% block body %}
 	
 		<h1>Oups !</h1>
-		<p>Une erreur est survenue... Désolé </p>
-		
-		<a href="{{ path("accueil") }}">Retour à l'accueil</a>
-	
+		<br>
+		<p>Une erreur est survenue... Désolé</p>
+		<br>
+		<div class="btn-anim">
+            <button type="button" class="bouton"><a href="{{ path("accueil") }}">Retour à l'accueil</a></button>
+        </div>
+	</div>
 {% endblock %}
