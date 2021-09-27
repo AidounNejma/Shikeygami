@@ -14,7 +14,11 @@
     object-fit: cover;
     object-position: 0 50%;
 }
-
+/* Ref pour slideshow */
+/* Cette ref va servir pour récupérer les éléments nécéssaires au javascript */
+.hidden{
+    display: none;
+}
 
   /* par défaut on rend les images invisible */
 .containers {
