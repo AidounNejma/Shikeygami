@@ -28,13 +28,13 @@ class RegistrationController extends AbstractController
                 )
             );
             $user->setDateOfCreation(new \DateTime);
-            $user->setRoles(["ROLE_USER"]);
+            $user->setRoles(["ROLE_USER"]); /* Attribut par défaut le rôle User aux nouveaux inscrits */
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
             // do anything else you need here, like send an email
-
+            $this->addFlash('success', 'Votre compte a été créé avec succès ! Veuillez vous authentifier');
             return $this->redirectToRoute('app_login');
         }
 

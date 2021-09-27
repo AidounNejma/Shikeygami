@@ -20,11 +20,11 @@
 			<div class="centered">
 				<h2>Toutes nos salles</h2>
 			</div>
-			{% if is_granted("ROLE_ADMIN") %}
+			{# {% if is_granted("ROLE_ADMIN") %}
 				<a href="{{ path('game_new') }}" id="createNew">
 					<i class="fas fa-plus-circle"></i>
 					Ajouter une salle</a>
-			{% endif %}
+			{% endif %} #}
 			<div class="slider">
 				{% for game in games %}
 					{% if game.room > 0 %}

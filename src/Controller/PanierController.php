@@ -14,8 +14,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
-use function PHPUnit\Framework\stringContains;
-
 class PanierController extends AbstractController
 {
     #[Route('/panier', name: 'panier')]
@@ -55,7 +53,7 @@ class PanierController extends AbstractController
 
             $session->set("panier", $panier); //j'ajoute en session un indice panier qui contient un array $panier qui est composé d'arrays pour chaque produit
         }
-    
+        $this->addFlash('success', 'Session ajoutée à votre panier');
         return $this->redirectToRoute("panier");
     }
     #[Route('/panier/clear', name: 'panier_clear',)]
