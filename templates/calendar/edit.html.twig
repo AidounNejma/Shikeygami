@@ -14,12 +14,12 @@
 
 {% block body %}
     <section class="content">
-        <h1 id="title">Modification du calendrier</h1>
+            <h1 id="title">Modification du calendrier</h1>
 
-        {{ include('calendar/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+            {{ include('calendar/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-        {{ include('calendar/_delete_form.html.twig') }}
+            {{ include('calendar/_delete_form.html.twig') }}
 
-        <a href="{{ path('calendar_index') }}" id="backList">Retour à la liste</a>
+            <a href="{{ path('calendar_index') }}" id="backList">Retour à la liste</a>
     </section>
 {% endblock %}
