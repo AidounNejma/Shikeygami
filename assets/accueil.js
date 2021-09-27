@@ -32,17 +32,17 @@ function slideNext(){
         }
         if(numImage === 2){
             text.textContent = "Chikatsu";
-            links.setAttribute('href', "/concept");
+            links.setAttribute('href', "/game");
         }
 
         if(numImage === 3){
             text.textContent = "Horror";
-            links.setAttribute('href', "/login");
+            links.setAttribute('href', "/game");
         }
 
         if(numImage === 4){
             text.textContent = "Test";
-            links.setAttribute('href', "/register");
+            links.setAttribute('href', "/game");
         }
 }
 
@@ -56,17 +56,17 @@ function slideBack() {
         }
         if(numImage === 2){
             text.textContent = "Chikatsu";
-            links.setAttribute('href', "/concept");
+            links.setAttribute('href', "/game");
         }
 
         if(numImage === 3){
             text.textContent = "Horror";
-            links.setAttribute('href', "/login");
+            links.setAttribute('href', "/game");
         }
 
         if(numImage === 4){
             text.textContent = "Test";
-            links.setAttribute('href', "/register");
+            links.setAttribute('href', "/game");
         }
         slides[0].classList.toggle("fade");
         image.src = 'img/carouselBanner/' + numImage + '.jpg';
