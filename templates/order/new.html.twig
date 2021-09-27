@@ -2,12 +2,12 @@
 
 {% block stylesheets %}
 	{{parent()}}
-	{{ encore_entry_link_tags('order') }}
+	{{ encore_entry_link_tags('add_order') }}
 {% endblock %}
 
 {% block javascripts %}
 	{{parent()}}
-	{{ encore_entry_script_tags('order') }}
+	{{ encore_entry_script_tags('add_order') }}
 {% endblock %}
 
 {% block title %}nouvelle réservation
@@ -16,10 +16,11 @@
 {% block body %}
 
 	<main>
+		
+		<div class='content'>
 		<div class="centered">
 			<h1>nouvelle réservation</h1>
 		</div>
-		<div class='content'>
 			{{ include('order/_form.html.twig') }}
 
 			<a href="{{ path('order_index') }}">Retour à la liste</a>

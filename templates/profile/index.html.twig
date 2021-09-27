@@ -29,16 +29,18 @@
 				<h2>Mes réservations en cours</h2>
 			</section>
 
-
-			{% for order in app.user.orders %}
-				{% if order.calendar.startTime > now %} {#on affiche uniquement les reservations apres la date du jour#}
-					{% include "order/vignette.html.twig" %}
-				{% endif %}
-			{% else %}
-				<tr>
-					<td>Pas de réservation en cours</td>
-				</tr>
-			{% endfor %}
+			{% if app.user.orders %} {#si on a une reservation#}
+				{% for order in app.user.orders %}
+					{% if order.calendar.startTime > now %} {#on affiche uniquement les reservations apres la date du jour#}
+						{% include "order/vignette.html.twig" %}
+					{% endif %}
+				{% else %}
+					<tr>
+						<td>Pas de réservation en cours</td>
+					</tr>
+				{% endfor %}
+			{% endif %}
+			
 
 			<section class="titleCenter">
 				<h2>Profil</h2>
@@ -60,12 +62,14 @@
 				</section>
 				<section class="infoPerso">
 					<h2>Statistiques :</h2>
-					<p>Nombre de salles jouées :
-						{{app.user.orders|length}}
-					</p>
-					<p>Taux de victoire :
-						{{app.user.orders|length / app.user.orders|length * 100}}%</p>
-					{# nbsuccess / nbGame * 100 %#}
+					
+						<p>Nombre de salles jouées : 
+							{{app.user.orders|length}}
+						</p>
+						<p>Taux de victoire : 100%
+							{#{{app.user.orders|length / app.user.orders|length * 100}}%</p> #}
+						{# nbsuccess / nbGame * 100 %#}
+					
 				</section>
 			</div>
 <!-- 

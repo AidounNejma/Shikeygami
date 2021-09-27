@@ -29,6 +29,21 @@
 .split{
     margin: 20px
 }
+.paragraphe{
+    text-align: start;
+}
+.orderReturn{
+    color: white;
+    font-weight: 600;
+    width: 320px;
+    margin: auto;
+}
+.orderReturn:hover{
+    color: var(--main-red);
+    transition: 0.4s;
+}
+
+
 #createNew {
     color: var(--main-white);
     background-color: transparent;
@@ -46,4 +61,45 @@
     background-color: var(--main-white);
     color:var(--main-red);
     transition: 0.9s;
+}
+
+/*Vignette order*/
+
+.vignetteImg{
+    display: block;
+    margin: auto;
+    width: 30%;
+    /* height: 300px; */
+    border-radius: 5%;
+    border: solid #000000;
+}
+.details, .buttonStyle, .synopsis{
+    display: none;
+}
+.btn{
+    margin-block: 10px;
+    padding: 8px 50px;
+    cursor: pointer;
+    background: var(--main-white);
+    border: none;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 500;
+    letter-spacing: 4px;
+}
+.btn:hover {
+    color: #d53648;
+    background: var(--main-grey);
+    font-weight: 700;
+    transition: 0.5s 0.1s;
+}
+
+@media screen and (max-width : 1024px){
+
+    .vignetteImg{
+        width: 70%;
+    }
+
 }
