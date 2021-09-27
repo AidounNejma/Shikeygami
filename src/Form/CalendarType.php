@@ -20,7 +20,7 @@ class CalendarType extends AbstractType
                 'choice_label' => 'title',
                 'placeholder' => 'Choisir un jeu',
                 'attr'=>[
-                    'class' => 'game'
+                'class' => 'game'
                 ],
             ])
             ->add('startTime', DateTimeType::class, [
