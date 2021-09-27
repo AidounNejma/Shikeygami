@@ -15,12 +15,20 @@
     object-position: 0 50%;
 }
 
-
-  /* par défaut on rend les images invisible */
 .containers {
     display: block;
 }
+/* par défaut on rend les images invisible */
+#image2{
+    display: none;
+}
 
+#image3{
+    display: none;
+}
+#image4{
+    display: none;
+}
   /* Les boutons précédent et suivant */
 .back, .forward {
     cursor: pointer;
@@ -121,9 +129,6 @@
 }
 
 /******** SHAPE 1 ********/
-.lienWidth{
-    width: 100%;
-}
 .shape a{
     justify-content: flex-end;
 }
