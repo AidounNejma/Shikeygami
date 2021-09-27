@@ -18,14 +18,23 @@
 
 
 {% block body %}
+{# Les reférences des images et des titres que je veux injecter dans le caroussel bannière #}
+<p class="src-ref hidden">img/game/{{game1.imageUrl}}</p>
+<p class="src-ref hidden">img/game/{{game2.imageUrl}}</p>
+<p class="src-ref hidden">img/game/{{game3.imageUrl}}</p>
+<p class="src-ref hidden">img/game/{{game4.imageUrl}}</p>
+<p class="title-ref hidden">{{ game1.title }}</p>
+<p class="title-ref hidden">{{ game2.title }}</p>
+<p class="title-ref hidden">{{ game3.title }}</p>
+<p class="title-ref hidden">{{ game4.title }}</p>
+{# ----------------------------------------------------------------------------------------------- #}
 
 <!-- Slideshow -->
 <div class="slideshow-container">
-
     <div class="containers">
-            <img src="/img/carouselBanner/1.jpg" id="image" alt="banniere">
+            <img src="img/game/{{game1.imageUrl}}" id="image" alt="banniere">
                 <div class="info">
-                    <p class="text">Yokai Exorcism</p>
+                    <p class="text">{{ game1.title }}</p>
                 </div>
                 <div class="moreInfo">
                     <a href="/game" id="links">En savoir plus</a>

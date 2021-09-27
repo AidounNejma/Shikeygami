@@ -7,11 +7,15 @@ let forward = document.querySelector(".forward");
 
 let slides = document.getElementsByClassName("containers");
 let image = document.querySelector("#image");
+let sourceRef = document.querySelectorAll(".src-ref");
+let titleRef = document.querySelectorAll(".title-ref");
+// console.log(sourceRef);
 
 let text = document.querySelector(".text");
-let links = document.querySelector("#links");
+// let links = document.querySelector("#links");
+// let numImage = 1;
 
-let numImage = 1;
+let i = 0;
 
 back.addEventListener("click", slideBack);
 //console.log(back);
@@ -20,57 +24,82 @@ forward.addEventListener("click", slideNext);
 
 setInterval(slideNext, 5000);
 
-function slideNext(){
-    numImage += 1;
-        if(numImage === 5){ 
-            numImage = 1; 
-        }
-        slides[0].classList.toggle("fade");
-        image.src = 'img/carouselBanner/' + numImage + '.jpg';
-        if(numImage === 1){
-            text.textContent = "Yokai Exorcism";
-        }
-        if(numImage === 2){
-            text.textContent = "Chikatsu";
-            links.setAttribute('href', "/game");
-        }
-
-        if(numImage === 3){
-            text.textContent = "Horror";
-            links.setAttribute('href', "/game");
-        }
-
-        if(numImage === 4){
-            text.textContent = "Test";
-            links.setAttribute('href', "/game");
-        }
+function slideNext() {
+    // console.log(sourceRef.length)
+    slides[0].classList.toggle("fade");
+    if (i < sourceRef.length - 1){
+        i++;
+        image.src = sourceRef[i].innerHTML;
+        text.textContent = titleRef[i].innerHTML;
+    } else {
+        image.src = sourceRef[0].innerHTML;
+        text.textContent = titleRef[0].innerHTML;
+        i = 0;
+    }
 }
-
 function slideBack() {
-    numImage = numImage -1;
-        if(numImage === 0){
-            numImage = 5;
-        }
-        if(numImage === 1){
-            text.textContent = "Yokai Exorcism";
-        }
-        if(numImage === 2){
-            text.textContent = "Chikatsu";
-            links.setAttribute('href', "/game");
-        }
+    slides[0].classList.toggle("fade");
+    if (i == 0){
+        i = sourceRef.length - 1;
+    } else {
+        i--;
+    }
+    image.src = sourceRef[i].innerHTML;
+    text.textContent = titleRef[i].innerHTML;
+    slides[0].classList.toggle("fade");
+}
+// function slideNext(){
+    //     numImage += 1;
+    //         if(numImage === 5){ 
+        //             numImage = 1; 
+        //         }
+        //         slides[0].classList.toggle("fade");
+        //         image.src = 'img/carouselBanner/' + numImage + '.jpg';
+        //         if(numImage === 1){
+            //             text.textContent = "Yokai Exorcism";
+            //         }
+            //         if(numImage === 2){
+                //             text.textContent = "Chikatsu";
+                //             links.setAttribute('href', "/game");
+                //         }
+                
+                //         if(numImage === 3){
+                    //             text.textContent = "Horror";
+                    //             links.setAttribute('href', "/game");
+                    //         }
+                    
+                    //         if(numImage === 4){
+//             text.textContent = "Test";
+//             links.setAttribute('href', "/game");
+//         }
+// }
 
-        if(numImage === 3){
-            text.textContent = "Horror";
-            links.setAttribute('href', "/game");
-        }
 
-        if(numImage === 4){
-            text.textContent = "Test";
-            links.setAttribute('href', "/game");
-        }
-        slides[0].classList.toggle("fade");
-        image.src = 'img/carouselBanner/' + numImage + '.jpg';
-} 
+// function slideBack() {
+    //     numImage = numImage -1;
+    //         if(numImage === 0){
+        //             numImage = 5;
+        //         }
+        //         if(numImage === 1){
+            //             text.textContent = "Yokai Exorcism";
+            //         }
+            //         if(numImage === 2){
+                //             text.textContent = "Chikatsu";
+                //             links.setAttribute('href', "/game");
+//         }
+
+//         if(numImage === 3){
+//             text.textContent = "Horror";
+//             links.setAttribute('href', "/game");
+//         }
+
+//         if(numImage === 4){
+//             text.textContent = "Test";
+//             links.setAttribute('href', "/game");
+//         }
+//         slides[0].classList.toggle("fade");
+//         image.src = 'img/carouselBanner/' + numImage + '.jpg';
+// } 
 
 /**********************************************************/
 var phone = document.getElementsByClassName("phone");
