@@ -31,6 +31,10 @@ header h1{
     padding-top: 49px;   
 }
 
+.shikeygami{
+    font-family: 'Sinisuka', sans-serif;
+}
+
 header .flex{
     display: flex;
     flex-direction: row;
@@ -93,6 +97,9 @@ footer .container2{
     margin: auto;
     width: 100%;
 }
+
+
+
 
 footer .logo2 {
     width: 50px;

@@ -75,7 +75,12 @@
     margin: auto;
 }
 
-h1, h2, h3, p, div{
+h1, h2, h3 {
+    color: var(--main-white);
+    font-family: 'Merriweather', sans-serif;
+}
+
+p, div{
     color: var(--main-white);
     font-family: 'Nunito', sans-serif;
 }
