@@ -17,7 +17,7 @@ class CalendarType extends AbstractType
         $builder
             ->add('game', EntityType::class, [
                 'class' => Game::class,
-                'choice_label' => 'titre',
+                'choice_label' => 'title',
                 'placeholder' => 'Choisir un jeu',
                 'attr'=>[
                     'class' => 'game'
