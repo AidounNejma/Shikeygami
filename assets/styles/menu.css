@@ -26,13 +26,11 @@ header .logo {
 
 header h1{
     text-transform: uppercase;
-    color: var(--main-white);
-    font-size: 40px;
-    padding-top: 49px;   
+    padding-top: 50px; 
 }
 
-.shikeygami{
-    font-family: 'Sinisuka', sans-serif;
+.header-title{
+    font-size: 25px;
 }
 
 header .flex{
@@ -97,9 +95,6 @@ footer .container2{
     margin: auto;
     width: 100%;
 }
-
-
-
 
 footer .logo2 {
     width: 50px;

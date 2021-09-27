@@ -16,79 +16,54 @@
 {% block body %}
 	<main>
 		{% if is_granted('ROLE_ADMIN') %}
-			<div class="centered">
-				<h2>Détail de la commande</h2>
-			</div>
 			<div class='content'>
+				<div class="centered">
+					<h2>Détail de la commande</h2>
+				</div><br>
+				{% include "order/vignette.html.twig" %}
+				<div class="centered">
+					<p class="paragraphe">Id de l'utilisateur : {{ order.id }}</p>
+					<p class="paragraphe">Pseudo de l'utilisateur : {{ order.user.userName }}</p>
+					<p class="paragraphe">Jeu réservé : {{ order.calendar.game.title }}</p>
+					<p class="paragraphe">Nombre de joueurs inscrits : {{ order.playerQuantity }}</p>
+					<p class="paragraphe">Date de la commande : {{ order.dateOfOrder ? order.dateOfOrder|date('d M Y') : '' }}</p>
+					<p class="paragraphe">Date réservée : {{ order.calendar.startTime ? order.calendar.startTime|date('d M Y H:i') : '' }}</p>
+					<p class="paragraphe">Prix total : {{ order.totalPrice }}</p>
+					<p class="paragraphe">Status du paiement : 	{% if order.paymentStatus == 1 %}Paiement en attente
+																{% elseif order.paymentStatus == 2 %}Payé 
+																{% else %}Paiement annulé {% endif %}
+					</p>
+				</div>
+			
+				<a class="orderReturn" href="{{ path('order_index') }}">Retour à la liste</a>
 
-				<table>
-					<tbody>
-						<tr>
-							<th>Id</th>
-							<td>{{ order.id }}</td>
-						</tr>
-						<tr>
-							<th>Pseudo de l'utilisateur</th>
-							<td>{{ order.user.userName }}</td>
-						</tr>
-						<tr>
-							<th>Date de la commande</th>
-							<td>{{ order.dateOfOrder ? order.dateOfOrder|date('d M Y') : '' }}</td>
-						</tr>
-						<tr>
-							<th>Prix total</th>
-							<td>{{ order.totalPrice }}</td>
-						</tr>
-						<tr>
-							<th>Status du paiement</th>
-							<td>{{ order.paymentStatus }}</td>
-						</tr>
-					</tbody>
-				</table>
-
-				<a href="{{ path('order_index') }}">Retour à la liste</a>
-
-				<a href="{{ path('order_edit', {'id': order.id}) }}">Modifier</a>
+				<a class="orderReturn" href="{{ path('order_edit', {'id': order.id}) }}">Modifier</a>
 
 				{{ include('order/_delete_form.html.twig') }}
 			</div>
 		{% elseif app.user.username == order.user.userName %}
+			<div class='content'>
 				<div class="centered">
 					<h2>Détail de la commande</h2>
+				</div><br>
+				{% include "order/vignette.html.twig" %}
+				<div class="centered">
+					<p class="paragraphe">Réservation éffectuée par : {{ order.user.userName }}</p>
+					<p class="paragraphe">Jeu réservé : {{ order.calendar.game.title }}</p>
+					<p class="paragraphe">Nombre de joueurs inscrits : {{ order.playerQuantity }}</p>
+					<p class="paragraphe">Date de la commande : {{ order.dateOfOrder ? order.dateOfOrder|date('d M Y') : '' }}</p>
+					<p class="paragraphe">Date réservée : {{ order.calendar.startTime ? order.calendar.startTime|date('d M Y H:i') : '' }}</p>
+					<p class="paragraphe">Prix total : {{ order.totalPrice }}</p>
+					<p class="paragraphe">Status du paiement : 	{% if order.paymentStatus == 1 %}Paiement en attente
+																{% elseif order.paymentStatus == 2 %}Payé 
+																{% else %}Paiement annulé {% endif %}
+					</p>
 				</div>
-				<div class='content'>
+			
+				<a class="orderReturn" href="{{ path('order_index') }}">Retour à la liste</a>
 
-					<table>
-						<tbody>
-							<tr>
-								<th>Id</th>
-								<td>{{ order.id }}</td>
-							</tr>
-							<tr>
-								<th>Pseudo de l'utilisateur</th>
-								<td>{{ order.user.userName }}</td>
-							</tr>
-							<tr>
-								<th>Date de la commande</th>
-								<td>{{ order.dateOfOrder ? order.dateOfOrder|date('d M Y') : '' }}</td>
-							</tr>
-							<tr>
-								<th>Prix total</th>
-								<td>{{ order.totalPrice }}</td>
-							</tr>
-							<tr>
-								<th>Status du paiement</th>
-								<td>{{ order.paymentStatus }}</td>
-							</tr>
-						</tbody>
-					</table>
-
-					<a href="{{ path('order_index') }}">Retour à la liste</a>
-
-					<a href="{{ path('order_edit', {'id': order.id}) }}">Modifier</a>
-
-					{{ include('order/_delete_form.html.twig') }}
-				</div>
+				{{ include('order/_delete_form.html.twig') }}
+			</div>
 			{% elseif app.user.username != order.user.userName %}
 				<p>Vous n'avez pas les autorisations nécéssaires pour consulter ces informations</p>
 			{% endif %}

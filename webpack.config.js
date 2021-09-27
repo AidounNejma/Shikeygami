@@ -48,6 +48,8 @@ Encore
     .addEntry('login', './assets/login.js')
     .addEntry('add_session', './assets/add_session.js')
     .addEntry('calendar_edit', './assets/calendar_edit.js')
+    .addEntry('add_order', './assets/add_order.js')
+
     
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

@@ -26,9 +26,15 @@ class OrderType extends AbstractType
             ->add('dateOfOrder', DateType::class, [
                 'label' => 'Date de la commande',
                 'widget' => 'single_text',
+                'attr'=>[
+                    'class' => 'orderDate'
+                ]
             ])
             ->add('totalPrice', NumberType::class, [
-                'label' => 'Prix total'
+                'label' => 'Prix total',
+                'attr'=>[
+                    'class' => 'orderTotalPrice'
+                ]
             ])
             ->add('playerQuantity', IntegerType::class, [
                 'label' => 'nombre de joueurs',
@@ -40,6 +46,7 @@ class OrderType extends AbstractType
                     'min' => 2,
                     'max' => 10,
                     'placeholder' => 2,
+                    'class' => 'orderPlayerQuantity'
                 ],
             ])
             ->add('paymentStatus', ChoiceType::class, [
@@ -48,6 +55,9 @@ class OrderType extends AbstractType
                     'En cours' => 1,
                     'Paiement effectué' => 2,
                     'Réservation annulée' => 3
+                ],
+                'attr'=>[
+                    'class' => 'orderPaymentStatus'
                 ]
             ])
             ->add('user', EntityType::class, [
@@ -56,11 +66,17 @@ class OrderType extends AbstractType
                     return $user->getFirstName() . " - " . $user->getLastName() . " - " . $user->getUserIdentifier(); 
                 },
                 'placeholder' => 'Choisir un utilisateur',
+                'attr'=>[
+                    'class' => 'orderUser'
+                ]
             ])
             ->add('calendar', EntityType::class, [
                 'class' => Calendar::class,
                 'choice_label' => 'id',
-                'placeholder' => 'Choisir une session'
+                'placeholder' => 'Choisir une session',
+                'attr'=>[
+                    'class' => 'orderCalendar'
+                ]
             ])
         ;
     }
