@@ -1,0 +1,17 @@
+
+
+.title {
+    color: (--main-red); 
+    font-size: 40px; 
+}
+
+.sentence {
+    color: (--main-white);
+    font-size: 15px;
+}
+
+.middle{
+    text-align: center;
+}
+
+
