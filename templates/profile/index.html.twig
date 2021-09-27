@@ -51,8 +51,10 @@
 						{{app.user.lastname}}</p>
 					<p>Votre prénom:
 						{{app.user.firstname}}</p>
-					<p>Votre alias/mail:
+					<p>Votre pseudo:
 						{{app.user.username}}</p>
+					<p>Votre e-mail:
+						{{app.user.email}}</p>
 					<p>Vous etes Inscrit(e) depuis le:
 						{{app.user.dateOfCreation|date('d-M-y')}}</p>
 				</section>
@@ -62,7 +64,7 @@
 						{{app.user.orders|length}}
 					</p>
 					<p>Taux de victoire :
-						{{app.user.orders|length * 50}}%</p>
+						{{app.user.orders|length / app.user.orders|length * 100}}%</p>
 					{# nbsuccess / nbGame * 100 %#}
 				</section>
 			</div>

@@ -17,9 +17,9 @@
 
 	<main>
 		<div class="content">
-			<div class="centered">
+			<section class="centered">
 				<h2>Toutes nos salles</h2>
-			</div>
+			</section>
 			{# {% if is_granted("ROLE_ADMIN") %}
 				<a href="{{ path('game_new') }}" id="createNew">
 					<i class="fas fa-plus-circle"></i>
@@ -32,8 +32,8 @@
 							<div class="inner-flip">
 								<!-- dossier_image ~ à ajouter avant game.imageUrl -->
 								{# <div class="front-flip image" style="background-image:url({{game.imageUrl}})"> #}
-									<div class="front-flip image" style="background-image:url({{dossier_images ~
-																			game.imageUrl}})"> <h2 class="roomTitle">{{ game.title }}</h2>
+									<div class="front-flip image" style="background-image:url({{dossier_images ~ game.imageUrl}})"> 
+									<h2 class="roomTitle">{{ game.title }}</h2>
 								</div>
 								<article class="back-flip">
 									<h2 class="titleBack">{{ game.title }}</h2>

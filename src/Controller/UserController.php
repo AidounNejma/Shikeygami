@@ -23,7 +23,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/nouveau', name: 'user_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'user_new', methods: ['GET', 'POST'])]
     #[IsGranted("ROLE_ADMIN")]
     public function new(Request $request): Response
     {
@@ -54,7 +54,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/modifier', name: 'user_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit', name: 'user_edit', methods: ['GET', 'POST'])]
     #[IsGranted("ROLE_ADMIN")]
     public function edit(Request $request, User $user): Response
     {
