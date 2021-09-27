@@ -17,12 +17,24 @@
 	<!-- Slideshow container -->
 		<div class="slideshow-container">
 
-		<!-- Full images with numbers and message Info -->
+				<!-- Full images with numbers and message Info -->
 			<div class="containers">
-				<img src="{{dossier_images ~ game.imageUrl}}" id="image" alt="image1">
-				<img src="{{dossier_images ~ game.imageUrl2}}" id="image2" alt="image2">
-				<img src="{{dossier_images ~ game.imageUrl3}}" id="image3" alt="image3">
-				
+				<img src="{{dossier_images ~ game.imageUrl}}" id="image">
+				<img src="{{dossier_images ~ game.imageUrl2}}" id="image2">
+				<img src="{{dossier_images ~ game.imageUrl3}}" id="image3">
+
+					<div class="info">
+						<p class="text">{{game.title}}</p>
+					</div>
+				</div>
+
+			<!-- Back and forward buttons -->
+				<a class="back" ><i class="fas fa-chevron-left"></i></a>
+				<a class="forward"><i class="fas fa-chevron-right"></i></a>
+			</div>
+
+		<!-- CONTENT -->
+		<div class="content">
 				<section class="infoGame">
 					<button class="circle one">
 						<i class="fas fa-user"></i>
@@ -69,7 +81,7 @@
 						</p>
 			</section>
 			
-			<h3>Description de la salle</h3>
+			<h3 class="title">Description de la salle</h3>
 			<p class="description">{{ game.description }}</p>
 			<div class="links">
 				<a href="{{ path('calendar_game', {'id': game.id}) }}"><i class="fas fa-shopping-cart"></i> Réserver</a>
