@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PanierController extends AbstractController
 {
-    #[Route('/panier', name: 'panier')]
+    #[Route('/cart', name: 'panier')]
     public function index(SessionInterface $session): Response
     {
         $panier = $session->get("panier"); // je recupere l'indice panier dans la session
@@ -26,7 +26,7 @@ class PanierController extends AbstractController
         ]);
     }
 
-    #[Route('/panier/add/{id}', name: 'panier_add',)]
+    #[Route('/cart/add/{id}', name: 'panier_add',)]
     #[IsGranted("ROLE_USER")]
     public function ajouter(SessionInterface $session, Calendar $calendar, Request $request)
     {
@@ -66,7 +66,7 @@ class PanierController extends AbstractController
     }
 
 
-    #[Route('/panier/confirm/{id}', name: 'panier_confirm',)]
+    #[Route('/cart/confirm/{id}', name: 'panier_confirm',)]
     #[IsGranted("ROLE_USER")]
     public function valider(EntityManagerInterface $em, Request $request, SessionInterface $session, Calendar $calendar)
     {

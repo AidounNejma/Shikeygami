@@ -19,10 +19,9 @@
 
 {% block body %}
 
-<!-- Slideshow container -->
+<!-- Slideshow -->
 <div class="slideshow-container">
 
-<!-- Full images with numbers and message Info -->
     <div class="containers">
             <img src="/img/carouselBanner/1.jpg" id="image" alt="banniere">
                 <div class="info">
@@ -42,35 +41,35 @@
 <main>
     <div class="content">
         <h1 class="roomTitle">Nos salles</h1>
-        <div class="shape">
+        <div class="shape" style="{{'background-image:url("../img/game/' ~ game1.imageUrl ~ '")'}}">
             <a class="lienWidth" href="{{ path('game_show', {'id': game1.id}) }}">
                 <div class="align">
-                    <h2>Salle 1</h2>
+                    <h2>{{ game1.title }}</h2>
                     <p>{{game1.synopsis}}</p>
                 </div>
             </a>
         </div>
-        <div class="shape2">
+        <div class="shape2" style="{{'background-image:url("../img/game/' ~ game2.imageUrl ~ '")'}}">
             <a class="lienWidth" href="{{ path('game_show', {'id': game2.id}) }}">
                 <div class="align">
-                    <h2>Salle 2</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint recusandae aperiam cumque possimus natus, neque cum dolor deleniti ea alias optio iste provident iure ratione illum similique excepturi ad culpa sequi sit, nemo sapiente odit fugiat. Ad autem itaque quibusdam nulla at consequatur, placeat voluptatem error et facilis, dignissimos unde!</p>
+                    <h2>{{ game2.title }}</h2>
+                    <p>{{game2.synopsis}}</p>
                 </div>
             </a>
         </div>
-        <div class="shape3">
+        <div class="shape3" style="{{'background-image:url("../img/game/' ~ game3.imageUrl ~ '")'}}">
             <a class="lienWidth" href="{{ path('game_show', {'id': game3.id}) }}">
                 <div class="align">
-                    <h2>Salle 3</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint recusandae aperiam cumque possimus natus, neque cum dolor deleniti ea alias optio iste provident iure ratione illum similique excepturi ad culpa sequi sit, nemo sapiente odit fugiat. Ad autem itaque quibusdam nulla at consequatur, placeat voluptatem error et facilis, dignissimos unde!</p>
+                    <h2>{{ game3.title }}</h2>
+                    <p>{{game3.synopsis}}</p>
                 </div>
             </a>
         </div>
-        <div class="shape4">
+        <div class="shape4" style="{{'background-image:url("../img/game/' ~ game4.imageUrl ~ '")'}}">
             <a class="lienWidth" href="{{ path('game_show', {'id': game4.id}) }}">
                 <div class="align">
-                    <h2>Salle 4</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint recusandae aperiam cumque possimus natus, neque cum dolor deleniti ea alias optio iste provident iure ratione illum similique excepturi ad culpa sequi sit, nemo sapiente odit fugiat. Ad autem itaque quibusdam nulla at consequatur, placeat voluptatem error et facilis, dignissimos unde!</p>
+                    <h2>{{ game4.title }}</h2>
+                    <p>{{game4.synopsis}}</p>
                 </div>
             </a>
         </div>
