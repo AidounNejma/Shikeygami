@@ -135,6 +135,9 @@
 }
 
 /******** SHAPE 1 ********/
+.lienWidth{
+    width: 100%;
+}
 .shape a{
     justify-content: flex-end;
 }
