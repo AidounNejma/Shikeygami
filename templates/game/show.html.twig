@@ -28,37 +28,45 @@
 						<i class="fas fa-user"></i>
 						<p>{{ game.minPlayers }} joueurs</p>
 					</button>
-					<p class="slideMessage">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
+					<p class="slideMessage">Cet escape game à été prévu pour être joué avec un minimum de {{ game.minPlayers }} personnes car certains méchanismes doivent être manipulés de manière simultanée.</p>
 
 					<button class="circle two">
 						<i class="fas fa-users"></i>
 						<p>{{ game.maxPlayers }} joueurs</p>
 					</button>
-					<p class="slideMessage">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
+					<p class="slideMessage">Cet escape game peut être joué jusqu'a {{ game.maxPlayers }} personnes au maximum</p>
 
 					<button class="circle three">
 						<i class="fas fa-brain"></i>
 						<p>{{ game.gameMaster }}</p>
 					</button>
-					<p class="slideMessage">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
+					<p class="slideMessage">Vous serez briefé et guidé par {{ game.gameMaster }} au cours de cet escape game, n'hésitez pas à lui poser des questions avant de vous lancer, il pourrait vous donner des indices cachés </p>
 
 					<button class="circle four">
 						<i class="fas fa-hourglass-half"></i>
 						<p> {{ game.gameDuration }} minutes</p>
 					</button>
-					<p class="slideMessage">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
+					<p class="slideMessage">Vous avez un total de {{ game.gameDuration }} minutes pour venir à bout de cette salle. Au dela de cette durée, vous serez éliminés, pensez donc a bien gérer votre temps!</p>
 
 					<button class="circle five">
 						<i class="fas fa-wallet"></i>
 						<p>{{ game.pricePerPerson }} €</p>
 					</button>
-					<p class="slideMessage">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
-
+					<p class="slideMessage">Le prix par personne pour ce jeu est de {{ game.pricePerPerson }} €</p>
+	
 					<button class="circle six">
 						<i class="fas fa-lock"></i>
 						<p>{{ game.difficulty }}</p>
 					</button>
-					<p class="slideMessage">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet metus consectetur, tincidunt mauris ac, pharetra tellus.</p>
+					<p class="slideMessage">Cette salle a un niveau de difficulté pour joueur {{ game.difficulty }} : <br>
+					{% if game.difficulty == "debutant" %}
+						Idéal pour votre premier escape game ou si vous aimez passer un moment agréable sans trop se casser la tête.
+					{% elseif game.difficulty == "intermediaire" %}
+						Si vous avez un peu d'expérience en escape game et souhaitez un challenge à la hauteur, cette salle est faite pour vous.
+					{% elseif game.difficulty == "expert" %}
+						Vous aimez les défis et les énigmes super complexes? Accrochez vous car vous allez être servis!
+					{% endif %}
+						</p>
 			</section>
 			
 			<h3>Description de la salle</h3>
