@@ -98,14 +98,15 @@ footer .logo2 {
     width: 50px;
     padding-top: 20px;
     cursor: pointer;
-    
+    margin: auto;
 }
 
-footer .container2 h2{
+.footer-title{
+    width: fit-content;
+    margin: auto;
     text-transform: uppercase;
     font-size: 20px; 
 }
-
 footer .information {
     display: flex;                              
     justify-content: space-around;
