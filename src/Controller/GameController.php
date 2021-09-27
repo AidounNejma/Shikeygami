@@ -111,8 +111,9 @@ class GameController extends AbstractController
 
     #[Route('/{id}/edit', name: 'game_edit', methods: ['GET', 'POST'])]
     #[IsGranted("ROLE_ADMIN")]
-    public function edit(Request $request, Game $game, GameRepository $gr): Response
+    public function edit( Request $request, Game $game, GameRepository $gr): Response
     {
+        $actualRoom = $game->getRoom();
         $form = $this->createForm(GameType::class, $game);
         $form->handleRequest($request);
         
@@ -158,9 +159,13 @@ class GameController extends AbstractController
 
                 $game->setImageUrl3($nomFichier3);
             }
-            if ($gr->isItFree($room) != NULL) {
+            if(sizeof($gr->isItFree($room)) == 1 && $room == $actualRoom) // si la salle éditée est déja attribué à la salle actuel de ce jeu, on ne fait rien
+            {
+
+            }
+            else if ( (sizeof($gr->isItFree($room)) >= 1) ) { // sinon, si on recupere un resultat, c'est que la salle est déja attribué donc on empeche l'edition
                 $this->addFlash('warning', 'La salle choisie est déjà occupée par un autre jeu');
-                return $this->renderForm('game/new.html.twig', [
+                return $this->renderForm('game/edit.html.twig', [
                     'game' => $game,
                     'form' => $form,
                 ]);
