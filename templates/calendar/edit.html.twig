@@ -2,12 +2,24 @@
 
 {% block title %}Modification du calendrier{% endblock %}
 
+{% block stylesheets %}
+	{{parent()}}
+	{{ encore_entry_link_tags('calendar_edit') }}
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}}
+	{{ encore_entry_script_tags("calendar_edit") }}
+{% endblock %}
+
 {% block body %}
-    <h1>Modification du calendrier</h1>
+    <section class="content">
+        <h1 id="title">Modification du calendrier</h1>
 
-    {{ include('calendar/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+        {{ include('calendar/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    <a href="{{ path('calendar_index') }}">Retour à la liste</a>
+        {{ include('calendar/_delete_form.html.twig') }}
 
-    {{ include('calendar/_delete_form.html.twig') }}
+        <a href="{{ path('calendar_index') }}" id="backList">Retour à la liste</a>
+    </section>
 {% endblock %}
