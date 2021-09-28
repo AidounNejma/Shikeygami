@@ -39,6 +39,7 @@ class PanierController extends AbstractController
                 if($calendar->getId() == $reservation["calendar"]->getId())
                 {
                     //dd($reservation["calendar"]->getId());
+                    $this->addFlash('success', "Cette session est déja dans votre panier");
                     return $this->redirectToRoute("panier");
                 }
             }
@@ -52,6 +53,10 @@ class PanierController extends AbstractController
             // $panier[] = ["calendar" => $calendar, "order" => $order, "game" => $game];
 
             $session->set("panier", $panier); //j'ajoute en session un indice panier qui contient un array $panier qui est composé d'arrays pour chaque produit
+        }
+        else{
+            $this->addFlash('success', "Cette session n'est plus disponible!");
+        return $this->redirectToRoute("panier");
         }
         $this->addFlash('success', 'Session ajoutée à votre panier');
         return $this->redirectToRoute("panier");
