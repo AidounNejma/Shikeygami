@@ -30,7 +30,7 @@
 
 		{% if calendar.booked %} {#si la réservation est indisponible#}
 			<h3 class="bookedAlready">Cette horaire est réservée par {{calendar.booked.user.userName}}</h3>
-			<p>le status du paiement de la commande est : {{calendar.booked.paymentStatus}}</p>
+			<p class="calendarOutline">le status du paiement de la commande est : {{calendar.booked.paymentStatus}}</p>
 			<br>
 			<a href="{{ path('calendar_index') }}">Retour à la liste</a>
 		{% else %} {#Dans le cas ou la réservation est disponible#}
