@@ -10,11 +10,11 @@
 	{{ encore_entry_script_tags("add_session") }}
 {% endblock %}
 
-{% block title %}Shikeygami | Ajouter une partie{% endblock %}
+{% block title %}Shikeygami | Ajouter une session{% endblock %}
 
 {% block body %}
     <section class="content">
-        <h2 id="title">Ajouter une partie</h2>
+        <h2 id="title">Ajouter une session</h2>
             {{include('calendar/_form.html.twig') }}
         <a href="{{ path('calendar_index') }}" id="backList">Retour à la liste</a>
     </section>

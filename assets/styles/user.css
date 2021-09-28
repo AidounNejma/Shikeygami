@@ -41,6 +41,7 @@
 }
 .btn{
     margin-block: 10px;
+    width: 50%;
     padding: 8px 50px;
     cursor: pointer;
     background: var(--main-white);
@@ -57,4 +58,11 @@
     background: var(--main-grey);
     font-weight: 700;
     transition: 0.5s 0.1s;
+}
+
+@media screen and (max-width:1024px)
+{ 
+    .btn{
+        padding: 8px 15px;
+    }
 }
