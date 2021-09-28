@@ -1,46 +1,52 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+	{{parent()}}
+	{{ encore_entry_link_tags('calendar_show') }}
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}}
+	{{ encore_entry_script_tags('calendar_show') }}
+{% endblock %}
+
 {% block title %}Shikeygami | Infos sur la partie
 {% endblock %}
 
 {% block body %}
-	<h1>Infos sur la partie</h1>
+<main>
+	<div class='content'>
+		<div class="centered">
+		<h1 class="showTitle">Infos sur la Réservation</h1>
+		<h2>{{calendar.game.title}}</h2>
+		<a href="{{ path('game_show', {'id': calendar.game.id}) }}"><img class="vignettecalendar" src="{{dossier_images ~ calendar.game.imageUrl}}" alt="{{calendar.game.title}}"></a>
+		{% if is_granted('ROLE_ADMIN') %}
+			<p>{{ calendar.id }}</p>
+		{% endif %}
+		<p>Date de début : </p>
+		<p class="calendarOutline">{{ calendar.startTime ? calendar.startTime|date('Y-m-d H:i:s') : '' }}</p>
+		<p>Date de fin</p>
+		<p class="calendarOutline">{{ calendar.endTime ? calendar.endTime|date('Y-m-d H:i:s') : '' }}</p>
 
-	<table class="table">
-		<tbody>
-			{% if is_granted('ROLE_ADMIN') %}
-				<tr>
-					<th>Id</th>
-					<td>{{ calendar.id }}</td>
-				</tr>
-			{% endif %}
+		{% if calendar.booked %} {#si la réservation est indisponible#}
+			<h3 class="bookedAlready">Cette horaire est déja réservée, veuillez en choisir une autre</h3>
+			<a href="{{ path('calendar_index') }}">Retour à la liste</a>
+		{% else %} {#Dans le cas ou la réservation est disponible#}
+			<form class="calendarForm" method="GET" action="{{ path("panier_add", { id: calendar.id }) }}">
+				<label for="playerQuantity">Nombre de joueurs à inscrire</label>
+				<input type="number" name="playerQuantity" value="{{ calendar.game.minPlayers }}" min="{{ calendar.game.minPlayers }}" max="{{ calendar.game.maxPlayers }}">
+				<button class="btn">
+					<i class="fa fa-cart-plus">Ajouter au panier</i>
+				</button>
+			</form>
+			<a class="calendarReturn" href="{{ path('calendar_index') }}">Retour à la liste</a>
+		{% endif %}
 
-			<tr>
-				<th>Heure de début</th>
-				<td>{{ calendar.startTime ? calendar.startTime|date('Y-m-d H:i:s') : '' }}</td>
-			</tr>
-			<tr>
-				<th>Heure de fin</th>
-				<td>{{ calendar.endTime ? calendar.endTime|date('Y-m-d H:i:s') : '' }}</td>
-			</tr>
-			<tr>
-				<th>Réservé ?</th>
-				<td>{{ calendar.booked ? 'Oui' : 'Non' }}</td>
-			</tr>
-		</tbody>
-	</table>
-
-	<form method="GET" action="{{ path("panier_add", { id: calendar.id }) }}">
-		<label for="playerQuantity">Nombre de joueurs</label>
-		<input type="number" name="playerQuantity" value="{{ calendar.game.minPlayers }}" min="{{ calendar.game.minPlayers }}" max="{{ calendar.game.maxPlayers }}">
-
-		<button>
-			<i class="fa fa-cart-plus">Ajouter au panier</i>
-		</button>
-	</form>
-	<a href="{{ path('calendar_index') }}">Retour à la liste</a>
-{% if is_granted('ROLE_ADMIN') %}
-	<a href="{{ path('calendar_edit', {'id': calendar.id}) }}">Modifier</a>
-	{{ include('calendar/_delete_form.html.twig') }}
-{% endif %}
+		{% if is_granted('ROLE_ADMIN') %}
+			<a class="calendarReturn" href="{{ path('calendar_edit', {'id': calendar.id}) }}">Modifier</a>
+			{{ include('calendar/_delete_form.html.twig') }}
+		{% endif %}
+		</div>
+	</div>
+</main>
 {% endblock %}
