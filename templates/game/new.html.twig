@@ -1,11 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Shikeygami | Nouveau jeu{% endblock %}
+{% block stylesheets %}
+	{{parent()}}
+	{{ encore_entry_link_tags('game_back') }}
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}}
+	{{ encore_entry_script_tags('game_back') }}
+{% endblock %}
+
+{% block title %}Shikeygami | Nouveau jeu
+{% endblock %}
 
 {% block body %}
-    <h1>Nouveau jeu</h1>
+	<div class="content">
 
-    {{ include('game/_form.html.twig') }}
+		<h2 class="content-title">Nouveau jeu</h2>
+		<div class="content-flex">
+			{{ include('game/_form.html.twig') }}
+		</div>
+		<a href="{{ path('game_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('game_index') }}">Retour à la liste</a>
+	</div>
 {% endblock %}
