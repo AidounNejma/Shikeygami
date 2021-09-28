@@ -2,12 +2,12 @@
 
 {% block stylesheets %}
 	{{parent()}}
-	{{ encore_entry_link_tags('game') }}
+	{{ encore_entry_link_tags('game_add') }}
 {% endblock %}
 
 {% block javascripts %}
 	{{parent()}}
-	{{ encore_entry_script_tags('game') }}
+	{{ encore_entry_script_tags('game_add') }}
 {% endblock %}
 
 {% block title %}Shikeygami | Edition de salle
@@ -15,10 +15,11 @@
 
 {% block body %}
 	<main>
-		<section class="centered">
-			<h2>Edition de salle</h2>
-		</section>
+		
 		<div class="content">
+		<section class="centered">
+			<h1 id="title">Edition de salle</h1>
+		</section>
 
 			{{ include('game/_form.html.twig', {'button_label': 'Update'}) }}
 

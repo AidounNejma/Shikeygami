@@ -4,7 +4,7 @@
 
 .game, .startTime, .endTime{
     display: block;
-    margin: auto;
+    margin: 5px auto;
     font-size: 15px;
     width: 50%;
     text-align: center;

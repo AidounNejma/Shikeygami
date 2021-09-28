@@ -2,12 +2,12 @@
 
 {% block stylesheets %}
 	{{parent()}}
-	{{ encore_entry_link_tags('game_back') }}
+	{{ encore_entry_link_tags('game_add') }}
 {% endblock %}
 
 {% block javascripts %}
 	{{parent()}}
-	{{ encore_entry_script_tags('game_back') }}
+	{{ encore_entry_script_tags('game_add') }}
 {% endblock %}
 
 {% block title %}Shikeygami | Nouveau jeu
@@ -15,8 +15,7 @@
 
 {% block body %}
 	<div class="content">
-
-		<h2 class="content-title">Nouveau jeu</h2>
+		<h1 id="title">Nouveau jeu</h1>
 		<div class="content-flex">
 			{{ include('game/_form.html.twig') }}
 		</div>

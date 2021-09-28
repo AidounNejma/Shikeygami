@@ -33,7 +33,7 @@
     color: white;
     font-weight: 600;
     width: 320px;
-    margin: auto;
+    margin: 5px auto;
 }
 .userReturn:hover{
     color: var(--main-red);

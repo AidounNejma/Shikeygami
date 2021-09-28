@@ -50,6 +50,8 @@ Encore
     .addEntry('calendar_edit', './assets/calendar_edit.js')
     .addEntry('add_order', './assets/add_order.js')
     .addEntry('calendar_show', './assets/calendar_show.js')
+    .addEntry('game_add', './assets/game_add.js')
+
 
 
     
