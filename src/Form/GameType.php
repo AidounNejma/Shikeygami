@@ -182,11 +182,6 @@ class GameType extends AbstractType
             ->add('gameMaster', TypeTextType::class, [
                 "label" => "Nom du maitre du jeu",
                 "required" => false,
-                "constraints" => [
-                    new NotBlank([
-                        "message" => "Indiquez le nom du maitre du jeu"
-                    ])
-                ],
                 "attr" => [
                     'class' => 'input-text'
                 ],
