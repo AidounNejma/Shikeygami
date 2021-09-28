@@ -31,14 +31,4 @@ class AccueilController extends AbstractController
         ]);
     }
 
-    #[Route('/', name: 'accueil-form', methods: ['GET', 'POST'])]
-    public function form(Request $request)
-    {
-        $surname = $request->request->get('surname');
-        $firstname = $request->request->get('firstname');
-        $telephone = $request->request->get('telephone');
-        $mail = $request->request->get('mail');
-        $message = $request->request->get('message');
-    }
-    
 } 
