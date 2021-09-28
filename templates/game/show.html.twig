@@ -10,7 +10,7 @@
 	{{ encore_entry_script_tags('game_show') }}
 {% endblock %}
 
-{% block title %}Salle n°{{game.room}} {% endblock %}
+{% block title %}Shikeygami | Salle n°{{game.room}}{% endblock %}
 
 {% block body %}
 	<main>
@@ -70,7 +70,7 @@
 						<i class="fas fa-lock"></i>
 						<p>{{ game.difficulty }}</p>
 					</button>
-					<p class="slideMessage">Cette salle a un niveau de difficulté pour joueur {{ game.difficulty }} : <br>
+					<p class="slideMessage">Cette salle a un niveau de difficulté pour joueur : {{ game.difficulty }} <br>
 					{% if game.difficulty == "debutant" %}
 						Idéal pour votre premier escape game ou si vous aimez passer un moment agréable sans trop se casser la tête.
 					{% elseif game.difficulty == "intermediaire" %}

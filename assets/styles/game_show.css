@@ -65,7 +65,7 @@
 }
 
 .info p{
-  color: #e3e3e3;
+  color: var(--main-white);
   font-weight: bold;
   padding: 10px 14px;
   margin: 55px auto 0 auto;
@@ -112,14 +112,14 @@
     border-radius: 50%;
     width: 100px;
     height: 100px;
-    background: #7a2f2fc4;
+    background: var(--main-red);
     text-align: center;
     margin: auto;
     transition: transform .2s;
 }
 
 .circle p, .circle i {
-  color: #000000;
+  color: var(--main-white);
   font-size: 15px;
   padding: 2px 0;
 }
@@ -203,7 +203,7 @@
 .adminTable{
   border: 1px solid #ffffff;
   border-collapse: collapse;
-  background-color: #7c2424;
+  background-color: var(--main-red);
 }
 
 .adminTable th, .adminTable td{
