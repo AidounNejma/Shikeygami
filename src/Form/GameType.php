@@ -28,6 +28,9 @@ class GameType extends AbstractType
                     new NotBlank([
                         "message" => "Le titre ne peut pas être vide"
                     ])
+                ],
+                "attr" => [
+                    'class' => 'input-text'
                 ]
             ])
             ->add('room', ChoiceType::class, [
@@ -39,8 +42,11 @@ class GameType extends AbstractType
                     'Salle 02' => 2,
                     'Salle 03' => 3,
                     'Salle 04' => 4,
+                ],
+                "attr" => [
+                    'class' => 'input-choice'
                 ]
-             ])
+            ])
             ->add('description', TextareaType::class, [
                 "label" => "Description complète du jeu",
                 "required" => false,
@@ -51,6 +57,9 @@ class GameType extends AbstractType
                     new NotBlank([
                         "message" => "Veuillez remplir la description"
                     ])
+                ],
+                "attr" => [
+                    'class' => 'input-textarea'
                 ]
             ])
             ->add('synopsis', TextareaType::class, [
@@ -63,7 +72,10 @@ class GameType extends AbstractType
                     new NotBlank([
                         "message" => "Veuillez remplir le synopsis"
                     ])
-                ]
+                    ],
+                    "attr" => [
+                        'class' => 'input-textarea'
+                    ]
             ])
             ->add('difficulty', ChoiceType::class, [
                 'label' => 'Difficulté',
@@ -71,11 +83,18 @@ class GameType extends AbstractType
                     'Débutant' => 'debutant',
                     'Intermédiaire' => 'intermediaire',
                     'Expert' => 'expert',
+                ],
+                "attr" => [
+                    'class' => 'input-choice'
                 ]
             ])
             ->add('imageUrl', FileType::class, [
                 "mapped" => false,
                 'required' => false,
+                "attr" => [
+                    'class' => 'input-file',
+                    'accept'=> "image/png, image/jpeg"
+                ]
                 // 'constraints' => [
                 //     'maxSize' => '1M'
                 // ]
@@ -83,6 +102,10 @@ class GameType extends AbstractType
             ->add('imageUrl2', FileType::class, [
                 "mapped" => false,
                 'required' => false,
+                "attr" => [
+                    'class' => 'input-file',
+                    'accept'=> "image/png, image/jpeg"
+                ]
                 // 'constraints' => [
                 //     'maxSize' => '1M'
                 // ]
@@ -90,11 +113,15 @@ class GameType extends AbstractType
             ->add('imageUrl3', FileType::class, [
                 "mapped" => false,
                 'required' => false,
+                "attr" => [
+                    'class' => 'input-file',
+                    'accept'=> "image/png, image/jpeg"
+                ]
                 // 'constraints' => [
                 //     'maxSize' => '1M'
                 // ]
             ])
-            
+
             ->add('minPlayers', IntegerType::class, [
                 'label' => 'Nombre de joueurs min',
                 "required" => false,
@@ -114,6 +141,7 @@ class GameType extends AbstractType
                     'min' => 2,
                     'max' => 10,
                     'placeholder' => 2,
+                    'class' => 'input-number'
                 ],
                 "constraints" => [
                     new LessThan(["value" => 11, "message" => "Le nombre de joueurs maximum ne peut pas dépasser 10"])
@@ -126,7 +154,10 @@ class GameType extends AbstractType
                     new NotBlank([
                         "message" => "Indiquez le nom du maitre du jeu"
                     ])
-                ]
+                    ],
+                    "attr" => [
+                        'class' => 'input-text'
+                    ]
             ])
             ->add('gameDuration', IntegerType::class, [
                 'label' => 'Temps de jeu accordé (en minutes)',
@@ -134,7 +165,9 @@ class GameType extends AbstractType
                 'attr' => [
                     'min' => 30,
                     'placeholder' => 30,
+                    'class' => 'input-number',
                 ],
+               
                 "constraints" => [
                     new GreaterThan(["value" => 29, "message" => "La durée doit etre de 30 minutes minimum"])
                 ]
@@ -142,8 +175,10 @@ class GameType extends AbstractType
             ->add('pricePerPerson', TypeTextType::class, [
                 "label" => "Prix par personne",
                 "required" => false,
-            ])
-        ;
+                "attr" => [
+                    'class' => 'input-text'
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -1,3 +1,5 @@
+/* Style tableau index */
+
 .content{
     margin: auto;
     padding: 20px;
@@ -47,4 +49,36 @@
     background-color: var(--main-white);
     color:var(--main-red);
     transition: 0.9s;
+}
+/* Style du formulaire */
+
+.content{
+    width: 50%;
+}
+
+.content-title{
+    margin-block: 10px;
+}
+.input-text, 
+.input-textarea, 
+.input-choice,
+.input-file,
+.input-number{
+    display:flex;
+    flex-direction: column;
+} 
+.input-text{
+
+}
+.input-textarea{
+
+}
+.input-choice{
+
+}
+.input-file{
+
+}
+.input-number{
+
 }
