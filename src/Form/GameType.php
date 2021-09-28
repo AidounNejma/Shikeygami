@@ -31,6 +31,9 @@ class GameType extends AbstractType
                 ],
                 "attr" => [
                     'class' => 'input-text'
+                ],
+                "label_attr" => [
+                    'class' => 'bold'
                 ]
             ])
             ->add('room', ChoiceType::class, [
@@ -45,6 +48,9 @@ class GameType extends AbstractType
                 ],
                 "attr" => [
                     'class' => 'input-choice'
+                ],
+                "label_attr" => [
+                    'class' => 'bold'
                 ]
             ])
             ->add('description', TextareaType::class, [
@@ -60,22 +66,26 @@ class GameType extends AbstractType
                 ],
                 "attr" => [
                     'class' => 'input-textarea'
+                ],
+                "label_attr" => [
+                    'class' => 'bold'
                 ]
             ])
             ->add('synopsis', TextareaType::class, [
                 "label" => "Synopsis du jeu",
                 "required" => false,
                 'attr' => [
-                    'placeholder' => 'Synopsis du jeu'
+                    'placeholder' => 'Synopsis du jeu',
+                    'class' => 'input-textarea'
                 ],
                 "constraints" => [
                     new NotBlank([
                         "message" => "Veuillez remplir le synopsis"
                     ])
-                    ],
-                    "attr" => [
-                        'class' => 'input-textarea'
-                    ]
+                ],
+                "label_attr" => [
+                    'class' => 'bold'
+                ]
             ])
             ->add('difficulty', ChoiceType::class, [
                 'label' => 'Difficulté',
@@ -86,36 +96,51 @@ class GameType extends AbstractType
                 ],
                 "attr" => [
                     'class' => 'input-choice'
+                ],
+                "label_attr" => [
+                    'class' => 'bold'
                 ]
             ])
             ->add('imageUrl', FileType::class, [
+                'label' => 'Illustration n°1',
                 "mapped" => false,
                 'required' => false,
                 "attr" => [
                     'class' => 'input-file',
-                    'accept'=> "image/png, image/jpeg"
+                    'accept' => "image/png, image/jpeg"
+                ],
+                "label_attr" => [
+                    'class' => 'bold'
                 ]
                 // 'constraints' => [
                 //     'maxSize' => '1M'
                 // ]
             ])
             ->add('imageUrl2', FileType::class, [
+                'label' => 'Illustration n°2',
                 "mapped" => false,
                 'required' => false,
                 "attr" => [
                     'class' => 'input-file',
-                    'accept'=> "image/png, image/jpeg"
+                    'accept' => "image/png, image/jpeg"
+                ],
+                "label_attr" => [
+                    'class' => 'bold'
                 ]
                 // 'constraints' => [
                 //     'maxSize' => '1M'
                 // ]
             ])
             ->add('imageUrl3', FileType::class, [
+                'label' => 'Illustration n°3',
                 "mapped" => false,
                 'required' => false,
                 "attr" => [
                     'class' => 'input-file',
-                    'accept'=> "image/png, image/jpeg"
+                    'accept' => "image/png, image/jpeg"
+                ],
+                "label_attr" => [
+                    'class' => 'bold'
                 ]
                 // 'constraints' => [
                 //     'maxSize' => '1M'
@@ -129,6 +154,10 @@ class GameType extends AbstractType
                     'min' => 2,
                     'max' => 10,
                     'placeholder' => 2,
+                    'class' => 'input-number'
+                ],
+                "label_attr" => [
+                    'class' => 'bold'
                 ],
                 "constraints" => [
                     new GreaterThan(["value" => 1, "message" => "Créez un jeu pour minimum 2 joueurs"])
@@ -145,6 +174,9 @@ class GameType extends AbstractType
                 ],
                 "constraints" => [
                     new LessThan(["value" => 11, "message" => "Le nombre de joueurs maximum ne peut pas dépasser 10"])
+                ],
+                "label_attr" => [
+                    'class' => 'bold'
                 ]
             ])
             ->add('gameMaster', TypeTextType::class, [
@@ -154,10 +186,13 @@ class GameType extends AbstractType
                     new NotBlank([
                         "message" => "Indiquez le nom du maitre du jeu"
                     ])
-                    ],
-                    "attr" => [
-                        'class' => 'input-text'
-                    ]
+                ],
+                "attr" => [
+                    'class' => 'input-text'
+                ],
+                "label_attr" => [
+                    'class' => 'bold'
+                ]
             ])
             ->add('gameDuration', IntegerType::class, [
                 'label' => 'Temps de jeu accordé (en minutes)',
@@ -167,9 +202,12 @@ class GameType extends AbstractType
                     'placeholder' => 30,
                     'class' => 'input-number',
                 ],
-               
+
                 "constraints" => [
                     new GreaterThan(["value" => 29, "message" => "La durée doit etre de 30 minutes minimum"])
+                ],
+                "label_attr" => [
+                    'class' => 'bold'
                 ]
             ])
             ->add('pricePerPerson', TypeTextType::class, [
@@ -177,6 +215,9 @@ class GameType extends AbstractType
                 "required" => false,
                 "attr" => [
                     'class' => 'input-text'
+                ],
+                "label_attr" => [
+                    'class' => 'bold'
                 ]
             ]);
     }

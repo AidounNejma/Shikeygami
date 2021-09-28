@@ -52,12 +52,16 @@
 }
 /* Style du formulaire */
 
-.content{
+/* .content{
     width: 50%;
-}
+} */
 
-.content-title{
+/* .content-title{
     margin-block: 10px;
+}
+.bold{
+    font-weight: 700;
+    text-decoration: underline;
 }
 .input-text, 
 .input-textarea, 
@@ -65,20 +69,40 @@
 .input-file,
 .input-number{
     display:flex;
-    flex-direction: column;
+    margin: 10px auto;
+    font-size: 16px;
+    border: none;
+    padding-left: 10px;
+	line-height: 147.6%;
+	padding-top: 10px;
+	padding-bottom: 7px;
 } 
 .input-text{
-
+	border-bottom: 0.125rem solid var(--main-red);
+	width: 25%;
+	height: 30px;
 }
 .input-textarea{
-
+	border: 0.125rem solid var(--main-red);
+	width: 25%;
+	height: 120px;
 }
 .input-choice{
-
+    border-inline: 0.125rem solid var(--main-red);
+	width: 10%;
+	height: 40px;
+    text-align: center;
 }
 .input-file{
-
+  border: 1px solid var(--main-red);
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
 }
 .input-number{
-
-}
+	border-bottom: 0.125rem solid var(--main-red);
+	width: 10%;
+	height: 30px;
+    text-align: center;
+} */
