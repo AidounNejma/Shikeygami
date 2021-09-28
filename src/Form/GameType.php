@@ -76,7 +76,7 @@ class GameType extends AbstractType
                 "required" => false,
                 'attr' => [
                     'placeholder' => 'Synopsis du jeu',
-                    'class' => 'input-textarea'
+                    'class' => 'synopsisArea'
                 ],
                 "constraints" => [
                     new NotBlank([
