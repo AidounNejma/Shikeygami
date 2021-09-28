@@ -17,7 +17,11 @@ class UserType extends AbstractType
     {
         $user = $options['data'];
         $builder
-            ->add('email')
+            ->add('email', TextType::class,[
+                'attr'=>[
+                'class' => 'userEmail'
+                ]
+            ])
             ->add('roles', ChoiceType::class, [
                 "label" => "Niveau d'autorisation",
                 'choices' => [
@@ -27,25 +31,43 @@ class UserType extends AbstractType
                 ],
                 "multiple" => true,
                 "expanded" => false,
+                'attr'=>[
+                    'class' => 'useRole'
+                ]
                 
             ])
             ->add('password', TextType::class, [
                 'required' => $user->getId() ? false : true,
                 'mapped' => false,
+                'attr'=>[
+                    'class' => 'userPassword'
+                    ]
             ])
             ->add('dateOfCreation', DateType::class, [
                 'label' => 'Date d\'inscription',
+                'attr'=>[
+                    'class' => 'userDateOfOrder'
+                    ]
             ])
             ->add('username', TextType::class, [
-                'label' => 'Pseudo'
+                'label' => 'Pseudo',
+                'attr'=>[
+                    'class' => 'userUsername'
+                    ]
             ])
             ->add('firstName', TextType::class, [
                 'label' => 'Prénom',
-                'required' => false
+                'required' => false,
+                'attr'=>[
+                    'class' => 'userFirstname'
+                    ]
             ])
             ->add('lastName', TextType::class, [
                 'label' => 'Nom',
-                'required' => false
+                'required' => false,
+                'attr'=>[
+                    'class' => 'userLastname'
+                    ]
             ])
             ->add('discountStatus', ChoiceType::class, [
                 'label' => 'Réduction applicable',
@@ -54,7 +76,10 @@ class UserType extends AbstractType
                     '5%' => 1,
                     '10%' => 2,
                     '20%' => 3
-                ]
+                ],
+                'attr'=>[
+                    'class' => 'userDiscountStatus'
+                    ]
             ])
         ;
     }
