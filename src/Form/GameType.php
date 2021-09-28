@@ -90,9 +90,9 @@ class GameType extends AbstractType
             ->add('difficulty', ChoiceType::class, [
                 'label' => 'Difficulté',
                 'choices' => [
-                    'Débutant' => 'debutant',
-                    'Intermédiaire' => 'intermediaire',
-                    'Expert' => 'expert',
+                    'Débutant' => 'Debutant',
+                    'Intermédiaire' => 'Intermediaire',
+                    'Expert' => 'Expert',
                 ],
                 "attr" => [
                     'class' => 'input-choice'
