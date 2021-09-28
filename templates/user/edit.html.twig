@@ -1,13 +1,29 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+	{{parent()}}
+	{{ encore_entry_link_tags('add_order') }}
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}}
+	{{ encore_entry_script_tags('add_order') }}
+{% endblock %}
+
 {% block title %}Modifier un utilisateur{% endblock %}
 
 {% block body %}
-    <h1>Modifier un utilisateur</h1>
+<main>
+    
+    <div class='content'>
+		<div class="centered">
+			<h1>Modifier un utilisateur</h1>
+		</div>
+        {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
 
-    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+        <a href="{{ path('user_index') }}">back to list</a>
 
-    <a href="{{ path('user_index') }}">back to list</a>
-
-    {{ include('user/_delete_form.html.twig') }}
+        {{ include('user/_delete_form.html.twig') }}
+    </div>
+</main>
 {% endblock %}

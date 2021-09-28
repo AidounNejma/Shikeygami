@@ -1,15 +1,16 @@
 #title{
     font-size: 30px;
 }
-.orderDate, .orderTotalPrice, .orderPlayerQuantity, .orderPaymentStatus, .orderUser, .orderCalendar{
+.orderDate, .orderTotalPrice, .orderPlayerQuantity, .orderPaymentStatus, .orderUser, .orderCalendar, .userEmail, .useRole, .userPassword, .userDateOfOrder, .userUsername, .userFirstname, .userLastname, .userDiscountStatus{
     font-size: 15px;
     display: block;
     width: 50%;
     text-align: center;
     margin: auto;
 }
-.btn, #backList{
+.btn{
     margin-block: 10px;
+    width: 50%;
     padding: 8px 50px;
     cursor: pointer;
     background: var(--main-white);
@@ -21,9 +22,19 @@
     font-weight: 500;
     letter-spacing: 4px;
 }
-.btn:hover, #backList:hover {
+.btn:hover {
     color: #d53648;
     background: var(--main-grey);
     font-weight: 700;
     transition: 0.5s 0.1s;
+}
+/*Responsive media Query*/
+@media screen and (max-width:1024px)
+{ 
+    .btn{
+
+        width: 60%;
+        padding: 8px 15px;
+
+    }
 }
