@@ -1,12 +1,29 @@
+
 .panier-btn, .clear-btn{
-    width: 750px;
+    width: 60%;
     height: 55px;
     font-size: 22px;
     font-weight: 700;
 }
 .clear-btn{
+    width: 60%;
     background-color: var(--main-red);
     border-radius: 4px;
     text-align: center;
     padding-block: 12px;
+    margin: auto;
+}
+#paypal-button-container{
+    width: 60%;
+    margin: auto;
+}
+.subTitle, .cartTitle{
+    margin: 15px auto;
+}
+.cartVignette{
+    display: block;
+    margin: auto;
+    width: 40%;
+    border-radius: 5%;
+    border: solid #000000;
 }

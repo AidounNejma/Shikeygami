@@ -1,36 +1,36 @@
 {% extends 'base.html.twig' %}
-
 {% block stylesheets %}
 	{{parent()}}
 	{{ encore_entry_link_tags('panier') }}
 {% endblock %}
 
-
 {% block title %}Shikeygami | Votre panier
 {% endblock %}
 
 {% block body %}
-	<h2>Mon panier</h2>
+<main>
+	<div class="content">
+	
+	<h1 class="cartTitle">Mon panier</h1>
 	{% if panier is not null %}
 
-		<h3>Récapitulatif de votre / vos réservation.s</h3>
+		<h3 class="subTitle">Récapitulatif de votre / vos réservation.s</h3>
 		{% for reservation in panier %}
 			<p>
 				<span>Jeu choisi :</span>
 				{{reservation.calendar.game.title}}</p>
+    		<a href="{{ path('game_show', {'id': reservation.calendar.game.id}) }}"><img class="cartVignette" src="{{dossier_images ~ reservation.calendar.game.imageUrl}}" alt="{{reservation.calendar.game.title}}"></a>
+
 			<p>
-				{{'Le ' ~ reservation.calendar.startTime|date("d M Y H:i:s") ~ 'de ' ~ reservation.calendar.startTime|date("d M Y H:i:s") ~ ' à ' ~ reservation.calendar.endTime|date("H:i:s") }}</p>
+				{{'Le ' ~ reservation.calendar.startTime|date("d M Y ") ~ 'de ' ~ reservation.calendar.startTime|date(" H:i") ~ ' à ' ~ reservation.calendar.endTime|date("H:i") }}</p>
 			<p>
 				<span>Nombre de joueurs :</span>
 				{{reservation.playerQuantity}}</p>
 			<br>
-			<hr>
-			<br>
 			<p>
-				<span>Prix total =</span>
+				<span>Prix total = {{reservation.totalPrice|number_format}} €</span>
 			</p>
-			<div id="total">{{reservation.totalPrice|number_format}}</div>
-			<br><br>
+			<br>
 			<form method="GET" action="{{ path("panier_confirm", { id: reservation.calendar.id }) }}">
 				<button class="panier-btn">
 					<i class="far fa-credit-card"></i>
@@ -39,14 +39,15 @@
 			</form>
 			<div id="paypal-button-container"></div>
 		<p class="clear-btn"><a href="{{ path("panier_clear")}}">Annuler et vider votre panier</a></p>
+		<br><hr><br>
 		{% endfor %}
 		
 
 	{% else %}
 		<h3>Votre panier est vide</h3>
 	{% endif %}
-
-
+	</div>
+</main>
 {% endblock %}
 
 {% block javascripts %}
