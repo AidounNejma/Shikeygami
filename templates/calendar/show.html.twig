@@ -29,7 +29,9 @@
 		<p class="calendarOutline">{{ calendar.endTime ? calendar.endTime|date('Y-m-d H:i:s') : '' }}</p>
 
 		{% if calendar.booked %} {#si la réservation est indisponible#}
-			<h3 class="bookedAlready">Cette horaire est déja réservée, veuillez en choisir une autre</h3>
+			<h3 class="bookedAlready">Cette horaire est réservée par {{calendar.booked.user.userName}}</h3>
+			<p>le status du paiement de la commande est : {{calendar.booked.paymentStatus}}</p>
+			<br>
 			<a href="{{ path('calendar_index') }}">Retour à la liste</a>
 		{% else %} {#Dans le cas ou la réservation est disponible#}
 			<form class="calendarForm" method="GET" action="{{ path("panier_add", { id: calendar.id }) }}">
