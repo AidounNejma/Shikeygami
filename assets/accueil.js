@@ -35,6 +35,7 @@ function slideNext() {
     } else {
         image.src = sourceRef[0].innerHTML;
         text.textContent = titleRef[0].innerHTML;
+        links.setAttribute('href', "/game/1");
         i = 0;
     }
 }
@@ -47,6 +48,7 @@ function slideBack() {
     }
     image.src = sourceRef[i].innerHTML;
     text.textContent = titleRef[i].innerHTML;
+    links.setAttribute('href', "/game/" + (i+1));
     slides[0].classList.toggle("fade");
 }
 // function slideNext(){
