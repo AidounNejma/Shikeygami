@@ -92,6 +92,7 @@
 
 .moreInfo a{
     color: var(--info-text);
+    background-color: #0000008f;
     text-decoration: none;
     border: 1px solid var(--main-white);
     display: block;
