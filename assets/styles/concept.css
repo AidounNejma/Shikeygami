@@ -97,6 +97,9 @@
             font-size: 30px;
             margin: 20% auto 0 auto;
         }
+        .pictures{
+            justify-content: center;
+        }
     }
 @media screen and (max-width: 568px) and (-webkit-min-device-pixel-ratio: 2)
     and (orientation: landscape){
@@ -116,7 +119,7 @@
     }
 @media screen and (max-width : 1024px){
         .info p {
-            width: 56%;
+            width: 100%;
             font-size: 75px;
         }
         main{
