@@ -187,7 +187,7 @@ class GameController extends AbstractController
     }
 
     #[Route('/{id}', name: 'game_delete', methods: ['POST'])]
-    #[IsGranted("ROLE_ADMIN")]
+    #[IsGranted("ROLE_DEV")] /* La suppression pouvant créer des problèmes du fait des relations avec calendar, cette option permise que pour les dev */
     public function delete(Request $request, Game $game): Response
     {
         if ($this->isCsrfTokenValid('delete' . $game->getId(), $request->request->get('_token'))) {
