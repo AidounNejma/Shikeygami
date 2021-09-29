@@ -13,7 +13,7 @@
 	{{ encore_entry_script_tags("accueil") }}
 	<!-- Script facebook (à revoir car pas fonctionnel) -->
 	<div id="fb-root"></div>
-	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v12.0" nonce="vaP0xXZz"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v12.0&appId=72816904183&autoLogAppEvents=1" nonce="0yG526oK"></script>
 {% endblock %}
 
 
@@ -49,8 +49,8 @@
 <!-- Main content -->
 <main>
     <div class="content">
-        <h1 class="roomTitle">Nos salles</h1>
-        <div class="shape" style="{{'background-image:url("../img/game/' ~ game1.imageUrl ~ '")'}}">
+        <h2 class="roomTitle">Nos salles</h2>
+        <div class="shape" style="{{'background-image:url("../img/game/' ~ game1.imageUrl2 ~ '")'}}">
             <a class="lienWidth" href="{{ path('game_show', {'id': game1.id}) }}">
                 <div class="align">
                     <h2>{{ game1.title }}</h2>
@@ -58,7 +58,7 @@
                 </div>
             </a>
         </div>
-        <div class="shape2" style="{{'background-image:url("../img/game/' ~ game2.imageUrl ~ '")'}}">
+        <div class="shape2" style="{{'background-image:url("../img/game/' ~ game2.imageUrl2 ~ '")'}}">
             <a class="lienWidth" href="{{ path('game_show', {'id': game2.id}) }}">
                 <div class="align">
                     <h2>{{ game2.title }}</h2>
@@ -66,7 +66,7 @@
                 </div>
             </a>
         </div>
-        <div class="shape3" style="{{'background-image:url("../img/game/' ~ game3.imageUrl ~ '")'}}">
+        <div class="shape3" style="{{'background-image:url("../img/game/' ~ game3.imageUrl2 ~ '")'}}">
             <a class="lienWidth" href="{{ path('game_show', {'id': game3.id}) }}">
                 <div class="align">
                     <h2>{{ game3.title }}</h2>
@@ -74,7 +74,7 @@
                 </div>
             </a>
         </div>
-        <div class="shape4" style="{{'background-image:url("../img/game/' ~ game4.imageUrl ~ '")'}}">
+        <div class="shape4" style="{{'background-image:url("../img/game/' ~ game4.imageUrl2 ~ '")'}}">
             <a class="lienWidth" href="{{ path('game_show', {'id': game4.id}) }}">
                 <div class="align">
                     <h2>{{ game4.title }}</h2>
@@ -86,7 +86,7 @@
     
     <!-- Contact section  -->
     <div class="contactSection">
-    <h1 class="roomTitle">Contact</h1>
+    <h2 class="roomTitle">Contact</h2>
     <section class="contactContainer" id="contactContainer">
         <div class="icons">
             <a href="#contactContainer" class="phone"><i class="fas fa-phone-square-alt"></i></a>
@@ -109,12 +109,12 @@
                 <p><i class="fas fa-map-marked"></i> 18 Rue Geoffroy l'Asnier, 75004 Paris.</p>
             </div>
             <div class="contactForm slideInRight">
-                {{ include('accueil/_form_accueil.html.twig') }}
+                {{ include('accueil/_form.html.twig') }}
             </div>
             <div class="facebookLink slideInRight">
                 <p>Suivez nous sur Facebook !</p>
                 <br>
-                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="500" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                <div class="fb-page" data-href="https://www.facebook.com/webforce3" data-tabs="timeline" data-width="500" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/webforce3" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/webforce3">WebForce3 France</a></blockquote></div>
             </div>
         </div>
     </section>

@@ -37,6 +37,9 @@ class RegistrationController extends AbstractController
             $this->addFlash('success', 'Votre compte a été créé avec succès ! Veuillez vous authentifier');
             return $this->redirectToRoute('app_login');
         }
+        if ($form->isSubmitted() && $form->getErrors()) {
+            $this->addFlash('warning', 'Vérifiez d\'avoir remplis tous les champs requis et d\'avoir accepté les conditions d\'utilisation de nos services');
+        }
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
