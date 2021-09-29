@@ -49,36 +49,59 @@
 
 .pictures{
     display: flex;
-    flex-wrap: wrap;
-    margin:auto;
-    background-color: #00000065;
-    border-radius: 25px;
+    flex-direction: column;
+    padding-bottom: 20px;
 }
 
 .pictures img{
-    width: 150px;
-    margin: 10px;
-    border-radius: 50%;
+    width: 50%;
+    border-radius: 2%;
 }
 
-.nameProfile{
+.profileRight, .profileLeft{
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 }
 
-.nameProfile p{
-    font-size: 18px;
+.profileLeft{
+    flex-direction: row-reverse;
+}
+
+.who{
+    font-size: 15px;
+    line-height: 1.4rem;
     font-weight: bold;
+    background-color: #1f1d1d;
+    padding: 4%;
+    width: 50%;
+    border-radius: 2%;
+    box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.descriptionStaff p{
-    margin: 20px;
+.who h3{
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.pLeft{
     text-align: left;
 }
 
-.nameBold{
-    font-weight: 900;
+.pRight{
+    text-align: right;
 }
+
+.nameBold{
+    font-weight: 700;
+}
+
+.question{
+    margin-top: 20px;
+    color: var(--main-red);
+    width: 100%;
+}
+
 
 @media screen and (max-width: 568px) and (-webkit-min-device-pixel-ratio: 2){
         .banner-container{
