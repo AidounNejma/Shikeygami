@@ -10,67 +10,85 @@
 	{{ encore_entry_script_tags('game_show') }}
 {% endblock %}
 
-{% block title %}Shikeygami | Salle n°{{game.room}}{% endblock %}
+{% block title %}Shikeygami | Salle n°{{game.room}}
+{% endblock %}
 
 {% block body %}
 	<main>
-	<!-- Slideshow container -->
 		<div class="slideshow-container">
-
-				<!-- Full images with numbers and message Info -->
 			<div class="containers">
 				<img src="{{dossier_images ~ game.imageUrl}}" id="image">
 				<img src="{{dossier_images ~ game.imageUrl2}}" id="image2">
 				<img src="{{dossier_images ~ game.imageUrl3}}" id="image3">
 
-					<div class="info">
-						<p class="text">{{game.title}}</p>
-					</div>
+				<div class="info">
+					<p class="text">{{game.title}}</p>
 				</div>
-
-			<!-- Back and forward buttons -->
-				<a class="back" ><i class="fas fa-chevron-left"></i></a>
-				<a class="forward"><i class="fas fa-chevron-right"></i></a>
 			</div>
 
-		<!-- CONTENT -->
+			<a class="back">
+				<i class="fas fa-chevron-left"></i>
+			</a>
+			<a class="forward">
+				<i class="fas fa-chevron-right"></i>
+			</a>
+		</div>
+
 		<div class="content">
-				<section class="infoGame">
-					<button class="circle one">
-						<i class="fas fa-user"></i>
-						<p>{{ game.minPlayers }} joueurs</p>
-					</button>
-					<p class="slideMessage">Cet escape game à été prévu pour être joué avec un minimum de {{ game.minPlayers }} personnes car certains méchanismes doivent être manipulés de manière simultanée.</p>
+			<section class="infoGame">
+				<button class="circle one">
+					<i class="fas fa-user"></i>
+					<p>{{ game.minPlayers }}
+						joueurs</p>
+				</button>
+				<p class="slideMessage">Cet escape game à été prévu pour être joué avec un minimum de
+					{{ game.minPlayers }}
+					personnes car certains méchanismes doivent être manipulés de manière simultanée.</p>
 
-					<button class="circle two">
-						<i class="fas fa-users"></i>
-						<p>{{ game.maxPlayers }} joueurs</p>
-					</button>
-					<p class="slideMessage">Cet escape game peut être joué jusqu'a {{ game.maxPlayers }} personnes au maximum</p>
+				<button class="circle two">
+					<i class="fas fa-users"></i>
+					<p>{{ game.maxPlayers }}
+						joueurs</p>
+				</button>
+				<p class="slideMessage">Cet escape game peut être joué jusqu'a
+					{{ game.maxPlayers }}
+					personnes au maximum</p>
 
-					<button class="circle three">
-						<i class="fas fa-brain"></i>
-						<p>{{ game.gameMaster }}</p>
-					</button>
-					<p class="slideMessage">Vous serez briefé et guidé par {{ game.gameMaster }} au cours de cet escape game, n'hésitez pas à lui poser des questions avant de vous lancer, il pourrait vous donner des indices cachés </p>
+				<button class="circle three">
+					<i class="fas fa-brain"></i>
+					<p>{{ game.gameMaster }}</p>
+				</button>
+				<p class="slideMessage">Vous serez briefé et guidé par
+					{{ game.gameMaster }}
+					au cours de cet escape game, n'hésitez pas à lui poser des questions avant de vous lancer, il pourrait vous donner des indices cachés
+				</p>
 
-					<button class="circle four">
-						<i class="fas fa-hourglass-half"></i>
-						<p> {{ game.gameDuration }} minutes</p>
-					</button>
-					<p class="slideMessage">Vous avez un total de {{ game.gameDuration }} minutes pour venir à bout de cette salle. Au dela de cette durée, vous serez éliminés, pensez donc a bien gérer votre temps!</p>
+				<button class="circle four">
+					<i class="fas fa-hourglass-half"></i>
+					<p>
+						{{ game.gameDuration }}
+						minutes</p>
+				</button>
+				<p class="slideMessage">Vous avez un total de
+					{{ game.gameDuration }}
+					minutes pour venir à bout de cette salle. Au dela de cette durée, vous serez éliminés, pensez donc a bien gérer votre temps!</p>
 
-					<button class="circle five">
-						<i class="fas fa-wallet"></i>
-						<p>{{ game.pricePerPerson }} €</p>
-					</button>
-					<p class="slideMessage">Le prix par personne pour ce jeu est de {{ game.pricePerPerson }} €</p>
-	
-					<button class="circle six">
-						<i class="fas fa-lock"></i>
-						<p>{{ game.difficulty }}</p>
-					</button>
-					<p class="slideMessage">Cette salle a un niveau de difficulté pour joueur : {{ game.difficulty }} <br>
+				<button class="circle five">
+					<i class="fas fa-wallet"></i>
+					<p>{{ game.pricePerPerson }}
+						€</p>
+				</button>
+				<p class="slideMessage">Le prix par personne pour ce jeu est de
+					{{ game.pricePerPerson }}
+					€</p>
+
+				<button class="circle six">
+					<i class="fas fa-lock"></i>
+					<p>{{ game.difficulty }}</p>
+				</button>
+				<p class="slideMessage">Cette salle a un niveau de difficulté pour joueur :
+					{{ game.difficulty }}
+					<br>
 					{% if game.difficulty == "debutant" %}
 						Idéal pour votre premier escape game ou si vous aimez passer un moment agréable sans trop se casser la tête.
 					{% elseif game.difficulty == "intermediaire" %}
@@ -78,14 +96,18 @@
 					{% elseif game.difficulty == "expert" %}
 						Vous aimez les défis et les énigmes super complexes? Accrochez vous car vous allez être servis!
 					{% endif %}
-						</p>
+				</p>
 			</section>
-			
+
 			<h3 class="title">Description de la salle</h3>
 			<p class="description">{{ game.description }}</p>
 			<div class="links">
-				<a href="{{ path('calendar_game', {'id': game.id}) }}"><i class="fas fa-shopping-cart"></i> Réserver</a>
-				<a href="{{ path('game_index') }}"><i class="fas fa-arrow-circle-left"></i> Retour à la liste</a>
+				<a href="{{ path('calendar_game', {'id': game.id}) }}">
+					<i class="fas fa-shopping-cart"></i>
+					Réserver</a>
+				<a href="{{ path('game_index') }}">
+					<i class="fas fa-arrow-circle-left"></i>
+					Retour à la liste</a>
 			</div>
 
 			{% if is_granted("ROLE_ADMIN") %}
@@ -94,18 +116,27 @@
 						<th>Id du Jeu</th>
 						<th>N° de salle</th>
 						<th>Modifier</th>
-						<th>Supprimer</th>
-					<thead>
+						{% if is_granted("ROLE_DEV") %}
+							<th>Supprimer</th>
+						{% endif %}
+					</thead>
+					<thead></thead>
 					<tbody>
 						<tr>
 							<td>{{ game.id }}</td>
 							<td>{{ game.room }}</td>
-							<td><a href="{{ path('game_edit', {'id': game.id}) }}"><i class="far fa-edit"></i></a></td>
-							<td>{{ include('game/_delete_form.html.twig') }}</td>
+							<td>
+								<a href="{{ path('game_edit', {'id': game.id}) }}">
+									<i class="far fa-edit"></i>
+								</a>
+							</td>
+							{% if is_granted("ROLE_DEV") %}
+								<td>{{ include('game/_delete_form.html.twig') }}</td>
+							{% endif %}
 						</tr>
 					</tbody>
 				</table>
-				{% endif %}
+			{% endif %}
 		</div>
 	</main>
 {% endblock %}
