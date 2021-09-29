@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Game;
 use App\Form\GameType;
 use App\Repository\GameRepository;
+use phpDocumentor\Reflection\Types\Null_;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -123,7 +124,7 @@ class GameController extends AbstractController
             if ($fichier = $form->get("imageUrl")->getData()) {
                 $chemin = $game->getImageUrl();
                 $cheminComplet = $this->getParameter("dossier_images") . $chemin;
-                if (file_exists($cheminComplet)) {
+                if (file_exists($cheminComplet) && $chemin != null) {
                     unlink($cheminComplet);
                 }
                 $nomFichier = pathinfo($fichier->getClientOriginalName(), PATHINFO_FILENAME);
@@ -136,7 +137,7 @@ class GameController extends AbstractController
             if ($fichier2 = $form->get("imageUrl2")->getData()) {
                 $chemin = $game->getImageUrl2();
                 $cheminComplet = $this->getParameter("dossier_images") . $chemin;
-                if (file_exists($cheminComplet)) {
+                if (file_exists($cheminComplet) && $chemin != null) {
                     unlink($cheminComplet);
                 }
                 $nomFichier2 = pathinfo($fichier2->getClientOriginalName(), PATHINFO_FILENAME);
@@ -149,7 +150,7 @@ class GameController extends AbstractController
             if ($fichier3 = $form->get("imageUrl3")->getData()) {
                 $chemin = $game->getImageUrl3();
                 $cheminComplet = $this->getParameter("dossier_images") . $chemin;
-                if (file_exists($cheminComplet)) {
+                if (file_exists($cheminComplet) && $chemin != null) {
                     unlink($cheminComplet);
                 }
                 $nomFichier3 = pathinfo($fichier3->getClientOriginalName(), PATHINFO_FILENAME);
